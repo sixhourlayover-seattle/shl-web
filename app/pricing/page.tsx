@@ -4,28 +4,44 @@ import Image from "next/image";
 import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
 import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
+import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 
 const TOUR_OPTIONS = [
   {
-    title: "Seattle Highlights Layover Tour",
-    description: "Airport pickup → Space Needle photo → Pike Place Market (intro + explore) → Kerry Park skyline view → return to airport.",
-    duration: "~6 hours total with a 2-hour flight buffer",
+    title: "6-Hour Classic Tour",
+    subtitle: "Pike Place & Waterfront",
+    description: "Discover Seattle&apos;s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
+    duration: "Includes airport meet-up, round-trip city transfers, and a Seattle chocolate cherry gift bag.",
     features: [
-      "Stress-free logistics",
-      "Family-friendly",
-      "Photo-ready pacing"
+      "Pike Place Market tour",
+      "Famous fish toss viewing",
+      "Waterfront exploration",
+      "Local guide expertise"
     ]
   },
   {
-    title: "Pike Place Market Food Tour",
-    subtitle: "(Partner Experience)",
-    description: "Join a 2-hour guided food tour at Pike Place with tastings & stories, plus airport pickup and return.",
-    duration: "~6 hours total with a 2-hour flight buffer",
+    title: "7-Hour Extended Tour",
+    subtitle: "Classic + Space Needle",
+    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle&apos;s most iconic landmark.",
+    duration: "All Classic features plus Space Needle visit",
     features: [
-      "Premium partner guides",
-      "Skip-the-line tastings", 
-      "Local culture in depth"
+      "All Classic Tour features",
+      "Space Needle photo stop",
+      "Extended exploration time",
+      "Seattle&apos;s iconic landmark"
+    ]
+  },
+  {
+    title: "8-Hour Premium Tour",
+    subtitle: "Extended + Kerry Park",
+    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle&apos;s postcard skyline view.",
+    duration: "Maximum Seattle experience with skyline views",
+    features: [
+      "All Extended Tour features",
+      "Kerry Park skyline views",
+      "Postcard-perfect photos",
+      "Ultimate Seattle experience"
     ]
   }
 ];
@@ -40,19 +56,19 @@ const PRICING_TIERS = [
   {
     name: "2–3 Travelers",
     price: 250,
-    description: "pp small group",
+    description: "per person",
     groupSize: "2-3"
   },
   {
     name: "4–5 Travelers", 
     price: 220,
-    description: "pp family & friends",
+    description: "per person",
     groupSize: "4-5"
   },
   {
     name: "Family Pack",
     price: 750,
-    description: "flat 2 adults + up to 3 kids under 12",
+    description: "2 adults + up to 3 kids under 12",
     groupSize: "2+3"
   }
 ];
@@ -67,14 +83,14 @@ const WHATS_INCLUDED = [
 
 const GIFT_TOTE_ITEMS = [
   "Pike Place chowder mix",
-  "Beecher's handmade cheese", 
+  "Beecher&apos;s handmade cheese", 
   "Starbucks Reserve beans",
   "Seattle chocolate or Rainier cherries"
 ];
 
 const ADD_ONS = [
   {
-    name: "Dick's Burger Combo",
+    name: "Dick&apos;s Burger Combo",
     emoji: "🍔"
   },
   {
@@ -82,7 +98,7 @@ const ADD_ONS = [
     emoji: "☕"
   },
   {
-    name: "Molly Moon's Ice Cream",
+    name: "Molly Moon&apos;s Ice Cream",
     emoji: "🍦"
   },
   {
@@ -107,18 +123,7 @@ export default function PricingPage() {
       
       <div className="relative z-10">
         {/* Top Nav with glassmorphism */}
-        <header className="sticky top-0 z-30 glass border-b border-white/20">
-          <div className="container">
-            <div className="flex h-16 items-center justify-between">
-              <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-neon">
-                  <PlaneIcon className="h-5 w-5" />
-                </div>
-                <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Six Hour Layover: Seattle</span>
-              </a>
-            </div>
-          </div>
-        </header>
+        <Navigation />
 
         {/* Hero */}
         <section className="py-12 sm:py-20">
@@ -128,7 +133,7 @@ export default function PricingPage() {
                 <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Tours & Pricing</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
-                Two Ways to Experience Seattle — Same Six-Hour Magic
+                Choose your perfect Seattle layover adventure
               </p>
             </div>
           </div>
@@ -214,13 +219,13 @@ export default function PricingPage() {
                       <strong>2 adults + 2 children (ages 4–11) = $799 total</strong>
                     </p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                    <h4 className="font-bold text-purple-700 mb-2">Extra Kids</h4>
-                    <p className="text-sm text-slate-700">
-                      <strong>Extra Kids (under 12): $199 pp</strong><br />
-                      Add to Family Pack
-                    </p>
-                  </div>
+                    <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
+                      <h4 className="font-bold text-purple-700 mb-2">Extra Kids</h4>
+                      <p className="text-sm text-slate-700">
+                        <strong>Extra Kids (under 12): $199 each</strong><br />
+                        Add to Family Pack
+                      </p>
+                    </div>
                 </div>
                 <p className="text-xs text-slate-600 mt-4">
                   Children 0–3 join free. Children 4+ are priced as adults unless included in a Family Bundle.
@@ -235,7 +240,7 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">What's Always Included</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">What&apos;s Always Included</span>
               </h2>
             </div>
 
@@ -375,7 +380,7 @@ export default function PricingPage() {
                       <span className="text-2xl">📧</span>
                       <div>
                         <div className="font-semibold text-slate-800">Email</div>
-                        <a href="mailto:booking@sixhourlayover.com" className="text-purple-600 hover:text-purple-700 transition-colors">
+                        <a href="mailto:booking@sixhourlayover.com" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
                           booking@sixhourlayover.com
                         </a>
                       </div>
@@ -384,8 +389,8 @@ export default function PricingPage() {
                       <span className="text-2xl">📞</span>
                       <div>
                         <div className="font-semibold text-slate-800">Phone</div>
-                        <a href="tel:+15034103018" className="text-purple-600 hover:text-purple-700 transition-colors">
-                          (503) 410-3018
+                        <a href="tel:+12064866398" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          (206) 486-6398
                         </a>
                       </div>
                     </div>
@@ -401,13 +406,13 @@ export default function PricingPage() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Book Your Seattle Adventure?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of travelers who've made their layover unforgettable
+              Join thousands of travelers who&apos;ve made their layover unforgettable
             </p>
             <a 
-              href="mailto:booking@sixhourlayover.com?subject=Seattle Layover Tour Booking&body=Hi! I'd like to book a Seattle layover tour. Please send me booking details."
+              href="/book"
               className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
             >
-              ✈️ Book Now via Email
+              ✈️ Book Your Tour Now
             </a>
           </div>
         </section>
@@ -422,7 +427,7 @@ export default function PricingPage() {
                     <PlaneIcon className="h-5 w-5" />
                   </div>
                   <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    Six Hour Layover
+                    The Six-Hour Layover
                   </span>
                 </div>
                 <p className="text-sm text-slate-600">Making layovers memorable, one city at a time.</p>
@@ -432,8 +437,11 @@ export default function PricingPage() {
                 <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
                 <div className="space-y-2 text-sm">
                   <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Pricing</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQ</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
                 </div>
               </div>
               
@@ -448,7 +456,7 @@ export default function PricingPage() {
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                © {new Date().getFullYear()} The Six-Hour Layover, Seattle. Made with 💜 in SEA
+                © {new Date().getFullYear()} The Six-Hour Layover, Seattle
               </div>
             </div>
           </div>

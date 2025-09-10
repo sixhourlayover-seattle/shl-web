@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
+import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 
 const FAQ_SECTIONS = [
@@ -192,19 +193,7 @@ export default function FAQPage() {
       <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
       
       <div className="relative z-10">
-        {/* Top Nav with glassmorphism */}
-        <header className="sticky top-0 z-30 glass border-b border-white/20">
-          <div className="container">
-            <div className="flex h-16 items-center justify-between">
-              <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-neon">
-                  <PlaneIcon className="h-5 w-5" />
-                </div>
-                <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Six Hour Layover: Seattle</span>
-              </a>
-            </div>
-          </div>
-        </header>
+        <Navigation />
 
         {/* Hero */}
         <section className="py-12 sm:py-20">
@@ -258,22 +247,29 @@ export default function FAQPage() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Still have questions?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us directly — we'll make sure your layover is stress-free from start to finish.
+              Contact us directly — we&apos;ll make sure your layover is stress-free from start to finish.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
-                href="mailto:booking@sixhourlayover.com"
+                href="/book"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
-                <span className="text-xl">📧</span>
-                booking@sixhourlayover.com
+                <span className="text-xl">📝</span>
+                Book Your Tour Now
               </a>
               <a 
-                href="tel:+15034103018"
+                href="mailto:booking@sixhourlayover.com"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              >
+                <span className="text-xl">📧</span>
+                Email Questions
+              </a>
+              <a 
+                href="tel:+12064866398"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📞</span>
-                (503) 410-3018
+                (206) 486-6398
               </a>
             </div>
           </div>
@@ -289,7 +285,7 @@ export default function FAQPage() {
                     <PlaneIcon className="h-5 w-5" />
                   </div>
                   <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    Six Hour Layover
+                    The Six-Hour Layover
                   </span>
                 </div>
                 <p className="text-sm text-slate-600">Making layovers memorable, one city at a time.</p>
@@ -299,8 +295,11 @@ export default function FAQPage() {
                 <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
                 <div className="space-y-2 text-sm">
                   <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Pricing</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQ</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
                 </div>
               </div>
               
@@ -315,7 +314,7 @@ export default function FAQPage() {
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                © {new Date().getFullYear()} The Six-Hour Layover, Seattle. Made with 💜 in SEA
+                © {new Date().getFullYear()} The Six-Hour Layover, Seattle
               </div>
             </div>
           </div>
