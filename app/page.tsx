@@ -5,28 +5,46 @@ import Image from "next/image";
 import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
 import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
+import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 
-const SEATTLE = {
-  name: "Seattle",
-  code: "SEA",
-  highlights: [
-    "Pike Place Market quick tour",
-    "Space Needle express visit",
-    "Chihuly Glass Garden stroll",
-    "Grab local seafood downtown"
-  ]
-};
-
-const TRANSPORT_OPTIONS = [
-  { name: "Stay airside", desc: "Lounges, nap pods, showers" },
-  { name: "Light rail hop", desc: "Airport to downtown in ~30 minutes" },
-  { name: "Private ride", desc: "Flexible stops, fast return" }
+const SEATTLE_HIGHLIGHTS = [
+  "Pike Place Market & famous fish toss",
+  "Waterfront stroll with views", 
+  "Space Needle photo stop",
+  "Kerry Park skyline view",
+  "Local food tastings"
 ];
 
-function Itinerary({ hours, city }: { hours: number; city: typeof SEATTLE }) {
-  const slots = ["09:30", "11:00", "13:00", "14:30"];
-  const emojis = ["🦐", "🎡", "🌈", "🍣"];
+const TESTIMONIALS = [
+  "It&apos;s like having a local friend in the city — guiding you every step.",
+  "Perfect for our 6-hour layover. We saw so much!",
+  "Stress-free and unforgettable. Highly recommend!"
+];
+
+const TOUR_OPTIONS = [
+  {
+    name: "6-Hour Classic Tour",
+    subtitle: "Pike Place & Waterfront",
+    description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
+    features: ["Airport meet-up", "Round-trip transfers", "Seattle chocolate cherry gift bag"]
+  },
+  {
+    name: "7-Hour Extended Tour", 
+    subtitle: "Classic + Space Needle",
+    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle's most iconic landmark.",
+    features: ["All Classic features", "Space Needle visit", "Extended exploration time"]
+  },
+  {
+    name: "8-Hour Premium Tour",
+    subtitle: "Extended + Kerry Park", 
+    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle's postcard skyline view.",
+    features: ["All Extended features", "Kerry Park skyline", "Maximum Seattle experience"]
+  }
+];
+
+function TourPreview({ selectedTour }: { selectedTour: number }) {
+  const tour = TOUR_OPTIONS[selectedTour];
   return (
     <div className="mt-6 rounded-3xl bg-gradient-to-br from-purple-100 via-indigo-100 to-pink-100 p-6 shadow-2xl hover-lift">
       <div className="flex items-center gap-3 mb-4">
@@ -34,42 +52,39 @@ function Itinerary({ hours, city }: { hours: number; city: typeof SEATTLE }) {
           <MapPinIcon className="h-5 w-5 text-white" />
         </div>
         <h4 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-          {city.name} • {hours}-hour express adventure
+          {tour.name}
         </h4>
       </div>
-      <ol className="relative border-s-2 border-gradient-to-b from-purple-300 to-indigo-300 ml-3">
-        {city.highlights.map((p, i) => (
-          <li key={i} className="ms-6 py-4 group" style={{animation: `slide-in 0.${i+3}s ease-out`}}>
-            <span className="absolute -start-3 mt-1 h-6 w-6 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">
-              {i+1}
-            </span>
-            <div className="ml-4 p-4 rounded-2xl bg-white/80 backdrop-blur border border-white/50 group-hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center gap-2 text-sm text-indigo-600 font-semibold mb-2">
-                <ClockIcon className="h-4 w-4" />
-                <span>{slots[i]}</span>
-                <span className="text-lg ml-auto">{emojis[i]}</span>
-              </div>
-              <p className="text-slate-800 font-medium">{p}</p>
-            </div>
-          </li>
+      <p className="text-slate-700 mb-4">{tour.description}</p>
+      <div className="flex flex-wrap gap-2 mb-6">
+        {tour.features.map((feature, i) => (
+          <div key={i} className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur border border-purple-200">
+            <span className="text-green-600">✓</span>
+            <span className="text-sm font-medium text-slate-700">{feature}</span>
+          </div>
         ))}
-      </ol>
-      <div className="mt-6 flex flex-wrap gap-3">
-        <button className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-          📱 Download Plan
-        </button>
-        <button className="px-6 py-3 bg-white/80 backdrop-blur text-slate-800 font-semibold rounded-xl border border-slate-200 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-          🗺️ Save to Maps
-        </button>
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <a 
+          href="/pricing"
+          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+        >
+          📅 View Pricing & Book
+        </a>
+        <a 
+          href="/how-it-works"
+          className="px-6 py-3 bg-white/80 backdrop-blur text-slate-800 font-semibold rounded-xl border border-slate-200 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+        >
+          🔍 How It Works
+        </a>
       </div>
     </div>
   );
 }
 
 export default function Page() {
-  const [hours, setHours] = useState(6);
-  const [transport, setTransport] = useState("Light rail hop");
-  const [showPlan, setShowPlan] = useState(false);
+  const [selectedTour, setSelectedTour] = useState(0);
+  const [showPreview, setShowPreview] = useState(false);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -83,53 +98,58 @@ export default function Page() {
       <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
       
       <div className="relative z-10">
-      {/* Top Nav with glassmorphism */}
-      <header className="sticky top-0 z-30 glass border-b border-white/20">
-        <div className="container">
-          <div className="flex h-16 items-center justify-between">
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-neon">
-                <PlaneIcon className="h-5 w-5" />
-              </div>
-              <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Six Hour Layover: Seattle</span>
-            </a>
-          </div>
-        </div>
-      </header>
+        <Navigation />
 
       {/* Hero */}
       <section className="py-12 sm:py-20">
         <div className="container grid gap-8 md:grid-cols-2 md:items-center">
           <div className="space-y-6" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Make the most</span>
+              <span className="text-slate-900">Just 6 Hours in Seattle?</span>
               <br />
-              <span className="text-slate-900">of your Seattle layover</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">—We&apos;ve Got You!</span>
             </h1>
-            <p className="text-slate-700 text-lg max-w-2xl leading-relaxed">
-              Curated 3–8 hour plans from SEA with realistic buffers. See Pike Place, ride the light rail, enjoy local seafood, and catch your next flight stress‑free.
+            <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
+              No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 mb-6">
+              <p className="text-lg italic text-slate-700 text-center">
+                “{TESTIMONIALS[0]}”
+              </p>
+            </div>
+            <div className="grid gap-4 text-left max-w-2xl">
+              <div className="flex items-center gap-3">
+                <span className="text-green-600 text-xl">✓</span>
+                <span className="text-slate-700">Designed for layovers as short as 6 hours</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-green-600 text-xl">📍</span>
+                <span className="text-slate-700">Meet-up at SEA Airport with luggage storage support</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-green-600 text-xl">🍜</span>
+                <span className="text-slate-700">Food, views, photos, and a take-home treat</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-green-600 text-xl">💼</span>
+                <span className="text-slate-700">Luggage storage guidance included</span>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-4 mt-8">
               <a 
-                href="/pricing"
+                href="/book"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                ✈️ See Pricing & Book
+                Book Now — Secure your Seattle layover today
               </a>
-              <button 
-                onClick={() => document.getElementById('plan')?.scrollIntoView({behavior:'smooth'})}
-                className="px-8 py-4 bg-white/80 backdrop-blur text-slate-800 font-semibold rounded-2xl border border-slate-200 hover:bg-white hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-              >
-                View planner →
-              </button>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 mt-6">
               <div className="flex -space-x-2">
                 {[1,2,3,4].map((i) => (
                   <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 border-2 border-white" />
                 ))}
               </div>
-              <p className="text-sm text-slate-600">Join 10,000+ travelers</p>
+              <p className="text-sm text-slate-600">Loved by travelers from 20+ countries</p>
             </div>
           </div>
           <div className="relative" style={{animation: 'slide-in 0.8s ease-out'}}>
@@ -170,135 +190,211 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Planner */}
-      <section id="plan" className="py-16 sm:py-24">
+      {/* You're probably thinking section */}
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-purple-50/50 to-indigo-50/50">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">✨ Create Your Perfect Layover</span>
+              <span className="text-slate-900">You&apos;re probably thinking…</span>
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">Customize your Seattle adventure with our smart planner</p>
           </div>
           
-          <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift">
-              <div className="p-8 bg-gradient-to-r from-purple-600 to-indigo-600">
-                <h3 className="text-2xl font-bold text-white">🇺🇸 Build Your Express Itinerary</h3>
-                <p className="mt-2 text-white/90">We&apos;ll tailor a realistic plan that fits immigration, transit, and buffer times.</p>
+          <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
+            {/* Left side - Questions and Answers */}
+            <div className="space-y-8">
+              <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
+                <h3 className="text-2xl font-bold text-purple-700 mb-4">
+                  “Six hours? Is that even enough?”
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Absolutely. We&apos;ve designed this as a condensed, <strong>no stress</strong> experience that <strong>skips lines</strong>, avoids hassles, and guides you through Seattle&apos;s highlights — food, views, and photos — all with <strong>time to spare</strong>.
+                </p>
               </div>
-              <div className="p-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* Hours */}
-                  <div>
-                    <label className="text-sm font-bold text-slate-700 mb-3 block">⏰ Hours available</label>
-                    <div className="flex flex-wrap gap-2">
-                      {[3,4,5,6,8].map(h => (
-                        <button 
-                          key={h} 
-                          onClick={() => setHours(h)} 
-                          className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 ${
-                            hours===h 
-                              ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg scale-105' 
-                              : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-purple-400 hover:shadow-md'
-                          }`}
-                        >
-                          {h}h
-                        </button>
-                      ))}
-                    </div>
+              
+              <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
+                <h3 className="text-2xl font-bold text-purple-700 mb-4">
+                  &ldquo;I don&apos;t want the stress of figuring out transportation.&rdquo;
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  No stress at all. We handle the pickup, guide you through the city, and return you to the airport—zero guesswork.
+                </p>
+              </div>
+              
+              <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
+                <h3 className="text-2xl font-bold text-purple-700 mb-4">
+                  “What about my luggage?”
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  Easy. SEA Airport offers secure Smarte Carte storage. Simply check your bags before your tour begins, and we&apos;ll guide you every step from there.
+                </p>
+              </div>
+              
+              <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
+                <h3 className="text-2xl font-bold text-purple-700 mb-4">
+                  “I just want to taste, see, and feel Seattle—fast.”
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  That&apos;s exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.
+                </p>
+              </div>
+            </div>
+            
+            {/* Right side - Images */}
+            <div className="space-y-6">
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <div 
+                  className="aspect-[4/3] bg-cover bg-center"
+                  style={{
+                    backgroundImage: 'url("/seattle-skyline.jpg")',
+                  }}
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl overflow-hidden shadow-lg hover-lift">
+                  <div 
+                    className="aspect-square bg-cover bg-center"
+                    style={{
+                      backgroundImage: 'url("/seattle.jpg")',
+                    }}
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg hover-lift">
+                  <div 
+                    className="aspect-square bg-cover bg-center"
+                    style={{
+                      backgroundImage: 'url("/seattle-skyline.jpg")',
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Why It Works */}
+      <section className="py-16 sm:py-24">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+              <span className="text-slate-900">Why It Works</span>
+            </h2>
+            <h3 className="text-2xl font-bold text-purple-600 mb-4">
+              Smart. Seamless. Unforgettable.
+            </h3>
+            <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              Most travelers waste hours stuck in the airport — <strong>but not you!</strong><br/>
+              Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<br/>
+              You&apos;ll return with stories, photos, and a little Seattle gift in hand.
+            </p>
+          </div>
+          
+          {/* Tour Options */}
+          <div className="grid gap-8 lg:grid-cols-3 max-w-7xl mx-auto">
+            <div className="lg:col-span-2">
+              <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift">
+                <div className="p-8 bg-gradient-to-r from-purple-600 to-indigo-600">
+                  <h3 className="text-2xl font-bold text-white">Your Seattle Six-Hour Journey</h3>
+                  <p className="mt-2 text-white/90">Choose your perfect Seattle layover experience</p>
+                </div>
+                <div className="p-8">
+                  <div className="space-y-6">
+                    {TOUR_OPTIONS.map((tour, index) => (
+                      <div 
+                        key={index}
+                        className={`rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 ${
+                          selectedTour === index
+                            ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg'
+                            : 'border-slate-200 bg-white hover:border-purple-300 hover:shadow-md'
+                        }`}
+                        onClick={() => setSelectedTour(index)}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg">
+                            {index + 6}
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-xl font-bold text-slate-800 mb-1">{tour.name}</h4>
+                            <p className="text-purple-600 font-semibold mb-2">{tour.subtitle}</p>
+                            <p className="text-slate-600 text-sm leading-relaxed">{tour.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-
-                  {/* Transport */}
-                  <div>
-                    <label className="text-sm font-bold text-slate-700 mb-3 block">🚊 Transport style</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      {[
-                        { ...TRANSPORT_OPTIONS[0], emoji: "✈️" },
-                        { ...TRANSPORT_OPTIONS[1], emoji: "🚆" },
-                        { ...TRANSPORT_OPTIONS[2], emoji: "🚗" }
-                      ].map((t, i) => (
-                        <button 
-                          key={t.name} 
-                          onClick={() => setTransport(t.name)} 
-                          className={`rounded-2xl p-4 text-left transition-all duration-300 ${
-                            transport===t.name 
-                              ? 'bg-gradient-to-br from-purple-100 to-indigo-100 border-2 border-purple-400 shadow-lg scale-105' 
-                              : 'bg-white border-2 border-slate-200 hover:border-purple-300 hover:shadow-md'
-                          }`}
-                        >
-                          <div className="text-2xl mb-2">{t.emoji}</div>
-                          <div className="font-bold text-sm">{t.name}</div>
-                          <div className="text-slate-500 text-xs mt-1">{t.desc}</div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-2 pt-6">
-                    <a 
-                      href="/pricing"
+                  
+                  <div className="mt-8 pt-6 border-t border-slate-200">
+                    <button 
+                      onClick={() => setShowPreview(!showPreview)}
                       className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-bold rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300 text-lg w-full sm:w-auto"
                     >
-                      ⚡ View Pricing & Book Tour
-                    </a>
-                    <p className="mt-3 text-sm text-slate-500">🚀 Instant generation • ⏱️ Realistic buffers included</p>
+                      {showPreview ? 'Hide Preview' : 'Preview Selected Tour'}
+                    </button>
                   </div>
-                </div>
 
-                {showPlan && <Itinerary hours={hours} city={SEATTLE} />}
+                  {showPreview && <TourPreview selectedTour={selectedTour} />}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Tips / Trust */}
-          <div>
-            <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 p-1 shadow-2xl hover-lift">
-              <div className="rounded-3xl bg-white/95 backdrop-blur p-6">
-                <div className="mb-6">
-                  <h4 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">🌆 SEA Quick Facts</h4>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { icon: "🛬", label: "Immigration time", value: "20–45m typical" },
-                    { icon: "🚆", label: "Light rail to downtown", value: "~30m" },
-                    { icon: "🏞️", label: "Luggage storage", value: "Available landside" },
-                    { icon: "⏰", label: "Return buffer", value: "90m before boarding" }
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-purple-50 transition-colors duration-300">
-                      <span className="text-xl">{item.icon}</span>
+            {/* Contact Info */}
+            <div>
+              <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 p-1 shadow-2xl hover-lift">
+                <div className="rounded-3xl bg-white/95 backdrop-blur p-6">
+                  <div className="mb-6">
+                    <h4 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Contact</h4>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
+                      <span className="text-2xl">📧</span>
                       <div>
-                        <span className="font-bold text-slate-800">{item.label}:</span>
-                        <span className="ml-2 text-slate-600">{item.value}</span>
+                        <div className="font-semibold text-slate-800">Email</div>
+                        <a href="mailto:booking@sixhourlayover.com" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          booking@sixhourlayover.com
+                        </a>
                       </div>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="mt-6 rounded-2xl bg-gradient-to-br from-yellow-100 to-orange-100 border-2 border-yellow-300 p-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-2xl">💡</span>
-                    <span className="font-bold text-slate-800">Pro Tip</span>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
+                      <span className="text-2xl">📞</span>
+                      <div>
+                        <div className="font-semibold text-slate-800">Phone</div>
+                        <a href="tel:+12064866398" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          (206) 486-6398
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-slate-700 text-sm leading-relaxed">
-                    Screenshot QR tickets and download offline maps before leaving Wi-Fi.
-                  </p>
-                </div>
-                
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">4.8★</div>
-                    <div className="text-xs text-slate-600 mt-1">Avg Rating</div>
-                  </div>
-                  <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">10k+</div>
-                    <div className="text-xs text-slate-600 mt-1">Happy Travelers</div>
+                  
+                  <div className="mt-6 grid grid-cols-2 gap-3">
+                    <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">20+</div>
+                      <div className="text-xs text-slate-600 mt-1">Countries</div>
+                    </div>
+                    <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">6hrs</div>
+                      <div className="text-xs text-slate-600 mt-1">Perfect Time</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
+        </div>
+      </section>
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
+        <div className="container text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Seattle&apos;s best bites, views, and a guaranteed on-time return.</h2>
+          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            Loved by travelers from 20+ countries
+          </p>
+          <a 
+            href="/book"
+            className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
+          >
+            Book Now — Secure your Seattle layover today
+          </a>
         </div>
       </section>
 
@@ -321,32 +417,27 @@ export default function Page() {
             <div>
               <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
               <div className="space-y-2 text-sm">
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="#plan">✈️ Plan Your Trip</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Pricing</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQ</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
               </div>
             </div>
             
             <div>
-              <h5 className="font-bold text-slate-800 mb-3">Connect</h5>
-              <div className="flex gap-3">
-                {["🐦", "📸", "📱"].map((icon, i) => (
-                  <button key={i} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
-                    <span className="text-lg">{icon}</span>
-                  </button>
-                ))}
+              <h5 className="font-bold text-slate-800 mb-3">Legal</h5>
+              <div className="space-y-2 text-sm">
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">📄 Terms of Service</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">🔒 Privacy Policy</a>
               </div>
             </div>
           </div>
           
           <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-sm text-slate-600">
-              © {new Date().getFullYear()} Six Hour Layover: Seattle. Made with 💜 in SEA
-            </div>
-            <div className="text-sm text-slate-600">
-              <a className="hover:text-purple-600 transition-colors" href="/privacy">Privacy</a>
-              <span className="mx-2">•</span>
-              <a className="hover:text-purple-600 transition-colors" href="/terms">Terms</a>
+              © {new Date().getFullYear()} The Six-Hour Layover, Seattle
             </div>
           </div>
         </div>

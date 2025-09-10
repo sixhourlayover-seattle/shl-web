@@ -4,9 +4,9 @@ import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const title = "Six Hour Layover: Seattle";
+const title = "The Six-Hour Layover | Seattle Layover Tours with Airport Pickup";
 const description =
-  "Make the most of your Seattle layover. Curated 3–8 hour itineraries from SEA with realistic transit & buffers.";
+  "Just 6 Hours in Seattle? We've Got You! No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description,
   applicationName: "Six Hour Layover: Seattle",
-  keywords: ["Seattle layover", "SEA layover", "Pike Place", "Space Needle", "Chihuly Garden", "light rail"],
+  keywords: ["Seattle layover", "SEA layover", "Pike Place Market", "Space Needle", "layover tours", "airport pickup"],
   openGraph: {
     type: "website",
     url: siteUrl,
