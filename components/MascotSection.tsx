@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { MascotSectionText } from "@/lib/text";
 
 interface MascotSectionProps {
   imageSrc?: string;
@@ -12,11 +13,11 @@ interface MascotSectionProps {
 
 export default function MascotSection({
   imageSrc = "/seattle.jpg", // Placeholder until you provide the dog image
-  imageAlt = "Our mascot",
-  title = "Meet Our Mascot",
-  description = "Add your dog's description here",
-  name = "Dog Name",
-  role = "Chief Happiness Officer"
+  imageAlt = MascotSectionText.defaultImageAlt,
+  title = MascotSectionText.defaultTitle,
+  description = MascotSectionText.defaultDescription,
+  name = MascotSectionText.defaultName,
+  role = MascotSectionText.defaultRole
 }: MascotSectionProps) {
   return (
     <section className="py-16">
@@ -68,27 +69,27 @@ export default function MascotSection({
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center p-4 rounded-2xl bg-gradient-to-br from-yellow-100 to-orange-100 border border-yellow-200">
                 <div className="text-2xl mb-2">🐕</div>
-                <div className="font-bold text-slate-800">&ldquo;Good Boy&rdquo;</div>
-                <div className="text-sm text-slate-600">In Chinese</div>
+                <div className="font-bold text-slate-800">{MascotSectionText.goodBoy}</div>
+                <div className="text-sm text-slate-600">{MascotSectionText.inChinese}</div>
               </div>
               
               <div className="text-center p-4 rounded-2xl bg-gradient-to-br from-green-100 to-emerald-100 border border-green-200">
                 <div className="text-2xl mb-2">🎩</div>
-                <div className="font-bold text-slate-800">Retired</div>
-                <div className="text-sm text-slate-600">From Adventures</div>
+                <div className="font-bold text-slate-800">{MascotSectionText.retired}</div>
+                <div className="text-sm text-slate-600">{MascotSectionText.fromAdventures}</div>
               </div>
             </div>
 
             {/* Call to Action */}
             <div className="rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-center">
               <p className="text-white text-lg font-semibold mb-4">
-                Want to meet our mascot on your tour?
+                {MascotSectionText.cta}
               </p>
               <a 
                 href="/book"
                 className="inline-flex items-center px-6 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                Book Your Seattle Adventure
+                {MascotSectionText.bookNow}
               </a>
             </div>
           </div>

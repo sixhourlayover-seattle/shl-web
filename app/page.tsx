@@ -7,6 +7,7 @@ import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
+import { HomePageText, GlobalText } from "@/lib/text";
 
 const SEATTLE_HIGHLIGHTS = [
   "Pike Place Market & famous fish toss",
@@ -105,12 +106,12 @@ export default function Page() {
         <div className="container grid gap-8 md:grid-cols-2 md:items-center">
           <div className="space-y-6" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight">
-              <span className="text-slate-900">Just 6 Hours in Seattle?</span>
+              <span className="text-slate-900">{HomePageText.title}</span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">&mdash;We've Got You!</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">&mdash;{HomePageText.subtitle}</span>
             </h1>
             <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
-              No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.
+              {HomePageText.description}
             </p>
             <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 mb-6">
               <p className="text-lg italic text-slate-700 text-center">
@@ -120,19 +121,19 @@ export default function Page() {
             <div className="grid gap-4 text-left max-w-2xl">
               <div className="flex items-center gap-3">
                 <span className="text-green-600 text-xl">✓</span>
-                <span className="text-slate-700">Designed for layovers as short as 6 hours</span>
+                <span className="text-slate-700">{HomePageText.shortLayovers}</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-green-600 text-xl">📍</span>
-                <span className="text-slate-700">Meet-up at SEA Airport with luggage storage support</span>
+                <span className="text-slate-700">{HomePageText.meetup}</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-green-600 text-xl">🍜</span>
-                <span className="text-slate-700">Food, views, photos, and a take-home treat</span>
+                <span className="text-slate-700">{HomePageText.features}</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-green-600 text-xl">💼</span>
-                <span className="text-slate-700">Luggage storage guidance included</span>
+                <span className="text-slate-700">{HomePageText.luggage}</span>
               </div>
             </div>
             <div className="flex flex-wrap gap-4 mt-8">
@@ -140,7 +141,7 @@ export default function Page() {
                 href="/book"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                Book Now &mdash; Secure your Seattle layover today
+                {HomePageText.bookNow}
               </a>
             </div>
             <div className="flex items-center gap-6 mt-6">
@@ -149,7 +150,7 @@ export default function Page() {
                   <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 border-2 border-white" />
                 ))}
               </div>
-              <p className="text-sm text-slate-600">Loved by travelers from 20+ countries</p>
+              <p className="text-sm text-slate-600">{HomePageText.lovedBy}</p>
             </div>
           </div>
           <div className="relative" style={{animation: 'slide-in 0.8s ease-out'}}>
@@ -195,7 +196,7 @@ export default function Page() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              <span className="text-slate-900">You're probably thinking…</span>
+              <span className="text-slate-900">{HomePageText.thinking}</span>
             </h2>
           </div>
           
@@ -204,37 +205,37 @@ export default function Page() {
             <div className="space-y-8">
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  &ldquo;Six hours? Is that even enough?&rdquo;
+                  {HomePageText.thinking1Title}
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  Absolutely. We've designed this as a condensed, <strong>no stress</strong> experience that <strong>skips lines</strong>, avoids hassles, and guides you through Seattle's highlights &mdash; food, views, and photos &mdash; all with <strong>time to spare</strong>.
+                  <span dangerouslySetInnerHTML={{ __html: HomePageText.thinking1Description }} />
                 </p>
               </div>
               
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  &ldquo;I don't want the stress of figuring out transportation.&rdquo;
+                  {HomePageText.thinking2Title}
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  No stress at all. We handle the pickup, guide you through the city, and return you to the airport—zero guesswork.
+                  {HomePageText.thinking2Description}
                 </p>
               </div>
               
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  &ldquo;What about my luggage?&rdquo;
+                  {HomePageText.thinking3Title}
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  Easy. SEA Airport offers secure Smarte Carte storage. Simply check your bags before your tour begins, and we'll guide you every step from there.
+                  {HomePageText.thinking3Description}
                 </p>
               </div>
               
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  &ldquo;I just want to taste, see, and feel Seattle—fast.&rdquo;
+                  {HomePageText.thinking4Title}
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.
+                  {HomePageText.thinking4Description}
                 </p>
               </div>
             </div>
@@ -277,15 +278,13 @@ export default function Page() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="text-slate-900">Why It Works</span>
+              <span className="text-slate-900">{HomePageText.whyItWorksTitle}</span>
             </h2>
             <h3 className="text-2xl font-bold text-purple-600 mb-4">
-              Smart. Seamless. Unforgettable.
+              {HomePageText.whyItWorksSubtitle}
             </h3>
             <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Most travelers waste hours stuck in the airport &mdash; <strong>but not you!</strong><br/>
-              Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<br/>
-              You'll return with stories, photos, and a little Seattle gift in hand.
+              {HomePageText.whyItWorksDescription}
             </p>
           </div>
           
@@ -294,8 +293,8 @@ export default function Page() {
             <div className="lg:col-span-2">
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift">
                 <div className="p-8 bg-gradient-to-r from-purple-600 to-indigo-600">
-                  <h3 className="text-2xl font-bold text-white">Your Seattle Six-Hour Journey</h3>
-                  <p className="mt-2 text-white/90">Choose your perfect Seattle layover experience</p>
+                  <h3 className="text-2xl font-bold text-white">{HomePageText.journeyTitle}</h3>
+                  <p className="mt-2 text-white/90">{HomePageText.journeySubtitle}</p>
                 </div>
                 <div className="p-8">
                   <div className="space-y-6">
@@ -328,7 +327,7 @@ export default function Page() {
                       onClick={() => setShowPreview(!showPreview)}
                       className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-bold rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300 text-lg w-full sm:w-auto"
                     >
-                      {showPreview ? 'Hide Preview' : 'Preview Selected Tour'}
+                      {showPreview ? HomePageText.hidePreview : HomePageText.preview}
                     </button>
                   </div>
 
@@ -342,24 +341,24 @@ export default function Page() {
               <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 p-1 shadow-2xl hover-lift">
                 <div className="rounded-3xl bg-white/95 backdrop-blur p-6">
                   <div className="mb-6">
-                    <h4 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Contact</h4>
+                    <h4 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{HomePageText.contact}</h4>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
                       <span className="text-2xl">📧</span>
                       <div>
-                        <div className="font-semibold text-slate-800">Email</div>
-                        <a href="mailto:booking@sixhourlayover.com" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
-                          booking@sixhourlayover.com
+                        <div className="font-semibold text-slate-800">{HomePageText.email}</div>
+                        <a href={`mailto:${HomePageText.emailAddress}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          {HomePageText.emailAddress}
                         </a>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
                       <span className="text-2xl">📞</span>
                       <div>
-                        <div className="font-semibold text-slate-800">Phone</div>
-                        <a href="tel:+12064866398" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
-                          (206) 486-6398
+                        <div className="font-semibold text-slate-800">{HomePageText.phone}</div>
+                        <a href={`tel:${HomePageText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          {HomePageText.phoneNumber}
                         </a>
                       </div>
                     </div>
@@ -367,12 +366,12 @@ export default function Page() {
                   
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50">
-                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">20+</div>
-                      <div className="text-xs text-slate-600 mt-1">Countries</div>
+                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{HomePageText.countries}</div>
+                      <div className="text-xs text-slate-600 mt-1">{HomePageText.countriesLabel}</div>
                     </div>
                     <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50">
-                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">6hrs</div>
-                      <div className="text-xs text-slate-600 mt-1">Perfect Time</div>
+                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{HomePageText.perfectTime}</div>
+                      <div className="text-xs text-slate-600 mt-1">{HomePageText.perfectTimeLabel}</div>
                     </div>
                   </div>
                 </div>
@@ -385,15 +384,15 @@ export default function Page() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
         <div className="container text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Seattle's best bites, views, and a guaranteed on-time return.</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">{HomePageText.ctaTitle}</h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Loved by travelers from 20+ countries
+            {HomePageText.ctaSubtitle}
           </p>
           <a 
             href="/book"
             className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
           >
-            Book Now &mdash; Secure your Seattle layover today
+            {HomePageText.bookNow}
           </a>
         </div>
       </section>
@@ -408,36 +407,36 @@ export default function Page() {
                   <PlaneIcon className="h-5 w-5" />
                 </div>
                 <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                  Six Hour Layover
+                  {GlobalText.appName}
                 </span>
               </div>
-              <p className="text-sm text-slate-600">Making layovers memorable, one city at a time.</p>
+              <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
             </div>
             
             <div>
-              <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
+              <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
               <div className="space-y-2 text-sm">
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
               </div>
             </div>
             
             <div>
-              <h5 className="font-bold text-slate-800 mb-3">Legal</h5>
+              <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
               <div className="space-y-2 text-sm">
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">📄 Terms of Service</a>
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">🔒 Privacy Policy</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
               </div>
             </div>
           </div>
           
           <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-sm text-slate-600">
-              © {new Date().getFullYear()} The Six-Hour Layover, Seattle
+              {GlobalText.copyright}
             </div>
           </div>
         </div>
