@@ -2,15 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { PlaneIcon } from "@/components/Icons";
-
-const NAVIGATION_LINKS = [
-  { name: "Home", href: "/" },
-  { name: "How It Works", href: "/how-it-works" },
-  { name: "Tours & Pricing", href: "/pricing" },
-  { name: "FAQs", href: "/faq" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" }
-];
+import { GlobalText, NAVIGATION_LINKS } from "@/lib/text";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +16,7 @@ export default function Navigation() {
               <PlaneIcon className="h-5 w-5" />
             </div>
             <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              The Six-Hour Layover
+              {GlobalText.appName}
             </span>
           </Link>
 
@@ -43,7 +35,7 @@ export default function Navigation() {
               href="/book"
               className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
-              Book Now
+              {GlobalText.bookNow}
             </a>
           </nav>
 
@@ -81,7 +73,7 @@ export default function Navigation() {
                   href="/book"
                   className="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Book Now
+                  {GlobalText.bookNow}
                 </a>
               </div>
             </nav>
