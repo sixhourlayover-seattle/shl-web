@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import BookingForm from "@/components/BookingForm";
 import MobileNav from "@/components/MobileNav";
+import { BookPageText } from "@/lib/text";
 
 export const metadata = {
   title: "Book Your Seattle Layover Tour | The Six-Hour Layover",
@@ -27,11 +28,11 @@ export default function BookPage() {
             <div className="text-center mb-8">
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-4">
                 <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
-                  Book Your Seattle Adventure
+                  {BookPageText.title}
                 </span>
               </h1>
               <p className="text-slate-700 text-lg max-w-2xl mx-auto">
-                Just a few steps to secure your perfect Seattle layover experience
+                {BookPageText.subtitle}
               </p>
             </div>
           </div>

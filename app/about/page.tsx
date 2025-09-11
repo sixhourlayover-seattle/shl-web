@@ -3,51 +3,7 @@ import { PlaneIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import MascotSection from "@/components/MascotSection";
-
-const TEAM_VALUES = [
-  {
-    title: "Local Expertise",
-    description: "Our guides are Seattle locals who know the city inside and out. We share authentic experiences, not tourist traps.",
-    icon: "🌟"
-  },
-  {
-    title: "Layover Specialists", 
-    description: "We understand the unique challenges of layover travel. Every detail is designed around tight schedules and stress-free experiences.",
-    icon: "✈️"
-  },
-  {
-    title: "Guaranteed Reliability",
-    description: "Your flight is our priority. We track delays, monitor traffic, and guarantee you'll be back with time to spare.",
-    icon: "⏰"
-  },
-  {
-    title: "Personal Touch",
-    description: "Small groups, personalized attention, and flexibility to adapt to your interests and pace.",
-    icon: "💙"
-  }
-];
-
-const STORY_POINTS = [
-  {
-    title: "The Problem We Solved",
-    content: "Too many travelers waste precious layover hours stuck in the airport, missing the chance to experience amazing cities like Seattle. Long layovers can be boring, but short ones feel too risky to leave the airport."
-  },
-  {
-    title: "Our Solution", 
-    content: "We created the perfect middle ground: expertly timed tours that maximize your Seattle experience while guaranteeing you'll make your next flight. No stress, no guesswork, just unforgettable memories."
-  },
-  {
-    title: "Why Seattle?",
-    content: "Seattle is the perfect layover city. With efficient light rail connections, world-class food, iconic landmarks, and stunning views all within reach, you can genuinely experience the city in just a few hours."
-  }
-];
-
-const STATS = [
-  { number: "20+", label: "Countries Served" },
-  { number: "100%", label: "On-Time Return Rate" }, 
-  { number: "6", label: "Perfect Hours" },
-  { number: "1000+", label: "Happy Travelers" }
-];
+import { AboutPageText, TEAM_VALUES, STORY_POINTS, STATS, GlobalText } from "@/lib/text";
 
 export default function AboutPage() {
   return (
@@ -66,16 +22,16 @@ export default function AboutPage() {
           <div className="container">
             <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">About Us</span>
+                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{AboutPageText.title}</span>
               </h1>
               <h2 className="text-2xl font-semibold text-slate-800 mb-6">
-                Out to the city. Back on time. Turn your layover into the highlight of your trip.
+                {AboutPageText.subtitle}
               </h2>
               <p className="text-slate-700 text-xl max-w-4xl mx-auto leading-relaxed">
-                The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from <strong>SEA Airport into Seattle's highlights</strong> &mdash; Pike Place Market, waterfront views, and local stories &mdash; and get you back with a guaranteed <strong>2-hour buffer</strong> before boarding.
+                {AboutPageText.description}
               </p>
               <p className="text-slate-700 text-lg max-w-4xl mx-auto leading-relaxed mt-4">
-                Our tours are <strong>private and stress-free</strong>, with <strong>multilingual options</strong> available.
+                {AboutPageText.privateTours}
               </p>
             </div>
           </div>
@@ -85,36 +41,36 @@ export default function AboutPage() {
           <div className="container max-w-4xl mx-auto">
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-slate-800 mb-4">Multilingual Tours Available</h2>
+                <h2 className="text-3xl font-bold text-slate-800 mb-4">{AboutPageText.multilingualTitle}</h2>
               </div>
               
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl">🌍</span>
-                    <h3 className="text-xl font-bold text-slate-800">Always Available</h3>
+                    <h3 className="text-xl font-bold text-slate-800">{AboutPageText.alwaysAvailable}</h3>
                   </div>
                   <p className="text-slate-700">
-                    <strong>English</strong> - All tours are conducted in English by default
+                    {AboutPageText.englishTours}
                   </p>
                 </div>
                 
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl">🗣️</span>
-                    <h3 className="text-xl font-bold text-slate-800">Upon Request</h3>
+                    <h3 className="text-xl font-bold text-slate-800">{AboutPageText.uponRequest}</h3>
                   </div>
                   <p className="text-slate-700 mb-4">
-                    Additional languages available subject to guide availability:
+                    {AboutPageText.additionalLanguages}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Mandarin', 'Japanese', 'Spanish', 'French', 'Turkish'].map((lang) => (
+                    {AboutPageText.languages.map((lang) => (
                       <span key={lang} className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-sm font-medium">
                         {lang}
                       </span>
                     ))}
                     <span className="px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 text-sm font-medium">
-                      More coming soon
+                      {AboutPageText.moreComingSoon}
                     </span>
                   </div>
                 </div>
@@ -122,7 +78,7 @@ export default function AboutPage() {
               
               <div className="mt-8 p-4 rounded-2xl bg-gradient-to-r from-blue-100 to-indigo-100 border border-blue-200">
                 <p className="text-blue-800 text-center">
-                  <strong>Please confirm your preferred language when booking.</strong>
+                  {AboutPageText.confirmLanguage}
                 </p>
               </div>
             </div>
@@ -132,9 +88,9 @@ export default function AboutPage() {
         <section className="py-8">
           <div className="container max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-800 mb-6">Our Story</h2>
+              <h2 className="text-4xl font-bold text-slate-800 mb-6">{AboutPageText.ourStoryTitle}</h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Born from the simple idea that layovers shouldn't be wasted time
+                {AboutPageText.ourStorySubtitle}
               </p>
             </div>
 
@@ -165,7 +121,7 @@ export default function AboutPage() {
         <section className="py-16 bg-gradient-to-br from-purple-50/50 to-indigo-50/50">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-800 mb-6">By the Numbers</h2>
+              <h2 className="text-4xl font-bold text-slate-800 mb-6">{AboutPageText.byTheNumbers}</h2>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
@@ -188,9 +144,9 @@ export default function AboutPage() {
         <section className="py-16">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-800 mb-6">What Drives Us</h2>
+              <h2 className="text-4xl font-bold text-slate-800 mb-6">{AboutPageText.whatDrivesUs}</h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Our core values shape every tour we create and every experience we deliver
+                {AboutPageText.whatDrivesUsSubtitle}
               </p>
             </div>
 
@@ -215,13 +171,13 @@ export default function AboutPage() {
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold text-white mb-8">Our Mission</h2>
+              <h2 className="text-4xl font-bold text-white mb-8">{AboutPageText.ourMissionTitle}</h2>
               <p className="text-white/90 text-xl leading-relaxed mb-8">
-                To transform every layover into a highlight of your journey. We believe that even a few hours in a new city can create lasting memories, and we're here to make that happen — stress-free, perfectly timed, and unforgettable.
+                {AboutPageText.ourMissionDescription}
               </p>
               <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/20 backdrop-blur border border-white/30">
                 <span className="text-2xl">💜</span>
-                <span className="text-white font-semibold">Making layovers memorable, one city at a time</span>
+                <span className="text-white font-semibold">{AboutPageText.missionSlogan}</span>
               </div>
             </div>
           </div>
@@ -229,9 +185,9 @@ export default function AboutPage() {
 
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Experience Seattle?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">{AboutPageText.readyToExperience}</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Join the thousands of travelers who've discovered that layovers can be the best part of their journey
+              {AboutPageText.readyToExperienceSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
@@ -239,14 +195,14 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📝</span>
-                Book Your Adventure Today
+                {GlobalText.bookYourAdventureToday}
               </a>
               <a 
                 href="/how-it-works"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">⚙️</span>
-                Learn How It Works
+                {GlobalText.learnHowItWorks}
               </a>
             </div>
           </div>
@@ -261,36 +217,36 @@ export default function AboutPage() {
                     <PlaneIcon className="h-5 w-5" />
                   </div>
                   <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    The Six-Hour Layover
+                    {GlobalText.appName}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600">Making layovers memorable, one city at a time.</p>
+                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">Legal</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">📄 Terms of Service</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">🔒 Privacy Policy</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
                 </div>
               </div>
             </div>
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                © {new Date().getFullYear()} The Six-Hour Layover, Seattle
+                {GlobalText.copyright}
               </div>
             </div>
           </div>

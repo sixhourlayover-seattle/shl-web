@@ -6,6 +6,7 @@ import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
+import { PricingPageText, GlobalText } from "@/lib/text";
 
 const TOUR_OPTIONS = [
   {
@@ -130,10 +131,10 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Tours & Pricing</span>
+                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{PricingPageText.title}</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
-                Choose your perfect Seattle layover adventure
+                {PricingPageText.subtitle}
               </p>
             </div>
           </div>
@@ -172,10 +173,10 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Pricing</span>
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{PricingPageText.pricingTitle}</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Ages 4+ count as travelers. Children 0–3 join free.
+                {PricingPageText.pricingSubtitle}
               </p>
             </div>
 
@@ -210,25 +211,20 @@ export default function PricingPage() {
               <div className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <span className="text-2xl">💰</span>
-                  <span className="font-bold text-slate-800 text-lg">Special Offers</span>
+                  <span className="font-bold text-slate-800 text-lg">{PricingPageText.specialOffers}</span>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                    <h4 className="font-bold text-purple-700 mb-2">Family Bundle</h4>
-                    <p className="text-sm text-slate-700">
-                      <strong>2 adults + 2 children (ages 4–11) = $799 total</strong>
-                    </p>
+                    <h4 className="font-bold text-purple-700 mb-2">{PricingPageText.familyBundle}</h4>
+                    <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.familyBundleDescription }} />
                   </div>
                     <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                      <h4 className="font-bold text-purple-700 mb-2">Extra Kids</h4>
-                      <p className="text-sm text-slate-700">
-                        <strong>Extra Kids (under 12): $199 each</strong><br />
-                        Add to Family Pack
-                      </p>
+                      <h4 className="font-bold text-purple-700 mb-2">{PricingPageText.extraKids}</h4>
+                      <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.extraKidsDescription }} />
                     </div>
                 </div>
                 <p className="text-xs text-slate-600 mt-4">
-                  Children 0–3 join free. Children 4+ are priced as adults unless included in a Family Bundle.
+                  {PricingPageText.pricingNote}
                 </p>
               </div>
             </div>
@@ -240,7 +236,7 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">What's Always Included</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.whatsIncluded}</span>
               </h2>
             </div>
 
@@ -268,9 +264,9 @@ export default function PricingPage() {
               <div className="rounded-3xl bg-gradient-to-br from-orange-100 to-yellow-100 p-8 shadow-2xl hover-lift">
                 <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-4">
-                    🎁 Seattle Gift Tote
+                    {PricingPageText.giftTote}
                   </h2>
-                  <p className="text-slate-700 text-lg">Take a piece of Seattle home with you.</p>
+                  <p className="text-slate-700 text-lg">{PricingPageText.giftToteDescription}</p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
@@ -286,8 +282,8 @@ export default function PricingPage() {
 
                 <div className="text-center">
                   <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-600 to-yellow-600 text-white font-bold text-lg shadow-lg">
-                    <span>Bundle any 3 for just</span>
-                    <span className="text-2xl">$110</span>
+                    <span>{PricingPageText.giftToteBundle}</span>
+                    <span className="text-2xl">{PricingPageText.giftTotePrice}</span>
                   </div>
                 </div>
               </div>
@@ -300,30 +296,30 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Optional Add-Ons</span>
+                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{PricingPageText.addOnsTitle}</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Quick bites & coffee upgrades during your layover (for longer layovers or upgrades)
+                {PricingPageText.addOnsSubtitle}
               </p>
             </div>
 
             <div className="max-w-4xl mx-auto">
               <div className="grid gap-6 md:grid-cols-3 mb-8">
                 <div className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">1 Add-On</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">$40</div>
-                  <div className="text-sm text-slate-600">per person</div>
+                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.oneAddOn}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.oneAddOnPrice}</div>
+                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
                 </div>
                 <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-purple-100 to-indigo-100 border-2 border-purple-300 shadow-lg hover-lift transform scale-105">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">2 Add-Ons</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">$75</div>
-                  <div className="text-sm text-slate-600">per person</div>
-                  <div className="mt-2 px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-semibold">Popular</div>
+                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.twoAddOns}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.twoAddOnsPrice}</div>
+                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
+                  <div className="mt-2 px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-semibold">{PricingPageText.popular}</div>
                 </div>
                 <div className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">3 Add-Ons</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">$110</div>
-                  <div className="text-sm text-slate-600">per person</div>
+                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.threeAddOns}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.threeAddOnsPrice}</div>
+                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
                 </div>
               </div>
 
@@ -350,17 +346,14 @@ export default function PricingPage() {
                     <span className="text-white text-xl">📋</span>
                   </div>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                    Cancellation Policy
+                    {PricingPageText.cancellationPolicy}
                   </h3>
                 </div>
                 <p className="text-slate-700 text-lg leading-relaxed mb-4">
-                  Free cancellation up to 24 hours before your tour. No hidden fees.
+                  {PricingPageText.cancellationPolicyDescription}
                 </p>
                 <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 border border-blue-200">
-                  <p className="text-sm text-slate-700">
-                    <strong>Note:</strong> Each tour is a <strong>6-hour total experience</strong>, including airport pickup, 
-                    guided sightseeing, and a guaranteed on-time return with a 2-hour flight buffer.
-                  </p>
+                  <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.tourNote }} />
                 </div>
               </div>
 
@@ -369,28 +362,28 @@ export default function PricingPage() {
                 <div className="rounded-3xl bg-white/95 backdrop-blur p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
-                      <span className="text-white text-xl">📞</span>
+                      <span className="text-white text-xl">📧</span>
                     </div>
                     <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                      Contact Us
+                      {PricingPageText.contact}
                     </h3>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
                       <span className="text-2xl">📧</span>
                       <div>
-                        <div className="font-semibold text-slate-800">Email</div>
-                        <a href="mailto:booking@sixhourlayover.com" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
-                          booking@sixhourlayover.com
+                        <div className="font-semibold text-slate-800">{GlobalText.email}</div>
+                        <a href={`mailto:${GlobalText.emailAddress}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          {GlobalText.emailAddress}
                         </a>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
                       <span className="text-2xl">📞</span>
                       <div>
-                        <div className="font-semibold text-slate-800">Phone</div>
-                        <a href="tel:+12064866398" className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
-                          (206) 486-6398
+                        <div className="font-semibold text-slate-800">{GlobalText.phone}</div>
+                        <a href={`tel:${GlobalText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                          {GlobalText.phoneNumber}
                         </a>
                       </div>
                     </div>
@@ -404,15 +397,15 @@ export default function PricingPage() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Book Your Seattle Adventure?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">{PricingPageText.ctaTitle}</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of travelers who've made their layover unforgettable
+              {PricingPageText.ctaSubtitle}
             </p>
             <a 
               href="/book"
               className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
             >
-              ✈️ Book Your Tour Now
+              ✈️ {GlobalText.bookYourTourNow}
             </a>
           </div>
         </section>
@@ -427,36 +420,36 @@ export default function PricingPage() {
                     <PlaneIcon className="h-5 w-5" />
                   </div>
                   <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    The Six-Hour Layover
+                    {GlobalText.appName}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600">Making layovers memorable, one city at a time.</p>
+                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">Legal</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">📄 Terms of Service</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">🔒 Privacy Policy</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
                 </div>
               </div>
             </div>
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                © {new Date().getFullYear()} The Six-Hour Layover, Seattle
+                {GlobalText.copyright}
               </div>
             </div>
           </div>

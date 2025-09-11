@@ -1,11 +1,12 @@
+import { TermsPageText } from "@/lib/text";
 
 export default function TermsPage() {
   return (
     <main className="container py-10 prose prose-slate max-w-3xl">
-      <h1>Terms of Service</h1>
-      <p>Use at your own risk. Always leave generous time buffers for airport procedures.</p>
-      <h2>Liability</h2>
-      <p>We are not liable for missed flights, delays, or changes in local conditions.</p>
+      <h1>{TermsPageText.title}</h1>
+      <p>{TermsPageText.description}</p>
+      <h2>{TermsPageText.liabilityTitle}</h2>
+      <p>{TermsPageText.liabilityDescription}</p>
     </main>
   );
 }
