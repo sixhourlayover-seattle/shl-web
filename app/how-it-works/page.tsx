@@ -7,11 +7,11 @@ const HOW_IT_WORKS_STEPS = [
   {
     step: 1,
     title: "Book Your Tour",
-    description: "Contact us via email or phone to secure your spot. We&apos;ll send confirmation details and track your flight.",
+    description: "Contact us via email or phone to secure your spot. We'll send confirmation details and track your flight.",
     icon: "📧",
     details: [
       "Email booking@sixhourlayover.com or call (206) 486-6398",
-      "We&apos;ll confirm your booking and send you detailed instructions",
+      "We'll confirm your booking and send you detailed instructions",
       "Flight tracking begins 24 hours before arrival"
     ]
   },
@@ -23,7 +23,7 @@ const HOW_IT_WORKS_STEPS = [
     details: [
       "Your guide meets you at baggage claim with a sign",
       "We help coordinate luggage storage if needed ($10-15 per bag)",
-      "Quick briefing on the day&apos;s itinerary and timing"
+      "Quick briefing on the day's itinerary and timing"
     ]
   },
   {
@@ -52,7 +52,7 @@ const HOW_IT_WORKS_STEPS = [
   {
     step: 5,
     title: "Return to Airport",
-    description: "With a guaranteed 2-hour buffer, we ensure you&apos;re back at SEA with plenty of time for your next flight.",
+    description: "With a guaranteed 2-hour buffer, we ensure you're back at SEA with plenty of time for your next flight.",
     icon: "⏰",
     details: [
       "Departure timed with 2-hour buffer before your flight",
@@ -75,7 +75,7 @@ const WHAT_MAKES_US_DIFFERENT = [
   },
   {
     title: "Luggage Storage Guidance",
-    description: "We help you navigate SEA&apos;s luggage storage options and guide you through the process.",
+    description: "We help you navigate SEA's luggage storage options and guide you through the process.",
     icon: "🧳"
   },
   {
@@ -90,7 +90,7 @@ const WHAT_MAKES_US_DIFFERENT = [
   },
   {
     title: "Flexible Customization",
-    description: "Tell us your preferences and we&apos;ll adapt the route. More food? Less walking? We&apos;ve got you covered.",
+    description: "Tell us your preferences and we'll adapt the route. More food? Less walking? We've got you covered.",
     icon: "⚙️"
   }
 ];
@@ -118,7 +118,7 @@ export default function HowItWorksPage() {
                 <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">How It Works</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
-                From airport pickup to guaranteed on-time return — here&apos;s how we make your Seattle layover unforgettable
+                From airport pickup to guaranteed on-time return — here's how we make your Seattle layover unforgettable
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function HowItWorksPage() {
                 <span className="text-slate-900">What Makes Us Different</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                We&apos;re not just a tour company — we&apos;re layover specialists who understand the unique challenges of short airport connections
+                We're not just a tour company — we're layover specialists who understand the unique challenges of short airport connections
               </p>
             </div>
 
@@ -207,7 +207,7 @@ export default function HowItWorksPage() {
             <div className="rounded-3xl bg-gradient-to-br from-blue-100 to-indigo-100 p-8 shadow-2xl hover-lift">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-slate-800 mb-4">Transportation Details</h2>
-                <p className="text-slate-700 text-lg">Here&apos;s what you need to know about getting around</p>
+                <p className="text-slate-700 text-lg">Here's what you need to know about getting around</p>
               </div>
 
               <div className="grid gap-8 md:grid-cols-2">

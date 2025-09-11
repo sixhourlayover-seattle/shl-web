@@ -33,10 +33,10 @@ const BOOKING_INFO = [
     ]
   },
   {
-    title: "What We&apos;ll Send",
+    title: "What We'll Send",
     items: [
       "Booking confirmation with all details",
-      "Your guide&apos;s contact information",
+      "Your guide's contact information",
       "Detailed meeting instructions",
       "Flight tracking confirmation"
     ]
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Contact Us</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
-                Ready to book your Seattle layover adventure? We&apos;re here to help make it happen.
+                Ready to book your Seattle layover adventure? We're here to help make it happen.
               </p>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-800 mb-6">Booking Information</h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Here&apos;s what to expect when you contact us
+                Here's what to expect when you contact us
               </p>
             </div>
 
@@ -258,7 +258,7 @@ export default function ContactPage() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Book Your Seattle Adventure?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today and we&apos;ll take care of all the details for your perfect layover experience
+              Contact us today and we'll take care of all the details for your perfect layover experience
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 

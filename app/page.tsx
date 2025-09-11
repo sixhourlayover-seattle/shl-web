@@ -17,7 +17,7 @@ const SEATTLE_HIGHLIGHTS = [
 ];
 
 const TESTIMONIALS = [
-  "It&apos;s like having a local friend in the city — guiding you every step.",
+  "It's like having a local friend in the city — guiding you every step.",
   "Perfect for our 6-hour layover. We saw so much!",
   "Stress-free and unforgettable. Highly recommend!"
 ];
@@ -107,14 +107,14 @@ export default function Page() {
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight">
               <span className="text-slate-900">Just 6 Hours in Seattle?</span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">—We&apos;ve Got You!</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">&mdash;We've Got You!</span>
             </h1>
             <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
               No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.
             </p>
             <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 mb-6">
               <p className="text-lg italic text-slate-700 text-center">
-                “{TESTIMONIALS[0]}”
+                &ldquo;{TESTIMONIALS[0]}&rdquo;
               </p>
             </div>
             <div className="grid gap-4 text-left max-w-2xl">
@@ -140,7 +140,7 @@ export default function Page() {
                 href="/book"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                Book Now — Secure your Seattle layover today
+                Book Now &mdash; Secure your Seattle layover today
               </a>
             </div>
             <div className="flex items-center gap-6 mt-6">
@@ -195,7 +195,7 @@ export default function Page() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              <span className="text-slate-900">You&apos;re probably thinking…</span>
+              <span className="text-slate-900">You're probably thinking…</span>
             </h2>
           </div>
           
@@ -204,16 +204,16 @@ export default function Page() {
             <div className="space-y-8">
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  “Six hours? Is that even enough?”
+                  &ldquo;Six hours? Is that even enough?&rdquo;
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  Absolutely. We&apos;ve designed this as a condensed, <strong>no stress</strong> experience that <strong>skips lines</strong>, avoids hassles, and guides you through Seattle&apos;s highlights — food, views, and photos — all with <strong>time to spare</strong>.
+                  Absolutely. We've designed this as a condensed, <strong>no stress</strong> experience that <strong>skips lines</strong>, avoids hassles, and guides you through Seattle's highlights &mdash; food, views, and photos &mdash; all with <strong>time to spare</strong>.
                 </p>
               </div>
               
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  &ldquo;I don&apos;t want the stress of figuring out transportation.&rdquo;
+                  &ldquo;I don't want the stress of figuring out transportation.&rdquo;
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
                   No stress at all. We handle the pickup, guide you through the city, and return you to the airport—zero guesswork.
@@ -222,19 +222,19 @@ export default function Page() {
               
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  “What about my luggage?”
+                  &ldquo;What about my luggage?&rdquo;
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  Easy. SEA Airport offers secure Smarte Carte storage. Simply check your bags before your tour begins, and we&apos;ll guide you every step from there.
+                  Easy. SEA Airport offers secure Smarte Carte storage. Simply check your bags before your tour begins, and we'll guide you every step from there.
                 </p>
               </div>
               
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
                 <h3 className="text-2xl font-bold text-purple-700 mb-4">
-                  “I just want to taste, see, and feel Seattle—fast.”
+                  &ldquo;I just want to taste, see, and feel Seattle—fast.&rdquo;
                 </h3>
                 <p className="text-slate-700 leading-relaxed">
-                  That&apos;s exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.
+                  That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.
                 </p>
               </div>
             </div>
@@ -283,9 +283,9 @@ export default function Page() {
               Smart. Seamless. Unforgettable.
             </h3>
             <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Most travelers waste hours stuck in the airport — <strong>but not you!</strong><br/>
+              Most travelers waste hours stuck in the airport &mdash; <strong>but not you!</strong><br/>
               Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<br/>
-              You&apos;ll return with stories, photos, and a little Seattle gift in hand.
+              You'll return with stories, photos, and a little Seattle gift in hand.
             </p>
           </div>
           
@@ -385,7 +385,7 @@ export default function Page() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
         <div className="container text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Seattle&apos;s best bites, views, and a guaranteed on-time return.</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">Seattle's best bites, views, and a guaranteed on-time return.</h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             Loved by travelers from 20+ countries
           </p>
@@ -393,7 +393,7 @@ export default function Page() {
             href="/book"
             className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
           >
-            Book Now — Secure your Seattle layover today
+            Book Now &mdash; Secure your Seattle layover today
           </a>
         </div>
       </section>
