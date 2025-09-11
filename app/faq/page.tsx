@@ -16,7 +16,7 @@ const FAQ_SECTIONS = [
       },
       {
         question: "Is 6 hours really enough to explore Seattle?",
-        answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos — and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" — with stories, photos, and memories worth sharing."
+        answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos &mdash; and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" &mdash; with stories, photos, and memories worth sharing."
       },
       {
         question: "Where do we meet at the airport?",
@@ -24,7 +24,7 @@ const FAQ_SECTIONS = [
       },
       {
         question: "Can I bring my luggage?",
-        answer: "We recommend using the luggage storage service at SEA Airport for convenience. The cost is about $10–15 per bag, and guests pay this fee directly to the storage provider — it is not included in your tour price."
+        answer: "We recommend using the luggage storage service at SEA Airport for convenience. The cost is about $10–15 per bag, and guests pay this fee directly to the storage provider &mdash; it is not included in your tour price."
       }
     ]
   },
@@ -47,15 +47,15 @@ const FAQ_SECTIONS = [
       },
       {
         question: "Who provides the transportation during the tour?",
-        answer: "For all of our tours, transportation is arranged through Uber/Lyft ride-share services. These providers carry $1 million in liability coverage per ride, which protects all passengers in the event of an accident.\n\nWe handle all the logistics — meeting your driver, coordinating pickup/drop-off, and keeping the schedule on track — but we do not own or operate the vehicles. This means the rides are fully insured by Uber/Lyft, while we focus on ensuring your journey is smooth and stress-free."
+        answer: "For all of our tours, transportation is arranged through Uber/Lyft ride-share services. These providers carry $1 million in liability coverage per ride, which protects all passengers in the event of an accident.\n\nWe handle all the logistics &mdash; meeting your driver, coordinating pickup/drop-off, and keeping the schedule on track &mdash; but we do not own or operate the vehicles. This means the rides are fully insured by Uber/Lyft, while we focus on ensuring your journey is smooth and stress-free."
       },
       {
         question: "What if I need to cancel?",
-        answer: "No problem. You'll receive a full refund with at least 24 hours' notice — our goal is to keep things stress-free and flexible."
+        answer: "No problem. You'll receive a full refund with at least 24 hours' notice &mdash; our goal is to keep things stress-free and flexible."
       },
       {
         question: "Are there refunds?",
-        answer: "Yes — if your flight is cancelled or you cancel more than 24 hours in advance, you'll receive a full refund."
+        answer: "Yes &mdash; if your flight is cancelled or you cancel more than 24 hours in advance, you'll receive a full refund."
       }
     ]
   },
@@ -66,11 +66,11 @@ const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Is this a private tour or group tour?",
-        answer: "The Seattle Highlights Layover Tour is private — just you, your group, and your Layover Specialist.\n\nThe Pike Place Market Food Tour is a small-group partner experience and may include other travelers.\n\nEither way, you'll enjoy seamless airport pickup, timing, and our guaranteed on-time return."
+        answer: "The Seattle Highlights Layover Tour is private &mdash; just you, your group, and your Layover Specialist.\n\nThe Pike Place Market Food Tour is a small-group partner experience and may include other travelers.\n\nEither way, you'll enjoy seamless airport pickup, timing, and our guaranteed on-time return."
       },
       {
         question: "Do you offer tours in my language?",
-        answer: "Tours are always available in English. Additional languages — including Mandarin, French, Turkish, Japanese, and Spanish — are offered upon request and subject to guide availability. Please confirm your preferred language when booking. More languages coming soon."
+        answer: "Tours are always available in English. Additional languages &mdash; including Mandarin, French, Turkish, Japanese, and Spanish &mdash; are offered upon request and subject to guide availability. Please confirm your preferred language when booking. More languages coming soon."
       }
     ]
   },
@@ -130,7 +130,7 @@ const FAQ_SECTIONS = [
     faqs: [
       {
         question: "What happens if there's bad weather?",
-        answer: "Seattle's weather is part of the charm! We provide umbrellas and adjust pacing — and if needed, we switch to indoor highlights like Chihuly Garden, MoPOP, or the Starbucks Reserve Roastery."
+        answer: "Seattle's weather is part of the charm! We provide umbrellas and adjust pacing &mdash; and if needed, we switch to indoor highlights like Chihuly Garden, MoPOP, or the Starbucks Reserve Roastery."
       }
     ]
   }
@@ -247,7 +247,7 @@ export default function FAQPage() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Still have questions?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us directly — we&apos;ll make sure your layover is stress-free from start to finish.
+              Contact us directly — we'll make sure your layover is stress-free from start to finish.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
