@@ -3,138 +3,7 @@ import { useState } from "react";
 import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
-
-const FAQ_SECTIONS = [
-  {
-    title: "Flight Delays & Timing",
-    icon: "✈️",
-    color: "from-blue-500 to-cyan-500",
-    faqs: [
-      {
-        question: "What if my flight is delayed or arrives early?",
-        answer: "No problem — we track your flight in real time. If your plane lands later or earlier than expected, your Layover Concierge will adjust the pickup time so you never miss your tour."
-      },
-      {
-        question: "Is 6 hours really enough to explore Seattle?",
-        answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos &mdash; and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" &mdash; with stories, photos, and memories worth sharing."
-      },
-      {
-        question: "Where do we meet at the airport?",
-        answer: "Your Concierge greets you right at the Arrivals Baggage Claim area (with a sign) and will also send you a WhatsApp/text update before you land. We'll guide you to the Uber pickup point, handle the ride coordination, and start your adventure together."
-      },
-      {
-        question: "Can I bring my luggage?",
-        answer: "We recommend using the luggage storage service at SEA Airport for convenience. The cost is about $10–15 per bag, and guests pay this fee directly to the storage provider &mdash; it is not included in your tour price."
-      }
-    ]
-  },
-  {
-    title: "Cancellation, Booking & Transportation",
-    icon: "💳",
-    color: "from-green-500 to-emerald-500",
-    faqs: [
-      {
-        question: "How much does it cost?",
-        answer: "Tours are priced simply:\n- Solo Traveler — $389\n- 2–3 Travelers — $250 pp\n- 4–5 Travelers — $220 pp\n- Family Pack — $750 flat (2 adults + up to 3 kids under 12)\n- Extra kids (under 12) — $199 each\n\nSee our Tours & Pricing page for details."
-      },
-      {
-        question: "How do I book and pay?",
-        answer: "All bookings are made online through our secure system - simply click the \"Book Now\" button. We accept all major cards, and you will receive instant confirmation."
-      },
-      {
-        question: "How are children priced?",
-        answer: "Children aged 0–3 join free.\nFamily Pack includes 2 adults + up to 3 kids under 12 for $750 flat.\nExtra kids under 12 are $199 each."
-      },
-      {
-        question: "Who provides the transportation during the tour?",
-        answer: "For all of our tours, transportation is arranged through Uber/Lyft ride-share services. These providers carry $1 million in liability coverage per ride, which protects all passengers in the event of an accident.\n\nWe handle all the logistics &mdash; meeting your driver, coordinating pickup/drop-off, and keeping the schedule on track &mdash; but we do not own or operate the vehicles. This means the rides are fully insured by Uber/Lyft, while we focus on ensuring your journey is smooth and stress-free."
-      },
-      {
-        question: "What if I need to cancel?",
-        answer: "No problem. You'll receive a full refund with at least 24 hours' notice &mdash; our goal is to keep things stress-free and flexible."
-      },
-      {
-        question: "Are there refunds?",
-        answer: "Yes &mdash; if your flight is cancelled or you cancel more than 24 hours in advance, you'll receive a full refund."
-      }
-    ]
-  },
-  {
-    title: "Private vs. Group",
-    icon: "👥",
-    color: "from-purple-500 to-pink-500",
-    faqs: [
-      {
-        question: "Is this a private tour or group tour?",
-        answer: "The Seattle Highlights Layover Tour is private &mdash; just you, your group, and your Layover Specialist.\n\nThe Pike Place Market Food Tour is a small-group partner experience and may include other travelers.\n\nEither way, you'll enjoy seamless airport pickup, timing, and our guaranteed on-time return."
-      },
-      {
-        question: "Do you offer tours in my language?",
-        answer: "Tours are always available in English. Additional languages &mdash; including Mandarin, French, Turkish, Japanese, and Spanish &mdash; are offered upon request and subject to guide availability. Please confirm your preferred language when booking. More languages coming soon."
-      }
-    ]
-  },
-  {
-    title: "On-Time Guarantee",
-    icon: "⏰",
-    color: "from-orange-500 to-red-500",
-    faqs: [
-      {
-        question: "Will I miss my flight?",
-        answer: "No. Every tour includes a 2-hour buffer built in. If traffic or delays occur, we'll adjust the schedule to get you back on time."
-      },
-      {
-        question: "How do you make sure I'm back with time to spare?",
-        answer: "Every tour is built around your flight schedule. We track traffic and flights in real time and guarantee you'll be back at SEA with at least a 2-hour buffer before boarding. Peace of mind is part of the service."
-      }
-    ]
-  },
-  {
-    title: "Physical Demand & Accessibility",
-    icon: "🚶",
-    color: "from-indigo-500 to-purple-500",
-    faqs: [
-      {
-        question: "Is the tour physically demanding?",
-        answer: "No. Tours are light walking only, with plenty of rest stops. They're suitable for all ages, including children, and we can adjust pacing for families if needed."
-      },
-      {
-        question: "Is this family-friendly?",
-        answer: "Absolutely. We welcome kids, seniors, and multigenerational groups. Tours are flexible in pacing, with rest breaks and food stops that work for families."
-      }
-    ]
-  },
-  {
-    title: "Customization",
-    icon: "⚙️",
-    color: "from-teal-500 to-blue-500",
-    faqs: [
-      {
-        question: "Can I customize my layover tour?",
-        answer: "Yes. Tell us your preferences (more food, less walking, specific landmarks) and your Concierge will adapt the route."
-      },
-      {
-        question: "Can I add food or coffee stops?",
-        answer: "Definitely! Choose from our Add-Ons Menu (Dick's Burger, Top Pot Coffee, Molly Moon's Ice Cream, Starbucks Reserve) when booking."
-      },
-      {
-        question: "Can I bring home souvenirs from Seattle?",
-        answer: "Yes! Every Six-Hour Layover guest receives a reusable tote bag, and you can pre-order local favorites like chowder, cheese, coffee, cherries, or smoked salmon. We'll have everything packed and ready when you arrive.\n\nSee our Gift Tote Pre-Order page for details."
-      }
-    ]
-  },
-  {
-    title: "Weather",
-    icon: "🌧️",
-    color: "from-slate-500 to-gray-500",
-    faqs: [
-      {
-        question: "What happens if there's bad weather?",
-        answer: "Seattle's weather is part of the charm! We provide umbrellas and adjust pacing &mdash; and if needed, we switch to indoor highlights like Chihuly Garden, MoPOP, or the Starbucks Reserve Roastery."
-      }
-    ]
-  }
-];
+import { FaqPageText, FAQ_SECTIONS, GlobalText } from "@/lib/text";
 
 interface FAQItemProps {
   faq: {
@@ -200,10 +69,10 @@ export default function FAQPage() {
           <div className="container">
             <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Frequently Asked Questions</span>
+                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{FaqPageText.title}</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
-                Everything you need to know about your Seattle layover adventure
+                {FaqPageText.subtitle}
               </p>
             </div>
           </div>
@@ -245,9 +114,9 @@ export default function FAQPage() {
         {/* Contact CTA */}
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Still have questions?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">{FaqPageText.ctaTitle}</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us directly — we'll make sure your layover is stress-free from start to finish.
+              {FaqPageText.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
@@ -255,14 +124,14 @@ export default function FAQPage() {
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📝</span>
-                Book Your Tour Now
+                {GlobalText.bookYourTourNow}
               </a>
               <a 
                 href="mailto:booking@sixhourlayover.com"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📧</span>
-                Email Questions
+                {GlobalText.emailQuestions}
               </a>
               <a 
                 href="tel:+12064866398"
@@ -285,36 +154,36 @@ export default function FAQPage() {
                     <PlaneIcon className="h-5 w-5" />
                   </div>
                   <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    The Six-Hour Layover
+                    {GlobalText.appName}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600">Making layovers memorable, one city at a time.</p>
+                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">Quick Links</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">🏠 Home</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">⚙️ How It Works</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">💰 Tours & Pricing</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">❓ FAQs</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">👥 About</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">📞 Contact</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">Legal</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">📄 Terms of Service</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">🔒 Privacy Policy</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
                 </div>
               </div>
             </div>
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                © {new Date().getFullYear()} The Six-Hour Layover, Seattle
+                {GlobalText.copyright}
               </div>
             </div>
           </div>

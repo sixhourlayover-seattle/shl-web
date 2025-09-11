@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { PlaneIcon, ClockIcon } from "@/components/Icons";
+import { BookingFormText } from "@/lib/text";
 
 interface BookingFormProps {
   onClose?: () => void;
@@ -161,17 +162,14 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
       <div className={`${isModal ? 'p-8' : 'container py-16'}`}>
         <div className="text-center max-w-2xl mx-auto">
           <div className="text-6xl mb-6">✅</div>
-          <h2 className="text-3xl font-bold text-green-700 mb-4">Booking Confirmed!</h2>
+          <h2 className="text-3xl font-bold text-green-700 mb-4">{BookingFormText.successTitle}</h2>
           <p className="text-slate-700 text-lg mb-6">
-            Thank you for booking your Seattle layover tour! We've received your request and will send you a confirmation email within 30 minutes with all the details.
+            {BookingFormText.successMessage}
           </p>
           <div className="bg-green-50 rounded-2xl p-6 mb-6">
-            <h3 className="font-bold text-green-800 mb-3">What's Next?</h3>
+            <h3 className="font-bold text-green-800 mb-3">{BookingFormText.whatsNext}</h3>
             <ul className="text-left space-y-2 text-green-700">
-              <li>• You'll receive a confirmation email with tour details</li>
-              <li>• We'll start tracking your flight 24 hours before arrival</li>
-              <li>• Your guide will contact you on the day of your tour</li>
-              <li>• We'll send meeting instructions and contact info</li>
+              {BookingFormText.whatsNextItems.map((item, i) => <li key={i}>• {item}</li>)}
             </ul>
           </div>
           {isModal && (
@@ -179,7 +177,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               onClick={onClose}
               className="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300"
             >
-              Close
+              {BookingFormText.close}
             </button>
           )}
         </div>
@@ -188,17 +186,17 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
   }
 
   const stepTitles = [
-    "Personal Information",
-    "Flight Details", 
-    "Tour Preferences",
-    "Review & Confirm"
+    BookingFormText.step1,
+    BookingFormText.step2,
+    BookingFormText.step3,
+    BookingFormText.step4
   ];
 
   return (
     <div className={`${isModal ? 'p-6' : 'container py-16'} max-w-4xl mx-auto`}>
       {isModal && onClose && (
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-slate-800">Book Your Seattle Tour</h2>
+          <h2 className="text-2xl font-bold text-slate-800">{BookingFormText.modalTitle}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -240,7 +238,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  First Name *
+                  {BookingFormText.firstName} *
                 </label>
                 <input
                   type="text"
@@ -249,14 +247,14 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                     errors.firstName ? 'border-red-500' : 'border-gray-200'
                   }`}
-                  placeholder="Enter your first name"
+                  placeholder={BookingFormText.firstNamePlaceholder}
                 />
                 {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Last Name *
+                  {BookingFormText.lastName} *
                 </label>
                 <input
                   type="text"
@@ -265,7 +263,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                     errors.lastName ? 'border-red-500' : 'border-gray-200'
                   }`}
-                  placeholder="Enter your last name"
+                  placeholder={BookingFormText.lastNamePlaceholder}
                 />
                 {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
               </div>
@@ -273,7 +271,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Email Address *
+                {BookingFormText.email} *
               </label>
               <input
                 type="email"
@@ -282,14 +280,14 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                   errors.email ? 'border-red-500' : 'border-gray-200'
                 }`}
-                placeholder="Enter your email address"
+                placeholder={BookingFormText.emailPlaceholder}
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Phone Number *
+                {BookingFormText.phone} *
               </label>
               <input
                 type="tel"
@@ -298,7 +296,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                   errors.phone ? 'border-red-500' : 'border-gray-200'
                 }`}
-                placeholder="Enter your phone number"
+                placeholder={BookingFormText.phonePlaceholder}
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
@@ -311,10 +309,10 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             <div className="bg-blue-50 rounded-2xl p-6 mb-6">
               <div className="flex items-center gap-3 mb-3">
                 <PlaneIcon className="h-6 w-6 text-blue-600" />
-                <h3 className="font-bold text-blue-800">Flight Information</h3>
+                <h3 className="font-bold text-blue-800">{BookingFormText.flightInfo}</h3>
               </div>
               <p className="text-blue-700 text-sm">
-                We'll track your flights in real-time and adjust pickup times automatically if there are delays.
+                {BookingFormText.flightInfoNote}
               </p>
             </div>
 
@@ -322,12 +320,12 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               {/* Arrival Flight */}
               <div className="space-y-4">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2">
-                  <span className="text-green-600">🛬</span> Arrival Flight
+                  <span className="text-green-600">🛬</span> {BookingFormText.arrivalFlight}
                 </h4>
                 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.date} *</label>
                     <input
                       type="date"
                       value={formData.arrivalDate}
@@ -340,7 +338,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Time *</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.time} *</label>
                     <input
                       type="time"
                       value={formData.arrivalTime}
@@ -354,7 +352,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Flight Number *</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.flightNumber} *</label>
                   <input
                     type="text"
                     value={formData.arrivalFlight}
@@ -362,7 +360,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                     className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                       errors.arrivalFlight ? 'border-red-500' : 'border-gray-200'
                     }`}
-                    placeholder="e.g., AA1234"
+                    placeholder={BookingFormText.flightNumberPlaceholder}
                   />
                   {errors.arrivalFlight && <p className="text-red-500 text-sm mt-1">{errors.arrivalFlight}</p>}
                 </div>
@@ -371,12 +369,12 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               {/* Departure Flight */}
               <div className="space-y-4">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2">
-                  <span className="text-blue-600">🛫</span> Departure Flight
+                  <span className="text-blue-600">🛫</span> {BookingFormText.departureFlight}
                 </h4>
                 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.date} *</label>
                     <input
                       type="date"
                       value={formData.departureDate}
@@ -389,7 +387,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Time *</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.time} *</label>
                     <input
                       type="time"
                       value={formData.departureTime}
@@ -403,7 +401,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Flight Number *</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.flightNumber} *</label>
                   <input
                     type="text"
                     value={formData.departureFlight}
@@ -411,7 +409,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                     className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                       errors.departureFlight ? 'border-red-500' : 'border-gray-200'
                     }`}
-                    placeholder="e.g., UA5678"
+                    placeholder={BookingFormText.departureFlightNumberPlaceholder}
                   />
                   {errors.departureFlight && <p className="text-red-500 text-sm mt-1">{errors.departureFlight}</p>}
                 </div>
@@ -425,7 +423,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-3">
-                Choose Your Tour *
+                {BookingFormText.tourOption} *
               </label>
               <div className="space-y-3">
                 {TOUR_OPTIONS.map((option) => (
@@ -450,7 +448,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             <div className="grid gap-6 md:grid-cols-3">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Total Travelers *
+                  {BookingFormText.totalTravelers} *
                 </label>
                 <select
                   value={formData.numberOfTravelers}
@@ -465,7 +463,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Adults (13+)
+                  {BookingFormText.adults}
                 </label>
                 <select
                   value={formData.adultsCount}
@@ -480,7 +478,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Children (0-12)
+                  {BookingFormText.children}
                 </label>
                 <select
                   value={formData.childrenCount}
@@ -497,21 +495,21 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             {parseInt(formData.childrenCount) > 0 && (
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Children's Ages
+                  {BookingFormText.childrenAges}
                 </label>
                 <input
                   type="text"
                   value={formData.childrenAges}
                   onChange={(e) => handleInputChange('childrenAges', e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  placeholder="e.g., 8, 10, 12"
+                  placeholder={BookingFormText.childrenAgesPlaceholder}
                 />
               </div>
             )}
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-3">
-                Add-Ons (Optional)
+                {BookingFormText.addOns}
               </label>
               <div className="grid gap-3 sm:grid-cols-2">
                 {ADD_ONS.map((addon) => (
@@ -532,27 +530,27 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Special Requests
+                {BookingFormText.specialRequests}
               </label>
               <textarea
                 value={formData.specialRequests}
                 onChange={(e) => handleInputChange('specialRequests', e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 rows={3}
-                placeholder="Any special requests, accessibility needs, or preferences?"
+                placeholder={BookingFormText.specialRequestsPlaceholder}
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Dietary Restrictions
+                {BookingFormText.dietaryRestrictions}
               </label>
               <input
                 type="text"
                 value={formData.dietaryRestrictions}
                 onChange={(e) => handleInputChange('dietaryRestrictions', e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="Any dietary restrictions or allergies?"
+                placeholder={BookingFormText.dietaryRestrictionsPlaceholder}
               />
             </div>
           </div>
@@ -562,24 +560,24 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
         {currentStep === 4 && (
           <div className="space-y-6">
             <div className="bg-gray-50 rounded-2xl p-6">
-              <h3 className="font-bold text-slate-800 mb-4">Booking Summary</h3>
+              <h3 className="font-bold text-slate-800 mb-4">{BookingFormText.bookingSummary}</h3>
               
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <h4 className="font-semibold text-slate-700 mb-2">Personal Information</h4>
+                  <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.personalInfo}</h4>
                   <p>{formData.firstName} {formData.lastName}</p>
                   <p>{formData.email}</p>
                   <p>{formData.phone}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-slate-700 mb-2">Flight Details</h4>
+                  <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.flightDetails}</h4>
                   <p><strong>Arrival:</strong> {formData.arrivalFlight} on {formData.arrivalDate} at {formData.arrivalTime}</p>
                   <p><strong>Departure:</strong> {formData.departureFlight} on {formData.departureDate} at {formData.departureTime}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-slate-700 mb-2">Tour Selection</h4>
+                  <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.tourSelection}</h4>
                   <p>{TOUR_OPTIONS.find(t => t.value === formData.tourOption)?.label}</p>
                   <p>{formData.numberOfTravelers} travelers ({formData.adultsCount} adults, {formData.childrenCount} children)</p>
                 </div>
@@ -607,12 +605,9 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             </div>
 
             <div className="bg-blue-50 rounded-2xl p-6">
-              <h3 className="font-bold text-blue-800 mb-3">What Happens Next?</h3>
+              <h3 className="font-bold text-blue-800 mb-3">{BookingFormText.whatsNext}</h3>
               <ul className="space-y-2 text-blue-700">
-                <li>• You'll receive a confirmation email within 30 minutes</li>
-                <li>• We'll send you detailed meeting instructions and your guide's contact info</li>
-                <li>• We'll start tracking your flights 24 hours before arrival</li>
-                <li>• Your guide will contact you on the day of your tour with any updates</li>
+                {BookingFormText.whatsNextItems.map((item, i) => <li key={i}>• {item}</li>)}
               </ul>
             </div>
 
@@ -624,9 +619,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   onChange={(e) => handleInputChange('agreeToTerms', e.target.checked)}
                   className={`mt-1 ${errors.agreeToTerms ? 'border-red-500' : ''}`}
                 />
-                <div className="text-sm text-slate-700">
-                  I agree to the <a href="/terms" className="text-purple-600 hover:underline" target="_blank">Terms of Service</a> and <a href="/privacy" className="text-purple-600 hover:underline" target="_blank">Privacy Policy</a>. I understand that this tour includes a guaranteed 2-hour buffer before my departure flight and that cancellations are free up to 24 hours before the tour.
-                </div>
+                <div className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: BookingFormText.agreeToTerms }} />
               </label>
               {errors.agreeToTerms && <p className="text-red-500 text-sm mt-1">{errors.agreeToTerms}</p>}
             </div>
@@ -651,7 +644,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
-            Previous
+            {BookingFormText.previous}
           </button>
 
           {currentStep < 4 ? (
@@ -660,7 +653,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               onClick={nextStep}
               className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >
-              Next Step
+              {BookingFormText.next}
             </button>
           ) : (
             <button
@@ -678,10 +671,10 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  Submitting...
+                  {BookingFormText.submitting}
                 </span>
               ) : (
-                'Confirm Booking'
+                BookingFormText.confirmBooking
               )}
             </button>
           )}
