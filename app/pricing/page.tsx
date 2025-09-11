@@ -11,7 +11,7 @@ const TOUR_OPTIONS = [
   {
     title: "6-Hour Classic Tour",
     subtitle: "Pike Place & Waterfront",
-    description: "Discover Seattle&apos;s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
+    description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
     duration: "Includes airport meet-up, round-trip city transfers, and a Seattle chocolate cherry gift bag.",
     features: [
       "Pike Place Market tour",
@@ -23,19 +23,19 @@ const TOUR_OPTIONS = [
   {
     title: "7-Hour Extended Tour",
     subtitle: "Classic + Space Needle",
-    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle&apos;s most iconic landmark.",
+    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle's most iconic landmark.",
     duration: "All Classic features plus Space Needle visit",
     features: [
       "All Classic Tour features",
       "Space Needle photo stop",
       "Extended exploration time",
-      "Seattle&apos;s iconic landmark"
+      "Seattle's iconic landmark"
     ]
   },
   {
     title: "8-Hour Premium Tour",
     subtitle: "Extended + Kerry Park",
-    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle&apos;s postcard skyline view.",
+    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle's postcard skyline view.",
     duration: "Maximum Seattle experience with skyline views",
     features: [
       "All Extended Tour features",
@@ -83,14 +83,14 @@ const WHATS_INCLUDED = [
 
 const GIFT_TOTE_ITEMS = [
   "Pike Place chowder mix",
-  "Beecher&apos;s handmade cheese", 
+  "Beecher's handmade cheese", 
   "Starbucks Reserve beans",
   "Seattle chocolate or Rainier cherries"
 ];
 
 const ADD_ONS = [
   {
-    name: "Dick&apos;s Burger Combo",
+    name: "Dick's Burger Combo",
     emoji: "🍔"
   },
   {
@@ -98,7 +98,7 @@ const ADD_ONS = [
     emoji: "☕"
   },
   {
-    name: "Molly Moon&apos;s Ice Cream",
+    name: "Molly Moon's Ice Cream",
     emoji: "🍦"
   },
   {
@@ -240,7 +240,7 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">What&apos;s Always Included</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">What's Always Included</span>
               </h2>
             </div>
 
@@ -406,7 +406,7 @@ export default function PricingPage() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Book Your Seattle Adventure?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of travelers who&apos;ve made their layover unforgettable
+              Join thousands of travelers who've made their layover unforgettable
             </p>
             <a 
               href="/book"

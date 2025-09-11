@@ -72,7 +72,7 @@ export default function AboutPage() {
                 Out to the city. Back on time. Turn your layover into the highlight of your trip.
               </h2>
               <p className="text-slate-700 text-xl max-w-4xl mx-auto leading-relaxed">
-                The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we&apos;ll take you from <strong>SEA Airport into Seattle&apos;s highlights</strong> — Pike Place Market, waterfront views, and local stories — and get you back with a guaranteed <strong>2-hour buffer</strong> before boarding.
+                The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from <strong>SEA Airport into Seattle's highlights</strong> &mdash; Pike Place Market, waterfront views, and local stories &mdash; and get you back with a guaranteed <strong>2-hour buffer</strong> before boarding.
               </p>
               <p className="text-slate-700 text-lg max-w-4xl mx-auto leading-relaxed mt-4">
                 Our tours are <strong>private and stress-free</strong>, with <strong>multilingual options</strong> available.
@@ -134,7 +134,7 @@ export default function AboutPage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-800 mb-6">Our Story</h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Born from the simple idea that layovers shouldn&apos;t be wasted time
+                Born from the simple idea that layovers shouldn't be wasted time
               </p>
             </div>
 
@@ -217,7 +217,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl font-bold text-white mb-8">Our Mission</h2>
               <p className="text-white/90 text-xl leading-relaxed mb-8">
-                To transform every layover into a highlight of your journey. We believe that even a few hours in a new city can create lasting memories, and we&apos;re here to make that happen — stress-free, perfectly timed, and unforgettable.
+                To transform every layover into a highlight of your journey. We believe that even a few hours in a new city can create lasting memories, and we're here to make that happen — stress-free, perfectly timed, and unforgettable.
               </p>
               <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/20 backdrop-blur border border-white/30">
                 <span className="text-2xl">💜</span>
@@ -231,7 +231,7 @@ export default function AboutPage() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Experience Seattle?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Join the thousands of travelers who&apos;ve discovered that layovers can be the best part of their journey
+              Join the thousands of travelers who've discovered that layovers can be the best part of their journey
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 

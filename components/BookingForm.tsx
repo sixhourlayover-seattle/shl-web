@@ -45,9 +45,9 @@ const TOUR_OPTIONS = [
 ];
 
 const ADD_ONS = [
-  { value: "dicks-burger", label: "Dick&apos;s Burger Combo", price: 15 },
+  { value: "dicks-burger", label: "Dick's Burger Combo", price: 15 },
   { value: "top-pot-coffee", label: "Top Pot Coffee & Doughnut", price: 12 },
-  { value: "mollys-ice-cream", label: "Molly Moon&apos;s Ice Cream", price: 8 },
+  { value: "mollys-ice-cream", label: "Molly Moon's Ice Cream", price: 8 },
   { value: "starbucks-reserve", label: "Starbucks Reserve Roastery Visit", price: 20 }
 ];
 
@@ -163,15 +163,15 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
           <div className="text-6xl mb-6">✅</div>
           <h2 className="text-3xl font-bold text-green-700 mb-4">Booking Confirmed!</h2>
           <p className="text-slate-700 text-lg mb-6">
-            Thank you for booking your Seattle layover tour! We&apos;ve received your request and will send you a confirmation email within 30 minutes with all the details.
+            Thank you for booking your Seattle layover tour! We've received your request and will send you a confirmation email within 30 minutes with all the details.
           </p>
           <div className="bg-green-50 rounded-2xl p-6 mb-6">
-            <h3 className="font-bold text-green-800 mb-3">What&apos;s Next?</h3>
+            <h3 className="font-bold text-green-800 mb-3">What's Next?</h3>
             <ul className="text-left space-y-2 text-green-700">
-              <li>• You&apos;ll receive a confirmation email with tour details</li>
-              <li>• We&apos;ll start tracking your flight 24 hours before arrival</li>
+              <li>• You'll receive a confirmation email with tour details</li>
+              <li>• We'll start tracking your flight 24 hours before arrival</li>
               <li>• Your guide will contact you on the day of your tour</li>
-              <li>• We&apos;ll send meeting instructions and contact info</li>
+              <li>• We'll send meeting instructions and contact info</li>
             </ul>
           </div>
           {isModal && (
@@ -314,7 +314,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 <h3 className="font-bold text-blue-800">Flight Information</h3>
               </div>
               <p className="text-blue-700 text-sm">
-                We&apos;ll track your flights in real-time and adjust pickup times automatically if there are delays.
+                We'll track your flights in real-time and adjust pickup times automatically if there are delays.
               </p>
             </div>
 
@@ -497,7 +497,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             {parseInt(formData.childrenCount) > 0 && (
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Children&apos;s Ages
+                  Children's Ages
                 </label>
                 <input
                   type="text"
@@ -609,9 +609,9 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             <div className="bg-blue-50 rounded-2xl p-6">
               <h3 className="font-bold text-blue-800 mb-3">What Happens Next?</h3>
               <ul className="space-y-2 text-blue-700">
-                <li>• You&apos;ll receive a confirmation email within 30 minutes</li>
-                <li>• We&apos;ll send you detailed meeting instructions and your guide&apos;s contact info</li>
-                <li>• We&apos;ll start tracking your flights 24 hours before arrival</li>
+                <li>• You'll receive a confirmation email within 30 minutes</li>
+                <li>• We'll send you detailed meeting instructions and your guide's contact info</li>
+                <li>• We'll start tracking your flights 24 hours before arrival</li>
                 <li>• Your guide will contact you on the day of your tour with any updates</li>
               </ul>
             </div>
