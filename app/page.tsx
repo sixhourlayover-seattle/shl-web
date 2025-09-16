@@ -172,7 +172,7 @@ export default function Page() {
                 <span className="font-semibold">Light rail: 30min • Buffer: 90min</span>
               </div>
               
-              {/* Feature cards */}
+              {/* Feature cards at bottom */}
               <div className="absolute left-6 right-6 bottom-6 grid grid-cols-3 gap-3 z-10">
                 {[
                   { name: "Eat", icon: "🍱", color: "from-orange-400 to-red-400" },
@@ -246,7 +246,7 @@ export default function Page() {
                 <div 
                   className="aspect-[4/3] bg-cover bg-center"
                   style={{
-                    backgroundImage: 'url("/seattle-skyline.jpg")',
+                    backgroundImage: 'url("/space-needle-skyline.jpg")',
                   }}
                 />
               </div>
@@ -255,7 +255,7 @@ export default function Page() {
                   <div 
                     className="aspect-square bg-cover bg-center"
                     style={{
-                      backgroundImage: 'url("/seattle.jpg")',
+                      backgroundImage: 'url("/pike-place-market.jpg")',
                     }}
                   />
                 </div>
@@ -263,7 +263,7 @@ export default function Page() {
                   <div 
                     className="aspect-square bg-cover bg-center"
                     style={{
-                      backgroundImage: 'url("/seattle-skyline.jpg")',
+                      backgroundImage: 'url("/seattle-waterfront.jpg")',
                     }}
                   />
                 </div>
