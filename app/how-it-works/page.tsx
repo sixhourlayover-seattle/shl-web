@@ -33,6 +33,26 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
+        {/* Images Section */}
+        <section className="py-16">
+          <div className="container text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+              <span className="text-slate-900">Smart. Seamless. Unforgettable.</span>
+            </h2>
+            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <img src="/pike-place-market.jpg" alt="Pike Place Market" className="w-full h-full object-cover" />
+              </div>
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <img src="/seattle-waterfront.jpg" alt="Seattle Waterfront" className="w-full h-full object-cover" />
+              </div>
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <img src="/space-needle-skyline.jpg" alt="Space Needle Skyline" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Steps */}
         <section className="py-8">
           <div className="container max-w-4xl mx-auto">
@@ -154,31 +174,7 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
-          <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">{HowItWorksPageText.ctaTitle}</h2>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              {HowItWorksPageText.ctaSubtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
-                href="/book"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="text-xl">📝</span>
-                {GlobalText.bookYourTourNow}
-              </a>
-              <a 
-                href="tel:+12064866398"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="text-xl">📞</span>
-                (206) 486-6398
-              </a>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Footer */}
         <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
