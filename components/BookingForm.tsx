@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { PlaneIcon, ClockIcon } from "@/components/Icons";
 import { BookingFormText } from "@/lib/text";
+import { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS, getProductByGroupSize, calculateTotalPrice, redirectToStripeCheckout, type StripeProduct, type StripeAddOn } from "@/lib/stripe-products";
 
 interface BookingFormProps {
   onClose?: () => void;
@@ -25,39 +26,35 @@ interface BookingData {
   
   // Tour Information
   tourOption: string;
-  numberOfTravelers: string;
-  adultsCount: string;
-  childrenCount: string;
+  numberOfTravelers: number;
+  adultsCount: number;
+  childrenCount: number;
   childrenAges: string;
-  
+
   // Special Requests
   specialRequests: string;
   dietaryRestrictions: string;
   addOns: string[];
+
+  // Calculated pricing
+  selectedProduct: StripeProduct | null;
+  selectedAddOns: StripeAddOn[];
+  totalPrice: number;
   
   // Agreement
   agreeToTerms: boolean;
 }
 
-const TOUR_OPTIONS = [
-  { value: "6-hour-classic", label: "6-Hour Classic Tour - Pike Place & Waterfront", basePrice: 250 },
-  { value: "7-hour-extended", label: "7-Hour Extended Tour - Classic + Space Needle", basePrice: 280 },
-  { value: "8-hour-premium", label: "8-Hour Premium Tour - Extended + Kerry Park", basePrice: 320 }
-];
+// Using Stripe products from configuration
+const TOUR_OPTIONS = STRIPE_TOUR_PRODUCTS;
+const ADD_ONS = STRIPE_ADD_ONS;
 
-const ADD_ONS = [
-  { value: "dicks-burger", label: "Dick's Burger Combo", price: 15 },
-  { value: "top-pot-coffee", label: "Top Pot Coffee & Doughnut", price: 12 },
-  { value: "mollys-ice-cream", label: "Molly Moon's Ice Cream", price: 8 },
-  { value: "starbucks-reserve", label: "Starbucks Reserve Roastery Visit", price: 20 }
-];
+// Initialize form data with proper defaults
+const initializeFormData = (): BookingData => {
+  const defaultProduct = getProductByGroupSize(2);
+  const totalPrice = defaultProduct ? calculateTotalPrice(defaultProduct, 2, []) : 0;
 
-export default function BookingForm({ onClose, isModal = false }: BookingFormProps) {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  
-  const [formData, setFormData] = useState<BookingData>({
+  return {
     firstName: "",
     lastName: "",
     email: "",
@@ -68,21 +65,49 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     departureDate: "",
     departureTime: "",
     departureFlight: "",
-    tourOption: "6-hour-classic",
-    numberOfTravelers: "2",
-    adultsCount: "2",
-    childrenCount: "0",
+    tourOption: defaultProduct?.id || "2-3-travelers-6hour",
+    numberOfTravelers: 2,
+    adultsCount: 2,
+    childrenCount: 0,
     childrenAges: "",
     specialRequests: "",
     dietaryRestrictions: "",
     addOns: [],
-    agreeToTerms: false
-  });
+    agreeToTerms: false,
+    selectedProduct: defaultProduct,
+    selectedAddOns: [],
+    totalPrice
+  };
+};
+
+export default function BookingForm({ onClose, isModal = false }: BookingFormProps) {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  
+  const [formData, setFormData] = useState<BookingData>(initializeFormData());
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleInputChange = (field: keyof BookingData, value: string | boolean | string[]) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleInputChange = (field: keyof BookingData, value: string | boolean | string[] | number) => {
+    const updatedData = { ...formData, [field]: value };
+
+    // Recalculate pricing when relevant fields change
+    if (field === 'numberOfTravelers' || field === 'tourOption') {
+      const travelers = field === 'numberOfTravelers' ? value as number : updatedData.numberOfTravelers;
+      const selectedProduct = field === 'tourOption'
+        ? STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || getProductByGroupSize(travelers)
+        : getProductByGroupSize(travelers);
+      const selectedAddOns = STRIPE_ADD_ONS.filter(addon => updatedData.addOns.includes(addon.id));
+      const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, travelers, selectedAddOns) : 0;
+
+      updatedData.selectedProduct = selectedProduct;
+      updatedData.selectedAddOns = selectedAddOns;
+      updatedData.totalPrice = totalPrice;
+    }
+
+    setFormData(updatedData);
+
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
@@ -90,11 +115,18 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
   };
 
   const handleAddOnChange = (addOn: string, checked: boolean) => {
+    const newAddOns = checked
+      ? [...formData.addOns, addOn]
+      : formData.addOns.filter(item => item !== addOn);
+
+    const selectedAddOns = STRIPE_ADD_ONS.filter(addon => newAddOns.includes(addon.id));
+    const totalPrice = formData.selectedProduct ? calculateTotalPrice(formData.selectedProduct, formData.numberOfTravelers, selectedAddOns) : 0;
+
     setFormData(prev => ({
       ...prev,
-      addOns: checked 
-        ? [...prev.addOns, addOn]
-        : prev.addOns.filter(item => item !== addOn)
+      addOns: newAddOns,
+      selectedAddOns,
+      totalPrice
     }));
   };
 
@@ -143,12 +175,13 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     setIsSubmitting(true);
     
     try {
-      // Here you would normally send to your backend
-      // For now, we'll simulate the submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      console.log("Booking submitted:", formData);
-      setSubmitSuccess(true);
+      // Redirect to Stripe checkout with selected product and add-ons
+      if (formData.selectedProduct) {
+        redirectToStripeCheckout(formData.selectedProduct, formData.selectedAddOns);
+        setSubmitSuccess(true);
+      } else {
+        throw new Error('No product selected');
+      }
     } catch (error) {
       console.error("Booking submission failed:", error);
       setErrors({ submit: "Booking submission failed. Please try again." });
@@ -425,20 +458,29 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               <label className="block text-sm font-medium text-slate-700 mb-3">
                 {BookingFormText.tourOption} *
               </label>
+              {formData.selectedProduct && (
+                <div className="mb-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                  <p className="text-sm text-purple-700">
+                    <strong>Current selection:</strong> {formData.selectedProduct.name} - ${formData.selectedProduct.price} {formData.selectedProduct.priceDescription}
+                  </p>
+                </div>
+              )}
+
               <div className="space-y-3">
                 {TOUR_OPTIONS.map((option) => (
-                  <label key={option.value} className="flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer hover:bg-purple-50 transition-colors">
+                  <label key={option.id} className="flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer hover:bg-purple-50 transition-colors">
                     <input
                       type="radio"
                       name="tourOption"
-                      value={option.value}
-                      checked={formData.tourOption === option.value}
+                      value={option.id}
+                      checked={formData.tourOption === option.id}
                       onChange={(e) => handleInputChange('tourOption', e.target.value)}
                       className="mt-1"
                     />
                     <div className="flex-1">
-                      <div className="font-semibold text-slate-800">{option.label}</div>
-                      <div className="text-purple-600 font-bold">Starting from ${option.basePrice}pp</div>
+                      <div className="font-semibold text-slate-800">{option.name}</div>
+                      <div className="text-purple-600 font-bold">${option.price} {option.priceDescription}</div>
+                      <div className="text-sm text-slate-600 mt-1">{option.description}</div>
                     </div>
                   </label>
                 ))}
@@ -452,7 +494,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 </label>
                 <select
                   value={formData.numberOfTravelers}
-                  onChange={(e) => handleInputChange('numberOfTravelers', e.target.value)}
+                  onChange={(e) => handleInputChange('numberOfTravelers', parseInt(e.target.value))}
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
                   {[1,2,3,4,5,6,7,8].map(num => (
@@ -467,7 +509,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 </label>
                 <select
                   value={formData.adultsCount}
-                  onChange={(e) => handleInputChange('adultsCount', e.target.value)}
+                  onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
                   {[1,2,3,4,5,6,7,8].map(num => (
@@ -482,7 +524,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 </label>
                 <select
                   value={formData.childrenCount}
-                  onChange={(e) => handleInputChange('childrenCount', e.target.value)}
+                  onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
                   {[0,1,2,3,4,5].map(num => (
@@ -492,7 +534,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               </div>
             </div>
 
-            {parseInt(formData.childrenCount) > 0 && (
+            {formData.childrenCount > 0 && (
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   {BookingFormText.childrenAges}
@@ -511,17 +553,19 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               <label className="block text-sm font-medium text-slate-700 mb-3">
                 {BookingFormText.addOns}
               </label>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-3 sm:grid-cols-1">
                 {ADD_ONS.map((addon) => (
-                  <label key={addon.value} className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50">
+                  <label key={addon.id} className="flex items-start gap-3 p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50">
                     <input
                       type="checkbox"
-                      checked={formData.addOns.includes(addon.value)}
-                      onChange={(e) => handleAddOnChange(addon.value, e.target.checked)}
+                      checked={formData.addOns.includes(addon.id)}
+                      onChange={(e) => handleAddOnChange(addon.id, e.target.checked)}
+                      className="mt-1"
                     />
                     <div className="flex-1">
-                      <div className="font-medium text-slate-800">{addon.label}</div>
-                      <div className="text-purple-600 font-semibold">+${addon.price}</div>
+                      <div className="font-medium text-slate-800">{addon.name}</div>
+                      <div className="text-purple-600 font-semibold">+${addon.price} per group</div>
+                      <div className="text-sm text-slate-600 mt-1">{addon.description}</div>
                     </div>
                   </label>
                 ))}
@@ -561,6 +605,19 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
           <div className="space-y-6">
             <div className="bg-gray-50 rounded-2xl p-6">
               <h3 className="font-bold text-slate-800 mb-4">{BookingFormText.bookingSummary}</h3>
+
+              {/* Pricing Summary */}
+              {formData.totalPrice > 0 && (
+                <div className="mb-6 p-4 bg-purple-50 rounded-xl border border-purple-200">
+                  <h4 className="font-bold text-purple-800 mb-3">Total Price: ${formData.totalPrice}</h4>
+                  <div className="text-sm text-purple-700">
+                    <p>Base tour: ${formData.selectedProduct?.price} {formData.selectedProduct?.priceDescription}</p>
+                    {formData.selectedAddOns.map(addon => (
+                      <p key={addon.id}>+ {addon.name}: ${addon.price}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
@@ -578,15 +635,15 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
                 <div>
                   <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.tourSelection}</h4>
-                  <p>{TOUR_OPTIONS.find(t => t.value === formData.tourOption)?.label}</p>
+                  <p>{formData.selectedProduct?.name}</p>
                   <p>{formData.numberOfTravelers} travelers ({formData.adultsCount} adults, {formData.childrenCount} children)</p>
                 </div>
 
-                {formData.addOns.length > 0 && (
+                {formData.selectedAddOns.length > 0 && (
                   <div>
                     <h4 className="font-semibold text-slate-700 mb-2">Add-Ons</h4>
-                    {formData.addOns.map(addon => (
-                      <p key={addon}>{ADD_ONS.find(a => a.value === addon)?.label}</p>
+                    {formData.selectedAddOns.map(addon => (
+                      <p key={addon.id}>{addon.name} (+${addon.price})</p>
                     ))}
                   </div>
                 )}
@@ -674,7 +731,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   {BookingFormText.submitting}
                 </span>
               ) : (
-                BookingFormText.confirmBooking
+                `Pay ${formData.totalPrice > 0 ? '$' + formData.totalPrice : ''} - ${BookingFormText.confirmBooking}`
               )}
             </button>
           )}
