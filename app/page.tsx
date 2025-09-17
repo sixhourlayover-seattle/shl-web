@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { HomePageText, GlobalText } from "@/lib/text";
+import { STRIPE_TOUR_PRODUCTS, redirectToStripeCheckout } from "@/lib/stripe-products";
 
 const SEATTLE_HIGHLIGHTS = [
   "Pike Place Market & famous fish toss",
@@ -137,12 +138,21 @@ export default function Page() {
               </div>
             </div>
             <div className="flex flex-wrap gap-4 mt-8">
-              <a 
+              <a
                 href="/book"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 {HomePageText.bookNow}
               </a>
+              <button
+                onClick={() => {
+                  const defaultProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === '2-3-travelers-6hour');
+                  if (defaultProduct) redirectToStripeCheckout(defaultProduct, []);
+                }}
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              >
+                ⚡ Quick Book - $250/person
+              </button>
             </div>
           </div>
           <div className="relative" style={{animation: 'slide-in 0.8s ease-out'}}>
@@ -359,12 +369,23 @@ export default function Page() {
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             {HomePageText.ctaSubtitle}
           </p>
-          <a 
-            href="/book"
-            className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
-          >
-            {HomePageText.bookNow}
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="/book"
+              className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+            >
+              📋 {HomePageText.bookNow}
+            </a>
+            <button
+              onClick={() => {
+                const defaultProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === '2-3-travelers-6hour');
+                if (defaultProduct) redirectToStripeCheckout(defaultProduct, []);
+              }}
+              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+            >
+              ⚡ Quick Book ($250/person)
+            </button>
+          </div>
         </div>
       </section>
 
