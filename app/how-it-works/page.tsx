@@ -1,5 +1,5 @@
 "use client";
-import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { HowItWorksPageText, HOW_IT_WORKS_STEPS, WHAT_MAKES_US_DIFFERENT, GlobalText } from "@/lib/text";
@@ -29,6 +29,26 @@ export default function HowItWorksPage() {
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
                 {HowItWorksPageText.subtitle}
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Images Section */}
+        <section className="py-16">
+          <div className="container text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+              <span className="text-slate-900">Smart. Seamless. Unforgettable.</span>
+            </h2>
+            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <img src="/pike-place-market.jpg" alt="Pike Place Market" className="w-full h-full object-cover" />
+              </div>
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <img src="/seattle-waterfront.jpg" alt="Seattle Waterfront" className="w-full h-full object-cover" />
+              </div>
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
+                <img src="/space-needle-skyline.jpg" alt="Space Needle Skyline" className="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </section>
@@ -69,7 +89,7 @@ export default function HowItWorksPage() {
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start gap-3">
                               <span className="text-green-600 text-lg">•</span>
-                              <span className="text-slate-600">{detail}</span>
+                              <span className="text-slate-600" dangerouslySetInnerHTML={{ __html: detail }}></span>
                             </li>
                           ))}
                         </ul>
@@ -154,31 +174,7 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
-          <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">{HowItWorksPageText.ctaTitle}</h2>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              {HowItWorksPageText.ctaSubtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
-                href="/book"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="text-xl">📝</span>
-                {GlobalText.bookYourTourNow}
-              </a>
-              <a 
-                href="tel:+12064866398"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="text-xl">📞</span>
-                (206) 486-6398
-              </a>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Footer */}
         <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
@@ -220,6 +216,35 @@ export default function HowItWorksPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
+              </div>
+              <div className="flex items-center gap-3">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61580441967255" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/sixhourlayoverseattle/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@sixhourlayover_sea" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on TikTok"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>

@@ -221,7 +221,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "How much does it cost?",
-        answer: "Tours are priced simply:\n- Solo Traveler — $389\n- 2–3 Travelers — $250 pp\n- 4–5 Travelers — $220 pp\n- Family Pack — $750 flat (2 adults + up to 3 kids under 12)\n- Extra kids (under 12) — $199 each\n\nSee our Tours & Pricing page for details."
+        answer: "Tours are priced simply:\n- Solo Traveler — $399\n- 2–3 Travelers — $250 pp\n- 4–5 Travelers — $220 pp\n- Family Pack — $750 flat (2 adults + up to 3 kids under 12)\n- Extra kids (under 12) — $199 each\n\nSee our Tours & Pricing page for details."
       },
       {
         question: "How do I book and pay?",
@@ -350,7 +350,7 @@ export const HOW_IT_WORKS_STEPS = [
     description: "Contact us via email or phone to secure your spot. We'll send confirmation details and track your flight.",
     icon: "📧",
     details: [
-      "Email booking@sixhourlayover.com or call (206) 486-6398",
+      "Email <strong>booking@sixhourlayover.com</strong> or call <strong>(206) 486-6398</strong>",
       "We'll confirm your booking and send you detailed instructions",
       "Flight tracking begins 24 hours before arrival"
     ]
@@ -440,7 +440,7 @@ export const HomePageText = {
   subtitle: "—We've Got You!",
   description: "No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.",
   shortLayovers: "Designed for layovers as short as 6 hours",
-  meetup: "Meet-up at SEA Airport with luggage storage support",
+  meetup: "Meet-up at SEA Airport",
   features: "Food, views, photos, and a take-home treat",
   luggage: "Luggage storage guidance included",
   bookNow: "Book Now — Secure your Seattle layover today",

@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" }
+      { url: "/logo_from_url.jpg" },
+      { url: "/logo_from_url.jpg", sizes: "192x192", type: "image/jpeg" },
+      { url: "/logo_from_url.jpg", sizes: "512x512", type: "image/jpeg" }
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }]
+    apple: [{ url: "/logo_from_url.jpg", sizes: "180x180", type: "image/jpeg" }]
   },
   manifest: "/manifest.webmanifest",
   themeColor: "#001628",
