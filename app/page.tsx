@@ -2,7 +2,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
@@ -165,27 +165,6 @@ export default function Page() {
             >
               {/* Gradient overlay for better text visibility */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-              
-              {/* Stats bar */}
-              <div className="absolute inset-x-6 top-6 h-12 rounded-2xl glass-dark flex items-center justify-center gap-2 text-sm text-white shadow-lg z-10">
-                <PlaneIcon className="h-5 w-5 text-yellow-300" />
-                <span className="font-semibold">Light rail: 30min • Buffer: 90min</span>
-              </div>
-              
-              {/* Feature cards at bottom */}
-              <div className="absolute left-6 right-6 bottom-6 grid grid-cols-3 gap-3 z-10">
-                {[
-                  { name: "Eat", icon: "🍱", color: "from-orange-400 to-red-400" },
-                  { name: "See", icon: "🎡", color: "from-blue-400 to-cyan-400" },
-                  { name: "Relax", icon: "☕", color: "from-green-400 to-emerald-400" }
-                ].map((k, i) => (
-                  <div key={i} className="group rounded-2xl bg-white/95 backdrop-blur-md border border-white/20 p-4 hover:scale-105 transition-all duration-300 cursor-pointer shadow-xl">
-                    <div className="text-2xl mb-2">{k.icon}</div>
-                    <div className={`text-lg font-bold bg-gradient-to-r ${k.color} bg-clip-text text-transparent`}>{k.name}</div>
-                    <p className="mt-1 text-xs text-slate-600">Curated spots</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -348,7 +327,7 @@ export default function Page() {
                       <span className="text-2xl">📧</span>
                       <div>
                         <div className="font-semibold text-slate-800">{HomePageText.email}</div>
-                        <a href={`mailto:${HomePageText.emailAddress}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                        <a href={`mailto:${HomePageText.emailAddress}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold">
                           {HomePageText.emailAddress}
                         </a>
                       </div>
@@ -357,7 +336,7 @@ export default function Page() {
                       <span className="text-2xl">📞</span>
                       <div>
                         <div className="font-semibold text-slate-800">{HomePageText.phone}</div>
-                        <a href={`tel:${HomePageText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                        <a href={`tel:${HomePageText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold">
                           {HomePageText.phoneNumber}
                         </a>
                       </div>
@@ -403,9 +382,7 @@ export default function Page() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-lg">
-                  <PlaneIcon className="h-5 w-5" />
-                </div>
+                <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
                 <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   {GlobalText.appName}
                 </span>
@@ -437,6 +414,35 @@ export default function Page() {
           <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-sm text-slate-600">
               {GlobalText.copyright}
+            </div>
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61580441967255" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                aria-label="Follow us on Facebook"
+              >
+                <FacebookIcon className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/sixhourlayoverseattle/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                aria-label="Follow us on Instagram"
+              >
+                <InstagramIcon className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@sixhourlayover_sea" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                aria-label="Follow us on TikTok"
+              >
+                <TikTokIcon className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 "use client";
-import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { HowItWorksPageText, HOW_IT_WORKS_STEPS, WHAT_MAKES_US_DIFFERENT, GlobalText } from "@/lib/text";
@@ -89,7 +89,7 @@ export default function HowItWorksPage() {
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start gap-3">
                               <span className="text-green-600 text-lg">•</span>
-                              <span className="text-slate-600">{detail}</span>
+                              <span className="text-slate-600" dangerouslySetInnerHTML={{ __html: detail }}></span>
                             </li>
                           ))}
                         </ul>
@@ -216,6 +216,35 @@ export default function HowItWorksPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
+              </div>
+              <div className="flex items-center gap-3">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61580441967255" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/sixhourlayoverseattle/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@sixhourlayover_sea" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on TikTok"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>

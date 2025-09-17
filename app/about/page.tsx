@@ -1,9 +1,10 @@
 "use client";
-import { PlaneIcon } from "@/components/Icons";
+import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import MascotSection from "@/components/MascotSection";
 import { AboutPageText, TEAM_VALUES, STORY_POINTS, STATS, GlobalText } from "@/lib/text";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -213,9 +214,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-lg">
-                    <PlaneIcon className="h-5 w-5" />
-                  </div>
+                  <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
                   <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                     {GlobalText.appName}
                   </span>
@@ -247,6 +246,35 @@ export default function AboutPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
+              </div>
+              <div className="flex items-center gap-3">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61580441967255" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/sixhourlayoverseattle/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@sixhourlayover_sea" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on TikTok"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>
