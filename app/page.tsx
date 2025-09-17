@@ -108,7 +108,7 @@ export default function Page() {
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight">
               <span className="text-slate-900">{HomePageText.title}</span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">&mdash;{HomePageText.subtitle}</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{HomePageText.subtitle}</span>
             </h1>
             <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
               {HomePageText.description}
@@ -143,14 +143,6 @@ export default function Page() {
               >
                 {HomePageText.bookNow}
               </a>
-            </div>
-            <div className="flex items-center gap-6 mt-6">
-              <div className="flex -space-x-2">
-                {[1,2,3,4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 border-2 border-white" />
-                ))}
-              </div>
-              <p className="text-sm text-slate-600">{HomePageText.lovedBy}</p>
             </div>
           </div>
           <div className="relative" style={{animation: 'slide-in 0.8s ease-out'}}>
