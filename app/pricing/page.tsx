@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { PricingPageText, GlobalText } from "@/lib/text";
+import { STRIPE_TOUR_PRODUCTS, redirectToStripeCheckout } from "@/lib/stripe-products";
 
 const TOUR_OPTIONS = [
   {
@@ -47,32 +48,7 @@ const TOUR_OPTIONS = [
   }
 ];
 
-const PRICING_TIERS = [
-  {
-    name: "Solo Traveler",
-    price: 399,
-    description: "1 guest",
-    groupSize: "1"
-  },
-  {
-    name: "2–3 Travelers",
-    price: 250,
-    description: "per person",
-    groupSize: "2-3"
-  },
-  {
-    name: "4–5 Travelers", 
-    price: 220,
-    description: "per person",
-    groupSize: "4-5"
-  },
-  {
-    name: "Family Pack",
-    price: 750,
-    description: "2 adults + up to 3 kids under 12",
-    groupSize: "2+3"
-  }
-];
+const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 
 const WHATS_INCLUDED = [
   "Airport meet & greet",
@@ -182,11 +158,11 @@ export default function PricingPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
               {PRICING_TIERS.map((tier, index) => (
-                <div 
-                  key={tier.name} 
+                <div
+                  key={tier.name}
                   className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${
-                    selectedTier === tier.name 
-                      ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105' 
+                    selectedTier === tier.name
+                      ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
                       : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
                   }`}
                   onClick={() => setSelectedTier(tier.name)}
@@ -198,9 +174,17 @@ export default function PricingPage() {
                       <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                         ${tier.price}
                       </span>
-                      {tier.name !== "Family Pack" && <span className="text-slate-600 text-sm ml-1">pp</span>}
                     </div>
-                    <p className="text-sm text-slate-600">{tier.description}</p>
+                    <p className="text-sm text-slate-600 mb-4">{tier.priceDescription}</p>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        redirectToStripeCheckout(tier, []);
+                      }}
+                      className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                    >
+                      Book Now
+                    </button>
                   </div>
                 </div>
               ))}
@@ -401,12 +385,23 @@ export default function PricingPage() {
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               {PricingPageText.ctaSubtitle}
             </p>
-            <a 
-              href="/book"
-              className="inline-flex items-center px-12 py-4 bg-white text-purple-600 font-bold text-xl rounded-2xl shadow-2xl hover:shadow-3d transform hover:-translate-y-2 transition-all duration-300"
-            >
-              ✈️ {GlobalText.bookYourTourNow}
-            </a>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="/book"
+                className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              >
+                📋 Custom Booking Form
+              </a>
+              <button
+                onClick={() => {
+                  const defaultProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === '2-3-travelers-6hour');
+                  if (defaultProduct) redirectToStripeCheckout(defaultProduct, []);
+                }}
+                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              >
+                ✈️ Quick Book (2-3 Travelers)
+              </button>
+            </div>
           </div>
         </section>
 
