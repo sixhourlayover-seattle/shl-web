@@ -437,7 +437,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
 
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
-  subtitle: "—We've Got You!",
+  subtitle: "We've Got You!",
   description: "No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.",
   shortLayovers: "Designed for layovers as short as 6 hours",
   meetup: "Meet-up at SEA Airport",

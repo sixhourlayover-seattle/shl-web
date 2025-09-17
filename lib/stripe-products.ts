@@ -126,8 +126,9 @@ export function calculateTotalPrice(product: StripeProduct, travelers: number, a
   return basePrice + addOnTotal;
 }
 
+// Legacy function - now handled by StripeCheckoutModal
 export function redirectToStripeCheckout(product: StripeProduct, addOns: StripeAddOn[] = []): void {
-  // For now, redirect to the main product's Stripe payment link
-  // In a more complex setup, you'd create a custom checkout session that includes add-ons
+  // This function is deprecated - use StripeCheckoutModal instead
+  console.warn('redirectToStripeCheckout is deprecated. Use StripeCheckoutModal instead.');
   window.open(product.paymentLink, '_blank');
 }
