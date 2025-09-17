@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { PlaneIcon } from "@/components/Icons";
 import { GlobalText, NAVIGATION_LINKS } from "@/lib/text";
 
@@ -12,9 +13,7 @@ export default function Navigation() {
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-neon">
-              <PlaneIcon className="h-5 w-5" />
-            </div>
+            <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
             <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               {GlobalText.appName}
             </span>

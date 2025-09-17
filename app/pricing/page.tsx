@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { PlaneIcon, ClockIcon, MapPinIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
@@ -50,7 +50,7 @@ const TOUR_OPTIONS = [
 const PRICING_TIERS = [
   {
     name: "Solo Traveler",
-    price: 389,
+    price: 399,
     description: "1 guest",
     groupSize: "1"
   },
@@ -373,7 +373,7 @@ export default function PricingPage() {
                       <span className="text-2xl">📧</span>
                       <div>
                         <div className="font-semibold text-slate-800">{GlobalText.email}</div>
-                        <a href={`mailto:${GlobalText.emailAddress}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                        <a href={`mailto:${GlobalText.emailAddress}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold">
                           {GlobalText.emailAddress}
                         </a>
                       </div>
@@ -382,7 +382,7 @@ export default function PricingPage() {
                       <span className="text-2xl">📞</span>
                       <div>
                         <div className="font-semibold text-slate-800">{GlobalText.phone}</div>
-                        <a href={`tel:${GlobalText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm">
+                        <a href={`tel:${GlobalText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold">
                           {GlobalText.phoneNumber}
                         </a>
                       </div>
@@ -450,6 +450,35 @@ export default function PricingPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
+              </div>
+              <div className="flex items-center gap-3">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61580441967255" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/sixhourlayoverseattle/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@sixhourlayover_sea" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  aria-label="Follow us on TikTok"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>
