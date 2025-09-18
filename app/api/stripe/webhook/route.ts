@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { getBookingData, updateBookingStatus } from '@/lib/booking-storage';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -49,17 +50,38 @@ export async function POST(request: NextRequest) {
         // 2. Send confirmation email
         // 3. Update inventory if needed
 
-        const bookingData = session.metadata?.bookingData ? JSON.parse(session.metadata.bookingData) : null;
+        const bookingInfo = {
+          sessionId: session.id,
+          customerName: session.metadata?.customerName,
+          customerEmail: session.metadata?.customerEmail,
+          customerPhone: session.metadata?.customerPhone,
+          tourOption: session.metadata?.tourOption,
+          numberOfTravelers: parseInt(session.metadata?.numberOfTravelers || '1'),
+          arrivalDate: session.metadata?.arrivalDate,
+          arrivalFlight: session.metadata?.arrivalFlight,
+          departureDate: session.metadata?.departureDate,
+          departureFlight: session.metadata?.departureFlight,
+          paymentAmount: session.amount_total,
+          paymentStatus: session.payment_status,
+        };
 
-        if (bookingData) {
-          console.log('Booking data:', bookingData);
-          // Process the booking data here
-        }
+        // Get full booking data from storage
+        const fullBookingData = await getBookingData(session.id);
+
+        console.log('Booking completed:', bookingInfo);
+        console.log('Full booking data:', fullBookingData);
+
+        // Update booking status to completed
+        await updateBookingStatus(session.id, 'completed');
+
+        // Process the booking here (send emails, etc.)
 
         break;
 
       case 'checkout.session.expired':
-        console.log('Checkout session expired:', event.data.object.id);
+        const expiredSession = event.data.object as Stripe.Checkout.Session;
+        console.log('Checkout session expired:', expiredSession.id);
+        await updateBookingStatus(expiredSession.id, 'cancelled');
         break;
 
       case 'payment_intent.payment_failed':

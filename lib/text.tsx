@@ -530,10 +530,10 @@ export const BookingFormText = {
   successMessage: "Thank you for booking your Seattle layover tour! We've received your request and will send you a confirmation email within 30 minutes with all the details.",
   whatsNext: "What's Next?",
   whatsNextItems: [
-    "You'll receive a confirmation email with tour details",
-    "We'll start tracking your flight 24 hours before arrival",
-    "Your guide will contact you on the day of your tour",
-    "We'll send meeting instructions and contact info"
+    "You'll receive a confirmation email with tour details.",
+    "We'll start tracking your flight 24 hours before arrival.",
+    "Your guide will contact you on the day of your tour.",
+    "We'll send meeting instructions and contact info."
   ],
   close: "Close",
   modalTitle: "Book Your Seattle Tour",

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { storeBookingData } from '@/lib/booking-storage';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -67,10 +68,21 @@ export async function POST(request: NextRequest) {
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/booking-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/booking-cancelled`,
       metadata: {
-        bookingData: JSON.stringify(bookingData),
+        customerName: `${bookingData.firstName} ${bookingData.lastName}`,
+        customerEmail: bookingData.email,
+        customerPhone: bookingData.phone,
+        tourOption: bookingData.tourOption,
+        numberOfTravelers: bookingData.numberOfTravelers.toString(),
+        arrivalDate: bookingData.arrivalDate,
+        arrivalFlight: bookingData.arrivalFlight,
+        departureDate: bookingData.departureDate,
+        departureFlight: bookingData.departureFlight,
       },
       customer_email: bookingData.email,
     });
+
+    // Store full booking data for later retrieval
+    await storeBookingData(session.id, bookingData);
 
     return NextResponse.json({ sessionId: session.id });
   } catch (error) {
