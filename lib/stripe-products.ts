@@ -22,7 +22,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     id: 'solo-traveler-6hour',
     name: 'Solo Traveler (6-Hour Layover Tour)',
     price: 399.00,
-    description: 'Six-Hour Layover guided tour in Seattle including Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes 2-hour buffer before flight.',
+    description: 'Six-Hour Layover guided tour in Seattle including Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes safe flight buffer before flight.',
     paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
     groupSize: '1',
     priceDescription: '1 guest'
@@ -31,7 +31,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     id: '2-3-travelers-6hour',
     name: '2–3 Travelers (6-Hour Layover Tour)',
     price: 250.00,
-    description: 'Six-Hour Layover guided tour in Seattle for 2–3 travelers. Includes Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes 2-hour buffer before flight.',
+    description: 'Six-Hour Layover guided tour in Seattle for 2–3 travelers. Includes Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes safe flight buffer before flight.',
     paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
     groupSize: '2-3',
     priceDescription: 'per person'
@@ -40,7 +40,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     id: 'family-pack',
     name: 'Family Pack (2 adults + up to 3 kids)',
     price: 750.00,
-    description: 'Six-Hour Layover guided tour for families (2 adults + up to 3 kids under 12). Includes Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes 2-hour buffer before flight.',
+    description: 'Six-Hour Layover guided tour for families (2 adults + up to 3 kids under 12). Includes Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes safe flight buffer before flight.',
     paymentLink: 'https://buy.stripe.com/3cIfZj0Kf9j18868E538402',
     groupSize: '2+3',
     priceDescription: '2 adults + up to 3 kids under 12'

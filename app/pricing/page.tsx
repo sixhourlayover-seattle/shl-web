@@ -53,7 +53,7 @@ const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Uber coordination",
-  "On-time return guarantee (2-hour buffer)",
+  "On-time return guarantee (safe flight buffer)",
   "Local souvenir tote bag",
   "Free cancellation up to 24 hours before your tour"
 ];
