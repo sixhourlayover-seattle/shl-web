@@ -2,8 +2,7 @@
 import { useState } from "react";
 import { PlaneIcon, ClockIcon } from "@/components/Icons";
 import { BookingFormText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS, getProductByGroupSize, calculateTotalPrice, type StripeProduct, type StripeAddOn } from "@/lib/stripe-products";
-import StripeCheckoutModal from "@/components/StripeCheckoutModal";
+import { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS, getProductByGroupSize, calculateTotalPrice, redirectToStripeCheckout, type StripeProduct, type StripeAddOn } from "@/lib/stripe-products";
 
 interface BookingFormProps {
   onClose?: () => void;
@@ -85,8 +84,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [showStripeModal, setShowStripeModal] = useState(false);
-
+  
   const [formData, setFormData] = useState<BookingData>(initializeFormData());
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -175,11 +173,12 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     if (!validateStep(4)) return;
 
     setIsSubmitting(true);
-
+    
     try {
-      // Show Stripe modal instead of immediately redirecting
+      // Redirect to Stripe checkout with selected product and add-ons
       if (formData.selectedProduct) {
-        setShowStripeModal(true);
+        redirectToStripeCheckout(formData.selectedProduct, formData.selectedAddOns);
+        setSubmitSuccess(true);
       } else {
         throw new Error('No product selected');
       }
@@ -189,20 +188,6 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleStripeSuccess = () => {
-    setShowStripeModal(false);
-    setSubmitSuccess(true);
-  };
-
-  const handleStripeError = (error: string) => {
-    setShowStripeModal(false);
-    setErrors({ submit: error });
-  };
-
-  const handleStripeClose = () => {
-    setShowStripeModal(false);
   };
 
   if (submitSuccess) {
@@ -752,17 +737,6 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
           )}
         </div>
       </form>
-
-      {/* Stripe Checkout Modal */}
-      <StripeCheckoutModal
-        isOpen={showStripeModal}
-        onClose={handleStripeClose}
-        onSuccess={handleStripeSuccess}
-        onError={handleStripeError}
-        product={formData.selectedProduct}
-        addOns={formData.selectedAddOns}
-        bookingData={formData}
-      />
     </div>
   );
 }

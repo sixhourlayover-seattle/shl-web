@@ -30,7 +30,7 @@ export const GlobalText = {
 export const AboutPageText = {
   title: "About Us",
   subtitle: "Out to the city. Back on time. Turn your layover into the highlight of your trip.",
-  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from <strong>SEA Airport into Seattle's highlights</strong> &mdash; Pike Place Market, waterfront views, and local stories &mdash; and get you back with a guaranteed <strong>safe flight buffer</strong> before boarding.</>,
+  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from <strong>SEA Airport into Seattle's highlights</strong> &mdash; Pike Place Market, waterfront views, and local stories &mdash; and get you back with a guaranteed <strong>2-hour buffer</strong> before boarding.</>,
   privateTours: <>Our tours are <strong>private and stress-free</strong>, with <strong>multilingual options</strong> available.</>,
   multilingualTitle: "Multilingual Tours Available",
   alwaysAvailable: "Always Available",
@@ -267,11 +267,11 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Will I miss my flight?",
-        answer: "No. Every tour includes a safe flight buffer built in. If traffic or delays occur, we'll adjust the schedule to get you back on time."
+        answer: "No. Every tour includes a 2-hour buffer built in. If traffic or delays occur, we'll adjust the schedule to get you back on time."
       },
       {
         question: "How do you make sure I'm back with time to spare?",
-        answer: "Every tour is built around your flight schedule. We track traffic and flights in real time and guarantee you'll be back at SEA with at least a safe flight buffer before boarding. Peace of mind is part of the service."
+        answer: "Every tour is built around your flight schedule. We track traffic and flights in real time and guarantee you'll be back at SEA with at least a 2-hour buffer before boarding. Peace of mind is part of the service."
       }
     ]
   },
@@ -392,10 +392,10 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: 5,
     title: "Return to Airport",
-    description: "With a guaranteed safe flight buffer, we ensure you're back at SEA with plenty of time for your next flight.",
+    description: "With a guaranteed 2-hour buffer, we ensure you're back at SEA with plenty of time for your next flight.",
     icon: "⏰",
     details: [
-      "Departure timed with safe flight buffer before your flight",
+      "Departure timed with 2-hour buffer before your flight",
       "Guide accompanies you back to the airport",
       "Drop-off at the correct terminal for your departure"
     ]
@@ -410,7 +410,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
   },
   {
     title: "Guaranteed On-Time Return",
-    description: "Every tour includes a safe flight buffer. We track traffic and adjust schedules to ensure you never miss your flight.",
+    description: "Every tour includes a 2-hour buffer. We track traffic and adjust schedules to ensure you never miss your flight.",
     icon: "⏰"
   },
   {
@@ -437,7 +437,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
 
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
-  subtitle: "We've Got You!",
+  subtitle: "—We've Got You!",
   description: "No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.",
   shortLayovers: "Designed for layovers as short as 6 hours",
   meetup: "Meet-up at SEA Airport",
@@ -456,7 +456,7 @@ export const HomePageText = {
   thinking4Description: "That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.",
   whyItWorksTitle: "Why It Works",
   whyItWorksSubtitle: "Smart. Seamless. Unforgettable.",
-  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong><br/>Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>safe flight buffer</strong> before your flight, every moment is stress-free.<br/>You'll return with stories, photos, and a little Seattle gift in hand.</>,
+  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong><br/>Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<br/>You'll return with stories, photos, and a little Seattle gift in hand.</>,
   journeyTitle: "Your Seattle Six-Hour Journey",
   journeySubtitle: "Choose your perfect Seattle layover experience",
   preview: "Preview Selected Tour",
@@ -502,7 +502,7 @@ export const PricingPageText = {
   threeAddOnsPrice: "$110",
   cancellationPolicy: "Cancellation Policy",
   cancellationPolicyDescription: "Free cancellation up to 24 hours before your tour. No hidden fees.",
-  tourNote: "<strong>Note:</strong> Tours are designed as <strong>6-, 7-, or 8-hour total experiences</strong>, including airport pickup, guided sightseeing, and a guaranteed on-time return with a safe flight buffer.<br/><br/>Guests can manage or cancel bookings through the website's 'Manage Booking' page or via their confirmation email link.",
+  tourNote: "<strong>Note:</strong> Each tour is a <strong>6-hour total experience</strong>, including airport pickup, guided sightseeing, and a guaranteed on-time return with a 2-hour flight buffer.",
   contact: "Contact Us",
   ctaTitle: "Ready to Book Your Seattle Adventure?",
   ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
@@ -530,10 +530,10 @@ export const BookingFormText = {
   successMessage: "Thank you for booking your Seattle layover tour! We've received your request and will send you a confirmation email within 30 minutes with all the details.",
   whatsNext: "What's Next?",
   whatsNextItems: [
-    "You'll receive a confirmation email with tour details.",
-    "We'll start tracking your flight 24 hours before arrival.",
-    "Your guide will contact you on the day of your tour.",
-    "We'll send meeting instructions and contact info."
+    "You'll receive a confirmation email with tour details",
+    "We'll start tracking your flight 24 hours before arrival",
+    "Your guide will contact you on the day of your tour",
+    "We'll send meeting instructions and contact info"
   ],
   close: "Close",
   modalTitle: "Book Your Seattle Tour",
@@ -573,7 +573,7 @@ export const BookingFormText = {
   personalInfo: "Personal Information",
   flightDetails: "Flight Details",
   tourSelection: "Tour Selection",
-  agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that this tour includes a guaranteed safe flight buffer before my departure flight and that cancellations are free up to 24 hours before the tour.",
+  agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that this tour includes a guaranteed 2-hour buffer before my departure flight and that cancellations are free up to 24 hours before the tour.",
   previous: "Previous",
   next: "Next Step",
   confirmBooking: "Confirm Booking",
