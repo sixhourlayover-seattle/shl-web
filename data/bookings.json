@@ -1,0 +1,112 @@
+[
+  {
+    "sessionId": "cs_test_a1uiVB98DCmlmVwLeXlc9yOzqydMAWUQ43gUp6AX1OPI1m4RdHdk5x2LrA",
+    "bookingData": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@example.com",
+      "phone": "555-1234",
+      "arrivalDate": "2024-01-15",
+      "arrivalTime": "10:00",
+      "arrivalFlight": "AA123",
+      "departureDate": "2024-01-15",
+      "departureTime": "18:00",
+      "departureFlight": "AA456",
+      "tourOption": "2-3-travelers-6hour",
+      "numberOfTravelers": 2,
+      "adultsCount": 2,
+      "childrenCount": 0,
+      "childrenAges": "",
+      "specialRequests": "This is a test booking with some special requests and dietary restrictions that make the JSON quite long",
+      "dietaryRestrictions": "Vegetarian, no nuts, gluten-free preferences",
+      "addOns": []
+    },
+    "createdAt": "2025-09-17T23:17:07.345Z",
+    "status": "pending"
+  },
+  {
+    "sessionId": "cs_test_b1mgN31oH4U0jgRPvZZPLlqzmREqVuyyIbxqEw0mHUAz0PPhMoSpJNJaS3",
+    "bookingData": {
+      "firstName": "Deepak",
+      "lastName": "Kumar",
+      "email": "deepakrpathak@gmail.com",
+      "phone": "9475009660",
+      "arrivalDate": "2025-09-18",
+      "arrivalTime": "07:20",
+      "arrivalFlight": "AA31",
+      "departureDate": "2025-09-18",
+      "departureTime": "19:20",
+      "departureFlight": "AA32",
+      "tourOption": "2-3-travelers-6hour",
+      "numberOfTravelers": 2,
+      "adultsCount": 2,
+      "childrenCount": 0,
+      "childrenAges": "",
+      "specialRequests": "",
+      "dietaryRestrictions": "",
+      "addOns": [
+        "filson-rei-shopping"
+      ],
+      "agreeToTerms": true,
+      "selectedProduct": {
+        "id": "2-3-travelers-6hour",
+        "name": "2–3 Travelers (6-Hour Layover Tour)",
+        "price": 250,
+        "description": "Six-Hour Layover guided tour in Seattle for 2–3 travelers. Includes Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes 2-hour buffer before flight.",
+        "paymentLink": "https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401",
+        "groupSize": "2-3",
+        "priceDescription": "per person"
+      },
+      "selectedAddOns": [
+        {
+          "id": "filson-rei-shopping",
+          "name": "Filson & REI Shopping Stop",
+          "price": 80,
+          "description": "Optional add-on stop: Visit Filson Flagship and REI Seattle outdoor store. Price covers coordination, guide time, and Uber detour. Purchases not included.",
+          "paymentLink": "https://buy.stripe.com/dRmdRbeB57aTgEC2fH38408",
+          "category": "tour-addon"
+        }
+      ],
+      "totalPrice": 580
+    },
+    "createdAt": "2025-09-17T23:18:20.664Z",
+    "status": "pending"
+  },
+  {
+    "sessionId": "cs_test_a10E6uMKrGTXQAI4DTxJgbggMcmowe4HYcXOFYwWyMyywSVWH62A4LNYQn",
+    "bookingData": {
+      "firstName": "Deepak",
+      "lastName": "Kumar",
+      "email": "deepakrpathak@gmail.com",
+      "phone": "9475009660",
+      "arrivalDate": "2025-09-19",
+      "arrivalTime": "03:35",
+      "arrivalFlight": "AA21",
+      "departureDate": "2025-09-19",
+      "departureTime": "15:35",
+      "departureFlight": "AA22",
+      "tourOption": "2-3-travelers-6hour",
+      "numberOfTravelers": 2,
+      "adultsCount": 2,
+      "childrenCount": 0,
+      "childrenAges": "",
+      "specialRequests": "",
+      "dietaryRestrictions": "",
+      "addOns": [],
+      "agreeToTerms": true,
+      "selectedProduct": {
+        "id": "2-3-travelers-6hour",
+        "name": "2–3 Travelers (6-Hour Layover Tour)",
+        "price": 250,
+        "description": "Six-Hour Layover guided tour in Seattle for 2–3 travelers. Includes Pike Place Market, Seattle Waterfront, and airport transfer by Link Light Rail. Includes safe flight buffer before flight.",
+        "paymentLink": "https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401",
+        "groupSize": "2-3",
+        "priceDescription": "per person"
+      },
+      "selectedAddOns": [],
+      "totalPrice": 500
+    },
+    "createdAt": "2025-09-18T17:32:42.616Z",
+    "status": "pending"
+  }
+]
