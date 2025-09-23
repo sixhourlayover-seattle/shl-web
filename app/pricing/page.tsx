@@ -216,28 +216,6 @@ export default function PricingPage() {
               ))}
             </div>
 
-            {/* Special Pricing Notes */}
-            <div className="rounded-3xl bg-gradient-to-br from-yellow-100 to-orange-100 border-2 border-yellow-300 p-6 mb-8 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-4">
-                  <span className="text-2xl">💰</span>
-                  <span className="font-bold text-slate-800 text-lg">{PricingPageText.specialOffers}</span>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                    <h4 className="font-bold text-purple-700 mb-2">{PricingPageText.familyBundle}</h4>
-                    <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.familyBundleDescription }} />
-                  </div>
-                    <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                      <h4 className="font-bold text-purple-700 mb-2">{PricingPageText.extraKids}</h4>
-                      <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.extraKidsDescription }} />
-                    </div>
-                </div>
-                <p className="text-xs text-slate-600 mt-4">
-                  {PricingPageText.pricingNote}
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
