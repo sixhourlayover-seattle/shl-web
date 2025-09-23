@@ -2,7 +2,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
@@ -339,6 +339,15 @@ export default function Page() {
                         <div className="font-semibold text-slate-800">{HomePageText.phone}</div>
                         <a href={`tel:${HomePageText.phoneNumber}`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold">
                           {HomePageText.phoneNumber}
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
+                      <WhatsAppIcon className="w-6 h-6 text-green-600" />
+                      <div>
+                        <div className="font-semibold text-slate-800">{HomePageText.whatsapp}</div>
+                        <a href={`https://wa.me/12069281277`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold" target="_blank" rel="noopener noreferrer">
+                          {HomePageText.whatsappNumber}
                         </a>
                       </div>
                     </div>
