@@ -263,9 +263,9 @@ export default function Page() {
             <h3 className="text-2xl font-bold text-purple-600 mb-4">
               {HomePageText.whyItWorksSubtitle}
             </h3>
-            <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed text-left">
               {HomePageText.whyItWorksDescription}
-            </p>
+            </div>
           </div>
           
           {/* Tour Options */}

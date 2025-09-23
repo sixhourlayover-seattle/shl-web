@@ -466,7 +466,7 @@ export const HomePageText = {
   thinking4Description: "That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.",
   whyItWorksTitle: "Why It Works",
   whyItWorksSubtitle: "Smart. Seamless. Unforgettable.",
-  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong><br/>Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<br/>You'll return with stories, photos, and a little Seattle gift in hand.</>,
+  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<strong>Our guides follow strict timing checkpoints with built‑in flight buffers — so you'll always be back on time.</strong><br/>You'll return with stories, photos, and a little Seattle gift in hand.</>,
   journeyTitle: "Your Seattle Six-Hour Journey",
   journeySubtitle: "Choose your perfect Seattle layover experience",
   preview: "Preview Selected Tour",
