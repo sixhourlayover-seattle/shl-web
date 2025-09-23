@@ -7,8 +7,9 @@ import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
+import BookingModal from "@/components/BookingModal";
 import { HomePageText, GlobalText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS, redirectToStripeCheckout } from "@/lib/stripe-products";
+import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 const SEATTLE_HIGHLIGHTS = [
   "Pike Place Market & famous fish toss",
@@ -462,6 +463,12 @@ export default function Page() {
       </footer>
 
       <MobileNav />
+      
+      {/* Booking Modal */}
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)} 
+      />
       </div>
     </div>
   );
