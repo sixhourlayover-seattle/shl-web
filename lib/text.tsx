@@ -271,7 +271,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "How do you make sure I'm back with time to spare?",
-        answer: "Every tour is built around your flight schedule. We track traffic and flights in real time and guarantee you'll be back at SEA with at least a 2-hour buffer before boarding. Peace of mind is part of the service."
+        answer: "Every itinerary is built with a 2-hour airport buffer. On-time return is guaranteed under normal conditions. Exclusions: severe weather, airport security surges, road closures, airline schedule changes."
       }
     ]
   },
@@ -410,7 +410,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
   },
   {
     title: "Guaranteed On-Time Return",
-    description: "Every tour includes a 2-hour buffer. We track traffic and adjust schedules to ensure you never miss your flight.",
+    description: "Every itinerary is built with a 2-hour airport buffer. On-time return is guaranteed under normal conditions. Exclusions: severe weather, airport security surges, road closures, airline schedule changes.",
     icon: "⏰"
   },
   {
@@ -437,7 +437,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
 
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
-  subtitle: "—We've Got You!",
+  subtitle: "We've Got You!",
   description: "No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.",
   shortLayovers: "Designed for layovers as short as 6 hours",
   meetup: "Meet-up at SEA Airport",
