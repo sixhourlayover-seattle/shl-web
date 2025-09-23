@@ -12,40 +12,56 @@ import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 const TOUR_OPTIONS = [
   {
-    title: "6-Hour Classic Tour",
-    subtitle: "Pike Place & Waterfront",
+    title: "6-Hour Seattle Essentials",
+    subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    duration: "Includes airport meet-up, round-trip city transfers, and a Seattle chocolate cherry gift bag.",
+    duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
+    pricing: {
+      perPerson: 250,
+      solo: 399,
+      family: 750
+    },
     features: [
       "Pike Place Market tour",
-      "Famous fish toss viewing",
+      "Famous fish toss viewing", 
       "Waterfront exploration",
-      "Local guide expertise"
+      "Seattle chocolate-covered Rainier cherries tote bag"
     ]
   },
   {
-    title: "7-Hour Extended Tour",
-    subtitle: "Classic + Space Needle",
-    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle's most iconic landmark.",
-    duration: "All Classic features plus Space Needle visit",
+    title: "7-Hour Seattle Highlights",
+    subtitle: "Essentials + Iconic Seattle Skyline View – Kerry Park + Molly Moon's Ice Cream",
+    description: "Everything in the Essentials Tour plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
+    duration: "All Essentials features + Kerry Park + included Molly Moon's Ice Cream",
+    pricing: {
+      perPerson: 300,
+      solo: 450,
+      family: 900
+    },
     features: [
-      "All Classic Tour features",
-      "Space Needle photo stop",
-      "Extended exploration time",
-      "Seattle's iconic landmark"
+      "All Essentials Tour features",
+      "Kerry Park iconic skyline view",
+      "Molly Moon's Ice Cream (pre-ordered pickup, included)",
+      "Seattle's postcard-perfect photos"
     ]
   },
   {
-    title: "8-Hour Premium Tour",
-    subtitle: "Extended + Kerry Park",
-    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle's postcard skyline view.",
-    duration: "Maximum Seattle experience with skyline views",
+    title: "8-Hour Seattle Complete",
+    subtitle: "Essentials + Space Needle admission",
+    description: "The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.",
+    duration: "All Essentials features + Space Needle admission (go inside, observation deck visit included)",
+    pricing: {
+      perPerson: 350,
+      solo: 499,
+      family: null // No family pack for 8-hour due to Space Needle ticket requirements
+    },
     features: [
-      "All Extended Tour features",
-      "Kerry Park skyline views",
-      "Postcard-perfect photos",
-      "Ultimate Seattle experience"
-    ]
+      "All Essentials Tour features",
+      "Space Needle admission (go inside)",
+      "Observation deck visit included",
+      "Maximum Seattle experience"
+    ],
+    note: "No Family Pack available - each guest requires Space Needle ticket; children under 5 are free"
   }
 ];
 
@@ -68,20 +84,28 @@ const GIFT_TOTE_ITEMS = [
 
 const ADD_ONS = [
   {
-    name: "Dick's Burger Combo",
-    emoji: "🍔"
+    name: "Fremont Troll + Dick's Burgers",
+    price: 120,
+    emoji: "🍔",
+    requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Top Pot Coffee & Doughnut",
-    emoji: "☕"
+    name: "Amazon Spheres + Top Pot Donuts",
+    price: 120,
+    emoji: "🏢",
+    requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Molly Moon's Ice Cream",
-    emoji: "🍦"
+    name: "Filson & REI Shopping Stop",
+    price: 120,
+    emoji: "🛍️",
+    requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Starbucks Reserve Roastery Visit Coffee & Pastry",
-    emoji: "☕"
+    name: "Starbucks Reserve Roastery (Capitol Hill)",
+    price: 120,
+    emoji: "☕",
+    requirement: "Requires 9+ hour layover"
   }
 ];
 
