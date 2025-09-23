@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { FaqPageText, FAQ_SECTIONS, GlobalText } from "@/lib/text";
@@ -133,12 +133,21 @@ export default function FAQPage() {
                 <span className="text-xl">📧</span>
                 {GlobalText.emailQuestions}
               </a>
-              <a 
-                href="tel:+12064866398"
+              <a
+                href="tel:+12069281277"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📞</span>
-                <span className="font-bold">(206) 486-6398</span>
+                <span className="font-bold">(206) 928‑1277</span>
+              </a>
+              <a
+                href="https://wa.me/12069281277"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+                <span className="font-bold">WhatsApp</span>
               </a>
             </div>
           </div>

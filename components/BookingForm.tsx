@@ -178,7 +178,11 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
       // Redirect to Stripe checkout with selected product and add-ons
       if (formData.selectedProduct) {
         redirectToStripeCheckout(formData.selectedProduct, formData.selectedAddOns);
-        setSubmitSuccess(true);
+        // Don't show success message here - user needs to complete payment first
+        // Success will be shown on the /booking-success page after payment
+        if (onClose) {
+          onClose(); // Close the modal after redirecting to payment
+        }
       } else {
         throw new Error('No product selected');
       }
@@ -728,7 +732,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  {BookingFormText.submitting}
+                  Redirecting to Payment...
                 </span>
               ) : (
                 `Pay ${formData.totalPrice > 0 ? '$' + formData.totalPrice : ''} - ${BookingFormText.confirmBooking}`

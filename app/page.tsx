@@ -2,13 +2,14 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
+import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
+import BookingModal from "@/components/BookingModal";
 import { HomePageText, GlobalText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS, redirectToStripeCheckout } from "@/lib/stripe-products";
+import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 const SEATTLE_HIGHLIGHTS = [
   "Pike Place Market & famous fish toss",
@@ -26,22 +27,22 @@ const TESTIMONIALS = [
 
 const TOUR_OPTIONS = [
   {
-    name: "6-Hour Classic Tour",
-    subtitle: "Pike Place & Waterfront",
+    name: "6-Hour Seattle Essentials",
+    subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    features: ["Airport meet-up", "Round-trip transfers", "Seattle chocolate cherry gift bag"]
+    features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
   },
   {
-    name: "7-Hour Extended Tour", 
-    subtitle: "Classic + Space Needle",
-    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle's most iconic landmark.",
-    features: ["All Classic features", "Space Needle visit", "Extended exploration time"]
+    name: "7-Hour Seattle Highlights",
+    subtitle: "Essentials + Iconic Seattle Skyline View – Kerry Park + Molly Moon's Ice Cream",
+    description: "Everything in the Essentials Tour plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
+    features: ["All Essentials features", "Kerry Park iconic skyline view", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
   },
   {
-    name: "8-Hour Premium Tour",
-    subtitle: "Extended + Kerry Park", 
-    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle's postcard skyline view.",
-    features: ["All Extended features", "Kerry Park skyline", "Maximum Seattle experience"]
+    name: "8-Hour Seattle Complete",
+    subtitle: "Essentials + Space Needle admission",
+    description: "The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.",
+    features: ["All Essentials features", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
   }
 ];
 
@@ -87,6 +88,7 @@ function TourPreview({ selectedTour }: { selectedTour: number }) {
 export default function Page() {
   const [selectedTour, setSelectedTour] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -145,10 +147,7 @@ export default function Page() {
                 {HomePageText.bookNow}
               </a>
               <button
-                onClick={() => {
-                  const defaultProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === '2-3-travelers-6hour');
-                  if (defaultProduct) redirectToStripeCheckout(defaultProduct, []);
-                }}
+                onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 ⚡ Quick Book - $250/person
@@ -343,6 +342,15 @@ export default function Page() {
                         </a>
                       </div>
                     </div>
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50">
+                      <WhatsAppIcon className="w-6 h-6 text-green-600" />
+                      <div>
+                        <div className="font-semibold text-slate-800">{HomePageText.whatsapp}</div>
+                        <a href={`https://wa.me/12069281277`} className="text-purple-600 hover:text-purple-700 transition-colors text-sm font-bold" target="_blank" rel="noopener noreferrer">
+                          {HomePageText.whatsappNumber}
+                        </a>
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="mt-6 grid grid-cols-2 gap-3">
@@ -377,10 +385,7 @@ export default function Page() {
               📋 {HomePageText.bookNow}
             </a>
             <button
-              onClick={() => {
-                const defaultProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === '2-3-travelers-6hour');
-                if (defaultProduct) redirectToStripeCheckout(defaultProduct, []);
-              }}
+              onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
             >
               ⚡ Quick Book ($250/person)
@@ -462,6 +467,12 @@ export default function Page() {
       </footer>
 
       <MobileNav />
+      
+      {/* Booking Modal */}
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)} 
+      />
       </div>
     </div>
   );

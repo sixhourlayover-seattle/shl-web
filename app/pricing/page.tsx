@@ -6,8 +6,9 @@ import { Card, CardHeader, CardContent } from "@/components/Card";
 import Button from "@/components/Button";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
+import BookingModal from "@/components/BookingModal";
 import { PricingPageText, GlobalText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS, redirectToStripeCheckout } from "@/lib/stripe-products";
+import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 const TOUR_OPTIONS = [
   {
@@ -86,6 +87,7 @@ const ADD_ONS = [
 
 export default function PricingPage() {
   const [selectedTier, setSelectedTier] = useState("2–3 Travelers");
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -179,7 +181,7 @@ export default function PricingPage() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        redirectToStripeCheckout(tier, []);
+                        setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                     >
@@ -393,10 +395,7 @@ export default function PricingPage() {
                 📋 Custom Booking Form
               </a>
               <button
-                onClick={() => {
-                  const defaultProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === '2-3-travelers-6hour');
-                  if (defaultProduct) redirectToStripeCheckout(defaultProduct, []);
-                }}
+                onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
                 ✈️ Quick Book (2-3 Travelers)
@@ -480,6 +479,12 @@ export default function PricingPage() {
         </footer>
 
         <MobileNav />
+        
+        {/* Booking Modal */}
+        <BookingModal 
+          isOpen={isBookingModalOpen} 
+          onClose={() => setIsBookingModalOpen(false)} 
+        />
       </div>
     </div>
   );

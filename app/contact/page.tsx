@@ -1,5 +1,5 @@
 "use client";
-import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
+import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { ContactPageText, CONTACT_METHODS, BOOKING_INFO, FAQ_QUICK, GlobalText } from "@/lib/text";
@@ -43,7 +43,13 @@ export default function ContactPage() {
                   className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift text-center"
                   style={{animation: `slide-in 0.${index + 7}s ease-out`}}
                 >
-                  <div className="text-6xl mb-6">{method.icon}</div>
+                  <div className="mb-6 flex justify-center">
+                    {method.title === "WhatsApp Us" ? (
+                      <WhatsAppIcon className="w-16 h-16 text-green-600" />
+                    ) : (
+                      <div className="text-6xl">{method.icon}</div>
+                    )}
+                  </div>
                   <h3 className="text-2xl font-bold text-slate-800 mb-2">{method.title}</h3>
                   <p className="text-purple-600 font-medium mb-4">{method.subtitle}</p>
                     {method.contact.includes('@') ? (
