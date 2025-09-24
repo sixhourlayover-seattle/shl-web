@@ -288,7 +288,7 @@ export const FAQ_SECTIONS = [
   {
     title: "Physical Demand & Accessibility",
     icon: "🚶",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-600 to-purple-600",
     faqs: [
       {
         question: "Is the tour physically demanding?",
@@ -303,7 +303,7 @@ export const FAQ_SECTIONS = [
   {
     title: "Customization",
     icon: "⚙️",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-600 to-blue-600",
     faqs: [
       {
         question: "Can I customize my layover tour?",
@@ -322,7 +322,7 @@ export const FAQ_SECTIONS = [
   {
     title: "Weather",
     icon: "🌧️",
-    color: "from-slate-500 to-gray-500",
+    color: "from-slate-700 to-gray-800",
     faqs: [
       {
         question: "What happens if there's bad weather?",
