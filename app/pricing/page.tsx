@@ -69,10 +69,10 @@ const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 
 const WHATS_INCLUDED = [
   "Airport meet & greet",
-  "Uber coordination",
-  "On-time return guarantee (safe flight buffer)",
-  "Local souvenir tote bag",
-  "Free cancellation up to 24 hours before your tour"
+  "Light Rail (airport ↔ city) + Uber for short hops",
+  "On-time return guarantee (safe buffer; flight monitored)",
+  "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+  "Free cancellation up to 24 hours before your tour. No hidden fees. Cancellations within 24 hours are non‑refundable."
 ];
 
 const GIFT_TOTE_ITEMS = [
@@ -286,38 +286,29 @@ export default function PricingPage() {
               <h2 className="text-4xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{PricingPageText.addOnsTitle}</span>
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                {PricingPageText.addOnsSubtitle}
-              </p>
             </div>
 
             <div className="max-w-4xl mx-auto">
-              <div className="grid gap-6 md:grid-cols-3 mb-8">
-                <div className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.oneAddOn}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.oneAddOnPrice}</div>
-                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
-                </div>
-                <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-purple-100 to-indigo-100 border-2 border-purple-300 shadow-lg hover-lift transform scale-105">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.twoAddOns}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.twoAddOnsPrice}</div>
-                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
-                  <div className="mt-2 px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-semibold">{PricingPageText.popular}</div>
-                </div>
-                <div className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.threeAddOns}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.threeAddOnsPrice}</div>
-                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
-                </div>
-              </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
+              {/* Add-Ons List */}
+              <div className="grid gap-4 md:grid-cols-2 mb-6">
                 {ADD_ONS.map((addon, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur shadow-md hover-lift">
-                    <div className="text-3xl">{addon.emoji}</div>
-                    <span className="font-medium text-slate-700">{addon.name}</span>
+                  <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur shadow-md hover-lift">
+                    <div className="text-3xl flex-shrink-0">{addon.emoji}</div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-slate-800 mb-1">{addon.name}</div>
+                      <div className="text-sm text-purple-600 font-medium">${addon.price} per group</div>
+                      <div className="text-xs text-slate-500 mt-1">{addon.requirement}</div>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Important Note */}
+              <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
+                <p className="text-sm text-blue-700 font-medium">
+                  {PricingPageText.addOnsNote}
+                </p>
               </div>
             </div>
           </div>
