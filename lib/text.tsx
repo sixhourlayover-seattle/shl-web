@@ -525,7 +525,7 @@ export const PricingPageText = {
 
 export const PrivacyPageText = {
   title: "Privacy Policy",
-  effectiveDate: "Effective Date: December 2024",
+  effectiveDate: "Effective Date: September 2025",
   description: "This Privacy Policy explains how SixHourLayover (\"Company,\" \"we,\" \"our,\" or \"us\") collects, uses, and protects your personal information.",
   
   informationWeCollect: "1. Information We Collect",
@@ -601,7 +601,7 @@ export const PrivacyPageText = {
 
 export const TermsPageText = {
   title: "Terms of Service",
-  effectiveDate: "Effective Date: December 2024",
+  effectiveDate: "Effective Date: September 2025",
   description: "Welcome to SixHourLayover (\"Company,\" \"we,\" \"our,\" or \"us\"). By accessing or booking through www.sixhourlayover.com (\"Site\"), you (\"Customer,\" \"you,\" or \"your\") agree to these Terms of Service (\"Terms\").",
   
   servicesProvided: "1. Services Provided",
