@@ -379,24 +379,24 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: 3,
     title: "Transportation to Downtown",
-    description: "Your guide coordinates Uber/Lyft rides and accompanies you downtown. Relax and enjoy the ride!",
+    description: "Your guide coordinates Light Rail and Uber rides to get you around Seattle efficiently.",
     icon: "🚗",
     details: [
+      "Light Rail (airport ↔ downtown) plus Uber for short hops between neighborhoods",
       "Guide handles all ride coordination and payment logistics",
-      "Travel time: ~30 minutes to downtown Seattle",
-      "Learn about Seattle during the scenic drive"
+      "Learn about Seattle during the scenic journey"
     ]
   },
   {
     step: 4,
     title: "Explore Seattle",
-    description: "Visit Pike Place Market, see the fish toss, explore the waterfront, and enjoy curated local experiences.",
+    description: "Experience Seattle's highlights with our curated tour options designed for different layover lengths.",
     icon: "🎯",
     details: [
-      "Pike Place Market tour with insider knowledge",
-      "Watch the famous fish throwing demonstration", 
-      "Waterfront stroll with Space Needle views",
-      "Optional add-ons: local food, coffee, or extended sightseeing"
+      "6h Seattle Essentials – Pike Place Market + Waterfront",
+      "7h Seattle Highlights – Essentials + Iconic Seattle skyline view (Kerry Park) + Molly Moon's Ice Cream (pre-ordered pickup, included)", 
+      "8h Seattle Complete – Essentials + Space Needle admission (go inside, observation deck visit included)",
+      "Optional curated add-ons available for 9+ hour layovers"
     ]
   },
   {
