@@ -89,7 +89,7 @@ export default function FAQPage() {
                     <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${section.color} flex items-center justify-center shadow-lg`}>
                       <span className="text-white text-xl">{section.icon}</span>
                     </div>
-                    <h2 className={`text-2xl font-bold bg-gradient-to-r ${section.color} bg-clip-text text-transparent`}>
+                    <h2 className="text-2xl font-bold text-slate-800">
                       {section.title}
                     </h2>
                   </div>

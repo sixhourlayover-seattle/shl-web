@@ -114,7 +114,7 @@ export default function AboutPage() {
           title="Meet Our Mascot: Guai Guai"
           name="Guai Guai"
           role="Beloved Mascot (Retired from Adventures)"
-          description={`Guai Guai (his name means "Good Boy" in Chinese) is the beloved mascot of The Six-Hour Layover. Though he's happily retired from adventures, he embodies the spirit of what travel should be — warm, curious, and full of joy. With his loyal heart and playful charm, Guai Guai reminds us to welcome every traveler like a friend.`}
+          description={`Guai Guai (his name means "Good Boy" in Chinese) is our beloved mascot. Though retired from adventures, he embodies the Six-Hour Layover spirit — warm, curious, joyful.`}
           imageSrc="/dog-mascot.jpg"
           imageAlt="Six-Hour Layover Seattle mascot dog Guai Guai wearing bow tie — friendly welcome for travelers"
         />
@@ -180,6 +180,16 @@ export default function AboutPage() {
                 <span className="text-2xl">💜</span>
                 <span className="text-white font-semibold">{AboutPageText.missionSlogan}</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-12 bg-gradient-to-br from-slate-50 to-gray-50">
+          <div className="container text-center">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-slate-700 text-lg leading-relaxed">
+                {AboutPageText.trainedGuideTeam}
+              </p>
             </div>
           </div>
         </section>

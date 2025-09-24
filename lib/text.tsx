@@ -31,15 +31,14 @@ export const GlobalText = {
 
 export const AboutPageText = {
   title: "About Us",
-  subtitle: "Out to the city. Back on time. Turn your layover into the highlight of your trip.",
-  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from <strong>SEA Airport into Seattle's highlights</strong> &mdash; Pike Place Market, waterfront views, and local stories &mdash; and get you back with a guaranteed <strong>2-hour buffer</strong> before boarding.</>,
-  privateTours: <>Our tours are <strong>private and stress-free</strong>, with <strong>multilingual options</strong> available.</>,
+  subtitle: "Out to the city. Back on time. Your layover, reimagined into an unforgettable highlight.",
+  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from SEA Airport into Seattle's highlights — Pike Place Market, the Waterfront, and iconic city views — and return you with a guaranteed 2-hour buffer. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.</>,
   multilingualTitle: "Multilingual Tours Available",
   alwaysAvailable: "Always Available",
   englishTours: <><strong>English</strong> - All tours are conducted in English by default</>,
   uponRequest: "Upon Request",
   additionalLanguages: "Additional languages available subject to guide availability:",
-  languages: ['Mandarin', 'Japanese', 'Spanish', 'French', 'Turkish'],
+  languages: ['Mandarin', 'Spanish', 'German', 'French', 'Japanese'],
   moreComingSoon: "More coming soon",
   confirmLanguage: <><strong>Please confirm your preferred language when booking.</strong></>,
   ourStoryTitle: "Our Story",
@@ -48,8 +47,9 @@ export const AboutPageText = {
   whatDrivesUs: "What Drives Us",
   whatDrivesUsSubtitle: "Our core values shape every tour we create and every experience we deliver",
   ourMissionTitle: "Our Mission",
-  ourMissionDescription: <>To transform every layover into a highlight of your journey. We believe that even a few hours in a new city can create lasting memories, and we're here to make that happen &mdash; stress-free, perfectly timed, and unforgettable.</>,
+  ourMissionDescription: <>Our mission is simple: to turn every layover into a highlight of your journey — and to make travel meaningful for everyone involved. Through our Foundation, we create opportunities for retirees, women restarting careers, college students building experience, and locals who want to share Seattle's story. Every tour not only makes your layover unforgettable, but also provides meaningful social connections and supports someone else's journey of growth.</>,
   missionSlogan: "Making layovers memorable, one city at a time",
+  trainedGuideTeam: "Every tour is backed by a trained guide team, ensuring reliability even in rare last‑minute changes.",
   readyToExperience: "Ready to Experience Seattle?",
   readyToExperienceSubtitle: "Join the thousands of travelers who've discovered that layovers can be the best part of their journey",
 };
@@ -57,46 +57,55 @@ export const AboutPageText = {
 export const TEAM_VALUES = [
   {
     title: "Local Expertise",
-    description: "Our guides are Seattle locals who know the city inside and out. We share authentic experiences, not tourist traps.",
+    description: "Guides are Seattle locals who share authentic experiences.",
     icon: "🌟"
   },
   {
     title: "Layover Specialists",
-    description: "We understand the unique challenges of layover travel. Every detail is designed around tight schedules and stress-free experiences.",
+    description: "We understand tight schedules; every detail is planned with precision.",
     icon: "✈️"
   },
   {
     title: "Guaranteed Reliability",
-    description: "Your flight is our priority. We track delays, monitor traffic, and guarantee you'll be back with time to spare.",
+    description: "We monitor flights and traffic so you return with time to spare.",
     icon: "⏰"
   },
   {
     title: "Personal Touch",
-    description: "Small groups, personalized attention, and flexibility to adapt to your interests and pace.",
+    description: "Small groups and friendly guides who welcome you like family and friends.",
     icon: "💙"
+  },
+  {
+    title: "Community Impact",
+    description: "Through SereneRoot Foundation, we create opportunities for retirees, women restarting careers, and locals passionate about welcoming travelers.",
+    icon: "🤝"
   }
 ];
 
 export const STORY_POINTS = [
   {
-    title: "The Problem We Solved",
-    content: "Too many travelers waste precious layover hours stuck in the airport, missing the chance to experience amazing cities like Seattle. Long layovers can be boring, but short ones feel too risky to leave the airport."
+    title: "Our Story",
+    content: "Inspired by the idea that layovers shouldn't be wasted."
+  },
+  {
+    title: "The Problem",
+    content: "Most travelers waste hours in airports."
   },
   {
     title: "Our Solution",
-    content: "We created the perfect middle ground: expertly timed tours that maximize your Seattle experience while guaranteeing you'll make your next flight. No stress, no guesswork, just unforgettable memories."
+    content: "Expertly timed tours that maximize your Seattle experience while guaranteeing your flight."
   },
   {
     title: "Why Seattle?",
-    content: "Seattle is the perfect layover city. With efficient light rail connections, world-class food, iconic landmarks, and stunning views all within reach, you can genuinely experience the city in just a few hours."
+    content: "Fast Light Rail, world-class food, iconic views all within minutes — perfect for a layover."
   }
 ];
 
 export const STATS = [
-  { number: "20+", label: "Countries Served" },
-  { number: "100%", label: "On-Time Return Rate" },
-  { number: "6", label: "Perfect Hours" },
-  { number: "1000+", label: "Happy Travelers" }
+  { number: "6, 7, 8", label: "Perfect Hours — Choose the tour that fits your layover" },
+  { number: "2-Hour", label: "Flight Buffer — Guaranteed return to SEA on time" },
+  { number: "100%", label: "Private Tours — Just you and your group, every time" },
+  { number: "1 Loyal", label: "Mascot + Local Friends — Guai Guai (our good boy) and your guide-friend in Seattle, welcoming you like family" }
 ];
 
 export const BookPageText = {
@@ -231,15 +240,15 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "How much does it cost?",
-        answer: "Tours are priced simply:\n- Solo Traveler — $399\n- 2–3 Travelers — $250 pp\n- 4–5 Travelers — $220 pp\n- Family Pack — $750 flat (2 adults + up to 3 kids under 12)\n- Extra kids (under 12) — $199 each\n\nSee our Tours & Pricing page for details."
+        answer: "Tours are priced per person:\n• 6-Hour Seattle Essentials — $250 per person (Solo: $399, Family Pack: $750)\n• 7-Hour Seattle Highlights — $300 per person (Solo: $450, Family Pack: $900)\n• 8-Hour Seattle Complete — $350 per person (Solo: $499, no Family Pack)\n\nSee our Tours & Pricing page for details."
       },
       {
         question: "How do I book and pay?",
         answer: "All bookings are made online through our secure system - simply click the \"Book Now\" button. We accept all major cards, and you will receive instant confirmation."
       },
       {
-        question: "How are children priced?",
-        answer: "Children aged 0–3 join free.\nFamily Pack includes 2 adults + up to 3 kids under 12 for $750 flat.\nExtra kids under 12 are $199 each."
+        question: "Do you offer Family Packs?",
+        answer: "Yes. Family Pack pricing is available for 6h ($750) and 7h ($900) tours (2 adults + up to 3 kids under 12). Children under 5 are free (no Space Needle ticket required). For 8h tours, each guest requires their own ticket, so Family Pack pricing does not apply."
       },
       {
         question: "Who provides the transportation during the tour?",
@@ -247,11 +256,11 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "What if I need to cancel?",
-        answer: "No problem. You'll receive a full refund with at least 24 hours' notice &mdash; our goal is to keep things stress-free and flexible."
+        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually.\n• Note: \"Extra child\" and \"Family bundle\" pricing have been removed."
       },
       {
-        question: "Are there refunds?",
-        answer: "Yes &mdash; if your flight is cancelled or you cancel more than 24 hours in advance, you'll receive a full refund."
+        question: "What if we have 4–5 adults?",
+        answer: "Pricing is flat per person ($250, $300, $350 depending on tour length). There are no group discounts, as larger groups often require larger or multiple vehicles. This keeps pricing simple and fair."
       }
     ]
   },
@@ -281,14 +290,14 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "How do you make sure I'm back with time to spare?",
-        answer: "Every itinerary is built with a 2-hour airport buffer. On-time return is guaranteed under normal conditions. Exclusions: severe weather, airport security surges, road closures, airline schedule changes."
+        answer: "We guarantee on-time return under normal conditions, with built-in buffer time. Events beyond our control (severe weather, airport security surges, road closures, airline schedule changes) are excluded."
       }
     ]
   },
   {
     title: "Physical Demand & Accessibility",
     icon: "🚶",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-600 to-purple-600",
     faqs: [
       {
         question: "Is the tour physically demanding?",
@@ -303,7 +312,7 @@ export const FAQ_SECTIONS = [
   {
     title: "Customization",
     icon: "⚙️",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-600 to-blue-600",
     faqs: [
       {
         question: "Can I customize my layover tour?",
@@ -311,7 +320,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Can I add food or coffee stops?",
-        answer: "Definitely! Choose from our Add-Ons Menu (Dick's Burger, Top Pot Coffee, Molly Moon's Ice Cream, Starbucks Reserve) when booking."
+        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour.\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  – Starbucks Reserve Roastery (Capitol Hill)\n• Add-on fee covers guide and transport. Food & drink purchased separately."
       },
       {
         question: "Can I bring home souvenirs from Seattle?",
@@ -322,7 +331,7 @@ export const FAQ_SECTIONS = [
   {
     title: "Weather",
     icon: "🌧️",
-    color: "from-slate-500 to-gray-500",
+    color: "from-slate-700 to-gray-800",
     faqs: [
       {
         question: "What happens if there's bad weather?",
@@ -379,24 +388,24 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: 3,
     title: "Transportation to Downtown",
-    description: "Your guide coordinates Uber/Lyft rides and accompanies you downtown. Relax and enjoy the ride!",
+    description: "Your guide coordinates Light Rail and Uber rides to get you around Seattle efficiently.",
     icon: "🚗",
     details: [
+      "Light Rail (airport ↔ downtown) plus Uber for short hops between neighborhoods",
       "Guide handles all ride coordination and payment logistics",
-      "Travel time: ~30 minutes to downtown Seattle",
-      "Learn about Seattle during the scenic drive"
+      "Learn about Seattle during the scenic journey"
     ]
   },
   {
     step: 4,
     title: "Explore Seattle",
-    description: "Visit Pike Place Market, see the fish toss, explore the waterfront, and enjoy curated local experiences.",
+    description: "Experience Seattle's highlights with our curated tour options designed for different layover lengths.",
     icon: "🎯",
     details: [
-      "Pike Place Market tour with insider knowledge",
-      "Watch the famous fish throwing demonstration", 
-      "Waterfront stroll with Space Needle views",
-      "Optional add-ons: local food, coffee, or extended sightseeing"
+      "6h Seattle Essentials – Pike Place Market + Waterfront",
+      "7h Seattle Highlights – Essentials + Iconic Seattle skyline view (Kerry Park) + Molly Moon's Ice Cream (pre-ordered pickup, included)", 
+      "8h Seattle Complete – Essentials + Space Needle admission (go inside, observation deck visit included)",
+      "Optional curated add-ons available for 9+ hour layovers"
     ]
   },
   {
