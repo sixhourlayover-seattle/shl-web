@@ -31,15 +31,14 @@ export const GlobalText = {
 
 export const AboutPageText = {
   title: "About Us",
-  subtitle: "Out to the city. Back on time. Turn your layover into the highlight of your trip.",
-  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from <strong>SEA Airport into Seattle's highlights</strong> &mdash; Pike Place Market, waterfront views, and local stories &mdash; and get you back with a guaranteed <strong>2-hour buffer</strong> before boarding.</>,
-  privateTours: <>Our tours are <strong>private and stress-free</strong>, with <strong>multilingual options</strong> available.</>,
+  subtitle: "Out to the city. Back on time. Your layover, reimagined into an unforgettable highlight.",
+  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from SEA Airport into Seattle's highlights — Pike Place Market, the Waterfront, and iconic city views — and return you with a guaranteed 2-hour buffer. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.</>,
   multilingualTitle: "Multilingual Tours Available",
   alwaysAvailable: "Always Available",
   englishTours: <><strong>English</strong> - All tours are conducted in English by default</>,
   uponRequest: "Upon Request",
   additionalLanguages: "Additional languages available subject to guide availability:",
-  languages: ['Mandarin', 'Japanese', 'Spanish', 'French', 'Turkish'],
+  languages: ['Mandarin', 'Spanish', 'German', 'French', 'Japanese'],
   moreComingSoon: "More coming soon",
   confirmLanguage: <><strong>Please confirm your preferred language when booking.</strong></>,
   ourStoryTitle: "Our Story",
@@ -48,8 +47,9 @@ export const AboutPageText = {
   whatDrivesUs: "What Drives Us",
   whatDrivesUsSubtitle: "Our core values shape every tour we create and every experience we deliver",
   ourMissionTitle: "Our Mission",
-  ourMissionDescription: <>To transform every layover into a highlight of your journey. We believe that even a few hours in a new city can create lasting memories, and we're here to make that happen &mdash; stress-free, perfectly timed, and unforgettable.</>,
+  ourMissionDescription: <>Our mission is simple: to turn every layover into a highlight of your journey — and to make travel meaningful for everyone involved. Through our Foundation, we create opportunities for retirees, women restarting careers, college students building experience, and locals who want to share Seattle's story. Every tour not only makes your layover unforgettable, but also provides meaningful social connections and supports someone else's journey of growth.</>,
   missionSlogan: "Making layovers memorable, one city at a time",
+  trainedGuideTeam: "Every tour is backed by a trained guide team, ensuring reliability even in rare last‑minute changes.",
   readyToExperience: "Ready to Experience Seattle?",
   readyToExperienceSubtitle: "Join the thousands of travelers who've discovered that layovers can be the best part of their journey",
 };
@@ -57,46 +57,55 @@ export const AboutPageText = {
 export const TEAM_VALUES = [
   {
     title: "Local Expertise",
-    description: "Our guides are Seattle locals who know the city inside and out. We share authentic experiences, not tourist traps.",
+    description: "Guides are Seattle locals who share authentic experiences.",
     icon: "🌟"
   },
   {
     title: "Layover Specialists",
-    description: "We understand the unique challenges of layover travel. Every detail is designed around tight schedules and stress-free experiences.",
+    description: "We understand tight schedules; every detail is planned with precision.",
     icon: "✈️"
   },
   {
     title: "Guaranteed Reliability",
-    description: "Your flight is our priority. We track delays, monitor traffic, and guarantee you'll be back with time to spare.",
+    description: "We monitor flights and traffic so you return with time to spare.",
     icon: "⏰"
   },
   {
     title: "Personal Touch",
-    description: "Small groups, personalized attention, and flexibility to adapt to your interests and pace.",
+    description: "Small groups and friendly guides who welcome you like family and friends.",
     icon: "💙"
+  },
+  {
+    title: "Community Impact",
+    description: "Through SereneRoot Foundation, we create opportunities for retirees, women restarting careers, and locals passionate about welcoming travelers.",
+    icon: "🤝"
   }
 ];
 
 export const STORY_POINTS = [
   {
-    title: "The Problem We Solved",
-    content: "Too many travelers waste precious layover hours stuck in the airport, missing the chance to experience amazing cities like Seattle. Long layovers can be boring, but short ones feel too risky to leave the airport."
+    title: "Our Story",
+    content: "Inspired by the idea that layovers shouldn't be wasted."
+  },
+  {
+    title: "The Problem",
+    content: "Most travelers waste hours in airports."
   },
   {
     title: "Our Solution",
-    content: "We created the perfect middle ground: expertly timed tours that maximize your Seattle experience while guaranteeing you'll make your next flight. No stress, no guesswork, just unforgettable memories."
+    content: "Expertly timed tours that maximize your Seattle experience while guaranteeing your flight."
   },
   {
     title: "Why Seattle?",
-    content: "Seattle is the perfect layover city. With efficient light rail connections, world-class food, iconic landmarks, and stunning views all within reach, you can genuinely experience the city in just a few hours."
+    content: "Fast Light Rail, world-class food, iconic views all within minutes — perfect for a layover."
   }
 ];
 
 export const STATS = [
-  { number: "20+", label: "Countries Served" },
-  { number: "100%", label: "On-Time Return Rate" },
-  { number: "6", label: "Perfect Hours" },
-  { number: "1000+", label: "Happy Travelers" }
+  { number: "6, 7, 8", label: "Perfect Hours — Choose the tour that fits your layover" },
+  { number: "2-Hour", label: "Flight Buffer — Guaranteed return to SEA on time" },
+  { number: "100%", label: "Private Tours — Just you and your group, every time" },
+  { number: "1 Loyal", label: "Mascot + Local Friends — Guai Guai (our good boy) and your guide-friend in Seattle, welcoming you like family" }
 ];
 
 export const BookPageText = {
