@@ -231,15 +231,15 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "How much does it cost?",
-        answer: "Tours are priced simply:\n- Solo Traveler — $399\n- 2–3 Travelers — $250 pp\n- 4–5 Travelers — $220 pp\n- Family Pack — $750 flat (2 adults + up to 3 kids under 12)\n- Extra kids (under 12) — $199 each\n\nSee our Tours & Pricing page for details."
+        answer: "Tours are priced per person:\n• 6-Hour Seattle Essentials — $250 per person (Solo: $399, Family Pack: $750)\n• 7-Hour Seattle Highlights — $300 per person (Solo: $450, Family Pack: $900)\n• 8-Hour Seattle Complete — $350 per person (Solo: $499, no Family Pack)\n\nSee our Tours & Pricing page for details."
       },
       {
         question: "How do I book and pay?",
         answer: "All bookings are made online through our secure system - simply click the \"Book Now\" button. We accept all major cards, and you will receive instant confirmation."
       },
       {
-        question: "How are children priced?",
-        answer: "Children aged 0–3 join free.\nFamily Pack includes 2 adults + up to 3 kids under 12 for $750 flat.\nExtra kids under 12 are $199 each."
+        question: "Do you offer Family Packs?",
+        answer: "Yes. Family Pack pricing is available for 6h ($750) and 7h ($900) tours (2 adults + up to 3 kids under 12). Children under 5 are free (no Space Needle ticket required). For 8h tours, each guest requires their own ticket, so Family Pack pricing does not apply."
       },
       {
         question: "Who provides the transportation during the tour?",
@@ -247,11 +247,11 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "What if I need to cancel?",
-        answer: "No problem. You'll receive a full refund with at least 24 hours' notice &mdash; our goal is to keep things stress-free and flexible."
+        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually.\n• Note: \"Extra child\" and \"Family bundle\" pricing have been removed."
       },
       {
-        question: "Are there refunds?",
-        answer: "Yes &mdash; if your flight is cancelled or you cancel more than 24 hours in advance, you'll receive a full refund."
+        question: "What if we have 4–5 adults?",
+        answer: "Pricing is flat per person ($250, $300, $350 depending on tour length). There are no group discounts, as larger groups often require larger or multiple vehicles. This keeps pricing simple and fair."
       }
     ]
   },
@@ -281,7 +281,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "How do you make sure I'm back with time to spare?",
-        answer: "Every itinerary is built with a 2-hour airport buffer. On-time return is guaranteed under normal conditions. Exclusions: severe weather, airport security surges, road closures, airline schedule changes."
+        answer: "We guarantee on-time return under normal conditions, with built-in buffer time. Events beyond our control (severe weather, airport security surges, road closures, airline schedule changes) are excluded."
       }
     ]
   },
@@ -311,7 +311,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Can I add food or coffee stops?",
-        answer: "Definitely! Choose from our Add-Ons Menu (Dick's Burger, Top Pot Coffee, Molly Moon's Ice Cream, Starbucks Reserve) when booking."
+        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour.\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  – Starbucks Reserve Roastery (Capitol Hill)\n• Add-on fee covers guide and transport. Food & drink purchased separately."
       },
       {
         question: "Can I bring home souvenirs from Seattle?",
