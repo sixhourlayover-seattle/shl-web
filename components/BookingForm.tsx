@@ -15,6 +15,7 @@ interface BookingData {
   lastName: string;
   email: string;
   phone: string;
+  whatsappWeChat: string;
   
   // Flight Information
   arrivalDate: string;
@@ -59,13 +60,14 @@ const initializeFormData = (): BookingData => {
     lastName: "",
     email: "",
     phone: "",
+    whatsappWeChat: "",
     arrivalDate: "",
     arrivalTime: "",
     arrivalFlight: "",
     departureDate: "",
     departureTime: "",
     departureFlight: "",
-    tourOption: defaultProduct?.id || "2-3-travelers-6hour",
+    tourOption: defaultProduct?.id || "per-person-6hour",
     numberOfTravelers: 2,
     adultsCount: 2,
     childrenCount: 0,
@@ -336,6 +338,20 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 placeholder={BookingFormText.phonePlaceholder}
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                WhatsApp/WeChat Contact
+              </label>
+              <input
+                type="text"
+                value={formData.whatsappWeChat}
+                onChange={(e) => handleInputChange('whatsappWeChat', e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="WhatsApp number or WeChat ID (optional but recommended)"
+              />
+              <p className="text-sm text-slate-600 mt-1">For easier day-of-tour communication</p>
             </div>
           </div>
         )}
@@ -629,6 +645,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   <p>{formData.firstName} {formData.lastName}</p>
                   <p>{formData.email}</p>
                   <p>{formData.phone}</p>
+                  {formData.whatsappWeChat && <p><strong>WhatsApp/WeChat:</strong> {formData.whatsappWeChat}</p>}
                 </div>
 
                 <div>

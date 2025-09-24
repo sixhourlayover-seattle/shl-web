@@ -12,40 +12,56 @@ import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 const TOUR_OPTIONS = [
   {
-    title: "6-Hour Classic Tour",
-    subtitle: "Pike Place & Waterfront",
+    title: "6-Hour Seattle Essentials",
+    subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    duration: "Includes airport meet-up, round-trip city transfers, and a Seattle chocolate cherry gift bag.",
+    duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
+    pricing: {
+      perPerson: 250,
+      solo: 399,
+      family: 750
+    },
     features: [
       "Pike Place Market tour",
-      "Famous fish toss viewing",
+      "Famous fish toss viewing", 
       "Waterfront exploration",
-      "Local guide expertise"
+      "Seattle chocolate-covered Rainier cherries tote bag"
     ]
   },
   {
-    title: "7-Hour Extended Tour",
-    subtitle: "Classic + Space Needle",
-    description: "Everything in the Classic Tour plus a quick Space Needle photo stop. Perfect for travelers who want both insider gems and Seattle's most iconic landmark.",
-    duration: "All Classic features plus Space Needle visit",
+    title: "7-Hour Seattle Highlights",
+    subtitle: "Essentials + Iconic Seattle Skyline View – Kerry Park + Molly Moon's Ice Cream",
+    description: "Everything in the Essentials Tour plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
+    duration: "All Essentials features + Kerry Park + included Molly Moon's Ice Cream",
+    pricing: {
+      perPerson: 300,
+      solo: 450,
+      family: 900
+    },
     features: [
-      "All Classic Tour features",
-      "Space Needle photo stop",
-      "Extended exploration time",
-      "Seattle's iconic landmark"
+      "All Essentials Tour features",
+      "Kerry Park iconic skyline view",
+      "Molly Moon's Ice Cream (pre-ordered pickup, included)",
+      "Seattle's postcard-perfect photos"
     ]
   },
   {
-    title: "8-Hour Premium Tour",
-    subtitle: "Extended + Kerry Park",
-    description: "The ultimate layover adventure. Includes everything in the Extended Tour, plus a stop at Kerry Park for Seattle's postcard skyline view.",
-    duration: "Maximum Seattle experience with skyline views",
+    title: "8-Hour Seattle Complete",
+    subtitle: "Essentials + Space Needle admission",
+    description: "The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.",
+    duration: "All Essentials features + Space Needle admission (go inside, observation deck visit included)",
+    pricing: {
+      perPerson: 350,
+      solo: 499,
+      family: null // No family pack for 8-hour due to Space Needle ticket requirements
+    },
     features: [
-      "All Extended Tour features",
-      "Kerry Park skyline views",
-      "Postcard-perfect photos",
-      "Ultimate Seattle experience"
-    ]
+      "All Essentials Tour features",
+      "Space Needle admission (go inside)",
+      "Observation deck visit included",
+      "Maximum Seattle experience"
+    ],
+    note: "No Family Pack available - each guest requires Space Needle ticket; children under 5 are free"
   }
 ];
 
@@ -53,10 +69,10 @@ const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 
 const WHATS_INCLUDED = [
   "Airport meet & greet",
-  "Uber coordination",
-  "On-time return guarantee (safe flight buffer)",
-  "Local souvenir tote bag",
-  "Free cancellation up to 24 hours before your tour"
+  "Light Rail (airport ↔ city) + Uber for short hops",
+  "On-time return guarantee (safe buffer; flight monitored)",
+  "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+  "Free cancellation (24+ hours notice). Cancellations within 24 hours are non‑refundable."
 ];
 
 const GIFT_TOTE_ITEMS = [
@@ -68,20 +84,28 @@ const GIFT_TOTE_ITEMS = [
 
 const ADD_ONS = [
   {
-    name: "Dick's Burger Combo",
-    emoji: "🍔"
+    name: "Fremont Troll + Dick's Burgers",
+    price: 120,
+    emoji: "🍔",
+    requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Top Pot Coffee & Doughnut",
-    emoji: "☕"
+    name: "Amazon Spheres + Top Pot Donuts",
+    price: 120,
+    emoji: "🏢",
+    requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Molly Moon's Ice Cream",
-    emoji: "🍦"
+    name: "Filson & REI Shopping Stop",
+    price: 120,
+    emoji: "🛍️",
+    requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Starbucks Reserve Roastery Visit Coffee & Pastry",
-    emoji: "☕"
+    name: "Starbucks Reserve Roastery (Capitol Hill)",
+    price: 120,
+    emoji: "☕",
+    requirement: "Requires 9+ hour layover"
   }
 ];
 
@@ -192,28 +216,6 @@ export default function PricingPage() {
               ))}
             </div>
 
-            {/* Special Pricing Notes */}
-            <div className="rounded-3xl bg-gradient-to-br from-yellow-100 to-orange-100 border-2 border-yellow-300 p-6 mb-8 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-4">
-                  <span className="text-2xl">💰</span>
-                  <span className="font-bold text-slate-800 text-lg">{PricingPageText.specialOffers}</span>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                    <h4 className="font-bold text-purple-700 mb-2">{PricingPageText.familyBundle}</h4>
-                    <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.familyBundleDescription }} />
-                  </div>
-                    <div className="p-4 rounded-2xl bg-white/80 backdrop-blur">
-                      <h4 className="font-bold text-purple-700 mb-2">{PricingPageText.extraKids}</h4>
-                      <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.extraKidsDescription }} />
-                    </div>
-                </div>
-                <p className="text-xs text-slate-600 mt-4">
-                  {PricingPageText.pricingNote}
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -284,38 +286,29 @@ export default function PricingPage() {
               <h2 className="text-4xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{PricingPageText.addOnsTitle}</span>
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                {PricingPageText.addOnsSubtitle}
-              </p>
             </div>
 
             <div className="max-w-4xl mx-auto">
-              <div className="grid gap-6 md:grid-cols-3 mb-8">
-                <div className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.oneAddOn}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.oneAddOnPrice}</div>
-                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
-                </div>
-                <div className="text-center p-6 rounded-3xl bg-gradient-to-br from-purple-100 to-indigo-100 border-2 border-purple-300 shadow-lg hover-lift transform scale-105">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.twoAddOns}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.twoAddOnsPrice}</div>
-                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
-                  <div className="mt-2 px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-semibold">{PricingPageText.popular}</div>
-                </div>
-                <div className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift">
-                  <div className="text-2xl font-bold text-purple-600 mb-2">{PricingPageText.threeAddOns}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.threeAddOnsPrice}</div>
-                  <div className="text-sm text-slate-600">{PricingPageText.perPerson}</div>
-                </div>
-              </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
+              {/* Add-Ons List */}
+              <div className="grid gap-4 md:grid-cols-2 mb-6">
                 {ADD_ONS.map((addon, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur shadow-md hover-lift">
-                    <div className="text-3xl">{addon.emoji}</div>
-                    <span className="font-medium text-slate-700">{addon.name}</span>
+                  <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur shadow-md hover-lift">
+                    <div className="text-3xl flex-shrink-0">{addon.emoji}</div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-slate-800 mb-1">{addon.name}</div>
+                      <div className="text-sm text-purple-600 font-medium">${addon.price} per group</div>
+                      <div className="text-xs text-slate-500 mt-1">{addon.requirement}</div>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Important Note */}
+              <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
+                <p className="text-sm text-blue-700 font-medium">
+                  {PricingPageText.addOnsNote}
+                </p>
               </div>
             </div>
           </div>
@@ -335,12 +328,7 @@ export default function PricingPage() {
                     {PricingPageText.cancellationPolicy}
                   </h3>
                 </div>
-                <p className="text-slate-700 text-lg leading-relaxed mb-4">
-                  {PricingPageText.cancellationPolicyDescription}
-                </p>
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 border border-blue-200">
-                  <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.tourNote }} />
-                </div>
+                <div className="text-slate-700 text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: PricingPageText.cancellationPolicyDescription }} />
               </div>
 
               {/* Contact */}
@@ -392,7 +380,7 @@ export default function PricingPage() {
                 href="/book"
                 className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                📋 Custom Booking Form
+                📋 Book Your Seattle Tour
               </a>
               <button
                 onClick={() => setIsBookingModalOpen(true)}
