@@ -525,19 +525,125 @@ export const PricingPageText = {
 
 export const PrivacyPageText = {
   title: "Privacy Policy",
-  description: "We collect minimal analytics to improve the app's performance and UX. No personal data is sold or shared.",
-  whatWeCollect: "What we collect",
-  anonymousUsage: "Anonymous usage events (if analytics enabled)",
-  serverLogs: "Basic server logs (errors and performance metrics)",
-  contact: "Contact",
-  contactEmail: "Email: hello@sixhourlayover.com",
+  effectiveDate: "Effective Date: September 2025",
+  description: "This Privacy Policy explains how SixHourLayover (\"Company,\" \"we,\" \"our,\" or \"us\") collects, uses, and protects your personal information.",
+  
+  informationWeCollect: "1. Information We Collect",
+  personalInfo: "Personal Information: Name, email, phone number, payment details (processed securely by Stripe, not stored by us).",
+  bookingDetails: "Booking Details: Tour date, time, number of travelers.",
+  automaticData: "Automatically Collected Data: IP address, device type, browser, site activity (via cookies, analytics tools).",
+  
+  howWeUse: "2. How We Use Your Information",
+  use1: "To process and confirm bookings.",
+  use2: "To communicate regarding your reservation, cancellations, or updates.",
+  use3: "To improve services, website experience, and customer support.",
+  use4: "To comply with legal obligations.",
+  
+  sharingInfo: "3. Sharing of Information",
+  sharingDescription: "We do not sell or rent your data. We may share information only with:",
+  sharing1: "Payment Processors (Stripe) for secure transactions.",
+  sharing2: "Service Providers (IT, hosting, analytics) under confidentiality agreements.",
+  sharing3: "Legal Authorities if required by law or to protect rights and safety.",
+  
+  cookiesTracking: "4. Cookies & Tracking",
+  cookiesDescription: "We use cookies and analytics tools (e.g., Google Analytics) to enhance user experience and analyze site usage. You may disable cookies in your browser, but some features may not work.",
+  
+  dataRetention: "5. Data Retention",
+  retentionDescription: "We retain personal data only as long as necessary for booking fulfillment, legal compliance, and legitimate business needs.",
+  
+  dataSecurity: "6. Data Security",
+  securityDescription: "We implement reasonable administrative, technical, and physical safeguards to protect your data. However, no online system is 100% secure.",
+  
+  childrenPrivacy: "7. Children's Privacy",
+  childrenDescription: "Our services are not directed to children under 13. We do not knowingly collect data from minors.",
+  
+  yourRights: "8. Your Rights",
+  rightsDescription: "Depending on your location, you may have rights to:",
+  rights1: "Access, correct, or delete your data.",
+  rights2: "Opt out of marketing communications.",
+  rights3: "Request portability of your data.",
+  rightsContact: "Contact us at booking@sixhourlayover.com for requests.",
+  
+  internationalUsers: "9. International Users",
+  internationalDescription: "Our services are based in the U.S. If you access from outside, your data will be transferred to and processed in the U.S., subject to U.S. laws.",
+  
+  gdprAddendum: "10. GDPR Addendum (European Union Users)",
+  gdprDescription: "If you are located in the European Economic Area (EEA), you have the following rights under the GDPR:",
+  gdprRights: [
+    "Right to Access: Request a copy of your personal data.",
+    "Right to Rectification: Correct inaccurate or incomplete information.",
+    "Right to Erasure: Request deletion of your data under certain conditions.",
+    "Right to Restrict Processing: Limit how we use your data.",
+    "Right to Data Portability: Receive your data in a structured, machine-readable format.",
+    "Right to Object: Object to certain data uses (e.g., marketing)."
+  ],
+  gdprLegalBasis: "Legal Basis: We process personal data based on your consent, contractual necessity, or legitimate interests.",
+  gdprTransfers: "Data Transfers: Your data may be transferred outside the EEA to the U.S., safeguarded by contractual clauses.",
+  
+  ccpaAddendum: "11. CCPA/CPRA Addendum (California Residents)",
+  ccpaDescription: "If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):",
+  ccpaRights: [
+    "Right to Know: Request details on categories of data collected, purposes, and third parties shared with.",
+    "Right to Delete: Request deletion of personal data, subject to exceptions.",
+    "Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: We do not sell your personal information).",
+    "Right to Non-Discrimination: We will not discriminate against you for exercising your privacy rights."
+  ],
+  ccpaContact: "To exercise these rights, contact us at booking@sixhourlayover.com. Verification of identity may be required.",
+  
+  updatesPolicy: "12. Updates to Privacy Policy",
+  updatesDescription: "We may update this Policy from time to time. Updates will be posted on our website with a revised effective date.",
+  
+  contactUs: "13. Contact Us",
+  contactDescription: "For questions about this Privacy Policy, contact:",
+  contactEmail: "Email: booking@sixhourlayover.com",
+  contactAddress: "Address: Seattle, Washington, USA",
 };
 
 export const TermsPageText = {
   title: "Terms of Service",
-  description: "Use at your own risk. Always leave generous time buffers for airport procedures.",
-  liabilityTitle: "Liability",
-  liabilityDescription: "We are not liable for missed flights, delays, or changes in local conditions.",
+  effectiveDate: "Effective Date: September 2025",
+  description: "Welcome to SixHourLayover (\"Company,\" \"we,\" \"our,\" or \"us\"). By accessing or booking through www.sixhourlayover.com (\"Site\"), you (\"Customer,\" \"you,\" or \"your\") agree to these Terms of Service (\"Terms\").",
+  
+  servicesProvided: "1. Services Provided",
+  servicesDescription: "SixHourLayover provides curated sightseeing tours in Seattle, Washington. Services are subject to availability and may be modified, rescheduled, or canceled at our discretion.",
+  
+  eligibility: "2. Eligibility",
+  eligibility1: "You must be at least 18 years old to book.",
+  eligibility2: "By booking, you confirm that all information provided is accurate and complete.",
+  
+  bookingPayments: "3. Booking & Payments",
+  booking1: "All bookings must be paid in full at the time of reservation via our authorized payment processor (Stripe).",
+  booking2: "Pricing is listed in U.S. dollars and may change without notice until confirmed at checkout.",
+  booking3: "SixHourLayover reserves the right to cancel or decline any booking.",
+  
+  cancellationsRefunds: "4. Cancellations & Refunds",
+  cancellation1: "Cancellations made 7+ days before the scheduled tour: Full refund.",
+  cancellation2: "Cancellations made 3–6 days before: 50% refund.",
+  cancellation3: "Cancellations made within 48 hours of the scheduled tour or no-shows: Non-refundable.",
+  cancellation4: "If SixHourLayover cancels due to unforeseen circumstances (e.g., severe weather, transportation issues, guide illness), you may receive a full refund or reschedule.",
+  
+  travelerResponsibilities: "5. Traveler Responsibilities",
+  traveler1: "Customers are responsible for arriving at the designated meeting point on time. Delays caused by flight, customs, or traffic will not entitle you to an extension or refund.",
+  traveler2: "Customers must comply with safety instructions from guides. Failure to do so may result in termination of the tour without refund.",
+  traveler3: "Alcohol, illegal drugs, and disruptive behavior are prohibited.",
+  
+  assumptionRisk: "6. Assumption of Risk & Liability Disclaimer",
+  risk1: "Participation in tours involves walking, transportation, and exposure to public environments. By booking, you acknowledge these risks.",
+  risk2: "SixHourLayover is not liable for personal injury, illness (including COVID-19), theft, property loss, flight delays, or missed connections.",
+  risk3: "To the fullest extent permitted by law, our liability is limited to the amount you paid for the booking.",
+  
+  intellectualProperty: "7. Intellectual Property",
+  ipDescription: "All site content, branding, images, and materials are owned by SixHourLayover and may not be used without written permission.",
+  
+  thirdPartyServices: "8. Third-Party Services",
+  thirdPartyDescription: "We use third-party providers (e.g., Stripe for payments, Google Maps for navigation). Your use of these services is subject to their terms and policies.",
+  
+  governingLaw: "9. Governing Law & Dispute Resolution",
+  law1: "These Terms are governed by the laws of the State of Washington, U.S.A.",
+  law2: "Any disputes shall be resolved exclusively in the state or federal courts located in King County, Washington.",
+  
+  changesTerms: "10. Changes to Terms",
+  changesDescription: "We may update these Terms at any time. Continued use of our services constitutes acceptance of the updated Terms.",
 };
 
 export const BookingFormText = {
