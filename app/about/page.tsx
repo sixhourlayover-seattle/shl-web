@@ -31,9 +31,6 @@ export default function AboutPage() {
               <p className="text-slate-700 text-xl max-w-4xl mx-auto leading-relaxed">
                 {AboutPageText.description}
               </p>
-              <p className="text-slate-700 text-lg max-w-4xl mx-auto leading-relaxed mt-4">
-                {AboutPageText.privateTours}
-              </p>
             </div>
           </div>
         </section>
