@@ -72,7 +72,7 @@ const WHATS_INCLUDED = [
   "Light Rail (airport ↔ city) + Uber for short hops",
   "On-time return guarantee (safe buffer; flight monitored)",
   "Seattle chocolate-covered Rainier cherry souvenir tote bag",
-  "Free cancellation up to 24 hours before your tour. No hidden fees. Cancellations within 24 hours are non‑refundable."
+  "Free cancellation (24+ hours notice). Cancellations within 24 hours are non‑refundable."
 ];
 
 const GIFT_TOTE_ITEMS = [
@@ -328,12 +328,7 @@ export default function PricingPage() {
                     {PricingPageText.cancellationPolicy}
                   </h3>
                 </div>
-                <p className="text-slate-700 text-lg leading-relaxed mb-4">
-                  {PricingPageText.cancellationPolicyDescription}
-                </p>
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 border border-blue-200">
-                  <p className="text-sm text-slate-700" dangerouslySetInnerHTML={{ __html: PricingPageText.tourNote }} />
-                </div>
+                <div className="text-slate-700 text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: PricingPageText.cancellationPolicyDescription }} />
               </div>
 
               {/* Contact */}
@@ -385,7 +380,7 @@ export default function PricingPage() {
                 href="/book"
                 className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                📋 Custom Booking Form
+                📋 Book Your Seattle Tour
               </a>
               <button
                 onClick={() => setIsBookingModalOpen(true)}

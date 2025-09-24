@@ -1,13 +1,13 @@
 import React from 'react';
 
 export const GlobalText = {
-  bookNow: "Book Now",
+  bookNow: "Book Your Seattle Tour",
   learnHowItWorks: "Learn How It Works",
   viewAllFAQs: "View All FAQs",
-  bookYourTourNow: "Book Your Tour Now",
+  bookYourTourNow: "Book Your Seattle Tour",
   callUsNow: "Call Us Now",
   emailQuestions: "Email Questions",
-  bookYourAdventureToday: "Book Your Adventure Today",
+  bookYourAdventureToday: "Book Your Seattle Tour",
   footerSlogan: "Making layovers memorable, one city at a time.",
   quickLinks: "Quick Links",
   legal: "Legal",
@@ -453,7 +453,7 @@ export const HomePageText = {
   meetup: "Meet-up at SEA Airport",
   features: "Food, views, photos, and a take-home treat",
   luggage: "Luggage storage guidance included",
-  bookNow: "Book Now — Secure your Seattle layover today",
+  bookNow: "Book Your Seattle Tour",
   lovedBy: "Loved by travelers from 20+ countries",
   thinking: "You're probably thinking…",
   thinking1Title: "“Six hours? Is that even enough?”",
@@ -508,7 +508,7 @@ export const PricingPageText = {
   addOnPrice: "$120",
   perGroup: "per group",
   cancellationPolicy: "Cancellation Policy",
-  cancellationPolicyDescription: "Free cancellation up to 24 hours before your tour. No hidden fees. Cancellations made within 24 hours of the tour start time are non‑refundable. To cancel, please email booking@sixhourlayover.com. Our team will process your request accordingly.",
+  cancellationPolicyDescription: "<strong>Free cancellation up to 24 hours before your tour.</strong> No hidden fees.<br/><br/><strong>Cancellations within 24 hours of tour start time are non‑refundable.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
   contact: "Contact Us",
   ctaTitle: "Ready to Book Your Seattle Adventure?",
   ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
@@ -612,7 +612,7 @@ export const MascotSectionText = {
   retired: "Retired",
   fromAdventures: "From Adventures",
   cta: "Want to meet our mascot on your tour?",
-  bookNow: "Book Your Seattle Adventure",
+  bookNow: "Book Your Seattle Tour",
 };
 
 export const MobileNavText = {
