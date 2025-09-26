@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { FaqPageText, FAQ_SECTIONS, GlobalText } from "@/lib/text";
 
+
 interface FAQItemProps {
   faq: {
     question: string;

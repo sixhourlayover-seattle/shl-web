@@ -1,10 +1,29 @@
-"use client";
 import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import MascotSection from "@/components/MascotSection";
 import { AboutPageText, TEAM_VALUES, STORY_POINTS, STATS, GlobalText } from "@/lib/text";
 import Image from "next/image";
+
+export const metadata = {
+  title: "About Our Seattle Layover Tours | Six Hour Layover",
+  description: "Learn about our Seattle layover tour service. Local guides offering Pike Place Market, Space Needle, and waterfront tours with SEA airport pickup for travelers with 6-8 hour layovers.",
+  keywords: ["Seattle layover tours", "SEA airport tours", "Pike Place Market layover", "Seattle tour guides", "airport pickup tours", "layover activities Seattle"],
+  openGraph: {
+    title: "About Our Seattle Layover Tours | Six Hour Layover",
+    description: "Learn about our Seattle layover tour service. Local guides offering Pike Place Market, Space Needle, and waterfront tours with SEA airport pickup.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Our Seattle Layover Tours | Six Hour Layover",
+    description: "Learn about our Seattle layover tour service. Local guides offering Pike Place Market, Space Needle, and waterfront tours with SEA airport pickup.",
+  },
+  alternates: {
+    canonical: "/about"
+  }
+};
 
 export default function AboutPage() {
   return (

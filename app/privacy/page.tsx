@@ -1,9 +1,32 @@
-"use client";
 import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { PrivacyPageText, GlobalText } from "@/lib/text";
 import Image from "next/image";
+
+export const metadata = {
+  title: "Privacy Policy - Seattle Layover Tours | Six Hour Layover",
+  description: "Privacy policy for Six Hour Layover Seattle tours. Learn how we protect your personal information, booking data, and contact details for SEA airport layover tours.",
+  keywords: ["Seattle layover tour privacy", "tour booking privacy policy", "personal data protection", "layover tour privacy"],
+  openGraph: {
+    title: "Privacy Policy - Seattle Layover Tours | Six Hour Layover",
+    description: "Privacy policy for Six Hour Layover Seattle tours. Learn how we protect your personal information and booking data.",
+    url: "/privacy",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy - Seattle Layover Tours | Six Hour Layover",
+    description: "Privacy policy for Six Hour Layover Seattle tours. Learn how we protect your personal information and booking data.",
+  },
+  alternates: {
+    canonical: "/privacy"
+  },
+  robots: {
+    index: false,
+    follow: true
+  }
+};
 
 export default function PrivacyPage() {
   return (

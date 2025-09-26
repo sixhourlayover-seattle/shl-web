@@ -1,8 +1,10 @@
 "use client";
+import Image from "next/image";
 import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { HowItWorksPageText, HOW_IT_WORKS_STEPS, WHAT_MAKES_US_DIFFERENT, GlobalText } from "@/lib/text";
+
 
 export default function HowItWorksPage() {
   return (
@@ -40,14 +42,32 @@ export default function HowItWorksPage() {
               <span className="text-slate-900">Smart. Seamless. Unforgettable.</span>
             </h2>
             <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
-                <img src="/pike-place-market.jpg" alt="Pike Place Market" className="w-full h-full object-cover" />
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
+                <Image
+                  src="/pike-place-market.jpg"
+                  alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
-                <img src="/seattle-waterfront.jpg" alt="Seattle Waterfront" className="w-full h-full object-cover" />
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
+                <Image
+                  src="/seattle-waterfront.jpg"
+                  alt="Seattle Waterfront - scenic views and attractions during layover tours"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift">
-                <img src="/space-needle-skyline.jpg" alt="Space Needle Skyline" className="w-full h-full object-cover" />
+              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
+                <Image
+                  src="/space-needle-skyline.jpg"
+                  alt="Space Needle and Seattle skyline - iconic photo stops on layover tours"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
             </div>
           </div>

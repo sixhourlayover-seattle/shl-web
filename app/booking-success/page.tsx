@@ -3,6 +3,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { BookingFormText } from "@/lib/text";
 
+
 function BookingSuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');

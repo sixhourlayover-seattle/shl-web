@@ -1,8 +1,27 @@
-"use client";
 import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { ContactPageText, CONTACT_METHODS, BOOKING_INFO, FAQ_QUICK, GlobalText } from "@/lib/text";
+
+export const metadata = {
+  title: "Contact Us - Seattle Layover Tours | Six Hour Layover",
+  description: "Contact Six Hour Layover for Seattle layover tour bookings. Call (206) 928-1277, WhatsApp, or email for SEA airport pickup tours. Quick response guaranteed.",
+  keywords: ["Seattle layover tour contact", "SEA airport tour booking", "layover tour phone number", "Seattle tour contact", "airport pickup booking", "layover tour WhatsApp"],
+  openGraph: {
+    title: "Contact Us - Seattle Layover Tours | Six Hour Layover",
+    description: "Contact Six Hour Layover for Seattle layover tour bookings. Call (206) 928-1277, WhatsApp, or email for SEA airport pickup tours.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us - Seattle Layover Tours | Six Hour Layover",
+    description: "Contact Six Hour Layover for Seattle layover tour bookings. Call (206) 928-1277, WhatsApp, or email for SEA airport pickup tours.",
+  },
+  alternates: {
+    canonical: "/contact"
+  }
+};
 
 export default function ContactPage() {
   return (

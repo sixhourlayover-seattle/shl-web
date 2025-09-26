@@ -1,9 +1,32 @@
-"use client";
 import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { TermsPageText, GlobalText } from "@/lib/text";
 import Image from "next/image";
+
+export const metadata = {
+  title: "Terms of Service - Seattle Layover Tours | Six Hour Layover",
+  description: "Terms of service for Six Hour Layover Seattle tours. Booking conditions, cancellation policy, and tour guidelines for SEA airport layover tours.",
+  keywords: ["Seattle layover tour terms", "tour booking conditions", "layover tour cancellation policy", "tour service terms"],
+  openGraph: {
+    title: "Terms of Service - Seattle Layover Tours | Six Hour Layover",
+    description: "Terms of service for Six Hour Layover Seattle tours. Booking conditions, cancellation policy, and tour guidelines.",
+    url: "/terms",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service - Seattle Layover Tours | Six Hour Layover",
+    description: "Terms of service for Six Hour Layover Seattle tours. Booking conditions, cancellation policy, and tour guidelines.",
+  },
+  alternates: {
+    canonical: "/terms"
+  },
+  robots: {
+    index: false,
+    follow: true
+  }
+};
 
 export default function TermsPage() {
   return (

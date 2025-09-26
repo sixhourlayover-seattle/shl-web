@@ -1,4 +1,12 @@
-"use client";
+
+export const metadata = {
+  title: "Booking Cancelled - Seattle Layover Tours | Six Hour Layover",
+  description: "Your Seattle layover tour booking was cancelled. No payment was processed. You can try booking again anytime for SEA airport pickup tours.",
+  robots: {
+    index: false,
+    follow: true
+  }
+};
 
 export default function BookingCancelledPage() {
   return (
