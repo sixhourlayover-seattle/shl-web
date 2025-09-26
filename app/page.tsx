@@ -150,7 +150,7 @@ export default function Page() {
                 onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                ⚡ Quick Book - Solo $399
+                ⚡ Quick Book (From $250)
               </button>
             </div>
           </div>
@@ -388,7 +388,7 @@ export default function Page() {
               onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
             >
-              ⚡ Quick Book (Solo $399)
+              ⚡ Quick Book (From $250)
             </button>
           </div>
         </div>

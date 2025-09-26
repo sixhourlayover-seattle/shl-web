@@ -385,7 +385,7 @@ export default function PricingPage() {
                 onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                ✈️ Quick Book (Solo)
+                ✈️ Quick Book
               </button>
             </div>
           </div>
