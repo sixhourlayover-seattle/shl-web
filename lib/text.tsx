@@ -463,7 +463,7 @@ export const HomePageText = {
   features: "Food, views, photos, and a take-home treat",
   luggage: "Luggage storage guidance included",
   bookNow: "Book Your Seattle Tour",
-  lovedBy: "Loved by travelers from 20+ countries",
+  lovedBy: "Loved by travelers from 10+ attractions",
   thinking: "You're probably thinking…",
   thinking1Title: "“Six hours? Is that even enough?”",
   thinking1Description: "Absolutely. We've designed this as a condensed, <strong>no stress</strong> experience that <strong>skips lines</strong>, avoids hassles, and guides you through Seattle's highlights — food, views, and photos — all with <strong>time to spare</strong>.",
@@ -487,12 +487,12 @@ export const HomePageText = {
   phoneNumber: "(206) 928‑1277",
   whatsapp: "WhatsApp",
   whatsappNumber: "(206) 928‑1277",
-  countries: "20+",
-  countriesLabel: "Countries",
-  perfectTime: "6hrs",
-  perfectTimeLabel: "Perfect Time",
+  countries: "10+",
+  countriesLabel: "Attractions",
+  perfectTime: "6+ Hrs",
+  perfectTimeLabel: "Perfect time",
   ctaTitle: "Seattle's best bites, views, and a guaranteed on-time return.",
-  ctaSubtitle: "Loved by travelers from 20+ countries",
+  ctaSubtitle: "Loved by travelers from 10+ attractions",
 };
 
 export const PricingPageText = {
