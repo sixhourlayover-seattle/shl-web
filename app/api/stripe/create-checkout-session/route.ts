@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-08-27.basil',
+      apiVersion: '2023-10-16',
     })
   : null;
 
@@ -16,7 +16,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { bookingId, productId, addOnIds, customerEmail, metadata } = await request.json();
+    const {
+      bookingId,
+      productId,
+      addOnIds = [],
+      travelerCount,
+      customerEmail,
+      metadata = {},
+    } = await request.json();
 
     // Import product configurations
     const { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS } = await import('@/lib/stripe-products');
@@ -25,22 +32,45 @@ export async function POST(request: NextRequest) {
 
     // Find the selected product
     const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === productId);
-    if (selectedProduct) {
-      lineItems.push({
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: selectedProduct.name,
-            description: selectedProduct.description,
-            metadata: {
-              productId: selectedProduct.id,
-            },
-          },
-          unit_amount: selectedProduct.price * 100, // Convert to cents
-        },
-        quantity: 1,
-      });
+    if (!selectedProduct) {
+      return NextResponse.json(
+        { error: 'Selected tour option is not available' },
+        { status: 400 }
+      );
     }
+
+    const rawTravelerCount =
+      typeof travelerCount === 'number'
+        ? travelerCount
+        : Number.parseInt(`${travelerCount ?? ''}`, 10);
+    const normalizedTravelerCount = Number.isFinite(rawTravelerCount) ? rawTravelerCount : 0;
+
+    if (selectedProduct.groupSize === 'per-person' && normalizedTravelerCount < 1) {
+      return NextResponse.json(
+        { error: 'Missing traveler count for per-person pricing' },
+        { status: 400 }
+      );
+    }
+
+    const payingQuantity =
+      selectedProduct.groupSize === 'per-person'
+        ? normalizedTravelerCount
+        : Math.max(1, normalizedTravelerCount);
+
+    lineItems.push({
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: selectedProduct.name,
+          description: selectedProduct.description,
+          metadata: {
+            productId: selectedProduct.id,
+          },
+        },
+        unit_amount: selectedProduct.price * 100, // Convert to cents
+      },
+      quantity: Math.max(1, payingQuantity),
+    });
 
     // Add selected add-ons
     if (addOnIds && addOnIds.length > 0) {
@@ -81,6 +111,7 @@ export async function POST(request: NextRequest) {
       metadata: {
         bookingId,
         ...metadata,
+        travelerCount: String(Math.max(1, payingQuantity)),
       },
       customer_email: customerEmail,
       automatic_tax: {
