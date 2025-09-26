@@ -12,7 +12,7 @@ import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 const TOUR_OPTIONS = [
   {
-    title: "6-Hour Seattle Essentials",
+    title: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
     duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
@@ -29,34 +29,34 @@ const TOUR_OPTIONS = [
     ]
   },
   {
-    title: "7-Hour Seattle Highlights",
-    subtitle: "Essentials + Iconic Seattle Skyline View – Kerry Park + Molly Moon's Ice Cream",
-    description: "Everything in the Essentials Tour plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
-    duration: "All Essentials features + Kerry Park + included Molly Moon's Ice Cream",
+    title: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
+    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
+    description: "Visit Pike Place Market & Waterfront plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
+    duration: "Pike Place Market & Waterfront + Kerry Park + included Molly Moon's Ice Cream",
     pricing: {
       perPerson: 300,
       solo: 450,
       family: 900
     },
     features: [
-      "All Essentials Tour features",
+      "Pike Place Market & Waterfront",
       "Kerry Park iconic skyline view",
       "Molly Moon's Ice Cream (pre-ordered pickup, included)",
       "Seattle's postcard-perfect photos"
     ]
   },
   {
-    title: "8-Hour Seattle Complete",
-    subtitle: "Essentials + Space Needle admission",
-    description: "The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.",
-    duration: "All Essentials features + Space Needle admission (go inside, observation deck visit included)",
+    title: "8-Hour — Pike Place Market and admission to the Space Needle",
+    subtitle: "Pike Place Market and admission to the Space Needle",
+    description: "The ultimate layover adventure. Explore Pike Place Market, then enjoy admission to the Space Needle, plus Space Needle admission to go inside and visit the observation deck.",
+    duration: "Pike Place Market + Space Needle admission (go inside, observation deck visit included)",
     pricing: {
       perPerson: 350,
       solo: 499,
       family: null // No family pack for 8-hour due to Space Needle ticket requirements
     },
     features: [
-      "All Essentials Tour features",
+      "Pike Place Market",
       "Space Needle admission (go inside)",
       "Observation deck visit included",
       "Maximum Seattle experience"
@@ -110,7 +110,7 @@ const ADD_ONS = [
 ];
 
 export default function PricingPage() {
-  const [selectedTier, setSelectedTier] = useState("2–3 Travelers");
+  const [selectedTier, setSelectedTier] = useState("Solo");
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   return (
@@ -150,7 +150,6 @@ export default function PricingPage() {
                 <div key={index} className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift" style={{animation: `slide-in 0.${index + 7}s ease-out`}}>
                   <div className="p-8 bg-gradient-to-r from-purple-600 to-indigo-600">
                     <h3 className="text-2xl font-bold text-white mb-2">{tour.title}</h3>
-                    {tour.subtitle && <p className="text-white/90 text-sm mb-2">{tour.subtitle}</p>}
                     <p className="text-white/90 text-sm">{tour.duration}</p>
                   </div>
                   <div className="p-8">
@@ -386,7 +385,7 @@ export default function PricingPage() {
                 onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                ✈️ Quick Book (2-3 Travelers)
+                ✈️ Quick Book (Solo)
               </button>
             </div>
           </div>

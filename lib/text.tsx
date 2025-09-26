@@ -217,19 +217,19 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "What if my flight is delayed or arrives early?",
-        answer: "No problem — we track your flight in real time. If your plane lands later or earlier than expected, your Layover Concierge will adjust the pickup time so you never miss your tour."
+        answer: "No problem — we track your flight in real time. If your plane lands later or earlier than expected, your Layover Layover Specialist will adjust the pickup time so you never miss your tour."
       },
       {
         question: "Is 6 hours really enough to explore Seattle?",
-        answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos &mdash; and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" &mdash; with stories, photos, and memories worth sharing."
+        answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos — and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" — with stories, photos, and memories worth sharing."
       },
       {
         question: "Where do we meet at the airport?",
-        answer: "Your Concierge greets you right at the Arrivals Baggage Claim area (with a sign) and will also send you a WhatsApp/text update before you land. We'll guide you to the Uber pickup point, handle the ride coordination, and start your adventure together."
+        answer: "Your Layover Specialist greets you right at the Arrivals Baggage Claim area (with a sign) and will also send you a WhatsApp/text update before you land. We'll guide you to the Uber pickup point, handle the ride coordination, and start your adventure together."
       },
       {
         question: "Can I bring my luggage?",
-        answer: "We recommend using the luggage storage service at SEA Airport for convenience. The cost is about $10–15 per bag, and guests pay this fee directly to the storage provider &mdash; it is not included in your tour price."
+        answer: "We recommend using the luggage storage service at SEA Airport for convenience. The cost is about $10–15 per bag, and guests pay this fee directly to the storage provider — it is not included in your tour price."
       }
     ]
   },
@@ -240,7 +240,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "How much does it cost?",
-        answer: "Tours are priced per person:\n• 6-Hour Seattle Essentials — $250 per person (Solo: $399, Family Pack: $750)\n• 7-Hour Seattle Highlights — $300 per person (Solo: $450, Family Pack: $900)\n• 8-Hour Seattle Complete — $350 per person (Solo: $499, no Family Pack)\n\nSee our Tours & Pricing page for details."
+        answer: "Tours are priced per person:\n• 6-Hour — Pike Place Market & Waterfront — $250 per person (Solo: $399, Family Pack: $750)\n• 7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream — $300 per person (Solo: $450, Family Pack: $900)\n• 8-Hour — Pike Place Market and admission to the Space Needle — $350 per person (Solo: $499, no Family Pack)\n\nSee our Tours & Pricing page for details."
       },
       {
         question: "How do I book and pay?",
@@ -252,7 +252,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Who provides the transportation during the tour?",
-        answer: "For all of our tours, transportation is arranged through Uber/Lyft ride-share services. These providers carry $1 million in liability coverage per ride, which protects all passengers in the event of an accident.\n\nWe handle all the logistics &mdash; meeting your driver, coordinating pickup/drop-off, and keeping the schedule on track &mdash; but we do not own or operate the vehicles. This means the rides are fully insured by Uber/Lyft, while we focus on ensuring your journey is smooth and stress-free."
+        answer: "For all of our tours, transportation is arranged through Uber ride-share services. These providers carry $1 million in liability coverage per ride, which protects all passengers in the event of an accident.\n\nWe handle all the logistics — meeting your driver, coordinating pickup/drop-off, and keeping the schedule on track — but we do not own or operate the vehicles. This means the rides are fully insured by Uber, while we focus on ensuring your journey is smooth and stress-free."
       },
       {
         question: "What if I need to cancel?",
@@ -271,11 +271,11 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Is this a private tour or group tour?",
-        answer: "The Seattle Highlights Layover Tour is private &mdash; just you, your group, and your Layover Specialist.\n\nThe Pike Place Market Food Tour is a small-group partner experience and may include other travelers.\n\nEither way, you'll enjoy seamless airport pickup, timing, and our guaranteed on-time return."
+        answer: "The Seattle Highlights Layover Tour is private — just you, your group, and your Layover Specialist.\n\nThe Pike Place Market Food Tour is a small-group partner experience and may include other travelers.\n\nEither way, you'll enjoy seamless airport pickup, timing, and our guaranteed on-time return."
       },
       {
         question: "Do you offer tours in my language?",
-        answer: "Tours are always available in English. Additional languages &mdash; including Mandarin, French, Turkish, Japanese, and Spanish &mdash; are offered upon request and subject to guide availability. Please confirm your preferred language when booking. More languages coming soon."
+        answer: "Tours are always available in English. Additional languages — including Mandarin, French, Turkish, Japanese, and Spanish — are offered upon request and subject to guide availability. Please confirm your preferred language when booking. More languages coming soon."
       }
     ]
   },
@@ -301,7 +301,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Is the tour physically demanding?",
-        answer: "No. Tours are light walking only, with plenty of rest stops. They're suitable for all ages, including children, and we can adjust pacing for families if needed."
+        answer: "Our tours involve light walking, but we know everyone's situation is different. We adjust the pace to fit your group's needs, with plenty of rest stops. Tours are suitable for all ages, including children, and stroller-friendly."
       },
       {
         question: "Is this family-friendly?",
@@ -316,7 +316,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Can I customize my layover tour?",
-        answer: "Yes. Tell us your preferences (more food, less walking, specific landmarks) and your Concierge will adapt the route."
+        answer: "Yes. Tell us your preferences (more food, less walking, specific landmarks) and your Layover Specialist will adapt the route."
       },
       {
         question: "Can I add food or coffee stops?",
@@ -324,7 +324,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Can I bring home souvenirs from Seattle?",
-        answer: "Yes! Every Six-Hour Layover guest receives a reusable tote bag, and you can pre-order local favorites like chowder, cheese, coffee, cherries, or smoked salmon. We'll have everything packed and ready when you arrive.\n\nSee our Gift Tote Pre-Order page for details."
+        answer: "Yes! Every Six-Hour Layover guest receives a reusable tote bag, and you can pre-order local favorites like chowder, cheese, coffee, cherries, or smoked salmon. We'll have everything packed and ready when you arrive.\n\nEvery Six-Hour Layover guest receives a reusable tote bag with a complimentary pack of chocolate-covered Rainier cherries. During your tour, we’ll also pass by shops like Made in Washington, where you can purchase local favorites such as chowder mix, cheese, coffee, or chocolate."
       }
     ]
   },
@@ -335,7 +335,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "What happens if there's bad weather?",
-        answer: "Seattle's weather is part of the charm! We provide umbrellas and adjust pacing &mdash; and if needed, we switch to indoor highlights like Chihuly Garden, MoPOP, or the Starbucks Reserve Roastery."
+        answer: "Seattle’s weather is part of the charm! We provide disposable rain ponchos and adjust pacing so you can stay comfortable and still enjoy the highlights."
       }
     ]
   }
@@ -349,7 +349,7 @@ export const HowItWorksPageText = {
   transportationTitle: "Transportation Details",
   transportationSubtitle: "Here's what you need to know about getting around",
   rideServiceTitle: "Ride Service",
-  rideServiceDescription: "Transportation is arranged through Uber/Lyft ride-share services with $1 million liability coverage per ride.",
+  rideServiceDescription: "Airport ↔ Downtown transfers are via Seattle’s Link Light Rail. Your guide accompanies you. Neighborhood transfers during the tour are arranged via Uber. Your guide manages all logistics and timing. We do not own or operate the vehicles; transportation services are provided by third-party providers with their own insurance coverage.",
   rideServicePoint1: "• We handle all coordination and logistics",
   rideServicePoint2: "• Professional drivers with full insurance",
   rideServicePoint3: "• Direct airport-to-downtown service",

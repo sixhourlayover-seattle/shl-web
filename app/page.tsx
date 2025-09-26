@@ -15,7 +15,7 @@ const SEATTLE_HIGHLIGHTS = [
   "Pike Place Market & famous fish toss",
   "Waterfront stroll with views", 
   "Space Needle photo stop",
-  "Kerry Park skyline view",
+  "iconic Seattle skyline view — Kerry Park",
   "Local food tastings"
 ];
 
@@ -27,22 +27,22 @@ const TESTIMONIALS = [
 
 const TOUR_OPTIONS = [
   {
-    name: "6-Hour Seattle Essentials",
+    name: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
     features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
   },
   {
-    name: "7-Hour Seattle Highlights",
-    subtitle: "Essentials + Iconic Seattle Skyline View – Kerry Park + Molly Moon's Ice Cream",
-    description: "Everything in the Essentials Tour plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
-    features: ["All Essentials features", "Kerry Park iconic skyline view", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
+    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
+    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
+    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park and a pre-ordered Molly Moon's Ice Cream pickup.",
+    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
   },
   {
-    name: "8-Hour Seattle Complete",
-    subtitle: "Essentials + Space Needle admission",
-    description: "The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.",
-    features: ["All Essentials features", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
+    name: "8-Hour — Pike Place Market and admission to the Space Needle",
+    subtitle: "Pike Place Market and admission to the Space Needle",
+    description: "The ultimate layover adventure. Explore Pike Place Market, then enjoy admission to the Space Needle, plus Space Needle admission to go inside and visit the observation deck.",
+    features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
   }
 ];
 
@@ -150,7 +150,7 @@ export default function Page() {
                 onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                ⚡ Quick Book - $250/person
+                ⚡ Quick Book - Solo $399
               </button>
             </div>
           </div>
@@ -388,7 +388,7 @@ export default function Page() {
               onClick={() => setIsBookingModalOpen(true)}
               className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
             >
-              ⚡ Quick Book ($250/person)
+              ⚡ Quick Book (Solo $399)
             </button>
           </div>
         </div>

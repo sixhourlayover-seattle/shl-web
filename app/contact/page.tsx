@@ -188,7 +188,7 @@ export default function ContactPage() {
                   {ContactPageText.emergencySubtitle}
                 </p>
                 <a 
-                  href="tel:+12064866398"
+                  href="tel:+12069281277"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-orange-600 text-white font-bold text-xl rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   <span className="text-2xl">📞</span>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                 {GlobalText.bookYourTourNow}
               </a>
               <a 
-                href="tel:+12064866398"
+                href="tel:+12069281277"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-2xl border border-white/30 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📞</span>
