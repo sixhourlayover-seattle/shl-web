@@ -150,7 +150,6 @@ export default function PricingPage() {
                 <div key={index} className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift" style={{animation: `slide-in 0.${index + 7}s ease-out`}}>
                   <div className="p-8 bg-gradient-to-r from-purple-600 to-indigo-600">
                     <h3 className="text-2xl font-bold text-white mb-2">{tour.title}</h3>
-                    {tour.subtitle && <p className="text-white/90 text-sm mb-2">{tour.subtitle}</p>}
                     <p className="text-white/90 text-sm">{tour.duration}</p>
                   </div>
                   <div className="p-8">
