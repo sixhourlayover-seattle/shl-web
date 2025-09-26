@@ -52,10 +52,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const payingQuantity =
+    const perPersonQuantity =
       selectedProduct.groupSize === 'per-person'
         ? normalizedTravelerCount
-        : Math.max(1, normalizedTravelerCount);
+        : 1;
+
+    const payingQuantity = Math.max(1, perPersonQuantity);
 
     lineItems.push({
       price_data: {
@@ -111,7 +113,11 @@ export async function POST(request: NextRequest) {
       metadata: {
         bookingId,
         ...metadata,
-        travelerCount: String(Math.max(1, payingQuantity)),
+        travelerCount: String(
+          selectedProduct.groupSize === 'per-person'
+            ? Math.max(1, normalizedTravelerCount)
+            : Math.max(1, normalizedTravelerCount || payingQuantity)
+        ),
       },
       customer_email: customerEmail,
       automatic_tax: {
