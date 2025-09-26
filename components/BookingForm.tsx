@@ -95,17 +95,40 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     const updatedData = { ...formData, [field]: value };
 
     // Recalculate pricing when relevant fields change
-    if (field === 'numberOfTravelers' || field === 'tourOption') {
-      const travelers = field === 'numberOfTravelers' ? value as number : updatedData.numberOfTravelers;
-      const selectedProduct = field === 'tourOption'
-        ? STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || getProductByGroupSize(travelers)
-        : getProductByGroupSize(travelers);
+    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount') {
+      // Determine duration from tour option
+      let duration: '6h' | '7h' | '8h' = '6h';
+      if (updatedData.tourOption.includes('7hour')) duration = '7h';
+      else if (updatedData.tourOption.includes('8hour')) duration = '8h';
+
+      const totalTravelers = updatedData.adultsCount + updatedData.childrenCount;
+
+      // Use direct product selection if a specific tour option is selected
+      let selectedProduct: StripeProduct | null;
+      if (field === 'tourOption') {
+        selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
+      } else {
+        selectedProduct = getProductByGroupSize(totalTravelers, duration);
+      }
+
       const selectedAddOns = STRIPE_ADD_ONS.filter(addon => updatedData.addOns.includes(addon.id));
-      const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, travelers, selectedAddOns) : 0;
+
+      // Calculate pricing considering children under 5 are free
+      let effectiveTravelers = updatedData.adultsCount;
+      if (updatedData.childrenAges) {
+        const ages = updatedData.childrenAges.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
+        effectiveTravelers += ages.filter(age => age >= 5).length;
+      } else {
+        // If no ages specified, assume all children are 5+ for pricing
+        effectiveTravelers += updatedData.childrenCount;
+      }
+
+      const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, effectiveTravelers, selectedAddOns) : 0;
 
       updatedData.selectedProduct = selectedProduct;
       updatedData.selectedAddOns = selectedAddOns;
       updatedData.totalPrice = totalPrice;
+      updatedData.numberOfTravelers = totalTravelers;
     }
 
     setFormData(updatedData);
@@ -175,22 +198,66 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     if (!validateStep(4)) return;
 
     setIsSubmitting(true);
-    
+
     try {
-      // Redirect to Stripe checkout with selected product and add-ons
-      if (formData.selectedProduct) {
-        redirectToStripeCheckout(formData.selectedProduct, formData.selectedAddOns);
-        // Don't show success message here - user needs to complete payment first
-        // Success will be shown on the /booking-success page after payment
-        if (onClose) {
-          onClose(); // Close the modal after redirecting to payment
-        }
-      } else {
-        throw new Error('No product selected');
+      // First, submit booking data to backend
+      const bookingData = {
+        ...formData,
+        submittedAt: new Date().toISOString(),
+      };
+
+      // Send booking data to backend for processing
+      const response = await fetch('/api/bookings/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Booking data submission failed');
       }
+
+      const result = await response.json();
+
+      // Create Stripe checkout session with metadata
+      const checkoutResponse = await fetch('/api/stripe/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          bookingId: result.bookingId,
+          productId: formData.selectedProduct?.id,
+          addOnIds: formData.selectedAddOns.map(addon => addon.id),
+          customerEmail: formData.email,
+          metadata: {
+            bookingId: result.bookingId,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            phone: formData.phone,
+            tourOption: formData.selectedProduct?.name || '',
+          }
+        }),
+      });
+
+      if (!checkoutResponse.ok) {
+        throw new Error('Payment setup failed');
+      }
+
+      const { url } = await checkoutResponse.json();
+
+      // Redirect to Stripe Checkout
+      if (url) {
+        window.location.href = url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+
     } catch (error) {
       console.error("Booking submission failed:", error);
-      setErrors({ submit: "Booking submission failed. Please try again." });
+      setErrors({ submit: "Unable to process your booking. Please try again or contact us directly." });
     } finally {
       setIsSubmitting(false);
     }
@@ -507,72 +574,88 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               </div>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.totalTravelers} *
-                </label>
-                <select
-                  value={formData.numberOfTravelers}
-                  onChange={(e) => handleInputChange('numberOfTravelers', parseInt(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  {[1,2,3,4,5,6,7,8].map(num => (
-                    <option key={num} value={num}>{num} {num === 1 ? 'person' : 'people'}</option>
-                  ))}
-                </select>
+            {/* Check if this is a solo tour selection */}
+            {formData.selectedProduct?.groupSize === '1' ? (
+              <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                <div className="flex items-center gap-2 text-green-700">
+                  <span className="text-xl">✓</span>
+                  <p className="font-medium">Solo tour selected - no additional traveler details needed</p>
+                </div>
               </div>
+            ) : (
+              <div className="space-y-6">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Adults (13+) *
+                    </label>
+                    <select
+                      value={formData.adultsCount}
+                      onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                      {[1,2,3,4,5,6,7,8].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.adults}
-                </label>
-                <select
-                  value={formData.adultsCount}
-                  onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  {[1,2,3,4,5,6,7,8].map(num => (
-                    <option key={num} value={num}>{num}</option>
-                  ))}
-                </select>
-              </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Children (0-12)
+                    </label>
+                    <select
+                      value={formData.childrenCount}
+                      onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                      {[0,1,2,3,4,5].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.children}
-                </label>
-                <select
-                  value={formData.childrenCount}
-                  onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  {[0,1,2,3,4,5].map(num => (
-                    <option key={num} value={num}>{num}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
+                {formData.childrenCount > 0 && (
+                  <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+                    <h4 className="font-medium text-yellow-800 mb-3">Children's Ages (Required for Pricing)</h4>
+                    <div className="space-y-3">
+                      <input
+                        type="text"
+                        value={formData.childrenAges}
+                        onChange={(e) => handleInputChange('childrenAges', e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border-2 border-yellow-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="Enter ages separated by commas (e.g., 3, 7, 10)"
+                        required={formData.childrenCount > 0}
+                      />
+                      <div className="text-sm text-yellow-700">
+                        <p><strong>Important:</strong> Children under 5 are free! Ages 5+ are charged as full price.</p>
+                        <p>Please list exact ages for accurate pricing.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-            {formData.childrenCount > 0 && (
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.childrenAges}
-                </label>
-                <input
-                  type="text"
-                  value={formData.childrenAges}
-                  onChange={(e) => handleInputChange('childrenAges', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  placeholder={BookingFormText.childrenAgesPlaceholder}
-                />
+                <div className="text-sm text-slate-600 bg-slate-50 rounded-lg p-3">
+                  <p><strong>Total Travelers:</strong> {formData.adultsCount + formData.childrenCount}</p>
+                  {formData.childrenAges && (
+                    <p><strong>Pricing calculation:</strong> Based on ages provided</p>
+                  )}
+                </div>
               </div>
             )}
 
+
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-3">
-                {BookingFormText.addOns}
+                Add-Ons (Requires 9+ Hour Layover)
               </label>
+              <div className="bg-orange-50 rounded-xl p-4 border border-orange-200 mb-4">
+                <div className="flex items-center gap-2 text-orange-700">
+                  <span className="text-xl">⚠️</span>
+                  <p className="font-medium">Add-ons are only available if you have a 9+ hour layover between flights</p>
+                </div>
+              </div>
               <div className="grid gap-3 sm:grid-cols-1">
                 {ADD_ONS.map((addon) => (
                   <label key={addon.id} className="flex items-start gap-3 p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50">
@@ -586,6 +669,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                       <div className="font-medium text-slate-800">{addon.name}</div>
                       <div className="text-purple-600 font-semibold">+${addon.price} per group</div>
                       <div className="text-sm text-slate-600 mt-1">{addon.description}</div>
+                      <div className="text-xs text-orange-600 font-medium mt-2">⚠️ Requires 9+ hour layover</div>
                     </div>
                   </label>
                 ))}
@@ -749,10 +833,10 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  Redirecting to Payment...
+                  Setting up payment...
                 </span>
               ) : (
-                `Pay ${formData.totalPrice > 0 ? '$' + formData.totalPrice : ''} - ${BookingFormText.confirmBooking}`
+                `Complete Your Payment - $${formData.totalPrice}`
               )}
             </button>
           )}

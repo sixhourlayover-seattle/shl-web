@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { storeBookingData } from '@/lib/booking-storage';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -17,48 +16,60 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { product, addOns, bookingData } = await request.json();
+    const { bookingId, productId, addOnIds, customerEmail, metadata } = await request.json();
+
+    // Import product configurations
+    const { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS } = await import('@/lib/stripe-products');
 
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
-    // Add main product
-    if (product) {
-      let quantity = 1;
-      let unitAmount = product.price * 100; // Convert to cents
-
-      // Handle per-person pricing for 2-3 travelers
-      if (product.id === '2-3-travelers-6hour') {
-        quantity = bookingData.numberOfTravelers;
-      }
-
+    // Find the selected product
+    const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === productId);
+    if (selectedProduct) {
       lineItems.push({
         price_data: {
           currency: 'usd',
           product_data: {
-            name: product.name,
-            description: product.description,
+            name: selectedProduct.name,
+            description: selectedProduct.description,
+            metadata: {
+              productId: selectedProduct.id,
+            },
           },
-          unit_amount: unitAmount,
+          unit_amount: selectedProduct.price * 100, // Convert to cents
         },
-        quantity,
+        quantity: 1,
       });
     }
 
-    // Add add-ons
-    if (addOns && addOns.length > 0) {
-      addOns.forEach((addOn: any) => {
-        lineItems.push({
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: addOn.name,
-              description: addOn.description,
+    // Add selected add-ons
+    if (addOnIds && addOnIds.length > 0) {
+      addOnIds.forEach((addOnId: string) => {
+        const addOn = STRIPE_ADD_ONS.find(a => a.id === addOnId);
+        if (addOn) {
+          lineItems.push({
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: addOn.name,
+                description: addOn.description,
+                metadata: {
+                  addOnId: addOn.id,
+                },
+              },
+              unit_amount: addOn.price * 100, // Convert to cents
             },
-            unit_amount: addOn.price * 100, // Convert to cents
-          },
-          quantity: 1,
-        });
+            quantity: 1,
+          });
+        }
       });
+    }
+
+    if (lineItems.length === 0) {
+      return NextResponse.json(
+        { error: 'No valid products found' },
+        { status: 400 }
+      );
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -68,23 +79,19 @@ export async function POST(request: NextRequest) {
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/booking-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/booking-cancelled`,
       metadata: {
-        customerName: `${bookingData.firstName} ${bookingData.lastName}`,
-        customerEmail: bookingData.email,
-        customerPhone: bookingData.phone,
-        tourOption: bookingData.tourOption,
-        numberOfTravelers: bookingData.numberOfTravelers.toString(),
-        arrivalDate: bookingData.arrivalDate,
-        arrivalFlight: bookingData.arrivalFlight,
-        departureDate: bookingData.departureDate,
-        departureFlight: bookingData.departureFlight,
+        bookingId,
+        ...metadata,
       },
-      customer_email: bookingData.email,
+      customer_email: customerEmail,
+      automatic_tax: {
+        enabled: true,
+      },
     });
 
-    // Store full booking data for later retrieval
-    await storeBookingData(session.id, bookingData);
-
-    return NextResponse.json({ sessionId: session.id });
+    return NextResponse.json({
+      sessionId: session.id,
+      url: session.url
+    });
   } catch (error) {
     console.error('Error creating checkout session:', error);
     return NextResponse.json(
