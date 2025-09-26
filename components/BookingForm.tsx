@@ -185,6 +185,52 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
       if (!formData.departureDate) newErrors.departureDate = "Departure date is required";
       if (!formData.departureTime) newErrors.departureTime = "Departure time is required";
       if (!formData.departureFlight.trim()) newErrors.departureFlight = "Departure flight is required";
+
+      // Business validation for dates and times
+      if (formData.arrivalDate && formData.arrivalTime && formData.departureDate && formData.departureTime) {
+        const now = new Date();
+        const arrivalDateTime = new Date(`${formData.arrivalDate}T${formData.arrivalTime}`);
+        const departureDateTime = new Date(`${formData.departureDate}T${formData.departureTime}`);
+
+        // Check if arrival is in the past
+        if (arrivalDateTime <= now) {
+          newErrors.arrivalDate = "Arrival date and time cannot be in the past";
+        }
+
+        // Check if departure is before arrival
+        if (departureDateTime <= arrivalDateTime) {
+          newErrors.departureDate = "Departure must be after arrival";
+        }
+
+        // Check minimum 6-hour layover
+        if (departureDateTime > arrivalDateTime) {
+          const layoverHours = (departureDateTime.getTime() - arrivalDateTime.getTime()) / (1000 * 60 * 60);
+          if (layoverHours < 6) {
+            newErrors.departureTime = "You need at least 6 hours between flights for our tours";
+          }
+        }
+      }
+    }
+
+    if (step === 3) {
+      // Validate children ages if provided
+      if (formData.childrenCount > 0 && formData.childrenAges) {
+        const ages = formData.childrenAges.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
+        
+        if (ages.length !== formData.childrenCount) {
+          newErrors.childrenAges = `Please provide exactly ${formData.childrenCount} age(s)`;
+        }
+        
+        if (ages.some(age => age > 12)) {
+          newErrors.childrenAges = "Children must be 12 years old or younger";
+        }
+        
+        if (ages.some(age => age < 0)) {
+          newErrors.childrenAges = "Ages must be positive numbers";
+        }
+      } else if (formData.childrenCount > 0 && !formData.childrenAges) {
+        newErrors.childrenAges = "Children's ages are required for pricing";
+      }
     }
 
     if (step === 4) {
@@ -588,7 +634,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             </div>
 
             {/* Check if this is a solo tour selection */}
-            {formData.selectedProduct?.groupSize === '1' ? (
+            {formData.selectedProduct?.id === 'solo-6hour' || formData.selectedProduct?.id === 'solo-7hour' || formData.selectedProduct?.id === 'solo-8hour' ? (
               <div className="bg-green-50 rounded-xl p-4 border border-green-200">
                 <div className="flex items-center gap-2 text-green-700">
                   <span className="text-xl">✓</span>
@@ -622,7 +668,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                       onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
-                      {[0,1,2,3,4,5].map(num => (
+                      {[0,1,2,3].map(num => (
                         <option key={num} value={num}>{num}</option>
                       ))}
                     </select>
@@ -637,13 +683,16 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                         type="text"
                         value={formData.childrenAges}
                         onChange={(e) => handleInputChange('childrenAges', e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border-2 border-yellow-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                          errors.childrenAges ? 'border-red-500' : 'border-yellow-300'
+                        }`}
                         placeholder="Enter ages separated by commas (e.g., 3, 7, 10)"
                         required={formData.childrenCount > 0}
                       />
+                      {errors.childrenAges && <p className="text-red-500 text-sm mt-1">{errors.childrenAges}</p>}
                       <div className="text-sm text-yellow-700">
                         <p><strong>Important:</strong> Children under 5 are free! Ages 5+ are charged as full price.</p>
-                        <p>Please list exact ages for accurate pricing.</p>
+                        <p>Please list exact ages for accurate pricing (children must be 12 or younger).</p>
                       </div>
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { sendBookingNotificationEmail } from '@/lib/email';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -63,7 +64,12 @@ export async function POST(request: NextRequest) {
         console.log('Booking completed:', bookingInfo);
 
         // Send email notification to tech@sixhourlayover.com
-        await sendBookingNotificationEmail(bookingInfo);
+        const emailSent = await sendBookingNotificationEmail(bookingInfo);
+        if (emailSent) {
+          console.log('✅ Email notification sent successfully');
+        } else {
+          console.log('⚠️ Email notification failed or not configured');
+        }
 
         // Here you would typically also:
         // 1. Save booking to database
@@ -92,65 +98,5 @@ export async function POST(request: NextRequest) {
       { error: 'Webhook processing failed' },
       { status: 500 }
     );
-  }
-}
-
-async function sendBookingNotificationEmail(bookingInfo: any) {
-  try {
-    // For now, just log the email data
-    // In production, you'd use a service like SendGrid, Resend, or similar
-
-    const emailData = {
-      to: 'tech@sixhourlayover.com',
-      subject: `🎉 New Booking Confirmed - ${bookingInfo.customerName}`,
-      booking: {
-        ...bookingInfo,
-        formattedAmount: `$${bookingInfo.paymentAmount.toFixed(2)} ${bookingInfo.currency}`,
-        timestamp: new Date().toLocaleString('en-US', {
-          timeZone: 'America/Los_Angeles',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        }),
-      }
-    };
-
-    console.log('📧 Email notification data for tech@sixhourlayover.com:');
-    console.log('═══════════════════════════════════════════════════════════');
-    console.log(`Subject: ${emailData.subject}`);
-    console.log(`Customer: ${bookingInfo.customerName}`);
-    console.log(`Email: ${bookingInfo.customerEmail}`);
-    console.log(`Phone: ${bookingInfo.customerPhone}`);
-    console.log(`Tour: ${bookingInfo.tourOption}`);
-    console.log(`Preferred Language: ${bookingInfo.preferredLanguage}`);
-    console.log(`Amount: ${emailData.booking.formattedAmount}`);
-    console.log(`Payment Status: ${bookingInfo.paymentStatus}`);
-    console.log(`Booking ID: ${bookingInfo.bookingId}`);
-    console.log(`Session ID: ${bookingInfo.sessionId}`);
-    console.log(`Payment Intent: ${bookingInfo.paymentIntentId}`);
-    console.log(`Timestamp: ${emailData.booking.timestamp}`);
-    console.log('═══════════════════════════════════════════════════════════');
-
-    // TODO: Implement actual email sending
-    // Example with a hypothetical email service:
-    /*
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(emailData)
-    });
-
-    if (!response.ok) {
-      throw new Error('Email sending failed');
-    }
-    */
-
-    return true;
-  } catch (error) {
-    console.error('Failed to send notification email:', error);
-    return false;
   }
 }
