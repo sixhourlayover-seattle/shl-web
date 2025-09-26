@@ -18,6 +18,7 @@ interface BookingData {
   adultsCount: number;
   childrenCount: number;
   childrenAges?: string;
+  preferredLanguage: string;
   specialRequests?: string;
   dietaryRestrictions?: string;
   addOns: string[];
@@ -67,6 +68,7 @@ export async function POST(request: NextRequest) {
       email: bookingData.email,
       tourOption: bookingData.selectedProduct?.name,
       totalPrice: bookingData.totalPrice,
+      preferredLanguage: bookingData.preferredLanguage,
       submittedAt: bookingData.submittedAt
     });
 

@@ -16,7 +16,7 @@ interface BookingData {
   email: string;
   phone: string;
   whatsappWeChat: string;
-  
+
   // Flight Information
   arrivalDate: string;
   arrivalTime: string;
@@ -24,13 +24,14 @@ interface BookingData {
   departureDate: string;
   departureTime: string;
   departureFlight: string;
-  
+
   // Tour Information
   tourOption: string;
   numberOfTravelers: number;
   adultsCount: number;
   childrenCount: number;
   childrenAges: string;
+  preferredLanguage: string;
 
   // Special Requests
   specialRequests: string;
@@ -41,7 +42,7 @@ interface BookingData {
   selectedProduct: StripeProduct | null;
   selectedAddOns: StripeAddOn[];
   totalPrice: number;
-  
+
   // Agreement
   agreeToTerms: boolean;
 }
@@ -49,6 +50,16 @@ interface BookingData {
 // Using Stripe products from configuration
 const TOUR_OPTIONS = STRIPE_TOUR_PRODUCTS;
 const ADD_ONS = STRIPE_ADD_ONS;
+
+// Language options for tours
+const LANGUAGE_OPTIONS = [
+  { value: 'English', label: 'English (Default)' },
+  { value: 'Mandarin', label: 'Mandarin' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'German', label: 'German' },
+  { value: 'French', label: 'French' },
+  { value: 'Japanese', label: 'Japanese' },
+];
 
 // Initialize form data with proper defaults
 const initializeFormData = (): BookingData => {
@@ -72,6 +83,7 @@ const initializeFormData = (): BookingData => {
     adultsCount: 2,
     childrenCount: 0,
     childrenAges: "",
+    preferredLanguage: "English",
     specialRequests: "",
     dietaryRestrictions: "",
     addOns: [],
@@ -238,6 +250,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             lastName: formData.lastName,
             phone: formData.phone,
             tourOption: formData.selectedProduct?.name || '',
+            preferredLanguage: formData.preferredLanguage,
           }
         }),
       });
@@ -645,6 +658,37 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               </div>
             )}
 
+            {/* Language Preference */}
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-3">
+                Preferred Tour Language
+              </label>
+              <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 mb-4">
+                <div className="flex items-center gap-2 text-blue-700">
+                  <span className="text-xl">🗣️</span>
+                  <p className="font-medium">Tours are always available in English. Other languages are subject to guide availability.</p>
+                </div>
+              </div>
+              <select
+                value={formData.preferredLanguage}
+                onChange={(e) => handleInputChange('preferredLanguage', e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              >
+                {LANGUAGE_OPTIONS.map((language) => (
+                  <option key={language.value} value={language.value}>
+                    {language.label}
+                  </option>
+                ))}
+              </select>
+              {formData.preferredLanguage !== 'English' && (
+                <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                  <p className="text-sm text-amber-700">
+                    <strong>Note:</strong> {formData.preferredLanguage} tours are available upon request and subject to guide availability.
+                    Please confirm your language preference when booking.
+                  </p>
+                </div>
+              )}
+            </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-3">
@@ -742,6 +786,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                   <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.tourSelection}</h4>
                   <p>{formData.selectedProduct?.name}</p>
                   <p>{formData.numberOfTravelers} travelers ({formData.adultsCount} adults, {formData.childrenCount} children)</p>
+                  <p><strong>Language:</strong> {formData.preferredLanguage}</p>
                 </div>
 
                 {formData.selectedAddOns.length > 0 && (

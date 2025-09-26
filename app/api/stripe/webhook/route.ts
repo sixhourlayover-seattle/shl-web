@@ -52,6 +52,7 @@ export async function POST(request: NextRequest) {
           customerEmail: session.customer_email,
           customerPhone: session.metadata?.phone,
           tourOption: session.metadata?.tourOption,
+          preferredLanguage: session.metadata?.preferredLanguage || 'English',
           paymentAmount: session.amount_total ? session.amount_total / 100 : 0,
           paymentStatus: session.payment_status,
           currency: session.currency?.toUpperCase() || 'USD',
@@ -124,6 +125,7 @@ async function sendBookingNotificationEmail(bookingInfo: any) {
     console.log(`Email: ${bookingInfo.customerEmail}`);
     console.log(`Phone: ${bookingInfo.customerPhone}`);
     console.log(`Tour: ${bookingInfo.tourOption}`);
+    console.log(`Preferred Language: ${bookingInfo.preferredLanguage}`);
     console.log(`Amount: ${emailData.booking.formattedAmount}`);
     console.log(`Payment Status: ${bookingInfo.paymentStatus}`);
     console.log(`Booking ID: ${bookingInfo.bookingId}`);
