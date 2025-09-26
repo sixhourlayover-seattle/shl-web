@@ -10,6 +10,7 @@ import BookingModal from "@/components/BookingModal";
 import { PricingPageText, GlobalText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
+
 const TOUR_OPTIONS = [
   {
     title: "6-Hour — Pike Place Market & Waterfront",

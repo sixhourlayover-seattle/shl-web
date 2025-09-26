@@ -2,11 +2,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
+import { StructuredData } from "@/components/StructuredData";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const title = "The Six-Hour Layover | Seattle Layover Tours with Airport Pickup";
 const description =
   "Just 6 Hours in Seattle? We've Got You! No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.";
+
+export const viewport = {
+  themeColor: "#001628",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -16,7 +21,14 @@ export const metadata: Metadata = {
   },
   description,
   applicationName: "Six Hour Layover: Seattle",
-  keywords: ["Seattle layover", "SEA layover", "Pike Place Market", "Space Needle", "layover tours", "airport pickup"],
+  keywords: [
+    "Seattle layover tours", "SEA airport layover", "6 hour layover Seattle", "8 hour layover Seattle",
+    "Pike Place Market layover tour", "Space Needle layover visit", "Seattle airport pickup tours",
+    "SEA airport tour guide", "Seattle layover activities", "layover tours Seattle WA",
+    "Seattle tourist attractions layover", "short layover Seattle tours", "Seattle sightseeing layover",
+    "airport meetup Seattle tours", "Seattle waterfront layover", "Kerry Park Seattle layover",
+    "Seattle fish market layover", "Emerald City layover tours", "Seattle tour from airport"
+  ],
   openGraph: {
     type: "website",
     url: siteUrl,
@@ -40,7 +52,6 @@ export const metadata: Metadata = {
     apple: [{ url: "/logo_from_url.jpg", sizes: "180x180", type: "image/jpeg" }]
   },
   manifest: "/manifest.webmanifest",
-  themeColor: "#001628",
   robots: {
     index: true,
     follow: true
@@ -56,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <Analytics />
+        <StructuredData />
       </body>
     </html>
   );
