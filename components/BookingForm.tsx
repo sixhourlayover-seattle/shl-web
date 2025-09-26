@@ -29,8 +29,10 @@ interface BookingData {
   tourOption: string;
   numberOfTravelers: number;
   adultsCount: number;
-  childrenCount: number;
-  childrenAges: string;
+  childrenCount: number; // Children 5-12 (paid)
+  childrenAges: string; // Ages of children 5-12
+  childrenUnder5Count: number; // Children under 5 (free)
+  childrenUnder5Ages: string; // Ages of children under 5
   preferredLanguage: string;
 
   // Special Requests
@@ -83,6 +85,8 @@ const initializeFormData = (): BookingData => {
     adultsCount: 2,
     childrenCount: 0,
     childrenAges: "",
+    childrenUnder5Count: 0,
+    childrenUnder5Ages: "",
     preferredLanguage: "English",
     specialRequests: "",
     dietaryRestrictions: "",
@@ -106,34 +110,46 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
   const handleInputChange = (field: keyof BookingData, value: string | boolean | string[] | number) => {
     const updatedData = { ...formData, [field]: value };
 
+    // Special handling for solo tour selection
+    if (field === 'tourOption') {
+      const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
+      updatedData.selectedProduct = selectedProduct;
+      
+      // For solo tours, set adults to 1 and reset children counts
+      if (selectedProduct?.id?.includes('solo-')) {
+        updatedData.adultsCount = 1;
+        updatedData.childrenCount = 0;
+        updatedData.childrenUnder5Count = 0;
+        updatedData.childrenAges = "";
+        updatedData.childrenUnder5Ages = "";
+        updatedData.numberOfTravelers = 1;
+      }
+    }
+
     // Recalculate pricing when relevant fields change
-    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount') {
+    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount' || field === 'childrenUnder5Count') {
       // Determine duration from tour option
       let duration: '6h' | '7h' | '8h' = '6h';
       if (updatedData.tourOption.includes('7hour')) duration = '7h';
       else if (updatedData.tourOption.includes('8hour')) duration = '8h';
 
-      const totalTravelers = updatedData.adultsCount + updatedData.childrenCount;
+      // Total travelers includes adults + all children (for capacity, not pricing)
+      const totalTravelers = updatedData.adultsCount + updatedData.childrenCount + updatedData.childrenUnder5Count;
 
       // Use direct product selection if a specific tour option is selected
       let selectedProduct: StripeProduct | null;
       if (field === 'tourOption') {
         selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
       } else {
-        selectedProduct = getProductByGroupSize(totalTravelers, duration);
+        // For pricing calculations, only count adults + children 5+ (children under 5 are free)
+        const pricingTravelers = updatedData.adultsCount + updatedData.childrenCount;
+        selectedProduct = getProductByGroupSize(pricingTravelers, duration);
       }
 
       const selectedAddOns = STRIPE_ADD_ONS.filter(addon => updatedData.addOns.includes(addon.id));
 
-      // Calculate pricing considering children under 5 are free
-      let effectiveTravelers = updatedData.adultsCount;
-      if (updatedData.childrenAges) {
-        const ages = updatedData.childrenAges.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
-        effectiveTravelers += ages.filter(age => age >= 5).length;
-      } else {
-        // If no ages specified, assume all children are 5+ for pricing
-        effectiveTravelers += updatedData.childrenCount;
-      }
+      // Calculate pricing - only adults and children 5+ are charged
+      const effectiveTravelers = updatedData.adultsCount + updatedData.childrenCount;
 
       const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, effectiveTravelers, selectedAddOns) : 0;
 
@@ -213,23 +229,34 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     }
 
     if (step === 3) {
-      // Validate children ages if provided
+      // Validate children ages 5-12 if provided
       if (formData.childrenCount > 0 && formData.childrenAges) {
         const ages = formData.childrenAges.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
         
         if (ages.length !== formData.childrenCount) {
-          newErrors.childrenAges = `Please provide exactly ${formData.childrenCount} age(s)`;
+          newErrors.childrenAges = `Please provide exactly ${formData.childrenCount} age(s) for children 5-12`;
         }
         
-        if (ages.some(age => age > 12)) {
-          newErrors.childrenAges = "Children must be 12 years old or younger";
-        }
-        
-        if (ages.some(age => age < 0)) {
-          newErrors.childrenAges = "Ages must be positive numbers";
+        if (ages.some(age => age > 12 || age < 5)) {
+          newErrors.childrenAges = "Children in this field must be between 5-12 years old";
         }
       } else if (formData.childrenCount > 0 && !formData.childrenAges) {
-        newErrors.childrenAges = "Children's ages are required for pricing";
+        newErrors.childrenAges = "Ages are required for children 5-12";
+      }
+
+      // Validate children under 5 ages if provided
+      if (formData.childrenUnder5Count > 0 && formData.childrenUnder5Ages) {
+        const ages = formData.childrenUnder5Ages.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
+        
+        if (ages.length !== formData.childrenUnder5Count) {
+          newErrors.childrenUnder5Ages = `Please provide exactly ${formData.childrenUnder5Count} age(s) for children under 5`;
+        }
+        
+        if (ages.some(age => age >= 5 || age < 0)) {
+          newErrors.childrenUnder5Ages = "Children in this field must be under 5 years old (0-4)";
+        }
+      } else if (formData.childrenUnder5Count > 0 && !formData.childrenUnder5Ages) {
+        newErrors.childrenUnder5Ages = "Ages are required for children under 5";
       }
     }
 
@@ -643,7 +670,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               </div>
             ) : (
               <div className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Adults (13+) *
@@ -661,7 +688,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Children (0-12)
+                      Children (5-12) - Paid
                     </label>
                     <select
                       value={formData.childrenCount}
@@ -673,11 +700,26 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                       ))}
                     </select>
                   </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Children (Under 5) - Free
+                    </label>
+                    <select
+                      value={formData.childrenUnder5Count}
+                      onChange={(e) => handleInputChange('childrenUnder5Count', parseInt(e.target.value))}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                      {[0,1,2,3].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {formData.childrenCount > 0 && (
                   <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
-                    <h4 className="font-medium text-yellow-800 mb-3">Children's Ages (Required for Pricing)</h4>
+                    <h4 className="font-medium text-yellow-800 mb-3">Ages for Children 5-12 (Required for Pricing)</h4>
                     <div className="space-y-3">
                       <input
                         type="text"
@@ -686,21 +728,43 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                         className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                           errors.childrenAges ? 'border-red-500' : 'border-yellow-300'
                         }`}
-                        placeholder="Enter ages separated by commas (e.g., 3, 7, 10)"
+                        placeholder="Enter ages separated by commas (e.g., 5, 7, 10)"
                         required={formData.childrenCount > 0}
                       />
                       {errors.childrenAges && <p className="text-red-500 text-sm mt-1">{errors.childrenAges}</p>}
                       <div className="text-sm text-yellow-700">
-                        <p><strong>Important:</strong> Children under 5 are free! Ages 5+ are charged as full price.</p>
-                        <p>Please list exact ages for accurate pricing (children must be 12 or younger).</p>
+                        <p><strong>Ages 5-12:</strong> Please list exact ages for accurate pricing.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {formData.childrenUnder5Count > 0 && (
+                  <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                    <h4 className="font-medium text-green-800 mb-3">Ages for Children Under 5 (Free)</h4>
+                    <div className="space-y-3">
+                      <input
+                        type="text"
+                        value={formData.childrenUnder5Ages}
+                        onChange={(e) => handleInputChange('childrenUnder5Ages', e.target.value)}
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                          errors.childrenUnder5Ages ? 'border-red-500' : 'border-green-300'
+                        }`}
+                        placeholder="Enter ages separated by commas (e.g., 1, 3, 4)"
+                        required={formData.childrenUnder5Count > 0}
+                      />
+                      {errors.childrenUnder5Ages && <p className="text-red-500 text-sm mt-1">{errors.childrenUnder5Ages}</p>}
+                      <div className="text-sm text-green-700">
+                        <p><strong>Under 5 years:</strong> These children tour for free! Ages 0-4 only.</p>
                       </div>
                     </div>
                   </div>
                 )}
 
                 <div className="text-sm text-slate-600 bg-slate-50 rounded-lg p-3">
-                  <p><strong>Total Travelers:</strong> {formData.adultsCount + formData.childrenCount}</p>
-                  {formData.childrenAges && (
+                  <p><strong>Total Travelers:</strong> {formData.adultsCount + formData.childrenCount + formData.childrenUnder5Count}</p>
+                  <p><strong>Paid Travelers:</strong> {formData.adultsCount + formData.childrenCount} (Children under 5 are free)</p>
+                  {(formData.childrenAges || formData.childrenUnder5Ages) && (
                     <p><strong>Pricing calculation:</strong> Based on ages provided</p>
                   )}
                 </div>
@@ -834,7 +898,16 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 <div>
                   <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.tourSelection}</h4>
                   <p>{formData.selectedProduct?.name}</p>
-                  <p>{formData.numberOfTravelers} travelers ({formData.adultsCount} adults, {formData.childrenCount} children)</p>
+                  {formData.selectedProduct?.id?.includes('solo-') ? (
+                    <p>1 traveler (solo tour)</p>
+                  ) : (
+                    <div>
+                      <p>{formData.numberOfTravelers} total travelers</p>
+                      <p>• {formData.adultsCount} adults (paid)</p>
+                      {formData.childrenCount > 0 && <p>• {formData.childrenCount} children 5-12 (paid)</p>}
+                      {formData.childrenUnder5Count > 0 && <p>• {formData.childrenUnder5Count} children under 5 (free)</p>}
+                    </div>
+                  )}
                   <p><strong>Language:</strong> {formData.preferredLanguage}</p>
                 </div>
 

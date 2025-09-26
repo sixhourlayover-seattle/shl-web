@@ -18,6 +18,8 @@ interface BookingData {
   adultsCount: number;
   childrenCount: number;
   childrenAges?: string;
+  childrenUnder5Count: number;
+  childrenUnder5Ages?: string;
   preferredLanguage: string;
   specialRequests?: string;
   dietaryRestrictions?: string;
