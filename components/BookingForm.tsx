@@ -16,7 +16,7 @@ interface BookingData {
   email: string;
   phone: string;
   whatsappWeChat: string;
-  
+
   // Flight Information
   arrivalDate: string;
   arrivalTime: string;
@@ -24,13 +24,16 @@ interface BookingData {
   departureDate: string;
   departureTime: string;
   departureFlight: string;
-  
+
   // Tour Information
   tourOption: string;
   numberOfTravelers: number;
   adultsCount: number;
-  childrenCount: number;
-  childrenAges: string;
+  childrenCount: number; // Children 5-12 (paid)
+  childrenAges: string; // Ages of children 5-12
+  childrenUnder5Count: number; // Children under 5 (free)
+  childrenUnder5Ages: string; // Ages of children under 5
+  preferredLanguage: string;
 
   // Special Requests
   specialRequests: string;
@@ -41,7 +44,7 @@ interface BookingData {
   selectedProduct: StripeProduct | null;
   selectedAddOns: StripeAddOn[];
   totalPrice: number;
-  
+
   // Agreement
   agreeToTerms: boolean;
 }
@@ -49,6 +52,16 @@ interface BookingData {
 // Using Stripe products from configuration
 const TOUR_OPTIONS = STRIPE_TOUR_PRODUCTS;
 const ADD_ONS = STRIPE_ADD_ONS;
+
+// Language options for tours
+const LANGUAGE_OPTIONS = [
+  { value: 'English', label: 'English (Default)' },
+  { value: 'Mandarin', label: 'Mandarin' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'German', label: 'German' },
+  { value: 'French', label: 'French' },
+  { value: 'Japanese', label: 'Japanese' },
+];
 
 // Initialize form data with proper defaults
 const initializeFormData = (): BookingData => {
@@ -72,6 +85,9 @@ const initializeFormData = (): BookingData => {
     adultsCount: 2,
     childrenCount: 0,
     childrenAges: "",
+    childrenUnder5Count: 0,
+    childrenUnder5Ages: "",
+    preferredLanguage: "English",
     specialRequests: "",
     dietaryRestrictions: "",
     addOns: [],
@@ -94,18 +110,53 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
   const handleInputChange = (field: keyof BookingData, value: string | boolean | string[] | number) => {
     const updatedData = { ...formData, [field]: value };
 
+    // Special handling for solo tour selection
+    if (field === 'tourOption') {
+      const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
+      updatedData.selectedProduct = selectedProduct;
+      
+      // For solo tours, set adults to 1 and reset children counts
+      if (selectedProduct?.id?.includes('solo-')) {
+        updatedData.adultsCount = 1;
+        updatedData.childrenCount = 0;
+        updatedData.childrenUnder5Count = 0;
+        updatedData.childrenAges = "";
+        updatedData.childrenUnder5Ages = "";
+        updatedData.numberOfTravelers = 1;
+      }
+    }
+
     // Recalculate pricing when relevant fields change
-    if (field === 'numberOfTravelers' || field === 'tourOption') {
-      const travelers = field === 'numberOfTravelers' ? value as number : updatedData.numberOfTravelers;
-      const selectedProduct = field === 'tourOption'
-        ? STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || getProductByGroupSize(travelers)
-        : getProductByGroupSize(travelers);
+    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount' || field === 'childrenUnder5Count') {
+      // Determine duration from tour option
+      let duration: '6h' | '7h' | '8h' = '6h';
+      if (updatedData.tourOption.includes('7hour')) duration = '7h';
+      else if (updatedData.tourOption.includes('8hour')) duration = '8h';
+
+      // Total travelers includes adults + all children (for capacity, not pricing)
+      const totalTravelers = updatedData.adultsCount + updatedData.childrenCount + updatedData.childrenUnder5Count;
+
+      // Use direct product selection if a specific tour option is selected
+      let selectedProduct: StripeProduct | null;
+      if (field === 'tourOption') {
+        selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
+      } else {
+        // For pricing calculations, only count adults + children 5+ (children under 5 are free)
+        const pricingTravelers = updatedData.adultsCount + updatedData.childrenCount;
+        selectedProduct = getProductByGroupSize(pricingTravelers, duration);
+      }
+
       const selectedAddOns = STRIPE_ADD_ONS.filter(addon => updatedData.addOns.includes(addon.id));
-      const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, travelers, selectedAddOns) : 0;
+
+      // Calculate pricing - only adults and children 5+ are charged
+      const effectiveTravelers = updatedData.adultsCount + updatedData.childrenCount;
+
+      const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, effectiveTravelers, selectedAddOns) : 0;
 
       updatedData.selectedProduct = selectedProduct;
       updatedData.selectedAddOns = selectedAddOns;
       updatedData.totalPrice = totalPrice;
+      updatedData.numberOfTravelers = totalTravelers;
     }
 
     setFormData(updatedData);
@@ -150,6 +201,63 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
       if (!formData.departureDate) newErrors.departureDate = "Departure date is required";
       if (!formData.departureTime) newErrors.departureTime = "Departure time is required";
       if (!formData.departureFlight.trim()) newErrors.departureFlight = "Departure flight is required";
+
+      // Business validation for dates and times
+      if (formData.arrivalDate && formData.arrivalTime && formData.departureDate && formData.departureTime) {
+        const now = new Date();
+        const arrivalDateTime = new Date(`${formData.arrivalDate}T${formData.arrivalTime}`);
+        const departureDateTime = new Date(`${formData.departureDate}T${formData.departureTime}`);
+
+        // Check if arrival is in the past
+        if (arrivalDateTime <= now) {
+          newErrors.arrivalDate = "Arrival date and time cannot be in the past";
+        }
+
+        // Check if departure is before arrival
+        if (departureDateTime <= arrivalDateTime) {
+          newErrors.departureDate = "Departure must be after arrival";
+        }
+
+        // Check minimum 6-hour layover
+        if (departureDateTime > arrivalDateTime) {
+          const layoverHours = (departureDateTime.getTime() - arrivalDateTime.getTime()) / (1000 * 60 * 60);
+          if (layoverHours < 6) {
+            newErrors.departureTime = "You need at least 6 hours between flights for our tours";
+          }
+        }
+      }
+    }
+
+    if (step === 3) {
+      // Validate children ages 5-12 if provided
+      if (formData.childrenCount > 0 && formData.childrenAges) {
+        const ages = formData.childrenAges.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
+        
+        if (ages.length !== formData.childrenCount) {
+          newErrors.childrenAges = `Please provide exactly ${formData.childrenCount} age(s) for children 5-12`;
+        }
+        
+        if (ages.some(age => age > 12 || age < 5)) {
+          newErrors.childrenAges = "Children in this field must be between 5-12 years old";
+        }
+      } else if (formData.childrenCount > 0 && !formData.childrenAges) {
+        newErrors.childrenAges = "Ages are required for children 5-12";
+      }
+
+      // Validate children under 5 ages if provided
+      if (formData.childrenUnder5Count > 0 && formData.childrenUnder5Ages) {
+        const ages = formData.childrenUnder5Ages.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
+        
+        if (ages.length !== formData.childrenUnder5Count) {
+          newErrors.childrenUnder5Ages = `Please provide exactly ${formData.childrenUnder5Count} age(s) for children under 5`;
+        }
+        
+        if (ages.some(age => age >= 5 || age < 0)) {
+          newErrors.childrenUnder5Ages = "Children in this field must be under 5 years old (0-4)";
+        }
+      } else if (formData.childrenUnder5Count > 0 && !formData.childrenUnder5Ages) {
+        newErrors.childrenUnder5Ages = "Ages are required for children under 5";
+      }
     }
 
     if (step === 4) {
@@ -175,22 +283,67 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
     if (!validateStep(4)) return;
 
     setIsSubmitting(true);
-    
+
     try {
-      // Redirect to Stripe checkout with selected product and add-ons
-      if (formData.selectedProduct) {
-        redirectToStripeCheckout(formData.selectedProduct, formData.selectedAddOns);
-        // Don't show success message here - user needs to complete payment first
-        // Success will be shown on the /booking-success page after payment
-        if (onClose) {
-          onClose(); // Close the modal after redirecting to payment
-        }
-      } else {
-        throw new Error('No product selected');
+      // First, submit booking data to backend
+      const bookingData = {
+        ...formData,
+        submittedAt: new Date().toISOString(),
+      };
+
+      // Send booking data to backend for processing
+      const response = await fetch('/api/bookings/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Booking data submission failed');
       }
+
+      const result = await response.json();
+
+      // Create Stripe checkout session with metadata
+      const checkoutResponse = await fetch('/api/stripe/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          bookingId: result.bookingId,
+          productId: formData.selectedProduct?.id,
+          addOnIds: formData.selectedAddOns.map(addon => addon.id),
+          customerEmail: formData.email,
+          metadata: {
+            bookingId: result.bookingId,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            phone: formData.phone,
+            tourOption: formData.selectedProduct?.name || '',
+            preferredLanguage: formData.preferredLanguage,
+          }
+        }),
+      });
+
+      if (!checkoutResponse.ok) {
+        throw new Error('Payment setup failed');
+      }
+
+      const { url } = await checkoutResponse.json();
+
+      // Redirect to Stripe Checkout
+      if (url) {
+        window.location.href = url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+
     } catch (error) {
       console.error("Booking submission failed:", error);
-      setErrors({ submit: "Booking submission failed. Please try again." });
+      setErrors({ submit: "Unable to process your booking. Please try again or contact us directly." });
     } finally {
       setIsSubmitting(false);
     }
@@ -507,72 +660,159 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               </div>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.totalTravelers} *
-                </label>
-                <select
-                  value={formData.numberOfTravelers}
-                  onChange={(e) => handleInputChange('numberOfTravelers', parseInt(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  {[1,2,3,4,5,6,7,8].map(num => (
-                    <option key={num} value={num}>{num} {num === 1 ? 'person' : 'people'}</option>
-                  ))}
-                </select>
+            {/* Check if this is a solo tour selection */}
+            {formData.selectedProduct?.id === 'solo-6hour' || formData.selectedProduct?.id === 'solo-7hour' || formData.selectedProduct?.id === 'solo-8hour' ? (
+              <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                <div className="flex items-center gap-2 text-green-700">
+                  <span className="text-xl">✓</span>
+                  <p className="font-medium">Solo tour selected - no additional traveler details needed</p>
+                </div>
               </div>
+            ) : (
+              <div className="space-y-6">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Adults (13+) *
+                    </label>
+                    <select
+                      value={formData.adultsCount}
+                      onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                      {[1,2,3,4,5,6,7,8].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.adults}
-                </label>
-                <select
-                  value={formData.adultsCount}
-                  onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  {[1,2,3,4,5,6,7,8].map(num => (
-                    <option key={num} value={num}>{num}</option>
-                  ))}
-                </select>
-              </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Children (5-12) - Paid
+                    </label>
+                    <select
+                      value={formData.childrenCount}
+                      onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                      {[0,1,2,3].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.children}
-                </label>
-                <select
-                  value={formData.childrenCount}
-                  onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  {[0,1,2,3,4,5].map(num => (
-                    <option key={num} value={num}>{num}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Children (Under 5) - Free
+                    </label>
+                    <select
+                      value={formData.childrenUnder5Count}
+                      onChange={(e) => handleInputChange('childrenUnder5Count', parseInt(e.target.value))}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    >
+                      {[0,1,2,3].map(num => (
+                        <option key={num} value={num}>{num}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
-            {formData.childrenCount > 0 && (
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  {BookingFormText.childrenAges}
-                </label>
-                <input
-                  type="text"
-                  value={formData.childrenAges}
-                  onChange={(e) => handleInputChange('childrenAges', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  placeholder={BookingFormText.childrenAgesPlaceholder}
-                />
+                {formData.childrenCount > 0 && (
+                  <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+                    <h4 className="font-medium text-yellow-800 mb-3">Ages for Children 5-12 (Required for Pricing)</h4>
+                    <div className="space-y-3">
+                      <input
+                        type="text"
+                        value={formData.childrenAges}
+                        onChange={(e) => handleInputChange('childrenAges', e.target.value)}
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                          errors.childrenAges ? 'border-red-500' : 'border-yellow-300'
+                        }`}
+                        placeholder="Enter ages separated by commas (e.g., 5, 7, 10)"
+                        required={formData.childrenCount > 0}
+                      />
+                      {errors.childrenAges && <p className="text-red-500 text-sm mt-1">{errors.childrenAges}</p>}
+                      <div className="text-sm text-yellow-700">
+                        <p><strong>Ages 5-12:</strong> Please list exact ages for accurate pricing.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {formData.childrenUnder5Count > 0 && (
+                  <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                    <h4 className="font-medium text-green-800 mb-3">Ages for Children Under 5 (Free)</h4>
+                    <div className="space-y-3">
+                      <input
+                        type="text"
+                        value={formData.childrenUnder5Ages}
+                        onChange={(e) => handleInputChange('childrenUnder5Ages', e.target.value)}
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                          errors.childrenUnder5Ages ? 'border-red-500' : 'border-green-300'
+                        }`}
+                        placeholder="Enter ages separated by commas (e.g., 1, 3, 4)"
+                        required={formData.childrenUnder5Count > 0}
+                      />
+                      {errors.childrenUnder5Ages && <p className="text-red-500 text-sm mt-1">{errors.childrenUnder5Ages}</p>}
+                      <div className="text-sm text-green-700">
+                        <p><strong>Under 5 years:</strong> These children tour for free! Ages 0-4 only.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="text-sm text-slate-600 bg-slate-50 rounded-lg p-3">
+                  <p><strong>Total Travelers:</strong> {formData.adultsCount + formData.childrenCount + formData.childrenUnder5Count}</p>
+                  <p><strong>Paid Travelers:</strong> {formData.adultsCount + formData.childrenCount} (Children under 5 are free)</p>
+                  {(formData.childrenAges || formData.childrenUnder5Ages) && (
+                    <p><strong>Pricing calculation:</strong> Based on ages provided</p>
+                  )}
+                </div>
               </div>
             )}
 
+            {/* Language Preference */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-3">
-                {BookingFormText.addOns}
+                Preferred Tour Language
               </label>
+              <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 mb-4">
+                <div className="flex items-center gap-2 text-blue-700">
+                  <span className="text-xl">🗣️</span>
+                  <p className="font-medium">Tours are always available in English. Other languages are subject to guide availability.</p>
+                </div>
+              </div>
+              <select
+                value={formData.preferredLanguage}
+                onChange={(e) => handleInputChange('preferredLanguage', e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              >
+                {LANGUAGE_OPTIONS.map((language) => (
+                  <option key={language.value} value={language.value}>
+                    {language.label}
+                  </option>
+                ))}
+              </select>
+              {formData.preferredLanguage !== 'English' && (
+                <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                  <p className="text-sm text-amber-700">
+                    <strong>Note:</strong> {formData.preferredLanguage} tours are available upon request and subject to guide availability.
+                    Please confirm your language preference when booking.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-3">
+                Add-Ons (Requires 9+ Hour Layover)
+              </label>
+              <div className="bg-orange-50 rounded-xl p-4 border border-orange-200 mb-4">
+                <div className="flex items-center gap-2 text-orange-700">
+                  <span className="text-xl">⚠️</span>
+                  <p className="font-medium">Add-ons are only available if you have a 9+ hour layover between flights</p>
+                </div>
+              </div>
               <div className="grid gap-3 sm:grid-cols-1">
                 {ADD_ONS.map((addon) => (
                   <label key={addon.id} className="flex items-start gap-3 p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50">
@@ -586,6 +826,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                       <div className="font-medium text-slate-800">{addon.name}</div>
                       <div className="text-purple-600 font-semibold">+${addon.price} per group</div>
                       <div className="text-sm text-slate-600 mt-1">{addon.description}</div>
+                      <div className="text-xs text-orange-600 font-medium mt-2">⚠️ Requires 9+ hour layover</div>
                     </div>
                   </label>
                 ))}
@@ -657,7 +898,17 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 <div>
                   <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.tourSelection}</h4>
                   <p>{formData.selectedProduct?.name}</p>
-                  <p>{formData.numberOfTravelers} travelers ({formData.adultsCount} adults, {formData.childrenCount} children)</p>
+                  {formData.selectedProduct?.id?.includes('solo-') ? (
+                    <p>1 traveler (solo tour)</p>
+                  ) : (
+                    <div>
+                      <p>{formData.numberOfTravelers} total travelers</p>
+                      <p>• {formData.adultsCount} adults (paid)</p>
+                      {formData.childrenCount > 0 && <p>• {formData.childrenCount} children 5-12 (paid)</p>}
+                      {formData.childrenUnder5Count > 0 && <p>• {formData.childrenUnder5Count} children under 5 (free)</p>}
+                    </div>
+                  )}
+                  <p><strong>Language:</strong> {formData.preferredLanguage}</p>
                 </div>
 
                 {formData.selectedAddOns.length > 0 && (
@@ -749,10 +1000,10 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  Redirecting to Payment...
+                  Setting up payment...
                 </span>
               ) : (
-                `Pay ${formData.totalPrice > 0 ? '$' + formData.totalPrice : ''} - ${BookingFormText.confirmBooking}`
+                `Complete Your Payment - $${formData.totalPrice}`
               )}
             </button>
           )}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { getBookingData, updateBookingStatus } from '@/lib/booking-storage';
+import { sendBookingNotificationEmail } from '@/lib/email';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -45,43 +45,42 @@ export async function POST(request: NextRequest) {
         // Handle successful payment
         console.log('Payment succeeded for session:', session.id);
 
-        // Here you would typically:
-        // 1. Save booking to database
-        // 2. Send confirmation email
-        // 3. Update inventory if needed
-
+        // Extract booking information from session metadata
         const bookingInfo = {
           sessionId: session.id,
-          customerName: session.metadata?.customerName,
-          customerEmail: session.metadata?.customerEmail,
-          customerPhone: session.metadata?.customerPhone,
+          bookingId: session.metadata?.bookingId,
+          customerName: `${session.metadata?.firstName} ${session.metadata?.lastName}`,
+          customerEmail: session.customer_email,
+          customerPhone: session.metadata?.phone,
           tourOption: session.metadata?.tourOption,
-          numberOfTravelers: parseInt(session.metadata?.numberOfTravelers || '1'),
-          arrivalDate: session.metadata?.arrivalDate,
-          arrivalFlight: session.metadata?.arrivalFlight,
-          departureDate: session.metadata?.departureDate,
-          departureFlight: session.metadata?.departureFlight,
-          paymentAmount: session.amount_total,
+          preferredLanguage: session.metadata?.preferredLanguage || 'English',
+          paymentAmount: session.amount_total ? session.amount_total / 100 : 0,
           paymentStatus: session.payment_status,
+          currency: session.currency?.toUpperCase() || 'USD',
+          paymentIntentId: session.payment_intent,
+          createdAt: new Date(session.created * 1000).toISOString(),
         };
 
-        // Get full booking data from storage
-        const fullBookingData = await getBookingData(session.id);
-
         console.log('Booking completed:', bookingInfo);
-        console.log('Full booking data:', fullBookingData);
 
-        // Update booking status to completed
-        await updateBookingStatus(session.id, 'completed');
+        // Send email notification to tech@sixhourlayover.com
+        const emailSent = await sendBookingNotificationEmail(bookingInfo);
+        if (emailSent) {
+          console.log('✅ Email notification sent successfully');
+        } else {
+          console.log('⚠️ Email notification failed or not configured');
+        }
 
-        // Process the booking here (send emails, etc.)
+        // Here you would typically also:
+        // 1. Save booking to database
+        // 2. Send confirmation email to customer
+        // 3. Update inventory if needed
 
         break;
 
       case 'checkout.session.expired':
         const expiredSession = event.data.object as Stripe.Checkout.Session;
         console.log('Checkout session expired:', expiredSession.id);
-        await updateBookingStatus(expiredSession.id, 'cancelled');
         break;
 
       case 'payment_intent.payment_failed':
