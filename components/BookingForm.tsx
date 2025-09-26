@@ -173,7 +173,10 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
       : formData.addOns.filter(item => item !== addOn);
 
     const selectedAddOns = STRIPE_ADD_ONS.filter(addon => newAddOns.includes(addon.id));
-    const totalPrice = formData.selectedProduct ? calculateTotalPrice(formData.selectedProduct, formData.numberOfTravelers, selectedAddOns) : 0;
+    const payingTravelers = Math.max(0, formData.adultsCount + formData.childrenCount);
+    const totalPrice = formData.selectedProduct
+      ? calculateTotalPrice(formData.selectedProduct, payingTravelers, selectedAddOns)
+      : 0;
 
     setFormData(prev => ({
       ...prev,
@@ -284,10 +287,27 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
     setIsSubmitting(true);
 
+    const selectedProduct = formData.selectedProduct;
+    const payingTravelers = formData.adultsCount + formData.childrenCount;
+
+    if (!selectedProduct) {
+      setErrors({ submit: "Please select a tour option that matches your group size." });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (payingTravelers < 1) {
+      setErrors({ submit: "At least one paying traveler (adult or child 5+) is required." });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // First, submit booking data to backend
       const bookingData = {
         ...formData,
+        selectedProduct,
+        totalPrice: calculateTotalPrice(selectedProduct, payingTravelers, formData.selectedAddOns),
         submittedAt: new Date().toISOString(),
       };
 
@@ -314,7 +334,8 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
         },
         body: JSON.stringify({
           bookingId: result.bookingId,
-          productId: formData.selectedProduct?.id,
+          productId: selectedProduct.id,
+          travelerCount: payingTravelers,
           addOnIds: formData.selectedAddOns.map(addon => addon.id),
           customerEmail: formData.email,
           metadata: {
@@ -322,8 +343,9 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             firstName: formData.firstName,
             lastName: formData.lastName,
             phone: formData.phone,
-            tourOption: formData.selectedProduct?.name || '',
+            tourOption: selectedProduct.name || '',
             preferredLanguage: formData.preferredLanguage,
+            travelerCount: String(payingTravelers),
           }
         }),
       });

@@ -1,6 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+
+interface StripeCheckoutPayload {
+  bookingId: string;
+  productId: string;
+  travelerCount: number;
+  addOnIds: string[];
+  customerEmail?: string;
+  metadata?: Record<string, string>;
+}
 
 const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
   ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
@@ -11,9 +20,7 @@ interface StripeCheckoutModalProps {
   onClose: () => void;
   onSuccess: () => void;
   onError: (error: string) => void;
-  product: any;
-  addOns: any[];
-  bookingData: any;
+  payload: StripeCheckoutPayload | null;
 }
 
 export default function StripeCheckoutModal({
@@ -21,14 +28,12 @@ export default function StripeCheckoutModal({
   onClose,
   onSuccess,
   onError,
-  product,
-  addOns,
-  bookingData
+  payload
 }: StripeCheckoutModalProps) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleCheckout = async () => {
-    if (!product || isLoading) return;
+  const handleCheckout = useCallback(async () => {
+    if (!payload || isLoading) return;
 
     setIsLoading(true);
 
@@ -48,18 +53,20 @@ export default function StripeCheckoutModal({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          product,
-          addOns,
-          bookingData
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         throw new Error('Failed to create checkout session');
       }
 
-      const { sessionId } = await response.json();
+      const { sessionId, url } = await response.json();
+
+      if (url) {
+        window.location.href = url;
+        onSuccess();
+        return;
+      }
 
       // Redirect to Stripe Checkout
       const { error } = await stripe.redirectToCheckout({
@@ -69,13 +76,15 @@ export default function StripeCheckoutModal({
       if (error) {
         throw error;
       }
+
+      onSuccess();
     } catch (error) {
       console.error('Checkout error:', error);
       onError(error instanceof Error ? error.message : 'Payment failed');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [isLoading, onError, onSuccess, payload]);
 
   useEffect(() => {
     if (isOpen) {
@@ -88,7 +97,7 @@ export default function StripeCheckoutModal({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [handleCheckout, isOpen]);
 
   if (!isOpen) return null;
 
