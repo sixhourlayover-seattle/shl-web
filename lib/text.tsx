@@ -381,7 +381,7 @@ export const HOW_IT_WORKS_STEPS = [
     icon: "🛬",
     details: [
       "Your guide meets you at baggage claim with a sign",
-      "We help coordinate luggage storage if needed ($10-15 per bag)",
+      "We help coordinate luggage storage if needed.",
       "Quick briefing on the day's itinerary and timing"
     ]
   },
