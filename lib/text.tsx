@@ -229,7 +229,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Can I bring my luggage?",
-        answer: "We recommend using the luggage storage service at SEA Airport for convenience. The cost is about $10–15 per bag, and guests pay this fee directly to the storage provider — it is not included in your tour price."
+        answer: "We recommend using the luggage storage service at SEA Airport for convenience. Guests pay this fee directly to the storage provider — it is not included in your tour price."
       }
     ]
   },
@@ -286,7 +286,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Will I miss my flight?",
-        answer: "No. Every tour includes a 2-hour buffer built in. If traffic or delays occur, we'll adjust the schedule to get you back on time."
+        answer: "Not exactly. Every tour is designed with a 2-hour buffer before your departure. If traffic or delays occur, we’ll adjust the schedule to help you return on time. However, certain events (such as severe weather, airline changes, or unexpected airport security delays) are outside our control. For extra peace of mind, we highly recommend purchasing travel insurance, which may cover missed connections or additional costs."
       },
       {
         question: "How do you make sure I'm back with time to spare?",
@@ -354,7 +354,7 @@ export const HowItWorksPageText = {
   rideServicePoint2: "• Professional drivers with full insurance",
   rideServicePoint3: "• Direct airport-to-downtown service",
   luggageStorageTitle: "Luggage Storage",
-  luggageStorageDescription: "SEA Airport offers secure Smarte Carte storage for $10-15 per bag (paid directly to storage provider).",
+  luggageStorageDescription: "SEA Airport offers secure Smarte Carte storage for a fees (paid directly to storage provider).",
   luggageStoragePoint1: "• We guide you through the storage process",
   luggageStoragePoint2: "• Secure, monitored storage facility",
   luggageStoragePoint3: "• Easy retrieval upon return",
@@ -403,8 +403,8 @@ export const HOW_IT_WORKS_STEPS = [
     icon: "🎯",
     details: [
       "6h Seattle Essentials – Pike Place Market + Waterfront",
-      "7h Seattle Highlights – Essentials + Iconic Seattle skyline view (Kerry Park) + Molly Moon's Ice Cream (pre-ordered pickup, included)", 
-      "8h Seattle Complete – Essentials + Space Needle admission (go inside, observation deck visit included)",
+      "7h Seattle Highlights – Pike Place Market + Waterfront + Iconic Seattle skyline view (Kerry Park) + Molly Moon's Ice Cream (pre-ordered pickup, included)", 
+      "8h Seattle Complete – Pike Place Market + Space Needle admission (go inside, observation deck visit included)",
       "Optional curated add-ons available for 9+ hour layovers"
     ]
   },
@@ -726,7 +726,7 @@ export const MascotSectionText = {
   inChinese: "In Chinese",
   retired: "Retired",
   fromAdventures: "From Adventures",
-  cta: "Want to meet our mascot on your tour?",
+  cta: "Meet Guai Guai, our company mascot — you’ll see him on our website, posts, and souvenirs.",
   bookNow: "Book Your Seattle Tour",
 };
 

@@ -246,7 +246,7 @@ export default function PricingPage() {
         </section>
 
         {/* Seattle Gift Tote */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="rounded-3xl bg-gradient-to-br from-orange-100 to-yellow-100 p-8 shadow-2xl hover-lift">
@@ -277,7 +277,7 @@ export default function PricingPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Add-Ons */}
         <section className="py-16 bg-gradient-to-br from-indigo-50/50 to-purple-50/50">
