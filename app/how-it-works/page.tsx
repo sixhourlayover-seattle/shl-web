@@ -170,7 +170,6 @@ export default function HowItWorksPage() {
                   </p>
                   <ul className="space-y-2 text-sm text-slate-600">
                     <li>{HowItWorksPageText.rideServicePoint1}</li>
-                    <li>{HowItWorksPageText.rideServicePoint2}</li>
                     <li>{HowItWorksPageText.rideServicePoint3}</li>
                   </ul>
                 </div>
