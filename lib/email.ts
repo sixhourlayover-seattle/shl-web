@@ -100,19 +100,36 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
     console.log('✅ Email sent successfully:', response);
 
 
-    if (bookingInfo.customerEmail) {
+ if (bookingInfo.customerEmail) {
       const customerEmailContent = `
-        <h2>🎉 Booking Confirmed!</h2>
         <p>Hi ${bookingInfo.customerName},</p>
-        <p>Your booking for <strong>${bookingInfo.tourOption || 'your selected tour'}</strong> has been successfully confirmed.</p>
-        <p>We look forward to hosting you! ✅</p>
-        <p>— Six Hour Layover Team</p>
+        <p>Thank you for booking The Six-Hour Layover — we’re excited to welcome you and make your stop in Seattle a memorable one!</p>
+
+        <p>Here are your booking details:</p>
+        <ul>
+          <li><strong>Tour Type:</strong> ${bookingInfo.tourOption || 'N/A'}</li>
+          <li><strong>Date:</strong> ${bookingInfo.createdAt}</li>
+          <li><strong>Number of Travelers:</strong> ${bookingInfo.customerPhone || 'N/A'}</li>
+          <li><strong>Amount Paid:</strong> $${bookingInfo.paymentAmount.toFixed(2)} USD</li>
+          <li><strong>Booking ID:</strong> ${bookingInfo.bookingId || 'N/A'}</li>
+        </ul>
+
+        <p>Your Layover Concierge will meet you directly at your arrival gate. From there, we’ll handle everything — luggage, local bites, and a perfectly timed route so you’re back at the airport stress-free for your next flight.</p>
+
+        <p>You’ll receive a short reminder and contact details 24 hours before your tour. If you need to adjust your schedule or have any questions, please reply to this email or contact us at booking@sixhourlayover.com.</p>
+
+        <p>See you soon — let’s turn your stopover into the highlight of your trip!</p>
+
+        <p>Warm regards,<br/>
+        The Six-Hour Layover Team<br/>
+        Out to the city. Back on time.<br/>
+        <a href="https://www.sixhourlayover.com">www.sixhourlayover.com</a></p>
       `;
 
       await mg.messages().send({
         from: 'Six Hour Layover <noreply@sixhourlayover.com>',
         to: [bookingInfo.customerEmail],
-        subject: '🎉 Your Booking is Confirmed!',
+        subject: 'Your Six-Hour Layover Experience Is Confirmed!',
         html: customerEmailContent,
       });
     }
