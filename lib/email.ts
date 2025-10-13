@@ -99,6 +99,24 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
     const response = await mg.messages().send(data);
     console.log('✅ Email sent successfully:', response);
 
+
+    if (bookingInfo.customerEmail) {
+      const customerEmailContent = `
+        <h2>🎉 Booking Confirmed!</h2>
+        <p>Hi ${bookingInfo.customerName},</p>
+        <p>Your booking for <strong>${bookingInfo.tourOption || 'your selected tour'}</strong> has been successfully confirmed.</p>
+        <p>We look forward to hosting you! ✅</p>
+        <p>— Six Hour Layover Team</p>
+      `;
+
+      await mg.messages().send({
+        from: 'Six Hour Layover <noreply@sixhourlayover.com>',
+        to: [bookingInfo.customerEmail],
+        subject: '🎉 Your Booking is Confirmed!',
+        html: customerEmailContent,
+      });
+    }
+
     return true;
   } catch (error) {
     console.error('❌ Failed to send notification email:', error);
