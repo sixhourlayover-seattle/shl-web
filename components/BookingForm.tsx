@@ -47,6 +47,10 @@ interface BookingData {
 
   // Agreement
   agreeToTerms: boolean;
+
+  // luggage storage
+  needsLuggageStorage: boolean;
+  luggagePieces: number;
 }
 
 // Using Stripe products from configuration
@@ -94,7 +98,9 @@ const initializeFormData = (): BookingData => {
     agreeToTerms: false,
     selectedProduct: defaultProduct,
     selectedAddOns: [],
-    totalPrice
+    totalPrice,
+    needsLuggageStorage: false,
+    luggagePieces: 0,
   };
 };
 
@@ -309,6 +315,8 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
         selectedProduct,
         totalPrice: calculateTotalPrice(selectedProduct, payingTravelers, formData.selectedAddOns),
         submittedAt: new Date().toISOString(),
+        needsLuggageStorage: formData.needsLuggageStorage,
+        luggagePieces: formData.luggagePieces,
       };
 
       // Send booking data to backend for processing
@@ -346,6 +354,9 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
             tourOption: selectedProduct.name || '',
             preferredLanguage: formData.preferredLanguage,
             travelerCount: String(payingTravelers),
+            needsLuggageStorage: formData.needsLuggageStorage ? 'Yes' : 'No',
+            luggagePieces: formData.needsLuggageStorage ? String(formData.luggagePieces) : '0',
+
           }
         }),
       });
@@ -854,6 +865,58 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 ))}
               </div>
             </div>
+
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                Do you need to store any larger luggage before the tour?
+              </label>
+              <div className="flex items-center gap-3 mb-3">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="needsLuggageStorage"
+                    value="yes"
+                    checked={formData.needsLuggageStorage === true}
+                    onChange={() => handleInputChange('needsLuggageStorage', true)}
+                    className="mt-1"
+                  />
+                  <span>Yes</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="needsLuggageStorage"
+                    value="no"
+                    checked={formData.needsLuggageStorage === false}
+                    onChange={() => handleInputChange('needsLuggageStorage', false)}
+                    className="mt-1"
+                  />
+                  <span>No</span>
+                </label>
+              </div>
+
+              {formData.needsLuggageStorage && (
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    If yes, how many pieces?
+                  </label>
+                  <input
+                    type="number"
+                    min={1}
+                    value={formData.luggagePieces}
+                    onChange={(e) => handleInputChange('luggagePieces', parseInt(e.target.value))}
+                    className="w-32 px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+              )}
+              <p className="text-xs text-gray-500 mt-1">
+                The SEA airport baggage storage website will be shared with confirmed customers only.
+              </p>
+            </div>
+
+
+
+
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">

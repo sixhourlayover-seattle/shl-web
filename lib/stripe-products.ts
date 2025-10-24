@@ -51,7 +51,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     id: 'per-person-7hour',
     name: '7-Hour Seattle Highlights',
     price: 300.00,
-    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup.',
+    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     groupSize: 'per-person',
     priceDescription: 'per person (includes Kerry Park + Molly Moon\'s)'
@@ -60,7 +60,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     id: 'solo-traveler-7hour',
     name: '7-Hour Seattle Highlights (Solo)',
     price: 450.00,
-    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup.',
+    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions. ',
     paymentLink: 'https://buy.stripe.com/new-7hour-solo',
     groupSize: '1',
     priceDescription: 'solo traveler (includes Kerry Park + Molly Moon\'s)'
@@ -69,7 +69,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     id: 'family-pack-7hour',
     name: '7-Hour Seattle Highlights (Family Pack)',
     price: 900.00,
-    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup.',
+    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     paymentLink: 'https://buy.stripe.com/new-7hour-family',
     groupSize: 'family',
     priceDescription: '2 adults + up to 3 kids under 12 (includes Kerry Park + Molly Moon\'s)'
@@ -118,14 +118,6 @@ export const STRIPE_ADD_ONS: StripeAddOn[] = [
     price: 120.00,
     description: 'Optional curated add-on (requires 9+ hour layover): Visit Filson Flagship and REI Seattle outdoor store. Price covers coordination, guide time, and transportation. Purchases not included.',
     paymentLink: 'https://buy.stripe.com/new-addon-filson-rei',
-    category: 'tour-addon'
-  },
-  {
-    id: 'starbucks-reserve-roastery',
-    name: 'Starbucks Reserve Roastery (Capitol Hill)',
-    price: 120.00,
-    description: 'Optional curated add-on (requires 9+ hour layover): Starbucks Reserve Roastery on Capitol Hill. Price covers coordination, guide time, and transportation. Food and drinks not included.',
-    paymentLink: 'https://buy.stripe.com/new-addon-starbucks-reserve',
     category: 'tour-addon'
   }
 ];
