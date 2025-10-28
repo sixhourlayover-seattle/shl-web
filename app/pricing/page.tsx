@@ -47,9 +47,9 @@ const TOUR_OPTIONS = [
     ]
   },
   {
-    title: "8-Hour — Pike Place Market and admission to the Space Needle",
-    subtitle: "Pike Place Market and admission to the Space Needle",
-    description: "The ultimate layover adventure. Explore Pike Place Market, then enjoy admission to the Space Needle, plus Space Needle admission to go inside and visit the observation deck.",
+    title: "8-Hour — Pike Place Market + Space Needle Admission",
+    subtitle: "Experience the best of Seattle in one layover.",
+    description: "Explore the iconic Pike Place Market, then head to the Space Needle for panoramic skyline views from the observation deck — admission ticket included.",
     duration: "Pike Place Market + Space Needle admission (go inside, observation deck visit included)",
     pricing: {
       perPerson: 350,
@@ -58,8 +58,7 @@ const TOUR_OPTIONS = [
     },
     features: [
       "Pike Place Market",
-      "Space Needle admission (go inside)",
-      "Observation deck visit included",
+      "Space Needle admission (includes observation deck)",
       "Maximum Seattle experience"
     ],
     note: "No Family Pack available - each guest requires Space Needle ticket; children under 5 are free"
@@ -100,12 +99,6 @@ const ADD_ONS = [
     name: "Filson & REI Shopping Stop",
     price: 120,
     emoji: "🛍️",
-    requirement: "Requires 9+ hour layover"
-  },
-  {
-    name: "Starbucks Reserve Roastery (Capitol Hill)",
-    price: 120,
-    emoji: "☕",
     requirement: "Requires 9+ hour layover"
   }
 ];
@@ -328,7 +321,7 @@ export default function PricingPage() {
                     {PricingPageText.cancellationPolicy}
                   </h3>
                 </div>
-                <div className="text-slate-700 text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: PricingPageText.cancellationPolicyDescription }} />
+                <div className="text-slate-700 text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: PricingPageText.cancellationPolicyDescription_new }} />
               </div>
 
               {/* Contact */}

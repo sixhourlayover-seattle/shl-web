@@ -224,8 +224,8 @@ export const FAQ_SECTIONS = [
         answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos — and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" — with stories, photos, and memories worth sharing."
       },
       {
-        question: "Where do we meet at the airport?",
-        answer: "Your Layover Specialist greets you right at the Arrivals Baggage Claim area (with a sign) and will also send you a WhatsApp/text update before you land. We'll guide you to the Uber pickup point, handle the ride coordination, and start your adventure together."
+        question: "Where will the guide meet me?",
+        answer: "Your Layover Concierge will meet you at your arrival gate, or as close as possible inside SEA-Tac Airport. Before landing, you’ll receive a WhatsApp message with your guide’s name, photo, and live location link for easy coordination."
       },
       {
         question: "Can I bring my luggage?",
@@ -240,7 +240,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "How much does it cost?",
-        answer: "Tours are priced per person:\n• 6-Hour — Pike Place Market & Waterfront — $250 per person (Solo: $399, Family Pack: $750)\n• 7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream — $300 per person (Solo: $450, Family Pack: $900)\n• 8-Hour — Pike Place Market and admission to the Space Needle — $350 per person (Solo: $499, no Family Pack)\n\nSee our Tours & Pricing page for details."
+        answer: "6-Hour Tour — Pike Place Market + Seattle Waterfront\n• $250 per person  |  Solo $399  |  Family Pack $750 (2 adults + up to 3 kids) \n\n  7-Hour Tour — Pike Place Market + Waterfront + Kerry Park (+ Molly Moon’s Ice Cream) \n• $300 per person  |  Solo $450  |  Family Pack $900 \n\n 8-Hour Tour — Pike Place Market + Space Needle\n • $350 per person  |  Solo $499  |  (no Family Pack) \n\n Add-On Option (9-Hour) — Choose one bundle ($120 per group): \n • Fremont Troll + Dick’s Burgers  /  Amazon Spheres + Top Pot Donuts  /  Filson + REI shopping stop"
       },
       {
         question: "How do I book and pay?",
@@ -252,15 +252,15 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Who provides the transportation during the tour?",
-        answer: "For all of our tours, transportation is arranged through Uber ride-share services. These providers carry $1 million in liability coverage per ride, which protects all passengers in the event of an accident.\n\nWe handle all the logistics — meeting your driver, coordinating pickup/drop-off, and keeping the schedule on track — but we do not own or operate the vehicles. This means the rides are fully insured by Uber, while we focus on ensuring your journey is smooth and stress-free."
+        answer: "Transportation is arranged through Uber ride-share services.\n Uber carries $1 million in liability coverage per ride, protecting all passengers in the event of an accident. \n\n Your Layover Specialist coordinates each ride, ensures smooth pickup/drop-off, and keeps your schedule on track. \n We do not own or operate vehicles directly, but all rides are fully insured through Uber."
       },
       {
         question: "What if I need to cancel?",
-        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually.\n• Note: \"Extra child\" and \"Family bundle\" pricing have been removed."
+        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually.\n\n (Family Bundle and Extra Child pricing have been retired and replaced with our standard per-person and family packages.)"
       },
       {
         question: "What if we have 4–5 adults?",
-        answer: "Pricing is flat per person ($250, $300, $350 depending on tour length). There are no group discounts, as larger groups often require larger or multiple vehicles. This keeps pricing simple and fair."
+        answer: "Pricing is flat per person — there’s no extra charge for small groups.\n Example: For 4 adults on a 6-hour tour, the total would be 4 × $250 = $1,000.\nYour group will have a private Layover Specialist and private transportation for all stops."
       }
     ]
   },
@@ -271,7 +271,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Is this a private tour or group tour?",
-        answer: "The Seattle Highlights Layover Tour is private — just you, your group, and your Layover Specialist.\n\nThe Pike Place Market Food Tour is a small-group partner experience and may include other travelers.\n\nEither way, you'll enjoy seamless airport pickup, timing, and our guaranteed on-time return."
+        answer: "All Six-Hour Layover tours are private, designed just for you, your group, and your Layover Specialist.\nYou’ll enjoy seamless airport pickup, personalized timing, and our guaranteed on-time airport return.\n\n(Note: Occasionally, a small food-tasting stop at Pike Place Market may include other travelers, but your main itinerary remains private.)"
       },
       {
         question: "Do you offer tours in my language?",
@@ -320,7 +320,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Can I add food or coffee stops?",
-        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour.\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  – Starbucks Reserve Roastery (Capitol Hill)\n• Add-on fee covers guide and transport. Food & drink purchased separately."
+        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour. (Please note: the stop at Molly Moon’s Ice Cream is weather-dependent and may be adjusted on rainy or cold days for your comfort)\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  • Add-on fee covers guide and transport. Food & drink purchased separately."
       },
       {
         question: "Can I bring home souvenirs from Seattle?",
@@ -518,6 +518,7 @@ export const PricingPageText = {
   perGroup: "per group",
   cancellationPolicy: "Cancellation Policy",
   cancellationPolicyDescription: "<strong>Free cancellation up to 24 hours before your tour.</strong> No hidden fees.<br/><br/><strong>Cancellations within 24 hours of tour start time are non‑refundable.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
+  cancellationPolicyDescription_new: "<strong>Free cancellation up to 24 hours before your tour</strong> — no hidden fees.<br/><br/><strong>For last-minute changes, refer to the cancellation terms displayed during checkout.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",  
   contact: "Contact Us",
   ctaTitle: "Ready to Book Your Seattle Adventure?",
   ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
@@ -744,3 +745,11 @@ export const NAVIGATION_LINKS = [
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" }
 ];
+
+
+export const SLTourText = {
+  title: "Seattle Layover Tour (6–8 Hours)",
+  subtitle: "Everything you need to know about your Seattle layover adventure",
+  ctaTitle: "Still have questions?",
+  ctaSubtitle: "Contact us directly — we'll make sure your layover is stress-free from start to finish.",
+};

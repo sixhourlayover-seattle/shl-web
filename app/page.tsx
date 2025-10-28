@@ -39,9 +39,9 @@ const TOUR_OPTIONS = [
     features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
   },
   {
-    name: "8-Hour — Pike Place Market and admission to the Space Needle",
-    subtitle: "Pike Place Market and admission to the Space Needle",
-    description: "The ultimate layover adventure. Explore Pike Place Market, then enjoy admission to the Space Needle, plus Space Needle admission to go inside and visit the observation deck.",
+    name: "8-Hour — Pike Place Market + Space Needle Admission",
+    subtitle: "Experience the best of Seattle in one layover.",
+    description: "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
     features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
   }
 ];

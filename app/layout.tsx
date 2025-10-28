@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: "%s — Six Hour Layover: Seattle"
+    template: "%s"
   },
   description,
   applicationName: "Six Hour Layover: Seattle",
