@@ -252,7 +252,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Who provides the transportation during the tour?",
-        answer: "Transportation is a combination of Seattle’s Light Rail from the airport and Uber rides within the city.\n Your Layover Specialist coordinates each ride, ensures smooth transitions between stops, and keeps your schedule on track."
+        answer: "Transportation is a combination of Seattle’s Light Rail from the airport and Uber rides within the city.\n Your Layover Specialist coordinates each ride, ensures smooth transitions between stops, and keeps your schedule on track. \n\n We do not own or operate vehicles directly; all rides are fully insured through Uber or official city transport providers."
       },
       {
         question: "What if I need to cancel?",
@@ -753,3 +753,215 @@ export const SLTourText = {
   ctaTitle: "Still have questions?",
   ctaSubtitle: "Contact us directly — we'll make sure your layover is stress-free from start to finish.",
 };
+
+export const chineselangText = {
+  bookNow: "预订您的西雅图之旅",
+  quickBook : "⚡ Quick Book（起价 250 美元）",
+  bookTour : "预订之旅",
+  pricingTitle:"定价",
+  pricingSubtitle:"4岁及以上儿童计入旅客人数。0-3岁儿童免费参加。",
+  homeLink:"家",
+  howItWorksLink:"它是如何运作的",
+  pricingLink:"旅游及定价",
+  faqLink:"常见问题解答",
+  aboutLink:"关于",
+  contactLink:"接触",
+  legal:"合法的",
+  termsLink:"服务条款",
+  privacyLink:"隐私政策",
+  copyright:"© 2025 西雅图六小时中途停留",
+  footerSlogan:"让转机之旅充满难忘回忆，一次一个城市。",
+  quickLinks:"快速链接"
+  
+}
+
+export const japaneselangText = {
+  h1:"シアトル乗り継ぎツアー（6～8時間） – 市内へ出発、時間通りに戻る",
+  subtitle:"乗り継ぎ時間をミニアドベンチャーに変えて、街へ出かけ、時間通りに戻ってください。",
+  bookNow: "ツアーを予約する",
+  bookYourSeattleTour:"📋 シアトル ツアーを予約する",
+  quickBook : "⚡ クイックブック（250ドルから）",
+  bookTour : "预订之旅",
+  pricingTitle:"価格設定",
+  pricingSubtitle:"4歳以上の方は旅行者としてカウントされます。0～3歳のお子様は無料でご参加いただけます。",
+  homeLink:"ホームリンク",
+  howItWorksLink:"仕組み",
+  pricingLink:"ツアーと料金",
+  faqLink:"よくある質問",
+  aboutLink:"について",
+  contactLink:"接触",
+  quickLinks:"クイックリンク",
+  legal:"法律上の",
+  termsLink:"利用規約",
+  privacyLink:"プライバシーポリシー",
+  copyright:"© 2025 シアトルの6時間乗り継ぎ",
+  copyrightSubtext:"6 時間乗り継ぎツアーは、パイク プレイス マーケット保存開発局 (PDA) により許可および認可を受けており、パイク プレイス マーケット歴史地区でツアーを運営しています。",
+  footerSlogan:"ひとつの都市ごとに、乗り継ぎを思い出深いものにします。",
+  bookYourSeattleTourtxt:"シアトル ツアーを予約する" 
+
+}
+
+export const chineseSTRIPE_TOUR_PRODUCTS = [
+  // 6-Hour Seattle Essentials
+  {
+    id: 'per-person-6hour',
+    name: '6 小时西雅图必游景点',
+    price: 250.00,
+    description: '只需六小时，即可探索西雅图的心脏地带。探索派克市场，观看著名的抛鱼表演，漫步海滨——所有这一切都与热情友好的当地导游一起进行。',
+    paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
+    groupSize: 'per-person',
+    priceDescription: '每人'
+  },
+  {
+    id: 'solo-traveler-6hour',
+    name: '6小时西雅图精华游（单人）',
+    price: 399.00,   
+    paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
+    groupSize: '1',
+    priceDescription: '独自旅行者'
+  },
+  {
+    id: 'family-pack-6hour',
+    name: '西雅图六小时必备旅行套装（家庭装）',
+    price: 750.00,
+    paymentLink: 'https://buy.stripe.com/3cIfZj0Kf9j18868E538402',
+    groupSize: 'family',
+    priceDescription: '2名成人 + 最多3名12岁以下儿童'
+  },
+  // 7-Hour Seattle Highlights
+  {
+    id: 'per-person-7hour',
+    name: '西雅图七小时精彩集锦',
+    price: 300.00,
+    paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
+    groupSize: 'per-person',
+    priceDescription: '每人（包含 Kerry Park + Molly Moon\'s）'
+  },
+  {
+    id: 'solo-traveler-7hour',
+    name: '西雅图七小时精彩集锦（单人）',
+    price: 450.00,
+    paymentLink: 'https://buy.stripe.com/new-7hour-solo',
+    groupSize: '1',
+    priceDescription: '每人（包含 Kerry Park + Molly Moon\'s'
+  },
+  {
+    id: 'family-pack-7hour',
+    name: '西雅图七小时精彩集锦（家庭套餐）',
+    price: 900.00,
+    paymentLink: 'https://buy.stripe.com/new-7hour-family',
+    groupSize: 'family',
+    priceDescription: "2 位成人 + 最多 3 位 12 岁以下儿童（包含 Kerry Park 和 Molly Moon's）"
+  },
+  // 8-Hour Seattle Complete
+  {
+    id: 'per-person-8hour',
+    name: '8 小时西雅图之旅',
+    price: 350.00,
+    paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
+    groupSize: 'per-person',
+    priceDescription: '每人（含太空针塔门票）'
+  },
+  {
+    id: 'solo-traveler-8hour',
+    name: '8 小时西雅图全程（单人）',
+    price: 499.00,
+    paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
+    groupSize: '1',
+    priceDescription: '单人旅行者（包含太空针塔门票）'
+    }
+];
+
+
+
+
+export const japaneseSTRIPE_TOUR_PRODUCTS = [
+  // 6-Hour Seattle Essentials
+  {
+    id: 'per-person-6hour',
+    name: 'シアトルの必需品6時間',
+    price: 250.00,    
+    paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
+    groupSize: 'per-person',
+    priceDescription: '1人あたり'
+  },
+  {
+    id: 'solo-traveler-6hour',
+    name: '6時間シアトルの必需品（ソロ）',
+    price: 399.00,   
+    paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
+    groupSize: '1',
+    priceDescription: '一人旅'
+  },
+  {
+    id: 'family-pack-6hour',
+    name: '6時間シアトルエッセンシャルズ（ファミリーパック）',
+    price: 750.00,
+    paymentLink: 'https://buy.stripe.com/3cIfZj0Kf9j18868E538402',
+    groupSize: 'family',
+    priceDescription: '大人2名＋12歳未満の子供3名まで'
+  },
+  // 7-Hour Seattle Highlights
+  {
+    id: 'per-person-7hour',
+    name: 'シアトルの7時間ハイライト',
+    price: 300.00,
+    
+    paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
+    groupSize: 'per-person',
+    priceDescription: '1人あたり（ケリーパークとモリームーンズを含む）'
+  },
+  {
+    id: 'solo-traveler-7hour',
+    name: '7時間シアトルハイライト（ソロ）',
+    price: 450.00,
+    paymentLink: 'https://buy.stripe.com/new-7hour-solo',
+    groupSize: '1',
+    priceDescription: '一人旅（ケリーパークとモリームーンズを含む）'
+  },
+  {
+    id: 'family-pack-7hour',
+    name: '7時間シアトルのハイライト（ファミリーパック）',
+    price: 900.00,
+  
+    paymentLink: 'https://buy.stripe.com/new-7hour-family',
+    groupSize: 'family',
+    priceDescription: '大人2名＋12歳未満の子供3名まで（ケリーパーク＋モリームーンズを含む）'
+  },
+  // 8-Hour Seattle Complete
+  {
+    id: 'per-person-8hour',
+    name: '8時間シアトル完走',
+    price: 350.00,
+    paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
+    groupSize: 'per-person',
+    priceDescription: '1人あたり（スペースニードル入場料を含む）'
+  },
+  {
+    id: 'solo-traveler-8hour',
+    name: '8時間シアトル完走（ソロ）',
+    price: 499.00,  
+    paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
+    groupSize: '1',
+    priceDescription: '一人旅（スペースニードル入場料を含む）'
+  }
+];
+
+
+export const NAVIGATION_japanese_LINKS = [
+  { name: "家", href: "/" },
+  { name: "仕組み", href: "/how-it-works" },
+  { name: "ツアーと料金", href: "/pricing" },
+  { name: "よくある質問", href: "/faq" },
+  { name: "について", href: "/about" },
+  { name: "接触", href: "/contact" }
+];
+
+export const NAVIGATION_mandarin_LINKS = [
+  { name: "家", href: "/" },
+  { name: "它是如何运作的", href: "/how-it-works" },
+  { name: "旅游及定价", href: "/pricing" },
+  { name: "常见问题解答", href: "/faq" },
+  { name: "关于", href: "/about" },
+  { name: "接触", href: "/contact" }
+];

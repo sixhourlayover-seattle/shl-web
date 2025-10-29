@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import {  ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/NavigationJapanese";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
-import { HomePageText,PricingPageText,GlobalText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
+import { GlobalText,japaneselangText,japaneseSTRIPE_TOUR_PRODUCTS } from "@/lib/text";
+
 import Image from "next/image";
 
 
@@ -28,43 +28,41 @@ const TOUR_OPTIONS = [
   }
 ];
 const WHATS_INCLUDED = [
-  "Airport meet & greet",
-  "Light Rail from airport and Uber within the city",
-  "On-time return guarantee",
-  "Souvenir tote bagg",
-  "Friendly local guide."
+  "空港出迎え",
+  "空港からはライトレール、市内からはUberが利用可能",
+  "時間通りの返品保証",
+  "お土産トートバッグ",
+  "フレンドリーな地元ガイド。"
 ];
 
 const TOUR_OPTIONS_opiton = [
   {
-    name: "6-Hour — Pike Place Market & Waterfront",
-    subtitle: "Pike Place Market + Waterfront",
-    description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
+    name: "6時間 — パイクプレイスマーケットとウォーターフロント",
+    subtitle: "パイクプレイスマーケット + ウォーターフロント",
+    description: "わずか6時間でシアトルの鼓動を体感しましょう。パイク・プレイス・マーケットを散策し、有名な魚投げを見学し、ガム・ウォールで写真を撮り、職人の店を覗き、ウォーターフロントを散策。すべてフレンドリーな地元ガイドが同行します。",
+    
   },
   {
-    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park and a pre-ordered Molly Moon's Ice Cream pickup.",
-    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
+    name: "7時間 — パイクプレイスマーケットとウォーターフロント + シアトルの象徴的なスカイラインビュー — ケリーパーク + モリームーンアイスクリーム",
+    subtitle: "パイクプレイスマーケットとウォーターフロント + シアトルの象徴的なスカイラインの眺め — ケリーパーク + モリームーンのアイスクリーム",
+    description: "パイク プレイス マーケットとウォーターフロントを訪れ、シアトルを象徴するスカイラインの眺め、ケリー パーク、そして予約注文したモリー ムーンのアイスクリームの受け取りをお楽しみください。",   
   },
   {
-    name: "8-Hour — Pike Place Market + Space Needle Admission",
-    subtitle: "Experience the best of Seattle in one layover.",
-    description: "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
-    features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
+    name: "8時間 — パイクプレイスマーケット + スペースニードル入場",
+    subtitle: "1 回の乗り継ぎでシアトルの最高の魅力を満喫してください。",
+    description: "パイク プレイス マーケットを散策した後は、スペース ニードルに向かい、展望台からスカイラインの素晴らしい景色を眺めましょう。入場券も含まれています。",
   }
 ];
 
-const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
+const PRICING_TIERS = japaneseSTRIPE_TOUR_PRODUCTS;
 
 
 const Why_travellers_love_it = [
-  "Designed for layover travelers",
-  "Seamless airport-to-city logistics",
-  "Multilingual options",
-  "Family & senior friendly",
-  "Perfect for quick photos and local food.",
+  "乗り継ぎ旅行者向けに設計",
+  "空港から都市までのシームレスな物流",
+  "多言語オプション",
+  "ファミリー＆シニア向け",
+  "ちょっとした写真撮影や地元の食べ物に最適です。",
 ];
 
 
@@ -100,12 +98,11 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Seattle Layover Tour (6–8 Hours) – Out to the City, Back on Time</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{japaneselangText.h1}</span>
             </h1>
-            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — out to the city, back on time.</p>
+            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">{japaneselangText.subtitle}</p>
 
-            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-                      >Book Tour   </a>
+            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300" >{japaneselangText.bookNow}   </a>
           </div>
         </section>
 
@@ -114,7 +111,7 @@ export default function SLTourContent() {
             <div className="space-y-6" style={{animation: 'slide-in 0.6s ease-out'}}>   
               <div className="grid gap-4 text-left max-w-2xl">
                 <div className="flex items-center gap-3">                      
-                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free <br />— all with an on-time airport return guarantee.</p>
+                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">シアトルでの乗り継ぎ時間を、旅のハイライトにしませんか？フライトの間隔が6時間、7時間、あるいは8時間でも、当社の厳選ツアーは、安全、効率的、そしてストレスフリーでシアトルの魅力を満喫できるよう設計されています。しかも、空港への定刻到着保証付きです。</p>
                 </div>  
               </div>
               
@@ -142,9 +139,9 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Itinerary Overview</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">旅程の概要</span>
               </h2>   
-              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Choose from 3 routes</p>         
+              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">3つのルートから選択</p>         
             </div>
 
             {/* Tour Options */}
@@ -187,21 +184,19 @@ export default function SLTourContent() {
           <div className="container text-center">
 
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-            <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Timing &amp; Guarantee</h2>
-            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">Every itinerary includes a built-in 2-hour return buffer, real-time flight monitoring, and an on-time airport return guarantee.
+            <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">タイミングと保証</h2>
+            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">すべての旅程には、2 時間の帰路バッファー、リアルタイムのフライト監視、および空港への定刻帰路保証が組み込まれています。
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/book"
                 className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
-                📋 {HomePageText.bookNow}
+                {japaneselangText.bookYourSeattleTour}
               </a>
               <button
                 onClick={() => setIsBookingModalOpen(true)}
-                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-              >
-                ⚡ Quick Book (From $250)
+                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"> {japaneselangText.quickBook}                
               </button>
             </div>
             </div>
@@ -214,11 +209,11 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Meeting Point</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">ミーティングポイント</span>
               </h2>
             
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Guides meet guests directly at their arrival gate, or as close as possible, inside SEA-Tac Airport. You’ll receive advance WhatsApp messages with your guide’s info and live location.
+                ガイドはシアトル・タコマ国際空港内の到着ゲート、または可能な限り近くでお客様をお迎えします。ガイドの情報と現在地を記載したWhatsAppメッセージを事前にお送りします。
               </div>
             </div> 
              <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
@@ -261,10 +256,10 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{PricingPageText.pricingTitle}</span>
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{japaneselangText.pricingTitle}</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                {PricingPageText.pricingSubtitle}
+                {japaneselangText.pricingSubtitle}
               </p>
             </div>
 
@@ -295,7 +290,7 @@ export default function SLTourContent() {
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                     >
-                      Book Now
+                      {japaneselangText.bookNow}
                     </button>
                   </div>
                 </div>
@@ -305,7 +300,7 @@ export default function SLTourContent() {
             {/* What's Included */}
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"> Inclusions </span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"> 内包物 </span>
               </h2>
             </div>
 
@@ -339,7 +334,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Why Travelers Love It:</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">旅行者に愛される理由</span>
               </h2>
             </div>
 
@@ -366,22 +361,22 @@ export default function SLTourContent() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to make your layover unforgettable? .</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">乗り継ぎ時間を忘れられないものにする準備はできていますか?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Book now at sixhourlayover.com or message us on WhatsApp
+              sixhourlayover.comで今すぐ予約するか、WhatsAppでメッセージを送信してください。
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/book"
                 className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                Book Now
+                {japaneselangText.bookNow}
               </a>
 
              
               <a href="https://wa.me/12069281277" target="_blank" className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; Chat on WhatsApp
+                <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; WhatsApp でチャットする
               </a>
             </div>
           </div>
@@ -398,34 +393,34 @@ export default function SLTourContent() {
                     {GlobalText.appName}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
+                <p className="text-sm text-slate-600">{japaneselangText.footerSlogan}</p>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{japaneselangText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{japaneselangText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{japaneselangText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{japaneselangText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{japaneselangText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{japaneselangText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{japaneselangText.contactLink}</a>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{japaneselangText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{japaneselangText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{japaneselangText.privacyLink}</a>
                 </div>
               </div>
             </div>
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
+                {japaneselangText.copyright}
+                <p className="text-xs text-slate-500">{japaneselangText.copyrightSubtext}</p>
                 
               </div>
               <div className="flex items-center gap-3">

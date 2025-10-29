@@ -2,69 +2,53 @@
 
 import { useState } from "react";
 import {  ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/mandarinNavigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
-import { HomePageText,PricingPageText,GlobalText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
+import { GlobalText,chineselangText,chineseSTRIPE_TOUR_PRODUCTS } from "@/lib/text";
+
 import Image from "next/image";
 
 
-const TOUR_OPTIONS = [
-  {
-    title: "Solo Traveler",
-    subtitle: "total",    
-    pricing: 399,
-  },
-   {
-    title: "Two to Three Travelers",
-    subtitle: "per person",    
-    pricing: 250,
-  },
-   {
-    title: "Family Pack",
-    subtitle: "total (2 adults + up to 3 kids)",    
-    pricing: 750,
-  }
-];
+
 const WHATS_INCLUDED = [
-  "Airport meet & greet",
-  "Light Rail from airport and Uber within the city",
-  "On-time return guarantee",
-  "Souvenir tote bagg",
-  "Friendly local guide."
+  "机场迎接",
+  "从机场乘坐轻轨，市内则可使用优步。",
+  "准时退货保证",
+  "纪念手提袋",
+  "友好的当地导游。"
 ];
 
 const TOUR_OPTIONS_opiton = [
   {
-    name: "6-Hour — Pike Place Market & Waterfront",
-    subtitle: "Pike Place Market + Waterfront",
-    description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
+    name: "6 小时 — 派克市场和滨水区",
+    subtitle: "派克市场 + 滨水区",
+    description: "只需六小时，即可探索西雅图的心脏地带。探索派克市场，观看著名的抛鱼表演，在口香糖墙拍照，逛逛手工艺品店，漫步海滨——所有这一切都与热情友好的当地导游一起进行。",
+    
   },
   {
-    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park and a pre-ordered Molly Moon's Ice Cream pickup.",
-    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
+    name: "7 小时 — 派克市场和海滨 + 标志性西雅图天际线景观 — 凯里公园 + Molly Moon’s 冰淇淋",
+    subtitle: "派克市场和海滨 + 西雅图标志性天际线景观 — 凯瑞公园 + 莫莉·穆恩冰淇淋",
+    description: "参观派克市场和海滨以及标志性的西雅图天际线景观——凯里公园和预订的 Molly Moon 冰淇淋。",
+    
   },
   {
-    name: "8-Hour — Pike Place Market + Space Needle Admission",
-    subtitle: "Experience the best of Seattle in one layover.",
-    description: "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
-    features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
+    name: "8 小时 — 派克市场 + 太空针塔门票",
+    subtitle: "一次转机即可体验西雅图的精彩之处。",
+    description: "游览派克市场，然后前往太空针塔，从观景台上欣赏壮丽的城市天际线景观——门票已包含在内。",
+   
   }
 ];
 
-const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
+const PRICING_TIERS = chineseSTRIPE_TOUR_PRODUCTS;
 
 
 const Why_travellers_love_it = [
-  "Designed for layover travelers",
-  "Seamless airport-to-city logistics",
-  "Multilingual options",
-  "Family & senior friendly",
-  "Perfect for quick photos and local food.",
+  "专为中转旅客设计",
+  "无缝衔接的机场到市区物流",
+  "多语言选项",
+  "适合家庭和老年人",
+  "非常适合快速拍照和品尝当地美食。",
 ];
 
 
@@ -100,12 +84,11 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Seattle Layover Tour (6–8 Hours) – Out to the City, Back on Time</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">西雅图转机6–8小时游｜中文向导｜准时返回机场</span>
             </h1>
-            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — out to the city, back on time.</p>
+            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">把你的转机时间变成一次迷你冒险——去城里逛逛，准时返回。</p>
 
-            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-                      >Book Tour   </a>
+            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">{chineselangText.bookTour}   </a>
           </div>
         </section>
 
@@ -114,7 +97,7 @@ export default function SLTourContent() {
             <div className="space-y-6" style={{animation: 'slide-in 0.6s ease-out'}}>   
               <div className="grid gap-4 text-left max-w-2xl">
                 <div className="flex items-center gap-3">                      
-                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free <br />— all with an on-time airport return guarantee.</p>
+                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">让您在西雅图的转机时间成为旅程中的亮点。无论您的转机时间是六小时、七小时还是八小时，我们精心策划的行程都能帮助您安全、高效、轻松地体验这座城市的精华<br />——并保证准时送您返回机场。</p>
                 </div>  
               </div>
               
@@ -142,9 +125,9 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Itinerary Overview</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">行程概览</span>
               </h2>   
-              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Choose from 3 routes</p>         
+              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">3 条路线可供选择</p>         
             </div>
 
             {/* Tour Options */}
@@ -187,22 +170,20 @@ export default function SLTourContent() {
           <div className="container text-center">
 
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-            <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Timing &amp; Guarantee</h2>
-            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">Every itinerary includes a built-in 2-hour return buffer, real-time flight monitoring, and an on-time airport return guarantee.
+            <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">时间与保证</h2>
+            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">每个行程都包含内置的 2 小时返回缓冲、实时航班监控和准时机场返回保证。
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/book"
                 className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
-                📋 {HomePageText.bookNow}
+                📋 {chineselangText.bookNow}
               </a>
               <button
                 onClick={() => setIsBookingModalOpen(true)}
                 className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-              >
-                ⚡ Quick Book (From $250)
-              </button>
+              >{chineselangText.quickBook} </button>
             </div>
             </div>
             
@@ -214,18 +195,18 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Meeting Point</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">集合点</span>
               </h2>
             
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Guides meet guests directly at their arrival gate, or as close as possible, inside SEA-Tac Airport. You’ll receive advance WhatsApp messages with your guide’s info and live location.
+                导游会在您抵达西雅图-塔科马国际机场的登机口或尽可能靠近登机口的地方直接迎接您。您会提前收到包含导游信息和实时位置的WhatsApp消息。
               </div>
             </div> 
              <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
                   src="/airport-six.jpeg"
-                  alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
+                  alt="派克市场——西雅图著名的公共市场和标志性的中转站"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -234,7 +215,7 @@ export default function SLTourContent() {
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
                   src="/airport.jpeg"
-                  alt="Seattle Waterfront - scenic views and attractions during layover tours"
+                  alt="西雅图海滨 - 中转游览期间的风景和景点"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -243,7 +224,7 @@ export default function SLTourContent() {
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
                   src="/airport1.jpeg"
-                  alt="Space Needle and Seattle skyline - iconic photo stops on layover tours"
+                  alt="太空针塔和西雅图天际线——中途停留旅游的标志性拍照点"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -261,10 +242,10 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{PricingPageText.pricingTitle}</span>
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{chineselangText.pricingTitle}</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                {PricingPageText.pricingSubtitle}
+                {chineselangText.pricingSubtitle}
               </p>
             </div>
 
@@ -294,9 +275,7 @@ export default function SLTourContent() {
                         setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      Book Now
-                    </button>
+                    >  立即预订 </button>
                   </div>
                 </div>
               ))}
@@ -305,7 +284,7 @@ export default function SLTourContent() {
             {/* What's Included */}
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"> Inclusions </span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"> 内含物 </span>
               </h2>
             </div>
 
@@ -339,7 +318,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Why Travelers Love It:</span>
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">旅行者喜爱它的原因：</span>
               </h2>
             </div>
 
@@ -366,22 +345,20 @@ export default function SLTourContent() {
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to make your layover unforgettable? .</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">准备好让您的中途停留成为一次难忘的体验了吗？</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Book now at sixhourlayover.com or message us on WhatsApp
+              立即访问 sixhourlayover.com 预订，或通过 WhatsApp 联系我们。
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/book"
                 className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-              >
-                Book Now
-              </a>
+              > 立即预订  </a>
 
              
               <a href="https://wa.me/12069281277" target="_blank" className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; Chat on WhatsApp
+                <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; 在 WhatsApp 上聊天
               </a>
             </div>
           </div>
@@ -398,34 +375,34 @@ export default function SLTourContent() {
                     {GlobalText.appName}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
+                <p className="text-sm text-slate-600">{chineselangText.footerSlogan}</p>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{chineselangText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{chineselangText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{chineselangText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{chineselangText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{chineselangText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{chineselangText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{chineselangText.contactLink}</a>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
+                <h5 className="font-bold text-slate-800 mb-3">{chineselangText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{chineselangText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{chineselangText.privacyLink}</a>
                 </div>
               </div>
             </div>
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
-                {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
+                {chineselangText.copyright}
+                <p className="text-xs text-slate-500">六小时停留之旅已获得派克市场保护与发展局 (PDA) 的许可和授权，可在派克市场历史街区开展游览活动。</p>
                 
               </div>
               <div className="flex items-center gap-3">
