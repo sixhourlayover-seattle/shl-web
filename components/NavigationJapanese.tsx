@@ -56,7 +56,7 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden border-t border-white/20 bg-white/95 backdrop-blur">
             <nav className="py-4 space-y-2">
-              {NAVIGATION_LINKS.map((link) => (
+              {NAVIGATION_japanese_LINKS.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
