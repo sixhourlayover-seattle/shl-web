@@ -195,7 +195,7 @@ export default function SLTourContent() {
              <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport.jpg"
+                  src="/airport-.jpeg"
                   alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
                   fill
                   className="object-cover"
@@ -204,7 +204,7 @@ export default function SLTourContent() {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport2.jpg"
+                  src="/airport-Layover.jpeg"
                   alt="Seattle Waterfront - scenic views and attractions during layover tours"
                   fill
                   className="object-cover"
@@ -213,7 +213,7 @@ export default function SLTourContent() {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/space-needle-skyline.jpg"
+                  src="/airport-six.jpeg"
                   alt="Space Needle and Seattle skyline - iconic photo stops on layover tours"
                   fill
                   className="object-cover"
