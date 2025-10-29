@@ -252,15 +252,15 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Who provides the transportation during the tour?",
-        answer: "Transportation is arranged through Uber ride-share services.\n Uber carries $1 million in liability coverage per ride, protecting all passengers in the event of an accident. \n\n Your Layover Specialist coordinates each ride, ensures smooth pickup/drop-off, and keeps your schedule on track. \n We do not own or operate vehicles directly, but all rides are fully insured through Uber."
+        answer: "Transportation is a combination of Seattle’s Light Rail from the airport and Uber rides within the city.\n Your Layover Specialist coordinates each ride, ensures smooth transitions between stops, and keeps your schedule on track."
       },
       {
         question: "What if I need to cancel?",
-        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually.\n\n (Family Bundle and Extra Child pricing have been retired and replaced with our standard per-person and family packages.)"
+        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually."
       },
       {
         question: "What if we have 4–5 adults?",
-        answer: "Pricing is flat per person — there’s no extra charge for small groups.\n Example: For 4 adults on a 6-hour tour, the total would be 4 × $250 = $1,000.\nYour group will have a private Layover Specialist and private transportation for all stops."
+        answer: "Pricing is flat per person — there’s no extra charge for small groups.\n Your group will have a private Layover Specialist and private transportation for all stops."
       }
     ]
   },
@@ -271,7 +271,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Is this a private tour or group tour?",
-        answer: "All Six-Hour Layover tours are private, designed just for you, your group, and your Layover Specialist.\nYou’ll enjoy seamless airport pickup, personalized timing, and our guaranteed on-time airport return.\n\n(Note: Occasionally, a small food-tasting stop at Pike Place Market may include other travelers, but your main itinerary remains private.)"
+        answer: "All Six-Hour Layover tours are private, designed just for you, your group, and your Layover Specialist.\nYou’ll enjoy seamless airport pickup, personalized timing, and our guaranteed on-time airport return."
       },
       {
         question: "Do you offer tours in my language?",
