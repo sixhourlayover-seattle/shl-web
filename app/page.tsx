@@ -33,10 +33,10 @@ const TOUR_OPTIONS = [
     features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
   },
   {
-    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park and a pre-ordered Molly Moon's Ice Cream pickup.",
-    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
+    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
+    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
+    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park",
+    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park"]
   },
   {
     name: "8-Hour — Pike Place Market + Space Needle Admission",

@@ -54,7 +54,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     groupSize: 'per-person',
-    priceDescription: 'per person (includes Kerry Park + Molly Moon\'s)'
+    priceDescription: 'per person (includes Kerry Park)'
   },
   {
     id: 'solo-traveler-7hour',
@@ -63,7 +63,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions. ',
     paymentLink: 'https://buy.stripe.com/new-7hour-solo',
     groupSize: '1',
-    priceDescription: 'solo traveler (includes Kerry Park + Molly Moon\'s)'
+    priceDescription: 'solo traveler (includes Kerry Park)'
   },
   {
     id: 'family-pack-7hour',
@@ -72,7 +72,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     paymentLink: 'https://buy.stripe.com/new-7hour-family',
     groupSize: 'family',
-    priceDescription: '2 adults + up to 3 kids under 12 (includes Kerry Park + Molly Moon\'s)'
+    priceDescription: '2 adults + up to 3 kids under 12 (includes Kerry Park)'
   },
   // 8-Hour Seattle Complete
   {

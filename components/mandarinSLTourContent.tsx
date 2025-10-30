@@ -16,7 +16,7 @@ const WHATS_INCLUDED = [
   "从机场乘坐轻轨，市内则可使用优步。",
   "准时退货保证",
   "纪念手提袋",
-  "友好的当地导游。"
+  "友好的当地导游"
 ];
 
 const TOUR_OPTIONS_opiton = [
@@ -27,9 +27,9 @@ const TOUR_OPTIONS_opiton = [
     
   },
   {
-    name: "7 小时 — 派克市场和海滨 + 标志性西雅图天际线景观 — 凯里公园 + Molly Moon’s 冰淇淋",
-    subtitle: "派克市场和海滨 + 西雅图标志性天际线景观 — 凯瑞公园 + 莫莉·穆恩冰淇淋",
-    description: "参观派克市场和海滨以及标志性的西雅图天际线景观——凯里公园和预订的 Molly Moon 冰淇淋。",
+    name: "7 小时游——派克市场和海滨 + 西雅图标志性天际线景观——凯瑞公园",
+    subtitle: "派克市场和海滨 + 西雅图标志性的天际线景观 — 凯瑞公园",
+    description: "游览派克市场和海滨，欣赏西雅图标志性的天际线——凯瑞公园",
     
   },
   {
@@ -84,7 +84,7 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">西雅图转机6–8小时游｜中文向导｜准时返回机场</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">西雅图转机游览（6-8小时） <br />探索城市，准时返回</span>
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">把你的转机时间变成一次迷你冒险——去城里逛逛，准时返回。</p>
 
@@ -202,11 +202,11 @@ export default function SLTourContent() {
                 导游会在您抵达西雅图-塔科马国际机场的登机口或尽可能靠近登机口的地方直接迎接您。您会提前收到包含导游信息和实时位置的WhatsApp消息。
               </div>
             </div> 
-             <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
                   src="/airport-six.jpeg"
-                  alt="派克市场——西雅图著名的公共市场和标志性的中转站"
+                  alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -214,22 +214,13 @@ export default function SLTourContent() {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport.jpeg"
-                  alt="西雅图海滨 - 中转游览期间的风景和景点"
+                  src="/Sea-tac airport gates.webp"
+                  alt="Seattle Waterfront - scenic views and attractions during layover tours"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/airport1.jpeg"
-                  alt="太空针塔和西雅图天际线——中途停留旅游的标志性拍照点"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
+              </div>              
             </div>
 
           </div>

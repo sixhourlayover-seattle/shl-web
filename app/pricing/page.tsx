@@ -30,10 +30,10 @@ const TOUR_OPTIONS = [
     ]
   },
   {
-    title: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    description: "Visit Pike Place Market & Waterfront plus Kerry Park for Seattle's iconic skyline view and a pre-ordered Molly Moon's Ice Cream pickup.",
-    duration: "Pike Place Market & Waterfront + Kerry Park + included Molly Moon's Ice Cream",
+    title: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view ",
+    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view",
+    description: "Visit Pike Place Market & Waterfront plus Kerry Park for Seattle's iconic skyline view",
+    duration: "Pike Place Market & Waterfront + Kerry Park ",
     pricing: {
       perPerson: 300,
       solo: 450,
@@ -42,7 +42,7 @@ const TOUR_OPTIONS = [
     features: [
       "Pike Place Market & Waterfront",
       "Kerry Park iconic skyline view",
-      "Molly Moon's Ice Cream (pre-ordered pickup, included)",
+      // "Molly Moon's Ice Cream (pre-ordered pickup, included)",
       "Seattle's postcard-perfect photos"
     ]
   },
