@@ -3,11 +3,11 @@ import _6HLSContent from "@/components/6hourLayoverSeattleContent";
 
 // Dynamic metadata for this page
 export const metadata: Metadata = {
-  title: "6-Hour Layover in Seattle – What to Do Near SEA Airport",
-  description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
+  title: "6-Hour Layover in Seattle — Pike Place & Waterfront Highlights",
+  description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and guaranteed on-time return.",
   openGraph: {
-    title: "6-Hour Layover in Seattle – What to Do Near SEA Airport",
-    description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
+    title: "6-Hour Layover in Seattle — Pike Place & Waterfront Highlights",
+    description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and guaranteed on-time return.",
     url: "https://www.sixhourlayover.com/6-hour-layover-seattle",
     images: [{ url: "/og-seattle-layover.png", width: 1200, height: 630 }],
   },

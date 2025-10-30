@@ -240,7 +240,7 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "How much does it cost?",
-        answer: "6-Hour Tour — Pike Place Market + Seattle Waterfront\n• $250 per person  |  Solo $399  |  Family Pack $750 (2 adults + up to 3 kids) \n\n  7-Hour Tour — Pike Place Market + Waterfront + Kerry Park (+ Molly Moon’s Ice Cream) \n• $300 per person  |  Solo $450  |  Family Pack $900 \n\n 8-Hour Tour — Pike Place Market + Space Needle\n • $350 per person  |  Solo $499  |  (no Family Pack) \n\n Add-On Option (9-Hour) — Choose one bundle ($120 per group): \n • Fremont Troll + Dick’s Burgers  /  Amazon Spheres + Top Pot Donuts  /  Filson + REI shopping stop"
+        answer: "6-Hour Tour — Pike Place Market + Seattle Waterfront\n• $250 per person  |  Solo $399  |  Family Pack $750 (2 adults + up to 3 kids) \n\n  7-Hour Tour — Pike Place Market + Waterfront + Kerry Park \n• $300 per person  |  Solo $450  |  Family Pack $900 \n\n 8-Hour Tour — Pike Place Market + Space Needle\n • $350 per person  |  Solo $499  |  (no Family Pack) \n\n Add-On Option (9-Hour) — Choose one bundle ($120 per group): \n • Fremont Troll + Dick’s Burgers  /  Amazon Spheres + Top Pot Donuts  /  Filson + REI shopping stop"
       },
       {
         question: "How do I book and pay?",
@@ -320,7 +320,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Can I add food or coffee stops?",
-        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour. (Please note: the stop at Molly Moon’s Ice Cream is weather-dependent and may be adjusted on rainy or cold days for your comfort)\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  • Add-on fee covers guide and transport. Food & drink purchased separately."
+        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour.\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  • Add-on fee covers guide and transport. Food & drink purchased separately."
       },
       {
         question: "Can I bring home souvenirs from Seattle?",
@@ -403,7 +403,7 @@ export const HOW_IT_WORKS_STEPS = [
     icon: "🎯",
     details: [
       "6h Seattle Essentials – Pike Place Market + Waterfront",
-      "7h Seattle Highlights – Pike Place Market + Waterfront + Iconic Seattle skyline view (Kerry Park) + Molly Moon's Ice Cream (pre-ordered pickup, included)", 
+      "7h Seattle Highlights – Pike Place Market + Waterfront + Iconic Seattle skyline view (Kerry Park)", 
       "8h Seattle Complete – Pike Place Market + Space Needle admission (go inside, observation deck visit included)",
       "Optional curated add-ons available for 9+ hour layovers"
     ]
@@ -776,8 +776,8 @@ export const chineselangText = {
 }
 
 export const japaneselangText = {
-  h1:"シアトル乗り継ぎツアー（6～8時間） – 市内へ出発、時間通りに戻る",
-  subtitle:"乗り継ぎ時間をミニアドベンチャーに変えて、街へ出かけ、時間通りに戻ってください。",
+  h1:"シアトル乗り継ぎツアー（6～8時間） ",
+  subtitle:"乗り継ぎ時間をミニアドベンチャーに変えて、安全に街を見て、時間に余裕を持って戻りましょう。",
   bookNow: "ツアーを予約する",
   bookYourSeattleTour:"📋 シアトル ツアーを予約する",
   quickBook : "⚡ クイックブック（250ドルから）",
@@ -835,7 +835,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     price: 300.00,
     paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     groupSize: 'per-person',
-    priceDescription: '每人（包含 Kerry Park + Molly Moon\'s）'
+    priceDescription: '每人（包含 Kerry Park）'
   },
   {
     id: 'solo-traveler-7hour',
@@ -843,7 +843,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     price: 450.00,
     paymentLink: 'https://buy.stripe.com/new-7hour-solo',
     groupSize: '1',
-    priceDescription: '每人（包含 Kerry Park + Molly Moon\'s'
+    priceDescription: '每人（包含 Kerry Park'
   },
   {
     id: 'family-pack-7hour',
@@ -851,7 +851,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     price: 900.00,
     paymentLink: 'https://buy.stripe.com/new-7hour-family',
     groupSize: 'family',
-    priceDescription: "2 位成人 + 最多 3 位 12 岁以下儿童（包含 Kerry Park 和 Molly Moon's）"
+    priceDescription: "2 位成人 + 最多 3 位 12 岁以下儿童（含嘉里公园）"
   },
   // 8-Hour Seattle Complete
   {
@@ -909,7 +909,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
     
     paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     groupSize: 'per-person',
-    priceDescription: '1人あたり（ケリーパークとモリームーンズを含む）'
+    priceDescription: '1人あたり（ケリーパークを含む））'
   },
   {
     id: 'solo-traveler-7hour',
@@ -917,7 +917,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
     price: 450.00,
     paymentLink: 'https://buy.stripe.com/new-7hour-solo',
     groupSize: '1',
-    priceDescription: '一人旅（ケリーパークとモリームーンズを含む）'
+    priceDescription: '一人旅（ケリーパークを含む）'
   },
   {
     id: 'family-pack-7hour',
@@ -926,7 +926,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
   
     paymentLink: 'https://buy.stripe.com/new-7hour-family',
     groupSize: 'family',
-    priceDescription: '大人2名＋12歳未満の子供3名まで（ケリーパーク＋モリームーンズを含む）'
+    priceDescription: '大人2名と12歳未満の子供3名まで（ケリーパークを含む）'
   },
   // 8-Hour Seattle Complete
   {

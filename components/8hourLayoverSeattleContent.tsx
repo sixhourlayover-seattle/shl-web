@@ -31,15 +31,15 @@ const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
   "On-time return guarantee",
-  "Souvenir tote bagg",
-  "Friendly local guide."
+  "Souvenir tote bag",
+  "Friendly local guide"
 ];
 
 const Why_choose_this_tour = [
   "Covers Seattle’s top attractions including Space Needle",
   "Ideal for travelers with a bit more time",
   "Multilingual guides (English / Mandarin / Japanese)",
-  "Family-friendly and photo-ready routes."
+  "Family-friendly and photo-ready routes"
 ];
 
 const ADD_ONS = [
@@ -214,7 +214,7 @@ export default function SLTourContent() {
             <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport.jpeg"
+                  src="/airport-six.jpeg"
                   alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
                   fill
                   className="object-cover"
@@ -223,22 +223,13 @@ export default function SLTourContent() {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport-six.jpeg"
+                  src="/Sea-tac airport gates.webp"
                   alt="Seattle Waterfront - scenic views and attractions during layover tours"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/airport-.jpeg"
-                  alt="Space Needle and Seattle skyline - iconic photo stops on layover tours"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
+              </div>              
             </div>
 
           </div>

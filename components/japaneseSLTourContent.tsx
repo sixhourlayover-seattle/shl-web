@@ -32,7 +32,7 @@ const WHATS_INCLUDED = [
   "空港からはライトレール、市内からはUberが利用可能",
   "時間通りの返品保証",
   "お土産トートバッグ",
-  "フレンドリーな地元ガイド。"
+  "フレンドリーな地元ガイド"
 ];
 
 const TOUR_OPTIONS_opiton = [
@@ -43,9 +43,9 @@ const TOUR_OPTIONS_opiton = [
     
   },
   {
-    name: "7時間 — パイクプレイスマーケットとウォーターフロント + シアトルの象徴的なスカイラインビュー — ケリーパーク + モリームーンアイスクリーム",
-    subtitle: "パイクプレイスマーケットとウォーターフロント + シアトルの象徴的なスカイラインの眺め — ケリーパーク + モリームーンのアイスクリーム",
-    description: "パイク プレイス マーケットとウォーターフロントを訪れ、シアトルを象徴するスカイラインの眺め、ケリー パーク、そして予約注文したモリー ムーンのアイスクリームの受け取りをお楽しみください。",   
+    name: "7時間 — パイクプレイスマーケットとウォーターフロント + シアトルの象徴的なスカイラインの眺め — ケリーパーク",
+    subtitle: "パイクプレイスマーケットとウォーターフロント、そしてシアトルの象徴的なスカイラインの眺め — ケリーパーク",
+    description: "パイク プレイス マーケットとウォーターフロントを訪れ、シアトルの象徴的なスカイラインを眺めましょう — ケリー パーク",   
   },
   {
     name: "8時間 — パイクプレイスマーケット + スペースニードル入場",
@@ -98,7 +98,7 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{japaneselangText.h1}</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">シアトル乗り継ぎツアー（6～8時間）<br />街を散策して、時間通りに戻って</span>
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">{japaneselangText.subtitle}</p>
 
@@ -216,7 +216,7 @@ export default function SLTourContent() {
                 ガイドはシアトル・タコマ国際空港内の到着ゲート、または可能な限り近くでお客様をお迎えします。ガイドの情報と現在地を記載したWhatsAppメッセージを事前にお送りします。
               </div>
             </div> 
-             <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
                   src="/airport-six.jpeg"
@@ -228,22 +228,13 @@ export default function SLTourContent() {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport.jpeg"
+                  src="/Sea-tac airport gates.webp"
                   alt="Seattle Waterfront - scenic views and attractions during layover tours"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/airport1.jpeg"
-                  alt="Space Needle and Seattle skyline - iconic photo stops on layover tours"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
+              </div>              
             </div>
 
           </div>

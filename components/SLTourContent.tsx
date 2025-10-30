@@ -31,8 +31,8 @@ const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
   "On-time return guarantee",
-  "Souvenir tote bagg",
-  "Friendly local guide."
+  "Souvenir tote bag",
+  "Friendly local guide"
 ];
 
 const TOUR_OPTIONS_opiton = [
@@ -43,14 +43,14 @@ const TOUR_OPTIONS_opiton = [
     features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
   },
   {
-    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park + Molly Moon’s Ice Cream",
-    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park and a pre-ordered Molly Moon's Ice Cream pickup.",
-    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park", "Molly Moon's Ice Cream (pre-ordered pickup, included)"]
+    name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
+    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
+    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park",
+    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park"]
   },
   {
     name: "8-Hour — Pike Place Market + Space Needle Admission",
-    subtitle: "Experience the best of Seattle in one layover.",
+    subtitle: "Experience the best of Seattle in one layover",
     description: "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
     features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
   }
@@ -100,9 +100,10 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Seattle Layover Tour (6–8 Hours) – Out to the City, Back on Time</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Seattle Layover Tour (6–8 Hours) <br />
+              Explore the City, Be Back on Time</span>
             </h1>
-            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — out to the city, back on time.</p>
+            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — see the city safely and return with time to spare.</p>
 
             <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
                       >Book Tour   </a>
@@ -233,24 +234,14 @@ export default function SLTourContent() {
               </div>
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
-                  src="/airport.jpeg"
+                  src="/Sea-tac airport gates.webp"
                   alt="Seattle Waterfront - scenic views and attractions during layover tours"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/airport1.jpeg"
-                  alt="Space Needle and Seattle skyline - iconic photo stops on layover tours"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
+              </div>              
             </div>
-
           </div>
         </section>
 
