@@ -2,14 +2,12 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
-import { Card, CardHeader, CardContent } from "@/components/Card";
-import Button from "@/components/Button";
+import { MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
 import { HomePageText, GlobalText } from "@/lib/text";
-import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
+
 
 const SEATTLE_HIGHLIGHTS = [
   "Pike Place Market & famous fish toss",
@@ -158,7 +156,7 @@ export default function Page() {
             <div 
               className="aspect-[4/3] rounded-3xl shadow-2xl overflow-hidden relative hover-lift"
               style={{
-                backgroundImage: 'url("/seattle-skyline.jpg")',
+                backgroundImage: 'url("/seattle-skyline-sunset-mt-rainier.webp")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
@@ -226,7 +224,7 @@ export default function Page() {
                 <div 
                   className="aspect-[4/3] bg-cover bg-center"
                   style={{
-                    backgroundImage: 'url("/space-needle-skyline.jpg")',
+                    backgroundImage: 'url("/seattle-airport-waiting-layover.webp")',
                   }}
                 />
               </div>

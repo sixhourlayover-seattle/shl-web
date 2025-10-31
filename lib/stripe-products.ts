@@ -54,7 +54,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     groupSize: 'per-person',
-    priceDescription: 'per person (includes Kerry Park)'
+    priceDescription: 'per person'
   },
   {
     id: 'solo-traveler-7hour',
@@ -63,7 +63,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions. ',
     paymentLink: 'https://buy.stripe.com/new-7hour-solo',
     groupSize: '1',
-    priceDescription: 'solo traveler (includes Kerry Park)'
+    priceDescription: 'solo traveler'
   },
   {
     id: 'family-pack-7hour',
@@ -72,7 +72,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     paymentLink: 'https://buy.stripe.com/new-7hour-family',
     groupSize: 'family',
-    priceDescription: '2 adults + up to 3 kids under 12 (includes Kerry Park)'
+    priceDescription: '2 adults + up to 3 kids under 12'
   },
   // 8-Hour Seattle Complete
   {
@@ -158,3 +158,82 @@ export function redirectToStripeCheckout(product: StripeProduct, addOns: StripeA
   // In a more complex setup, you'd create a custom checkout session that includes add-ons
   window.open(product.paymentLink, '_blank');
 }
+
+
+export const STRIPE_TOUR_PRODUCTSTest: StripeProduct[] = [
+  // 6-Hour Seattle Essentials
+  {
+    id: 'per-person-6hour-test',
+    name: '6-Hour Seattle Essentials test',
+    price: 1.00,
+    description: 'Discover Seattle\'s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, and stroll the waterfront — all with a friendly local guide.',
+    paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
+    groupSize: 'per-person',
+    priceDescription: 'per person'
+  },
+  {
+    id: 'solo-traveler-6hour-test',
+    name: '6-Hour Seattle Essentials (Solo)',
+    price: 1.00,
+    description: 'Discover Seattle\'s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, and stroll the waterfront — all with a friendly local guide.',
+    paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
+    groupSize: '1',
+    priceDescription: 'solo traveler'
+  },
+  {
+    id: 'family-pack-6hour',
+    name: '6-Hour Seattle Essentials (Family Pack)',
+    price: 750.00,
+    description: 'Discover Seattle\'s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, and stroll the waterfront — all with a friendly local guide.',
+    paymentLink: 'https://buy.stripe.com/3cIfZj0Kf9j18868E538402',
+    groupSize: 'family',
+    priceDescription: '2 adults + up to 3 kids under 12'
+  },
+  // 7-Hour Seattle Highlights
+  {
+    id: 'per-person-7hour',
+    name: '7-Hour Seattle Highlights',
+    price: 300.00,
+    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
+    paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
+    groupSize: 'per-person',
+    priceDescription: 'per person'
+  },
+  {
+    id: 'solo-traveler-7hour',
+    name: '7-Hour Seattle Highlights (Solo)',
+    price: 450.00,
+    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions. ',
+    paymentLink: 'https://buy.stripe.com/new-7hour-solo',
+    groupSize: '1',
+    priceDescription: 'solo traveler'
+  },
+  {
+    id: 'family-pack-7hour',
+    name: '7-Hour Seattle Highlights (Family Pack)',
+    price: 900.00,
+    description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
+    paymentLink: 'https://buy.stripe.com/new-7hour-family',
+    groupSize: 'family',
+    priceDescription: '2 adults + up to 3 kids under 12'
+  },
+  // 8-Hour Seattle Complete
+  {
+    id: 'per-person-8hour',
+    name: '8-Hour Seattle Complete',
+    price: 350.00,
+    description: 'The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.',
+    paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
+    groupSize: 'per-person',
+    priceDescription: 'per person (includes Space Needle admission)'
+  },
+  {
+    id: 'solo-traveler-8hour',
+    name: '8-Hour Seattle Complete (Solo)',
+    price: 499.00,
+    description: 'The ultimate layover adventure. Includes everything in the Essentials Tour, plus Space Needle admission to go inside and visit the observation deck.',
+    paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
+    groupSize: '1',
+    priceDescription: 'solo traveler (includes Space Needle admission)'
+  }
+];

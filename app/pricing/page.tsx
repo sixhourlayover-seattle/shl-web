@@ -49,8 +49,8 @@ const TOUR_OPTIONS = [
   {
     title: "8-Hour — Pike Place Market + Space Needle Admission",
     subtitle: "Experience the best of Seattle in one layover.",
-    description: "Explore the iconic Pike Place Market, then head to the Space Needle for panoramic skyline views from the observation deck — admission ticket included.",
-    duration: "Pike Place Market + Space Needle admission (go inside, observation deck visit included)",
+    description: "Explore the iconic Pike Place Market, then head to the Space Needle for panoramic skyline views — admission ticket included.",
+    duration: "Pike Place Market + Space Needle admission",
     pricing: {
       perPerson: 350,
       solo: 499,
@@ -58,7 +58,7 @@ const TOUR_OPTIONS = [
     },
     features: [
       "Pike Place Market",
-      "Space Needle admission (includes observation deck)",
+      "Space Needle admission",
       "Maximum Seattle experience"
     ],
     note: "No Family Pack available - each guest requires Space Needle ticket; children under 5 are free"
@@ -85,20 +85,30 @@ const GIFT_TOTE_ITEMS = [
 const ADD_ONS = [
   {
     name: "Fremont Troll + Dick's Burgers",
+    subtitle:"After your skyline photo moment at <strong>Kerry Park</strong>, stroll through the charming streets of Queen Anne to <strong>Café Hagen</strong> — a locally loved coffee and pastry shop with European flair and skyline views.",
     price: 120,
     emoji: "🍔",
     requirement: "Requires 9+ hour layover"
   },
   {
     name: "Amazon Spheres + Top Pot Donuts",
+    subtitle:"Explore the futuristic <strong>Amazon Spheres</strong>, then unwind at <strong>Top Pot Donuts</strong> for coffee and Seattle’s most famous handcrafted doughnuts.",
     price: 120,
     emoji: "🏢",
     requirement: "Requires 9+ hour layover"
   },
   {
     name: "Filson & REI Shopping Stop",
+    subtitle:"Browse two Seattle icons — <strong>Filson’s heritage gear</strong> and <strong>REI’s flagship store</strong>, featuring an indoor climbing wall and outdoor-lover’s vibe.",
     price: 120,
     emoji: "🛍️",
+    requirement: "Requires 9+ hour layover"
+  },
+  {
+    name: "Queen Anne View & Coffee Stop",
+    subtitle:"After your <strong>skyline moment at Kerry Park</strong>, stroll through the charming <strong>Queen Anne neighborhood</strong> to <strong>Café Hagen</strong>, a <strong>Scandinavian-style café</strong> known for <strong>specialty coffee</strong>, <strong>pastries</strong>, and <strong>calm local vibes</strong>. No Uber needed — a perfect <strong>scenic & relaxing add-on</strong> within <strong>walking distance</strong>.",
+    price: 120,
+    emoji: "☕",
     requirement: "Requires 9+ hour layover"
   }
 ];
@@ -281,7 +291,7 @@ export default function PricingPage() {
               </h2>
             </div>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
 
               {/* Add-Ons List */}
               <div className="grid gap-4 md:grid-cols-2 mb-6">
@@ -291,6 +301,11 @@ export default function PricingPage() {
                     <div className="flex-1">
                       <div className="font-semibold text-slate-800 mb-1">{addon.name}</div>
                       <div className="text-sm text-purple-600 font-medium">${addon.price} per group</div>
+                      <div
+                          className="text-sm text-slate-600 mb-4 mt-1"
+                          dangerouslySetInnerHTML={{ __html: addon.subtitle }}
+                        />
+                      
                       <div className="text-xs text-slate-500 mt-1">{addon.requirement}</div>
                     </div>
                   </div>

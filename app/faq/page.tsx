@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
+import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import { FaqPageText, FAQ_SECTIONS, GlobalText } from "@/lib/text";
@@ -14,6 +14,22 @@ interface FAQItemProps {
   isOpen: boolean;
   onToggle: () => void;
 }
+export const FAQ_SECTIONS_schema = [
+  {
+    question: "Is a 6-hour layover enough time to see Seattle?",
+    answer: "Yes. Our curated route is designed for 6-hour windows with a guaranteed 2-hour return buffer to the airport."
+  },
+  {
+    question: "Where do we meet at the airport?",
+    answer: "Your Layover Concierge will meet you near SEA’s Baggage Claim 9. We’ll send WhatsApp and SMS instructions upon landing."
+  },
+  {
+    question: "What if traffic is bad or it rains?",
+    answer: "We have built-in buffer times and alternate indoor routes (like the Starbucks Reserve or Chihuly Garden) to keep your return on time."
+  }
+];
+
+
 
 function FAQItem({ faq, isOpen, onToggle }: FAQItemProps) {
   return (
@@ -111,6 +127,25 @@ export default function FAQPage() {
             </div>
           </div>
         </section>
+
+        {/* JSON-LD inside the body */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": FAQ_SECTIONS_schema.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.answer
+                }
+              }))
+            })
+          }}
+        />
 
         {/* Contact CTA */}
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
