@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
@@ -62,8 +61,107 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+ const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Six Hour Layover",
+    "url": "https://sixhourlayover.com",
+    "logo": "https://sixhourlayover.com/logo_from_url.jpg",
+    "sameAs": [
+      "https://www.instagram.com/sixhourlayover",
+      "https://www.facebook.com/sixhourlayover",
+      "https://www.tiktok.com/@sixhourlayover"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-206-928-1277",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Mandarin", "Japanese"]
+    }
+  }
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://sixhourlayover.com/#localbusiness",
+    "name": "The Six Hour Layover – Seattle",
+    "description": "Private and small-group layover tours of Seattle, starting and ending at SEA Airport. Explore the best of Seattle in six hours or less.",
+    "image": "https://sixhourlayover.com/hero.jpg",
+    "url": "https://sixhourlayover.com",
+    "telephone": "+1-206-XXX-XXXX",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Seattle–Tacoma International Airport",
+      "addressLocality": "Seattle",
+      "addressRegion": "WA",
+      "postalCode": "98158",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.4502,
+      "longitude": -122.3088
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "22:00"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Seattle"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Tour Options",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Small Group Tour",
+          "price": "250-350",
+          "priceCurrency": "USD",
+          "description": "Six-hour guided layover tour for small groups (2–6 people)."
+        },
+        {
+          "@type": "Offer",
+          "name": "Solo Tour",
+          "price": "499",
+          "priceCurrency": "USD",
+          "description": "Private solo six-hour layover tour of Seattle."
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/sixhourlayover",
+      "https://sixhourlayover.com"
+    ]
+  }
+
   return (
     <html lang="en">
+      <head>
+        {/* ✅ JSON-LD: Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+
+        {/* ✅ JSON-LD: LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body>
         {children}
         <Analytics />

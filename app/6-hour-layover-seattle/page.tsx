@@ -23,7 +23,35 @@ export const metadata: Metadata = {
 };
 
 
-
+// ✅ Page Component
 export default function SLTourPage() {
-  return <_6HLSContent />;
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Essential 6-Hour Seattle Layover Tour",
+    "image": "https://sixhourlayover.com/seattle-skyline-sunset-mt-rainier.jpg",
+    "description":
+      "Explore Pike Place Market, Kerry Park skyline, and Fremont Troll with guaranteed on-time airport return.",
+    "brand": "The Six Hour Layover",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://sixhourlayover.com/6-hour-layover-seattle",
+      "priceCurrency": "USD",
+      "price": "199",
+      "availability": "https://schema.org/InStock",
+    },
+  };
+
+  return (
+    <>
+      {/* ✅ Inject JSON-LD Schema into <head> (SSR) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+
+      {/* Your actual page content */}
+      <_6HLSContent />
+    </>
+  );
 }
