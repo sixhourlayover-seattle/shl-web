@@ -72,7 +72,7 @@ const WHATS_INCLUDED = [
   "Light Rail (airport ↔ city) + Uber for short hops",
   "On-time return guarantee (safe buffer; flight monitored)",
   "Seattle chocolate-covered Rainier cherry souvenir tote bag",
-  "Free cancellation (24+ hours notice). Cancellations within 24 hours are non‑refundable."
+  "Free cancellation (24+ hours notice)"
 ];
 
 const GIFT_TOTE_ITEMS = [
