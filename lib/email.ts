@@ -109,7 +109,7 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
         <ul>
           <li><strong>Tour Type:</strong> ${bookingInfo.tourOption || 'N/A'}</li>
           <li><strong>Date:</strong> ${bookingInfo.createdAt}</li>
-          <li><strong>Number of Travelers:</strong> ${bookingInfo.customerPhone || 'N/A'}</li>
+          <li><strong>Telephone Number:</strong> ${bookingInfo.customerPhone || 'N/A'}</li>
           <li><strong>Amount Paid:</strong> $${bookingInfo.paymentAmount.toFixed(2)} USD</li>
           <li><strong>Booking ID:</strong> ${bookingInfo.bookingId || 'N/A'}</li>
         </ul>
