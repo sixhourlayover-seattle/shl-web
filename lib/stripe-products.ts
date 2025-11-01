@@ -22,7 +22,7 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
   {
     id: 'per-person-6hour',
     name: '6-Hour Seattle Essentials',
-    price: 250.00,
+    price: 1.00,
     description: 'Discover Seattle\'s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, and stroll the waterfront — all with a friendly local guide.',
     paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
     groupSize: 'per-person',

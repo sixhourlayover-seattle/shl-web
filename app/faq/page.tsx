@@ -14,7 +14,8 @@ interface FAQItemProps {
   isOpen: boolean;
   onToggle: () => void;
 }
-export const FAQ_SECTIONS_schema = [
+
+const FAQ_SECTIONS_schema = [
   {
     question: "Is a 6-hour layover enough time to see Seattle?",
     answer: "Yes. Our curated route is designed for 6-hour windows with a guaranteed 2-hour return buffer to the airport."
