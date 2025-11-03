@@ -6,7 +6,7 @@ import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
 import { HomePageText, PricingPageText, GlobalText } from "@/lib/text";
-
+import MascotSectionProduct from "@/components/MascotSectionContent";
 import Image from "next/image";
 
 
@@ -20,11 +20,6 @@ const TOUR_OPTIONS = [
     title: "Two to Three Travelers",
     subtitle: "per person",
     pricing: 300,
-  },
-  {
-    title: "Family Pack",
-    subtitle: "total (2 adults + up to 3 kids)",
-    pricing: 900,
   }
 ];
 const WHATS_INCLUDED = [
@@ -105,7 +100,7 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">8-Hour Layover in Seattle – Pike Place Market &amp; Space Needle Experience</span>
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">8-Hour Layover in Seattle — Pike Place Market &amp; Space Needle Experience</span>
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — out to the city, back on time.</p>
 
@@ -119,7 +114,7 @@ export default function SLTourContent() {
             <div className="space-y-6" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <div className="grid gap-4 text-left max-w-2xl">
                 <div className="flex items-center gap-3">
-                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">With eight hours to spare, see Seattle from street level to the skyline. This extended tour adds the Space Needle — the city’s most iconic landmark — to your layover adventure.</p>
+                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">With eight hours to spare, see Seattle from street level to skyline. This extended tour adds the Space Needle — the city’s most iconic landmark — to your layover adventure.</p>
                 </div>
               </div>
 
@@ -188,7 +183,9 @@ export default function SLTourContent() {
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
               <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Timing &amp; Guarantee</h2>
               <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
-                Planned for travelers with 8–12-hour layovers. Includes full 2-hour buffer and live flight monitoring for guaranteed on-time return.
+                Planned for travelers with 8–12-hour layovers. Includes full 2-hour buffer before your scheduled flight time and live flight monitoring for guaranteed safe return to SEA.
+
+
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
@@ -218,29 +215,10 @@ export default function SLTourContent() {
               </h2>
 
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Your Layover Concierge will meet guests at their arrival gate, or as close as possible, inside SEA-Tac Airport. WhatsApp updates provided before landing.
+                Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
               </div>
             </div>
-            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/airport-six.jpeg"
-                  alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/Sea-tac airport gates.webp"
-                  alt="Seattle Waterfront - scenic views and attractions during layover tours"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>              
-            </div>
+           
 
           </div>
         </section>
@@ -389,7 +367,7 @@ export default function SLTourContent() {
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">See Seattle’s skyline from above before your next flight.</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-               Book now at sixhourlayover.com.
+              Reserve your 8-hour layover adventure at sixhourlayover.com.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -407,6 +385,15 @@ export default function SLTourContent() {
             </div>
           </div>
         </section>
+
+        <MascotSectionProduct 
+          title="Who We Are"
+          name="Out to the city. Back on time. Your layover, reimagined into an unforgettable highlight."
+          role="Beloved Mascot (Retired from Adventures)"
+          description={`The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from SEA Airport into Seattle's highlights — Pike Place Market, the Waterfront, and iconic city views — and return you with a guaranteed 2-hour buffer. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.`}
+          imageSrc="/dog-mascot.jpg"
+          imageAlt="Six-Hour Layover Seattle mascot dog Guai Guai wearing bow tie — friendly welcome for travelers"
+        />
 
         {/* Footer + Mobile Nav */}
         <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">

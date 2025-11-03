@@ -219,7 +219,7 @@ export default function SLTourContent() {
               </h2>
             
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Guides meet guests directly at their arrival gate, or as close as possible, inside SEA-Tac Airport. You’ll receive advance WhatsApp messages with your guide’s info and live location.
+                Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
               </div>
             </div> 
              <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">

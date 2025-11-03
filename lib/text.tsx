@@ -8,7 +8,7 @@ export const GlobalText = {
   callUsNow: "Call Us Now",
   emailQuestions: "Email Questions",
   bookYourAdventureToday: "Book Your Seattle Tour",
-  footerSlogan: "Making layovers memorable, one city at a time.",
+  footerSlogan: "Making layovers memorable — one city at a time.",
   quickLinks: "Quick Links",
   legal: "Legal",
   copyright: `© ${new Date().getFullYear()} The Six-Hour Layover, Seattle`,

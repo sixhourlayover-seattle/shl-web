@@ -6,7 +6,7 @@ import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
 import { HomePageText, PricingPageText, GlobalText } from "@/lib/text";
-
+import MascotSectionProduct from "@/components/MascotSectionContent";
 import Image from "next/image";
 
 
@@ -190,7 +190,7 @@ export default function SLTourContent() {
         </section>
 
         {/* Meeting Point */}
-        {/* <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -198,32 +198,12 @@ export default function SLTourContent() {
               </h2>
 
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Your Layover Concierge will meet guests at their arrival gate, or as close as possible, inside SEA-Tac Airport. You’ll receive WhatsApp coordination before landing.
+                Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br /> After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
               </div>
-            </div>
-            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/airport-six.jpeg"
-                  alt="Pike Place Market - Seattle's famous public market and iconic layover destination"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
-                <Image
-                  src="/Sea-tac airport gates.webp"
-                  alt="Seattle Waterfront - scenic views and attractions during layover tours"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>              
-            </div>
+            </div>          
 
           </div>
-        </section> */}
+        </section>
 
 
         {/* Pricing Section */}
@@ -346,6 +326,15 @@ export default function SLTourContent() {
             </div>
           </div>
         </section>
+
+        <MascotSectionProduct 
+          title="Who We Are"
+          name="Out to the city. Back on time. Your layover, reimagined into an unforgettable highlight."
+          role="Beloved Mascot (Retired from Adventures)"
+          description={`The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from SEA Airport into Seattle's highlights — Pike Place Market, the Waterfront, and iconic city views — and return you with a guaranteed 2-hour buffer. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.`}
+          imageSrc="/dog-mascot.jpg"
+          imageAlt="Six-Hour Layover Seattle mascot dog Guai Guai wearing bow tie — friendly welcome for travelers"
+        />
 
         {/* Footer + Mobile Nav */}
         <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">

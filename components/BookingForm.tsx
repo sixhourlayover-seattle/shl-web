@@ -910,13 +910,9 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
                 </div>
               )}
               <p className="text-xs text-gray-500 mt-1">
-                The SEA airport baggage storage website will be shared with confirmed customers only.
+                Please refer to this website for luggage storage information at SEA Airport: <a className="text-blue-700" href="https://smartecarte.com/sea-tac-international-airport/" target="_blank">https://smartecarte.com/sea-tac-international-airport/</a>
               </p>
             </div>
-
-
-
-
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -931,18 +927,7 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
-                {BookingFormText.dietaryRestrictions}
-              </label>
-              <input
-                type="text"
-                value={formData.dietaryRestrictions}
-                onChange={(e) => handleInputChange('dietaryRestrictions', e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder={BookingFormText.dietaryRestrictionsPlaceholder}
-              />
-            </div>
+            
           </div>
         )}
 
