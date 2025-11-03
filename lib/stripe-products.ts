@@ -119,6 +119,14 @@ export const STRIPE_ADD_ONS: StripeAddOn[] = [
     description: 'Optional curated add-on (requires 9+ hour layover): Visit Filson Flagship and REI Seattle outdoor store. Price covers coordination, guide time, and transportation. Purchases not included.',
     paymentLink: 'https://buy.stripe.com/new-addon-filson-rei',
     category: 'tour-addon'
+  },
+  {
+    id: 'queen-anne-view-coffee-stop',
+    name: 'Queen Anne View & Coffee Stop',
+    price: 120.00,
+    description: 'After your skyline moment at Kerry Park, stroll through the charming Queen Anne neighborhood to Café Hagen, a Scandinavian-style café known for specialty coffee, pastries, and calm local vibes. No Uber needed — a perfect scenic & relaxing add-on within walking distance.',
+    paymentLink: 'https://buy.stripe.com/new-addon-filson-rei',
+    category: 'tour-addon'
   }
 ];
 
