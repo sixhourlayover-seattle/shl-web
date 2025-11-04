@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import { PlaneIcon, ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
-import { Card, CardHeader, CardContent } from "@/components/Card";
-import Button from "@/components/Button";
+import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
@@ -112,9 +109,11 @@ const ADD_ONS = [
     requirement: "Requires 9+ hour layover"
   }
 ];
+ 
 
 export default function PricingPage() {
   const [selectedTier, setSelectedTier] = useState("Solo");
+  
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   return (
@@ -208,12 +207,11 @@ export default function PricingPage() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        setSelectedTier(tier.id); // 👈 Set the tour/tier name
                         setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      Book Now
-                    </button>
+                    > Book Now </button>
                   </div>
                 </div>
               ))}
@@ -481,6 +479,7 @@ export default function PricingPage() {
         <BookingModal 
           isOpen={isBookingModalOpen} 
           onClose={() => setIsBookingModalOpen(false)} 
+          selectedTier={selectedTier} // 👈 Pass it down
         />
       </div>
     </div>

@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import { PlaneIcon, ClockIcon } from "@/components/Icons";
 import { BookingFormText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS, getProductByGroupSize, calculateTotalPrice, redirectToStripeCheckout, type StripeProduct, type StripeAddOn } from "@/lib/stripe-products";
 
 interface BookingFormProps {
-  onClose?: () => void;
+  onClose: () => void;
   isModal?: boolean;
+  preselectedTourId?: string | null; // 👈 add this
 }
 
 interface BookingData {
@@ -104,7 +105,7 @@ const initializeFormData = (): BookingData => {
   };
 };
 
-export default function BookingForm({ onClose, isModal = false }: BookingFormProps) {
+export default function BookingForm({ onClose, isModal = false, preselectedTourId }: BookingFormProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -113,9 +114,31 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+    // ✅ Add this useEffect just below your useState declarations
+  useEffect(() => {
+    if (preselectedTourId) {
+      const selectedProduct = STRIPE_TOUR_PRODUCTS.find(
+        (p) => p.id === preselectedTourId
+      );
+
+      if (selectedProduct) {
+        setFormData((prev) => ({
+          ...prev,
+          tourOption: selectedProduct.id,
+          selectedProduct,
+          totalPrice: calculateTotalPrice(
+            selectedProduct,
+            prev.adultsCount + prev.childrenCount,
+            prev.selectedAddOns
+          ),
+        }));
+      }
+    }
+  }, [preselectedTourId]); // 👈 runs when prop changes
+
   const handleInputChange = (field: keyof BookingData, value: string | boolean | string[] | number) => {
     const updatedData = { ...formData, [field]: value };
-
+    
     // Special handling for solo tour selection
     if (field === 'tourOption') {
       const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
@@ -163,7 +186,12 @@ export default function BookingForm({ onClose, isModal = false }: BookingFormPro
       updatedData.selectedAddOns = selectedAddOns;
       updatedData.totalPrice = totalPrice;
       updatedData.numberOfTravelers = totalTravelers;
+
+      console.log("Selected product 45465  ", updatedData);
+
     }
+
+    console.log("Selected product " , updatedData);
 
     setFormData(updatedData);
 

@@ -14,12 +14,14 @@ const TOUR_OPTIONS = [
   {
     title: "Solo Traveler",
     subtitle: "total",
-    pricing: 450,
+    pricing: 499,
+    id:'solo-traveler-8hour'
   },
   {
     title: "Two to Three Travelers",
     subtitle: "per person",
-    pricing: 300,
+    pricing: 350,
+    id:'per-person-8hour'
   }
 ];
 const WHATS_INCLUDED = [
@@ -71,6 +73,8 @@ const ADD_ONS = [
 
 export default function SLTourContent() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+  const [selectedTier, setSelectedTier] = useState("Solo");
+  
 
   const toggleItem = (sectionIndex: number, faqIndex: number) => {
     const key = `${sectionIndex}-${faqIndex}`;
@@ -79,6 +83,7 @@ export default function SLTourContent() {
       [key]: !prev[key]
     }));
   };
+
 
   const [selectedTour, setSelectedTour] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
@@ -251,12 +256,11 @@ export default function SLTourContent() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        setSelectedTier(tour.id); // 👈 Set the tour/tier name
                         setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      Book Now
-                    </button>
+                    > Book Now </button>
 
                   </div>
 
@@ -474,9 +478,11 @@ export default function SLTourContent() {
 
         <MobileNav />
 
-        <BookingModal
-          isOpen={isBookingModalOpen}
-          onClose={() => setIsBookingModalOpen(false)}
+        {/* Booking Modal */}
+        <BookingModal 
+          isOpen={isBookingModalOpen} 
+          onClose={() => setIsBookingModalOpen(false)} 
+          selectedTier={selectedTier} // 👈 Pass it down
         />
       </div>
     </div>

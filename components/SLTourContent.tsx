@@ -10,23 +10,7 @@ import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 import Image from "next/image";
 
 
-const TOUR_OPTIONS = [
-  {
-    title: "Solo Traveler",
-    subtitle: "total",    
-    pricing: 399,
-  },
-   {
-    title: "Two to Three Travelers",
-    subtitle: "per person",    
-    pricing: 250,
-  },
-   {
-    title: "Family Pack",
-    subtitle: "total (2 adults + up to 3 kids)",    
-    pricing: 750,
-  }
-];
+
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
@@ -282,12 +266,11 @@ export default function SLTourContent() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        setSelectedTier(tier.id); // 👈 Set the tour/tier name
                         setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      Book Now
-                    </button>
+                    > Book Now </button>
                   </div>
                 </div>
               ))}
@@ -452,15 +435,13 @@ export default function SLTourContent() {
           </div>
         </footer> 
 
-
-     
-
         <MobileNav />
-
-         <BookingModal 
-        isOpen={isBookingModalOpen} 
-        onClose={() => setIsBookingModalOpen(false)} 
-      />
+        {/* Booking Modal */}
+        <BookingModal 
+          isOpen={isBookingModalOpen} 
+          onClose={() => setIsBookingModalOpen(false)} 
+          selectedTier={selectedTier} // 👈 Pass it down
+        />
       </div>
     </div>
   );
