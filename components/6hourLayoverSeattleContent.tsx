@@ -15,16 +15,19 @@ const TOUR_OPTIONS = [
     title: "Solo Traveler",
     subtitle: "total",
     pricing: 399,
+    id:'solo-traveler-6hour'
   },
   {
     title: "Two to Three Travelers",
     subtitle: "per person",
     pricing: 250,
+    id:'per-person-6hour'
   },
   {
     title: "Family Pack",
     subtitle: "total (2 adults + up to 3 kids)",
     pricing: 750,
+    id:'family-pack-6hour'
   }
 ];
 
@@ -65,6 +68,8 @@ const Why_travellers_love_it = [
 
 export default function SLTourContent() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+  const [selectedTier, setSelectedTier] = useState("Solo");
+  
 
   const toggleItem = (sectionIndex: number, faqIndex: number) => {
     const key = `${sectionIndex}-${faqIndex}`;
@@ -74,8 +79,8 @@ export default function SLTourContent() {
     }));
   };
 
-  const [selectedTour, setSelectedTour] = useState(0);
-  const [showPreview, setShowPreview] = useState(false);
+
+
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   return (
@@ -145,57 +150,7 @@ export default function SLTourContent() {
           </div>
         </section>
 
-
-        {/* Itinerary Overview */}
-        {/* <section className="py-16 sm:py-24">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Itinerary Overview</span>
-              </h2>
-            </div>
-
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg"></div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-slate-800 mb-1">Pike Place Market</h4>
-                      <p className="text-purple-600 font-semibold mb-2"></p>
-                      <p className="text-slate-600 text-sm leading-relaxed">fish toss, local bites, artisan stalls, original Starbucks.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg"></div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-slate-800 mb-1">Seattle Waterfront</h4>
-                      <p className="text-purple-600 font-semibold mb-2"></p>
-                      <p className="text-slate-600 text-sm leading-relaxed">Elliott Bay walk, ferries, skyline and mountain views.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg"></div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-slate-800 mb-1">Flexible pacing</h4>
-                      <p className="text-purple-600 font-semibold mb-2"></p>
-                      <p className="text-slate-600 text-sm leading-relaxed">photo stops and quick snacks as time allows.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-        </section> */}
-
-
-
+        
         <section className="py-16">
           <div className="container">
             <div className="text-center mb-12">
@@ -330,15 +285,16 @@ export default function SLTourContent() {
                       </span>
                     </div>
                     <p className="text-sm text-slate-600 mb-4">{tour.subtitle}</p>
-                    <button
+                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        setSelectedTier(tour.id); // 👈 Set the tour/tier name
                         setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      Book Now
-                    </button>
+                    > Book Now </button>
+
+                    
 
                   </div>
 
@@ -553,16 +509,13 @@ export default function SLTourContent() {
             </div>
           </div>
         </footer>
-
-
-
-
         <MobileNav />
-
-        <BookingModal
-          isOpen={isBookingModalOpen}
-          onClose={() => setIsBookingModalOpen(false)}
-        />
+         {/* Booking Modal */}
+          <BookingModal 
+            isOpen={isBookingModalOpen} 
+            onClose={() => setIsBookingModalOpen(false)} 
+            selectedTier={selectedTier} // 👈 Pass it down
+          />
       </div>
     </div>
   );
