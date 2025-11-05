@@ -5,7 +5,7 @@ import { BookingFormText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS, getProductByGroupSize, calculateTotalPrice, redirectToStripeCheckout, type StripeProduct, type StripeAddOn } from "@/lib/stripe-products";
 
 interface BookingFormProps {
-  onClose: () => void;
+  onClose?: () => void; 
   isModal?: boolean;
   preselectedTourId?: string | null; // 👈 add this
 }
