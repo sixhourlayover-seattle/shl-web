@@ -115,7 +115,16 @@ export default function PricingPage() {
   const [selectedTier, setSelectedTier] = useState("Solo");
   
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
+  const handleEvent = (eventLabel: string) => {
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "click", {
+        event_category: "Booking",
+        event_label: eventLabel,
+      });
+    } else {
+      console.warn("⚠️ gtag not available yet");
+    }
+  };
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Animated background */}
@@ -374,49 +383,38 @@ export default function PricingPage() {
           </div>
         </section>
 
-        
-        {/* CTA Section */}
+
+        {/* CTA Section */}        
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Book Your Seattle Adventure?
+              {PricingPageText.ctaTitle}
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Choose your booking option below — complete your tour online or email us for quick assistance.
+              {PricingPageText.ctaSubtitle}
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              {/* Primary CTA - Book Tour */}
-              <a
-                href="/book" // or your Stripe checkout link
-                className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-                onClick={() =>
-                  window.gtag?.('event', 'click', {
-                    event_category: 'Booking',
-                    event_label: 'Book Your Seattle Tour',
-                  })
-                }
-              >
-                📋 Book Your Seattle Tour
-              </a>
+            {/* Primary CTA */}
+            <a
+              href="/book" // or Stripe Checkout link
+              onClick={() => handleEvent("Book Your Seattle Tour")}
+              className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+            >
+              📋 Book Your Seattle Tour
+            </a>
 
-              {/* Secondary CTA - Quick Book (Email Us) */}
-              <a
-                href="mailto:booking@sixhourlayover.com?subject=Quick%20Booking%20Request&body=Hi!%20I’d%20like%20to%20book%20a%20Six-Hour%20Layover%20tour.%20Please%20help%20me%20confirm%20my%20booking.%20Here%20are%20my%20details:%0A%0AName:%0AFlight%20Arrival%20Time:%0ADeparture%20Time:%0AAny%20Special%20Notes:"
-                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-                onClick={() =>
-                  window.gtag?.('event', 'click', {
-                    event_category: 'Booking',
-                    event_label: 'Quick Book (Email Us)',
-                  })
-                }
-              >
-                ✉️ Quick Book (Email Us)
-              </a>
-            </div>
-
-            {/* Reassurance line */}
-            <p className="text-white/80 text-sm mt-6">
+            {/* Secondary CTA */}
+            <a
+              href="mailto:booking@sixhourlayover.com?subject=Quick%20Booking%20Request&body=Hi!%20I’d%20like%20to%20book%20a%20Six-Hour%20Layover%20tour.%20Please%20help%20me%20confirm%20my%20booking.%20Here%20are%20my%20details:%0A%0AName:%0AFlight%20Arrival%20Time:%0ADeparture%20Time:%0AAny%20Special%20Notes:"
+              onClick={() => handleEvent("Quick Book (Email Us)")}
+              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+            >
+              ✈️ Quick Book (Email Us)
+            </a>
+          </div>
+            {/* reassurance line */}
+            <p className="text-white/80 text-base mt-6">
               Instant confirmation or same-day response — we handle everything for you.
             </p>
           </div>
