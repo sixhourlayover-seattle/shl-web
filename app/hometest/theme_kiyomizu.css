@@ -1,0 +1,90 @@
+/* app/homepagetest/theme_kiyomizu.css */
+:root {
+--color-primary: #b0463d; /* Kiyomizu vermilion red */
+--color-primary-light: #e85c4a;
+--color-accent: #f3e3c8; /* Rice paper base */
+--color-background: linear-gradient(180deg, #fffaf5 0%, #f8e3cf 100%);
+--color-text: #2a2a2a;
+--color-heading: #552020; /* Deep temple red-brown */
+--color-highlight: #fae0ca;
+--color-border: #f2d2b0;
+--color-button-text: #ffffff;
+
+--font-primary: 'Poppins', sans-serif;
+--font-secondary: 'Noto Serif JP', serif;
+}
+
+body {
+background: var(--color-background);
+color: var(--color-text);
+font-family: var(--font-primary);
+}
+
+h1, h2, h3 {
+font-family: var(--font-secondary);
+color: var(--color-heading);
+}
+
+.btn-primary {
+background: var(--color-primary);
+color: var(--color-button-text);
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+background: var(--color-primary-light);
+}
+
+.section-highlight {
+background-color: var(--color-highlight);
+padding: 20px;
+border-radius: 8px;
+}
+
+.headings_color{
+    color:var(--color-heading);
+}
+
+
+/* Animated gradient backgrounds */
+.animated-gradient {
+  background: linear-gradient(180deg, #fffaf5 0%, #f8e3cf 100%);
+  background-size: 300% 300%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.primary-background{
+    background-color: var(--color-primary)
+}
+
+.border-primary-500{
+   border-color:  var(--color-primary);
+}
+.text-color-heading{
+    color: var(--color-heading);
+}
+.border-primary-300 {
+    border-color: #b0463d26;
+}
+
+.from-primary-600 {
+  --tw-gradient-from: #b0463d var(--tw-gradient-from-position);
+  --tw-gradient-to: #b0463d var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.to-indigo-50\/95 {
+    --tw-gradient-to: #f3e3c8 var(--tw-gradient-to-position);
+}
+.bg-purple-400 {
+    --tw-bg-opacity: 1;
+    background-color: #fae0ca;
+}
+.bg-indigo-400 {
+    --tw-bg-opacity: 1;
+    background-color: #fae0ca;
+}
+.bg-pink-400 {
+    --tw-bg-opacity: 1;
+    background-color: #fae0ca;
+}
