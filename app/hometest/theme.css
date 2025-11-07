@@ -1,0 +1,48 @@
+:root {
+--color-primary: #a73636; /* Kyoto red */
+--color-primary-light: #d94b4b;
+--color-accent: #f5deb3; /* Rice paper beige */
+--color-background: #fffaf5; /* Light warm cream background */
+--color-text: #2b2b2b; /* Neutral dark gray for readability */
+--color-heading: #4a1c1c; /* Deep reddish brown for headings */
+--color-highlight: #f8e3cf; /* Soft highlight tone */
+--color-button-text: #ffffff;
+--color-border: #e4c7a1;
+
+--font-primary: 'Poppins', sans-serif;
+--font-secondary: 'Noto Serif JP', serif;
+}
+
+body {
+background-color: var(--color-background);
+color: var(--color-text);
+font-family: var(--font-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+color: var(--color-heading);
+font-family: var(--font-secondary);
+}
+
+a {
+color: var(--color-primary);
+text-decoration: none;
+}
+
+a:hover {
+color: var(--color-primary-light);
+}
+
+button, .btn-primary {
+background-color: var(--color-primary);
+color: var(--color-button-text);
+border: none;
+border-radius: 6px;
+padding: 10px 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover, .btn-primary:hover {
+background-color: var(--color-primary-light);
+}
