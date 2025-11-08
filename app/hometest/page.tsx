@@ -39,19 +39,19 @@ const TOUR_OPTIONS = [
 function TourPreview({ selectedTour }: { selectedTour: number }) {
   const tour = TOUR_OPTIONS[selectedTour];
   return (
-    <div className="mt-6 rounded-3xl bg-gradient-to-br from-purple-100 via-indigo-100 to-pink-100 p-6 shadow-2xl hover-lift">
+    <div className="mt-6 rounded-3xl bg-gradient-to-br section-highlight p-6 shadow-2xl hover-lift">
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-2 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500">
+        <div className="p-2 rounded-full primary-background">
           <MapPinIcon className="h-5 w-5 text-white" />
         </div>
-        <h4 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+        <h4 className="text-xl font-bold bg-gradient-to-r bg-clip-text text-color-heading">
           {tour.name}
         </h4>
       </div>
       <p className="text-slate-700 mb-4">{tour.description}</p>
       <div className="flex flex-wrap gap-2 mb-6">
         {tour.features.map((feature, i) => (
-          <div key={i} className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur border border-purple-200">
+          <div key={i} className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur border border-primary-300">
             <span className="text-green-600">✓</span>
             <span className="text-sm font-medium text-slate-700">{feature}</span>
           </div>
@@ -60,7 +60,7 @@ function TourPreview({ selectedTour }: { selectedTour: number }) {
       <div className="flex flex-wrap gap-3">
         <a 
           href="/pricing"
-          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+          className="px-6 py-3 bg-gradient-to-r btn-primary text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
         >
           📅 View Pricing & Book
         </a>
