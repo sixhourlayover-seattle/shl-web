@@ -14,10 +14,9 @@ export default function SLTourContent() {
 
       <div className="relative z-10">
         <Navigation />
-
         {/* Hero */}
         <section className="max-w-3xl mx-auto px-5 py-16 font-[Noto_Sans_SC]">
-          <h1 className="text-[#a32121] text-3xl text-center font-semibold">
+          <h1 className="text-[#C72C2C] text-3xl text-center font-semibold">
             西雅图转机 6–8 小时城市游
           </h1>
           <h2 className="text-center text-lg mt-3">
@@ -30,7 +29,7 @@ export default function SLTourContent() {
             <strong>准点返航</strong>。
           </p>
 
-          <h3 className="text-[#a32121] mt-10 font-semibold text-lg">
+          <h3 className="text-[#C72C2C] mt-10 font-semibold text-lg">
             行程路线与价格
           </h3>
           <ul className="text-base leading-8 list-disc pl-6">
@@ -78,24 +77,15 @@ export default function SLTourContent() {
                 <p className="mt-2">WhatsApp 联系</p>
               </div>
             </div>
-
-            <p className="mt-8 text-[#a32121] text-lg">
+            <p className="mt-8 text-[#C72C2C] text-lg">
               💥 本月优惠码：<strong>GUAI88</strong> — 每人立减 $20（限前10单）
             </p>
           </div>
-
           <hr className="my-12 border-gray-300" />
-
           <p className="text-sm text-gray-600 text-center">
             六小时西雅图转机游 Six-Hour Layover Seattle © 2025 ｜ www.sixhourlayover.com
           </p>
-        </section>
-
-        
-
-
-
-      
+        </section>   
       </div>
     </div>
   );
