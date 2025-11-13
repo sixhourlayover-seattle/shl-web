@@ -8,6 +8,7 @@ import { PricingPageText, GlobalText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 
 
+
 const TOUR_OPTIONS = [
   {
     title: "6-Hour — Pike Place Market & Waterfront",
@@ -145,7 +146,7 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{PricingPageText.title}</span>
+                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.title}</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
                 {PricingPageText.subtitle}
@@ -160,7 +161,7 @@ export default function PricingPage() {
             <div className="grid gap-8 lg:grid-cols-2">
               {TOUR_OPTIONS.map((tour, index) => (
                 <div key={index} className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift" style={{animation: `slide-in 0.${index + 7}s ease-out`}}>
-                  <div className="p-8 bg-gradient-to-r from-purple-600 to-indigo-600">
+                  <div className="p-8 bg-gradient-to-r primary-background">
                     <h3 className="text-2xl font-bold text-white mb-2">{tour.title}</h3>
                     <p className="text-white/90 text-sm">{tour.duration}</p>
                   </div>
@@ -168,7 +169,7 @@ export default function PricingPage() {
                     <p className="text-slate-700 mb-6 leading-relaxed">{tour.description}</p>
                     <div className="flex flex-wrap gap-3">
                       {tour.features.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-br from-purple-100 to-indigo-100 border border-purple-200">
+                        <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-br highlight_bg border border-purple-200">
                           <span className="text-green-600">✔</span>
                           <span className="text-sm font-medium text-slate-700">{feature}</span>
                         </div>
@@ -186,7 +187,7 @@ export default function PricingPage() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{PricingPageText.pricingTitle}</span>
+                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.pricingTitle}</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 {PricingPageText.pricingSubtitle}
@@ -208,7 +209,7 @@ export default function PricingPage() {
                   <div className="text-center">
                     <h3 className="font-bold text-lg text-slate-800 mb-2">{tier.name}</h3>
                     <div className="mb-3">
-                      <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                      <span className="text-3xl font-bold headings_color">
                         ${tier.price}
                       </span>
                     </div>
@@ -219,7 +220,7 @@ export default function PricingPage() {
                         setSelectedTier(tier.id); // 👈 Set the tour/tier name
                         setIsBookingModalOpen(true);
                       }}
-                      className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                      className="w-full px-4 py-2 bg-gradient-to-r btn-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                     > Book Now </button>
                   </div>
                 </div>
@@ -230,11 +231,11 @@ export default function PricingPage() {
         </section>
 
         {/* What's Included */}
-        <section className="py-16 bg-gradient-to-br from-purple-50/50 to-indigo-50/50">
+        <section className="py-16 bg-gradient-to-br ">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{PricingPageText.whatsIncluded}</span>
+                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.whatsIncluded}</span>
               </h2>
             </div>
 
@@ -290,11 +291,11 @@ export default function PricingPage() {
         </section> */}
 
         {/* Add-Ons */}
-        <section className="py-16 bg-gradient-to-br from-indigo-50/50 to-purple-50/50">
+        <section className="py-16 bg-gradient-to-br">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{PricingPageText.addOnsTitle}</span>
+                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.addOnsTitle}</span>
               </h2>
             </div>
 
@@ -307,7 +308,7 @@ export default function PricingPage() {
                     <div className="text-3xl flex-shrink-0">{addon.emoji}</div>
                     <div className="flex-1">
                       <div className="font-semibold text-slate-800 mb-1">{addon.name}</div>
-                      <div className="text-sm text-purple-600 font-medium">${addon.price} per group</div>
+                      <div className="text-sm headings_color font-medium">${addon.price} per group</div>
                       <div
                           className="text-sm text-slate-600 mb-4 mt-1"
                           dangerouslySetInnerHTML={{ __html: addon.subtitle }}
@@ -320,7 +321,7 @@ export default function PricingPage() {
               </div>
 
               {/* Important Note */}
-              <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
+              <div className="text-center p-4 rounded-xl highlight_bg border border-blue-200">
                 <p className="text-sm text-blue-700 font-medium">
                   {PricingPageText.addOnsNote}
                 </p>
@@ -347,13 +348,13 @@ export default function PricingPage() {
               </div>
 
               {/* Contact */}
-              <div className="rounded-3xl bg-gradient-to-br from-purple-600 to-indigo-600 p-1 shadow-2xl hover-lift">
+              <div className="rounded-3xl bg-gradient-to-br primary-background p-1 shadow-2xl hover-lift">
                 <div className="rounded-3xl bg-white/95 backdrop-blur p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
                       <span className="text-white text-xl">📧</span>
                     </div>
-                    <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                    <h3 className="text-2xl font-bold bg-gradient-to-r headings_color bg-clip-text text-transparent">
                       {PricingPageText.contact}
                     </h3>
                   </div>
@@ -385,7 +386,7 @@ export default function PricingPage() {
 
 
         {/* CTA Section */}        
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
+        <section className="py-16 bg-gradient-to-br primary-background">
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
               {PricingPageText.ctaTitle}
@@ -399,7 +400,7 @@ export default function PricingPage() {
             <a
               href="/book" // or Stripe Checkout link
               onClick={() => handleEvent("Book Your Seattle Tour")}
-              className="inline-flex items-center px-8 py-3 bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex items-center px-8 py-3 bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
             >
               📋 Book Your Seattle Tour
             </a>
@@ -408,7 +409,7 @@ export default function PricingPage() {
             <a
               href="mailto:booking@sixhourlayover.com?subject=Quick%20Booking%20Request&body=Hi!%20I’d%20like%20to%20book%20a%20Six-Hour%20Layover%20tour.%20Please%20help%20me%20confirm%20my%20booking.%20Here%20are%20my%20details:%0A%0AName:%0AFlight%20Arrival%20Time:%0ADeparture%20Time:%0AAny%20Special%20Notes:"
               onClick={() => handleEvent("Quick Book (Email Us)")}
-              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex items-center px-8 py-3 bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
             >
               ✈️ Quick Book (Email Us)
             </a>
@@ -421,16 +422,16 @@ export default function PricingPage() {
         </section>
 
 
-        {/* Footer */}
-        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
+        {/* Footer + Mobile Nav */}
+        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br footer-bg to-white">
           <div className="container py-12">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-600 to-primary-600 text-white shadow-lg">
                     <PlaneIcon className="h-5 w-5" />
                   </div>
-                  <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  <span className="font-bold bg-gradient-to-r headings_color bg-clip-text text-transparent">
                     {GlobalText.appName}
                   </span>
                 </div>
@@ -440,20 +441,20 @@ export default function PricingPage() {
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
               
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
                 </div>
               </div>
             </div>
@@ -461,14 +462,15 @@ export default function PricingPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p> 
+                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
+                
               </div>
               <div className="flex items-center gap-3">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61580441967255" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Facebook"
                 >
                   <FacebookIcon className="w-5 h-5" />
@@ -477,7 +479,7 @@ export default function PricingPage() {
                   href="https://www.instagram.com/sixhourlayoverseattle/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Instagram"
                 >
                   <InstagramIcon className="w-5 h-5" />
@@ -486,7 +488,7 @@ export default function PricingPage() {
                   href="https://www.tiktok.com/@sixhourlayover_sea" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on TikTok"
                 >
                   <TikTokIcon className="w-5 h-5" />

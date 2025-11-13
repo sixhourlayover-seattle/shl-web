@@ -26,6 +26,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <div className="min-h-screen relative overflow-hidden">
+     
       {/* Animated background */}
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
@@ -35,6 +36,8 @@ export default function ContactPage() {
       <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
       <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
       
+      
+      
       <div className="relative z-10">
         <Navigation />
 
@@ -43,7 +46,7 @@ export default function ContactPage() {
           <div className="container">
             <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{ContactPageText.title}</span>
+                <span className="bg-gradient-to-r  bg-clip-text ">{ContactPageText.title}</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
                 {ContactPageText.subtitle}
@@ -74,14 +77,14 @@ export default function ContactPage() {
                     {method.contact.includes('@') ? (
                       <a 
                         href={method.href}
-                        className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 mb-4 text-lg"
+                        className="inline-flex items-center justify-center px-8 py-4 btn-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 mb-4 text-lg"
                       >
                         {method.contact}
                       </a>
                     ) : (
                       <a 
                         href={method.href}
-                        className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 mb-4 text-lg"
+                        className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r btn-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 mb-4 text-lg"
                       >
                         {method.contact}
                       </a>
@@ -94,7 +97,7 @@ export default function ContactPage() {
         </section>
 
         {/* Booking Information */}
-        <section className="py-16 bg-gradient-to-br from-purple-50/50 to-indigo-50/50">
+        <section className="py-16 bg-gradient-to-br ">
           <div className="container max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-800 mb-6">{ContactPageText.bookingInfoTitle}</h2>
@@ -110,7 +113,7 @@ export default function ContactPage() {
                   className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift"
                   style={{animation: `slide-in 0.${index + 9}s ease-out`}}
                 >
-                  <h3 className="text-2xl font-bold text-purple-700 mb-6">{info.title}</h3>
+                  <h3 className="text-2xl font-bold  mb-6">{info.title}</h3>
                   <ul className="space-y-4">
                     {info.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
@@ -142,7 +145,7 @@ export default function ContactPage() {
                   className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift"
                   style={{animation: `slide-in 0.${index + 11}s ease-out`}}
                 >
-                  <h3 className="text-xl font-bold text-purple-700 mb-4">{faq.question}</h3>
+                  <h3 className="text-xl font-bold mb-4">{faq.question}</h3>
                   <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
                 </div>
               ))}
@@ -151,7 +154,7 @@ export default function ContactPage() {
             <div className="text-center mt-12">
               <a 
                 href="/faq"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r btn-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">❓</span>
                 {GlobalText.viewAllFAQs}
@@ -161,7 +164,7 @@ export default function ContactPage() {
         </section>
 
         {/* Business Hours & Location Info */}
-        <section className="py-16 bg-gradient-to-br from-blue-50/50 to-indigo-50/50">
+        <section className="py-16 bg-gradient-to-br">
           <div className="container max-w-4xl mx-auto">
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 p-8 hover-lift">
               <div className="text-center mb-8">
@@ -222,7 +225,7 @@ export default function ContactPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
+        <section className="py-16 bg-gradient-to-br primary-background">
           <div className="container text-center">
             <h2 className="text-4xl font-bold text-white mb-6">{ContactPageText.ctaTitle}</h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
@@ -247,16 +250,16 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
+        {/* Footer + Mobile Nav */}
+        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br footer-bg to-white">
           <div className="container py-12">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-lg">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-600 to-primary-600 text-white shadow-lg">
                     <PlaneIcon className="h-5 w-5" />
                   </div>
-                  <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  <span className="font-bold bg-gradient-to-r headings_color bg-clip-text text-transparent">
                     {GlobalText.appName}
                   </span>
                 </div>
@@ -266,20 +269,20 @@ export default function ContactPage() {
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
               
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
                 </div>
               </div>
             </div>
@@ -287,14 +290,15 @@ export default function ContactPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>              
+                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
+                
               </div>
               <div className="flex items-center gap-3">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61580441967255" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Facebook"
                 >
                   <FacebookIcon className="w-5 h-5" />
@@ -303,7 +307,7 @@ export default function ContactPage() {
                   href="https://www.instagram.com/sixhourlayoverseattle/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Instagram"
                 >
                   <InstagramIcon className="w-5 h-5" />
@@ -312,7 +316,7 @@ export default function ContactPage() {
                   href="https://www.tiktok.com/@sixhourlayover_sea" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on TikTok"
                 >
                   <TikTokIcon className="w-5 h-5" />
