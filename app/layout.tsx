@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import './theme_kiyomizu.css';
 import { Analytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
 

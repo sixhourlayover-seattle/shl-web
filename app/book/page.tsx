@@ -27,7 +27,7 @@ export default function BookPage() {
           <div className="container">
             <div className="text-center mb-8">
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-4">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r bg-clip-text">
                   {BookPageText.title}
                 </span>
               </h1>

@@ -297,7 +297,7 @@ export const FAQ_SECTIONS = [
   {
     title: "Physical Demand & Accessibility",
     icon: "🚶",
-    color: "from-indigo-600 to-purple-600",
+    color: "from-primary-600 to-primary-600",
     faqs: [
       {
         question: "Is the tour physically demanding?",

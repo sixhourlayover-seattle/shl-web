@@ -17,7 +17,6 @@ export default function HowItWorksPage() {
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
       <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
       <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
-      
       <div className="relative z-10">
         <Navigation />
 
@@ -26,7 +25,7 @@ export default function HowItWorksPage() {
           <div className="container">
             <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">{HowItWorksPageText.title}</span>
+                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{HowItWorksPageText.title}</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
                 {HowItWorksPageText.subtitle}
@@ -85,13 +84,13 @@ export default function HowItWorksPage() {
                 >
                   {/* Connector line */}
                   {index < HOW_IT_WORKS_STEPS.length - 1 && (
-                    <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b from-purple-300 to-indigo-300" />
+                    <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b primary-background" />
                   )}
                   
                   <div className="flex gap-6">
                     {/* Step number and icon */}
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br primary-background flex items-center justify-center text-white font-bold text-lg shadow-lg">
                         {step.step}
                       </div>
                       <div className="mt-4 text-center">
@@ -123,7 +122,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* What Makes Us Different */}
-        <section className="py-16 bg-gradient-to-br from-purple-50/50 to-indigo-50/50">
+        <section className="py-16 bg-gradient-to-br ">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -153,7 +152,7 @@ export default function HowItWorksPage() {
         {/* Transportation Info */}
         <section className="py-16">
           <div className="container max-w-4xl mx-auto">
-            <div className="rounded-3xl bg-gradient-to-br from-blue-100 to-indigo-100 p-8 shadow-2xl hover-lift">
+            <div className="rounded-3xl bg-gradient-to-br section-highlight p-8 shadow-2xl hover-lift">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-slate-800 mb-4">{HowItWorksPageText.transportationTitle}</h2>
                 <p className="text-slate-700 text-lg">{HowItWorksPageText.transportationSubtitle}</p>
@@ -195,16 +194,14 @@ export default function HowItWorksPage() {
 
         
 
-        {/* Footer */}
-        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
+        {/* Footer + Mobile Nav */}
+        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br footer-bg to-white">
           <div className="container py-12">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-lg">
-                    <PlaneIcon className="h-5 w-5" />
-                  </div>
-                  <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
+                  <span className="font-bold headings_color bg-clip-text text-transparent">
                     {GlobalText.appName}
                   </span>
                 </div>
@@ -214,20 +211,20 @@ export default function HowItWorksPage() {
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/">{GlobalText.homeLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
               
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
+                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
                 </div>
               </div>
             </div>
@@ -235,14 +232,15 @@ export default function HowItWorksPage() {
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p> 
+                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
+                
               </div>
               <div className="flex items-center gap-3">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61580441967255" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Facebook"
                 >
                   <FacebookIcon className="w-5 h-5" />
@@ -251,7 +249,7 @@ export default function HowItWorksPage() {
                   href="https://www.instagram.com/sixhourlayoverseattle/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Instagram"
                 >
                   <InstagramIcon className="w-5 h-5" />
@@ -260,7 +258,7 @@ export default function HowItWorksPage() {
                   href="https://www.tiktok.com/@sixhourlayover_sea" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on TikTok"
                 >
                   <TikTokIcon className="w-5 h-5" />

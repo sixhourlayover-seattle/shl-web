@@ -468,7 +468,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
             <div key={index} className="flex items-center">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                 index + 1 <= currentStep 
-                  ? 'bg-purple-600 text-white' 
+                  ? 'primary-background text-white' 
                   : 'bg-gray-200 text-gray-500'
               }`}>
                 {index + 1}
@@ -693,8 +693,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 {BookingFormText.tourOption} *
               </label>
               {formData.selectedProduct && (
-                <div className="mb-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
-                  <p className="text-sm text-purple-700">
+                <div className="mb-4 p-3 highlight_bg rounded-lg border border-purple-200">
+                  <p className="text-sm headings_color">
                     <strong>Current selection:</strong> {formData.selectedProduct.name} - ${formData.selectedProduct.price} {formData.selectedProduct.priceDescription}
                   </p>
                 </div>
@@ -967,9 +967,9 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
               {/* Pricing Summary */}
               {formData.totalPrice > 0 && (
-                <div className="mb-6 p-4 bg-purple-50 rounded-xl border border-purple-200">
-                  <h4 className="font-bold text-purple-800 mb-3">Total Price: ${formData.totalPrice}</h4>
-                  <div className="text-sm text-purple-700">
+                <div className="mb-6 p-4 highlight_bg rounded-xl border border-purple-200">
+                  <h4 className="font-bold headings_color mb-3">Total Price: ${formData.totalPrice}</h4>
+                  <div className="text-sm headings_color">
                     <p>Base tour: ${formData.selectedProduct?.price} {formData.selectedProduct?.priceDescription}</p>
                     {formData.selectedAddOns.map(addon => (
                       <p key={addon.id}>+ {addon.name}: ${addon.price}</p>
@@ -1078,7 +1078,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
             <button
               type="button"
               onClick={nextStep}
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              className="px-6 py-3 bg-gradient-to-r primary-background text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >
               {BookingFormText.next}
             </button>

@@ -46,7 +46,7 @@ export default function MascotSection({
           <div className="space-y-6" style={{animation: 'slide-in 1s ease-out'}}>
             <div>
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r bg-clip-text">
                   {title}
                 </span>
               </h2>
@@ -81,7 +81,7 @@ export default function MascotSection({
             </div>
 
             {/* Call to Action */}
-            <div className="rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-center">
+            <div className="rounded-2xl bg-gradient-to-r primary-background p-6 text-center">
               <p className="text-white text-lg font-semibold mb-4">
                 {MascotSectionText.cta}
               </p>
