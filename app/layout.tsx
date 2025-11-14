@@ -4,6 +4,9 @@ import './theme_kiyomizu.css';
 import { Analytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
 
+
+import FooterWrapper from "./FooterWrapper";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const title = "The Six-Hour Layover | Seattle Layover Tours with Airport Pickup";
 const description =
@@ -167,6 +170,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Analytics />
         <StructuredData />
+
+        <FooterWrapper />
       </body>
     </html>
   );
