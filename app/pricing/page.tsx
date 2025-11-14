@@ -6,7 +6,7 @@ import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
 import { PricingPageText, GlobalText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
-
+import Image from "next/image";
 
 
 const TOUR_OPTIONS = [
@@ -337,10 +337,10 @@ export default function PricingPage() {
               {/* Cancellation Policy */}
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 p-8 hover-lift">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
                     <span className="text-white text-xl">📋</span>
                   </div>
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                  <h3 className="text-2xl font-bold bg-gradient-to-r ">
                     {PricingPageText.cancellationPolicy}
                   </h3>
                 </div>
@@ -386,12 +386,12 @@ export default function PricingPage() {
 
 
         {/* CTA Section */}        
-        <section className="py-16 bg-gradient-to-br primary-background">
+        <section className="py-16 bg-gradient-to-br sub-primary-background">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold  mb-6">
               {PricingPageText.ctaTitle}
             </h2>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="headings_color text-lg mb-8 max-w-2xl mx-auto">
               {PricingPageText.ctaSubtitle}
             </p>
 
@@ -415,91 +415,13 @@ export default function PricingPage() {
             </a>
           </div>
             {/* reassurance line */}
-            <p className="text-white/80 text-base mt-6">
+            <p className="text-slate-600 text-base mt-6">
               Instant confirmation or same-day response — we handle everything for you.
             </p>
           </div>
         </section>
 
-
-        {/* Footer + Mobile Nav */}
-        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br footer-bg to-white">
-          <div className="container py-12">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-600 to-primary-600 text-white shadow-lg">
-                    <PlaneIcon className="h-5 w-5" />
-                  </div>
-                  <span className="font-bold bg-gradient-to-r headings_color bg-clip-text text-transparent">
-                    {GlobalText.appName}
-                  </span>
-                </div>
-                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
-              </div>
-              
-              <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
-                <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
-                </div>
-              </div>
-              
-              <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
-                <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-primary-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
-                </div>
-              </div>
-            </div>
-            
-            <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-slate-600">
-                {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
-                
-              </div>
-              <div className="flex items-center gap-3">
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61580441967255" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  aria-label="Follow us on Facebook"
-                >
-                  <FacebookIcon className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.instagram.com/sixhourlayoverseattle/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  aria-label="Follow us on Instagram"
-                >
-                  <InstagramIcon className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.tiktok.com/@sixhourlayover_sea" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  aria-label="Follow us on TikTok"
-                >
-                  <TikTokIcon className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        <MobileNav />
-        
+        <MobileNav />        
         {/* Booking Modal */}
         <BookingModal 
           isOpen={isBookingModalOpen} 

@@ -15,7 +15,7 @@ export const GlobalText = {
   homeLink: "🏠 Home",
   howItWorksLink: "⚙️ How It Works",
   pricingLink: "💰 Tours & Pricing",
-  faqLink: "❓ FAQs",
+  faqLink: "❔ FAQs",
   aboutLink: "👥 About",
   contactLink: "📞 Contact",
   termsLink: "📄 Terms of Service",
