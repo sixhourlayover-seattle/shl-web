@@ -13,7 +13,7 @@ export default function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
             <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
-            <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="text-lg font-bold headings_color bg-clip-text text-transparent">
               {GlobalText.appName}
             </span>
           </Link>
@@ -24,14 +24,14 @@ export default function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-slate-700 hover:text-purple-600 font-medium transition-colors duration-300"
+                className="text-slate-700 hover:text-primary-600 font-medium transition-colors duration-300"
               >
                 {link.name}
               </Link>
             ))}
             <a
               href="/book"
-              className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex items-center px-6 py-2 btn-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
               预订您的西雅图之旅
             </a>
@@ -69,9 +69,9 @@ export default function Navigation() {
               <div className="px-4 pt-2">
                 <a
                   href="/book"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 btn-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  {GlobalText.bookNow}
+                  预订您的西雅图之旅
                 </a>
               </div>
             </nav>

@@ -77,12 +77,11 @@ export default function SLTourContent() {
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">7-Hour — Pike Place Market, Waterfront & Kerry Park</span>
+            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">7-Hour — Pike Place Market, Waterfront & Kerry Park
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Pike Place Market + Seattle Waterfront + Kerry Park skyline view</p>
 
-            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r btn-primary text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >Book Tour   </a>
           </div>
         </section>
@@ -120,7 +119,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Itinerary Highlights</span>
+                Itinerary Highlights
               </h2>
             </div>
 
@@ -170,20 +169,20 @@ export default function SLTourContent() {
           <div className="container text-center">
 
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-              <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Timing &amp; Guarantee</h2>
+              <h2 className="text-4xl font-bold  mb-6 bg-gradient-to-r  bg-clip-text ">Timing &amp; Guarantee</h2>
               <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
                 We monitor your flight in real time and include a full 2-hour buffer for return. You’ll arrive back at SEA at least two hours before your scheduled flight time — guaranteed.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href="/book"
-                  className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="inline-flex items-center px-6 py-2 bg-gradient-to-r btn-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   📋 {HomePageText.bookNow}
                 </a>
                 <button
                   onClick={() => setIsBookingModalOpen(true)}
-                  className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+                  className="inline-flex items-center px-8 py-3 bg-gradient-to-r bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
                 >
                   ⚡ Quick Book (From $250)
                 </button>
@@ -198,7 +197,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Meeting Point</span>
+                Meeting Point
               </h2>
 
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
@@ -215,7 +214,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Pricing &amp; Inclusions</span>
+                Pricing &amp; Inclusions
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 {PricingPageText.pricingSubtitle}
@@ -229,7 +228,7 @@ export default function SLTourContent() {
                   <div className="text-center">
                     <h3 className="font-bold text-lg text-slate-800 mb-2">{tour.title}</h3>
                     <div className="mb-3">
-                      <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                      <span className="text-3xl font-bold headings_color">
                         ${tour.pricing}
                       </span>
                     </div>
@@ -240,7 +239,7 @@ export default function SLTourContent() {
                         setSelectedTier(tour.id); // 👈 Set the tour/tier name
                         setIsBookingModalOpen(true);
                       }}
-                      className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                      className="w-full px-4 py-2 bg-gradient-to-r btn-primary font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                     > Book Now </button>
 
                   </div>
@@ -251,9 +250,7 @@ export default function SLTourContent() {
             </div>
             {/* What's Included */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"> Inclusions </span>
-              </h2>
+              <h2 className="text-4xl font-bold mb-4"> Inclusions  </h2>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 max-w-6xl mx-auto">
@@ -281,9 +278,7 @@ export default function SLTourContent() {
         <section className="py-16 bg-gradient-to-br from-purple-50/50 to-indigo-50/50">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Why Choose This Tour:</span>
-              </h2>
+              <h2 className="text-4xl font-bold mb-4"> Why Choose This Tour: </h2>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4  max-w-6xl mx-auto">
@@ -307,10 +302,10 @@ export default function SLTourContent() {
 
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
+        <section className="py-16 bg-gradient-to-br sub-primary-background">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Make your 7-hour stop in Seattle a story worth telling.</h2>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Make your 7-hour stop in Seattle a story worth telling.</h2>
+            <p className="text-slate-700 text-lg mb-8 max-w-2xl mx-auto">
               Experience Seattle’s skyline before your next flight — Book now at sixhourlayover.com.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -339,83 +334,7 @@ export default function SLTourContent() {
           imageAlt="Six-Hour Layover Seattle mascot dog Guai Guai wearing bow tie — friendly welcome for travelers"
         />
 
-        {/* Footer + Mobile Nav */}
-        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
-          <div className="container py-12">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
-                  <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    {GlobalText.appName}
-                  </span>
-                </div>
-                <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
-                <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{GlobalText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{GlobalText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{GlobalText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{GlobalText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{GlobalText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
-                </div>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
-                <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{GlobalText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-slate-600">
-                {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
-
-              </div>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61580441967255"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  aria-label="Follow us on Facebook"
-                >
-                  <FacebookIcon className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/sixhourlayoverseattle/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  aria-label="Follow us on Instagram"
-                >
-                  <InstagramIcon className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.tiktok.com/@sixhourlayover_sea"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                  aria-label="Follow us on TikTok"
-                >
-                  <TikTokIcon className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-
-
-
+        
         <MobileNav />
         {/* Booking Modal */}
         <BookingModal 

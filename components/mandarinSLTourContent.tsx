@@ -84,11 +84,11 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">西雅图转机游览（6-8小时） <br />探索城市，准时返回</span>
+              西雅图转机游览（6-8小时） <br />探索城市，准时返回
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">把你的转机时间变成一次迷你冒险——去城里逛逛，准时返回。</p>
 
-            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">{chineselangText.bookTour}   </a>
+            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4  btn-primary font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">{chineselangText.bookTour}   </a>
           </div>
         </section>
 
@@ -125,7 +125,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">行程概览</span>
+                行程概览
               </h2>   
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">3 条路线可供选择</p>         
             </div>
@@ -170,13 +170,13 @@ export default function SLTourContent() {
           <div className="container text-center">
 
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-            <h2 className="text-4xl font-bold  text-slate-800 mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">时间与保证</h2>
+            <h2 className="text-4xl font-bold mb-6 bg-clip-text">时间与保证</h2>
             <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">每个行程都包含内置的 2 小时返回缓冲、实时航班监控和准时机场返回保证。
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/book"
-                className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center px-6 py-2 btn-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 📋 {chineselangText.bookNow}
               </a>
@@ -195,7 +195,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">集合点</span>
+              集合点
               </h2>
             
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
@@ -233,7 +233,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{chineselangText.pricingTitle}</span>
+                {chineselangText.pricingTitle}
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 {chineselangText.pricingSubtitle}
@@ -255,7 +255,7 @@ export default function SLTourContent() {
                   <div className="text-center">
                     <h3 className="font-bold text-lg text-slate-800 mb-2">{tier.name}</h3>
                     <div className="mb-3">
-                      <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                      <span className="text-3xl font-bold headings_color bg-clip-text text-transparent">
                         ${tier.price}
                       </span>
                     </div>
@@ -265,7 +265,7 @@ export default function SLTourContent() {
                         e.stopPropagation();
                         setIsBookingModalOpen(true);
                       }}
-                      className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                      className="w-full px-4 py-2 btn-primary font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                     >  立即预订 </button>
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default function SLTourContent() {
             {/* What's Included */}
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent"> 内含物 </span>
+                 内含物 
               </h2>
             </div>
 
@@ -309,7 +309,7 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">旅行者喜爱它的原因：</span>
+               旅行者喜爱它的原因：
               </h2>
             </div>
 
@@ -334,10 +334,10 @@ export default function SLTourContent() {
 
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
+        <section className="py-16 bg-gradient-to-br sub-primary-background ">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">准备好让您的中途停留成为一次难忘的体验了吗？</h2>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">准备好让您的中途停留成为一次难忘的体验了吗？</h2>
+            <p className="text-slate-700 text-lg mb-8 max-w-2xl mx-auto">
               立即访问 sixhourlayover.com 预订，或通过 WhatsApp 联系我们。
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -356,44 +356,44 @@ export default function SLTourContent() {
         </section>
         
         {/* Footer + Mobile Nav */}
-        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br from-purple-50 via-indigo-50 to-white">
+        <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br footer-bg to-white">
           <div className="container py-12">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <Image src="/logo_from_url.jpg" alt="Logo" width={40} height={40} className="rounded-2xl" />
-                  <span className="font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  <span className="font-bold text-white">
                     {GlobalText.appName}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600">{chineselangText.footerSlogan}</p>
+                <p className="text-sm text-white">{chineselangText.footerSlogan}</p>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">{chineselangText.quickLinks}</h5>
+                <h5 className="font-bold text-white mb-3">{chineselangText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/">{chineselangText.homeLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/how-it-works">{chineselangText.howItWorksLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/pricing">{chineselangText.pricingLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/faq">{chineselangText.faqLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/about">{chineselangText.aboutLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{chineselangText.contactLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/">{chineselangText.homeLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/how-it-works">{chineselangText.howItWorksLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/pricing">{chineselangText.pricingLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/faq">{chineselangText.faqLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/about">{chineselangText.aboutLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/contact">{chineselangText.contactLink}</a>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-bold text-slate-800 mb-3">{chineselangText.legal}</h5>
+                <h5 className="font-bold text-white mb-3">{chineselangText.legal}</h5>
                 <div className="space-y-2 text-sm">
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/terms">{chineselangText.termsLink}</a>
-                  <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/privacy">{chineselangText.privacyLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/terms">{chineselangText.termsLink}</a>
+                  <a className="block text-white hover:text-white transition-colors" href="/privacy">{chineselangText.privacyLink}</a>
                 </div>
               </div>
             </div>
             
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-sm text-slate-600">
+              <div className="text-sm text-white">
                 {chineselangText.copyright}
-                <p className="text-xs text-slate-500">六小时停留之旅已获得派克市场保护与发展局 (PDA) 的许可和授权，可在派克市场历史街区开展游览活动。</p>
+                <p className="text-xs text-white">六小时停留之旅已获得派克市场保护与发展局 (PDA) 的许可和授权，可在派克市场历史街区开展游览活动。</p>
                 
               </div>
               <div className="flex items-center gap-3">
@@ -401,7 +401,7 @@ export default function SLTourContent() {
                   href="https://www.facebook.com/profile.php?id=61580441967255" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-light headings_color rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Facebook"
                 >
                   <FacebookIcon className="w-5 h-5" />
@@ -410,7 +410,7 @@ export default function SLTourContent() {
                   href="https://www.instagram.com/sixhourlayoverseattle/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-light headings_color rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Instagram"
                 >
                   <InstagramIcon className="w-5 h-5" />
@@ -419,7 +419,7 @@ export default function SLTourContent() {
                   href="https://www.tiktok.com/@sixhourlayover_sea" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-light headings_color rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on TikTok"
                 >
                   <TikTokIcon className="w-5 h-5" />
