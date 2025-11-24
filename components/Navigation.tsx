@@ -5,8 +5,10 @@ import Image from "next/image";
 import { PlaneIcon } from "@/components/Icons";
 import { GlobalText, NAVIGATION_LINKS } from "@/lib/text";
 
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false); // ✅ FIXED — moved inside component
 
   return (
     <header className="sticky top-0 z-30 glass border-b border-white/20">
@@ -29,14 +31,50 @@ export default function Navigation() {
               >
                 {link.name}
               </Link>
-            ))}
+            ))}           
+
             <a
               href="/book"
               className="inline-flex items-center px-6 py-2 bg-gradient-to-r btn-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
               {GlobalText.bookNow}
-            </a>
+            </a>            
           </nav>
+
+          {/* Language Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="text-slate-700 font-medium hover:text-primary-600 transition-colors"
+            >
+              Language ▾
+            </button>
+
+            {langOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                <Link
+                  href="/seattle-layover-tour"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setLangOpen(false)}
+                ><span className="text-red-500">✔ </span> English
+                </Link>
+                <Link
+                  href="/mandarin-seattle-layover"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setLangOpen(false)}
+                >
+                  中文
+                </Link>
+                <Link
+                  href="/japanese-seattle-layover"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setLangOpen(false)}
+                >
+                  日本語
+                </Link>
+              </div>
+            )}
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -74,6 +112,11 @@ export default function Navigation() {
                 >
                   {GlobalText.bookNow}
                 </a>
+                
+              
+               
+
+
               </div>
             </nav>
           </div>

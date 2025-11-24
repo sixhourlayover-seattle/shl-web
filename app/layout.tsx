@@ -60,8 +60,14 @@ export const metadata: Metadata = {
     follow: true
   },
   alternates: {
-    canonical: "/"
-  }
+    canonical: "/",
+    languages: {
+      "en": "/seattle-layover-tour",
+      "zh-Hans": "/mandarin-seattle-layover",
+      "ja-JP": "/japanese-seattle-layover",
+    },
+  },
+
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
