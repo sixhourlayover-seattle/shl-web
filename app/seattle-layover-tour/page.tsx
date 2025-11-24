@@ -19,7 +19,12 @@ export const metadata: Metadata = {
     images: ["/og-seattle-layover.png"],
   },
   alternates: {
-    canonical: "/seattle-layover-tour",
+    canonical: "/",
+    languages: {
+      "en": "/seattle-layover-tour",
+      "zh-Hans": "/mandarin-seattle-layover",
+      "ja-JP": "/japanese-seattle-layover",
+    },
   },
 };
 

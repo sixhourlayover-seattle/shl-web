@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import {  ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
+import {  InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/NavigationJapanese";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
+import Link from "next/link";
 import { GlobalText,japaneselangText,japaneseSTRIPE_TOUR_PRODUCTS } from "@/lib/text";
 
 import Image from "next/image";
@@ -381,6 +382,20 @@ export default function SLTourContent() {
                   </span>
                 </div>
                 <p className="text-white">{japaneselangText.footerSlogan}</p>
+
+                {/* Language Switcher */}
+                <div className="flex items-center gap-4 text-sm pt-4">
+                  <Link href="/seattle-layover-tour" className="text-white hover:text-white transition-colors">
+                  English
+                  </Link>
+                  <Link href="/mandarin-seattle-layover" className="text-white hover:text-white transition-colors">
+                    中文
+                  </Link>
+                  <Link href="/japanese-seattle-layover" className="text-white hover:text-white transition-colors">
+                  <span className="text-white/80">✔</span> 日本語
+                  </Link>
+                </div>
+
               </div>
               
               <div>

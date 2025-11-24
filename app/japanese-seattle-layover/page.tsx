@@ -17,10 +17,16 @@ export const metadata: Metadata = {
     title: "シアトル乗り継ぎ観光 6–8時間｜日本語ガイド｜時間厳守で空港へ",
     description: "乗り継ぎの空き時間で市内観光。 日本語対応・荷物サポート・時間厳守で安心",
     images: ["/og-seattle-layover.png"],
-  },
+  },  
   alternates: {
     canonical: "/seattle-layover-tour",
+    languages: {
+      "en": "/seattle-layover-tour",
+      "zh-Hans": "/mandarin-seattle-layover",
+      "ja-JP": "/japanese-seattle-layover",
+    },
   },
+
 };
 
 

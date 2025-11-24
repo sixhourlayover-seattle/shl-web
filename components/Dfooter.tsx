@@ -1,10 +1,11 @@
 import { PlaneIcon, InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/Icons";
 
-import { AboutPageText, TEAM_VALUES, STORY_POINTS, STATS, GlobalText } from "@/lib/text";
+import { GlobalText } from "@/lib/text";
 import Image from "next/image";
-
-
+import { useState } from "react";
+import Link from "next/link";
 export default function Dfooter() {
+   const [langOpen, setLangOpen] = useState(false); //
   return (   
         <footer className="relative mt-20 border-t border-purple-200 bg-gradient-to-br footer-bg to-white">
           <div className="container py-12">
@@ -17,6 +18,19 @@ export default function Dfooter() {
                   </span>
                 </div>
                 <p className="text-white">{GlobalText.footerSlogan}</p>
+
+                {/* Language Switcher */}
+                <div className="flex items-center gap-4 text-sm pt-4">
+                  <Link href="/seattle-layover-tour" className="text-white hover:text-white transition-colors">
+                  <span className="text-white/80">✔</span>  English
+                  </Link>
+                  <Link href="/mandarin-seattle-layover" className="text-white hover:text-white transition-colors">
+                    中文
+                  </Link>
+                  <Link href="/japanese-seattle-layover" className="text-white hover:text-white transition-colors">
+                    日本語
+                  </Link>
+                </div>
               </div>
               
               <div>

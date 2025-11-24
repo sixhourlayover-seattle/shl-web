@@ -6,6 +6,7 @@ import { GlobalText, NAVIGATION_japanese_LINKS } from "@/lib/text";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false); // ✅ FIXED — moved inside component
 
   return (
     <header className="sticky top-0 z-30 glass border-b border-white/20">
@@ -36,6 +37,40 @@ export default function Navigation() {
               シアトル ツアーを予約する
             </a>
           </nav>
+          {/* Language Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="text-slate-700 font-medium hover:text-primary-600 transition-colors"
+            >
+              言語 ▾
+            </button>
+
+            {langOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+                <Link
+                  href="/seattle-layover-tour"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setLangOpen(false)}
+                >
+                  English
+                </Link>
+                <Link
+                  href="/mandarin-seattle-layover"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setLangOpen(false)}
+                >
+                  中文
+                </Link>
+                <Link
+                  href="/japanese-seattle-layover"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setLangOpen(false)}
+                ><span className="text-red-500">✔ </span> 日本語
+                </Link>
+              </div>
+            )}
+          </div>
 
           {/* Mobile menu button */}
           <button
