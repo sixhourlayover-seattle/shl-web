@@ -82,7 +82,7 @@ export default function SLTourContent() {
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
+            <h1 className="text-5xl mob-4xl font-bold tracking-tight leading-tight mb-6">
               西雅图转机游览（6-8小时） <br />探索城市，准时返回
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">把你的转机时间变成一次迷你冒险——去城里逛逛，准时返回。</p>
@@ -181,7 +181,7 @@ export default function SLTourContent() {
               </a>
               <button
                 onClick={() => setIsBookingModalOpen(true)}
-                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >{chineselangText.quickBook} </button>
             </div>
             </div>

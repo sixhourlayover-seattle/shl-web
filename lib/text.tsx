@@ -756,17 +756,17 @@ export const SLTourText = {
 
 export const chineselangText = {
   bookNow: "预订您的西雅图之旅",
-  quickBook : "⚡ Quick Book（起价 250 美元）",
+  quickBook : "⚡Quick Book（起价 250 美元）",
   bookTour : "预订之旅",
   pricingTitle:"定价",
   pricingSubtitle:"4岁及以上儿童计入旅客人数。0-3岁儿童免费参加。",
-  homeLink:"家",
-  howItWorksLink:"它是如何运作的",
+  homeLink:"主页",
+  howItWorksLink:"运作方式",
   pricingLink:"旅游及定价",
   faqLink:"常见问题解答",
-  aboutLink:"关于",
-  contactLink:"接触",
-  legal:"合法的",
+  aboutLink:"关于我们",
+  contactLink:"联系方式",
+  legal:"合法合规",
   termsLink:"服务条款",
   privacyLink:"隐私政策",
   copyright:"© 2025 西雅图六小时中途停留",
@@ -805,7 +805,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
   // 6-Hour Seattle Essentials
   {
     id: 'per-person-6hour',
-    name: '6 小时西雅图必游景点',
+    name: '六 小时西雅图必游景点',
     price: 250.00,
     description: '只需六小时，即可探索西雅图的心脏地带。探索派克市场，观看著名的抛鱼表演，漫步海滨——所有这一切都与热情友好的当地导游一起进行。',
     paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
@@ -814,7 +814,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
   },
   {
     id: 'solo-traveler-6hour',
-    name: '6小时西雅图精华游（单人）',
+    name: '六小时西雅图精华游（单人）',
     price: 399.00,   
     paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
     groupSize: '1',

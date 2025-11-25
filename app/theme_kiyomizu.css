@@ -174,3 +174,10 @@ background-color: var(--color-highlight);
 footer.footer-bg a {
     font-size: 15px;
 }
+
+@media screen and (max-width: 768px) {
+    .mob-4xl{
+        font-size: 40px;
+    }
+    
+}
