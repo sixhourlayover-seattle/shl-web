@@ -83,7 +83,7 @@ export default function SLTourContent() {
         <section className="py-12 sm:py-20">
           <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
             <h1 className="text-5xl mob-4xl font-bold tracking-tight leading-tight mb-6">
-              西雅图转机游览（6-8小时） <br />探索城市，准时返回
+              西雅图转机游览<br />（6-8小时） 探索城市，准时返回
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">把你的转机时间变成一次迷你冒险——去城里逛逛，准时返回。</p>
 
@@ -274,7 +274,7 @@ export default function SLTourContent() {
             {/* What's Included */}
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                 内含物 
+                服务包括
               </h2>
             </div>
 
