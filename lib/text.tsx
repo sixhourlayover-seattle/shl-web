@@ -624,14 +624,17 @@ export const TermsPageText = {
   cancellation4: "If SixHourLayover cancels due to unforeseen circumstances (e.g., severe weather, transportation issues, guide illness), you may receive a full refund or reschedule.",
   
   travelerResponsibilities: "5. Traveler Responsibilities",
-  traveler1: "Customers are responsible for arriving at the designated meeting point on time. Delays caused by flight, customs, or traffic will not entitle you to an extension or refund.",
-  traveler2: "Customers must comply with safety instructions from guides. Failure to do so may result in termination of the tour without refund.",
-  traveler3: "Alcohol, illegal drugs, and disruptive behavior are prohibited.",
-  
-  assumptionRisk: "6. Assumption of Risk & Liability Disclaimer",
-  risk1: "Participation in tours involves walking, transportation, and exposure to public environments. By booking, you acknowledge these risks.",
-  risk2: "SixHourLayover is not liable for personal injury, illness (including COVID-19), theft, property loss, flight delays, or missed connections.",
-  risk3: "To the fullest extent permitted by law, our liability is limited to the amount you paid for the booking.",
+  traveler1: "Travelers are responsible for arriving at the designated meeting point on time.<br>Delays caused by flights, customs processing, baggage, or traffic do not entitle travelers to refunds, extensions, or extra time.",
+  traveler2: "Travelers must follow all safety instructions from their guide. Failure to comply may result in early termination of the tour without refund.",
+  traveler3: "The tour involves walking and using public transportation. Travelers should ensure they are physically able to participate.",
+  traveler4:"Alcohol, illegal drugs, and disruptive behavior are prohibited.",
+  traveler5:"Travelers are strongly encouraged to purchase travel insurance that covers flight delays, missed connections, or trip interruptions.",
+
+  assumptionRisk: "6. On-Time Return, Assumption of Risk & Liability Disclaimer",
+  risk1: "All itineraries include a built-in buffer to support an on-time return to the airport. However, unexpected events—including accidents, road closures, airport security delays, severe weather, or other circumstances beyond our control—may affect travel time.<br>SixHourLayover does not guarantee flight boarding and is not responsible for missed flights or missed connections.",
+  risk2: "Participation in tours involves walking, transportation, and exposure to public environments. By booking, travelers acknowledge and accept these risks.",
+  risk3: "SixHourLayover is not liable for personal injury, illness (including COVID-19), theft, property loss, delays, or missed connections.",
+  risk4: "To the fullest extent permitted by law, our liability is limited to the amount paid for the booking.",
   
   intellectualProperty: "7. Intellectual Property",
   ipDescription: "All site content, branding, images, and materials are owned by SixHourLayover and may not be used without written permission.",
