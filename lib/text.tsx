@@ -27,6 +27,7 @@ export const GlobalText = {
   phoneNumber: "(206) 928‑1277",
   whatsapp: "WhatsApp",
   whatsappNumber: "(206) 928‑1277",
+  nonprofit:"🌱 Community Cultural Program (Nonprofit)"
 };
 
 export const AboutPageText = {
