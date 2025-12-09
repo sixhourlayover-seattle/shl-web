@@ -240,6 +240,18 @@ export default function AboutPage() {
           </div>
         </section>
 
+       
+
+        <section className="py-12 bg-gradient-to-br ">
+          <div className="container text-center">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-slate-700 text-lg leading-relaxed">
+                Our cultural education work is supported by SereneRoot Foundation, a 501(c)(3) nonprofit organization focused on storytelling, cultural access, and community engagement.
+              </p>
+            </div>
+          </div>
+        </section>
+
         
 
         <MobileNav />
