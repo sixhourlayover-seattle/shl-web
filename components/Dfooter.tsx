@@ -50,11 +50,11 @@ export default function Dfooter() {
                 <div className="space-y-2 ">
                   <a className="block text-white hover:text-white transition-colors" href="/terms">{GlobalText.termsLink}</a>
                   <a className="block text-white hover:text-white transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
-                  <a className="block text-white hover:text-white transition-colors" href="/seattle-community-cultural-stories"> {GlobalText.nonprofit} </a>
+                  <a className="block text-white hover:text-white transition-colors"> {GlobalText.nonprofit} </a>
                 </div>
                 <div className="space-y-2 text-white pt-4">
                   <p className="text-sm text-white">
-                   Community cultural education content supported in part by SereneRoot Foundation (501(c)(3) nonprofit). Tours operated independently by Serene Root LLC. 
+                   Community cultural education content supported in part by SereneRoot. Tours operated by SereneRoot LLC. 
                   </p>
                   
                 </div>

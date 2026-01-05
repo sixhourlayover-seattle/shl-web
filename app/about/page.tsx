@@ -242,7 +242,7 @@ export default function AboutPage() {
 
        
 
-        <section className="py-12 bg-gradient-to-br ">
+        {/* <section className="py-12 bg-gradient-to-br ">
           <div className="container text-center">
             <div className="max-w-3xl mx-auto">
               <p className="text-slate-700 text-lg leading-relaxed">
@@ -250,7 +250,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         
 
