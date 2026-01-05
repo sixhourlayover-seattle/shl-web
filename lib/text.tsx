@@ -27,7 +27,7 @@ export const GlobalText = {
   phoneNumber: "(206) 928‑1277",
   whatsapp: "WhatsApp",
   whatsappNumber: "(206) 928‑1277",
-  nonprofit:"🌱 Community Cultural Program (Nonprofit)"
+  nonprofit: "🌱 Community Cultural Program (Nonprofit)"
 };
 
 export const AboutPageText = {
@@ -48,7 +48,10 @@ export const AboutPageText = {
   whatDrivesUs: "What Drives Us",
   whatDrivesUsSubtitle: "Our core values shape every tour we create and every experience we deliver",
   ourMissionTitle: "Our Mission",
-  ourMissionDescription: <>Our mission is simple: to turn every layover into a highlight of your journey — and to make travel meaningful for everyone involved. Through our Foundation, we create opportunities for retirees, women restarting careers, college students building experience, and locals who want to share Seattle's story. Every tour not only makes your layover unforgettable, but also provides meaningful social connections and supports someone else's journey of growth.</>,
+  ourMissionDescription: <>Our mission is simple: to turn every layover into a highlight of your journey — We design thoughtful, well-timed experiences that allow travelers to step into
+    a city with confidence and return to the airport on time.
+    Along the way, we value cultural exchange, human connection,
+    and working with people who care deeply about sharing their city with others.</>,
   missionSlogan: "Making layovers memorable, one city at a time",
   trainedGuideTeam: "Every tour is backed by a trained guide team, ensuring reliability even in rare last‑minute changes.",
   readyToExperience: "Ready to Experience Seattle?",
@@ -77,8 +80,8 @@ export const TEAM_VALUES = [
     icon: "💙"
   },
   {
-    title: "Community Impact",
-    description: "Through SereneRoot Foundation, we create opportunities for retirees, women restarting careers, and locals passionate about welcoming travelers.",
+    title: "Community Values",
+    description: "We believe travel can create meaningful human connections. Our work supports individuals who are passionate about welcoming travelers, sharing local culture, and building experience through real-world interaction.",
     icon: "🤝"
   }
 ];
@@ -404,7 +407,7 @@ export const HOW_IT_WORKS_STEPS = [
     icon: "🎯",
     details: [
       "6h Seattle Essentials – Pike Place Market + Waterfront",
-      "7h Seattle Highlights – Pike Place Market + Waterfront + Iconic Seattle skyline view (Kerry Park)", 
+      "7h Seattle Highlights – Pike Place Market + Waterfront + Iconic Seattle skyline view (Kerry Park)",
       "8h Seattle Complete – Pike Place Market + Space Needle admission (go inside, observation deck visit included)",
       "Optional curated add-ons available for 9+ hour layovers"
     ]
@@ -476,7 +479,7 @@ export const HomePageText = {
   thinking4Description: "That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.",
   whyItWorksTitle: "Why It Works",
   whyItWorksSubtitle: "Smart. Seamless. Unforgettable.",
-  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<strong>Our guides follow strict timing checkpoints with built‑in flight buffers — so you'll always be back on time.</strong><br/>You'll return with stories, photos, and a little Seattle gift in hand.</>,
+  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<strong>Our guides follow strict timing checkpoints with built‑in flight buffers — so you'll always be back on time.</strong><br />You'll return with stories, photos, and a little Seattle gift in hand.</>,
   journeyTitle: "Your Seattle Six-Hour Journey",
   journeySubtitle: "Choose your perfect Seattle layover experience",
   preview: "Preview Selected Tour",
@@ -519,7 +522,7 @@ export const PricingPageText = {
   perGroup: "per group",
   cancellationPolicy: "Cancellation Policy",
   cancellationPolicyDescription: "<strong>Free cancellation up to 24 hours before your tour.</strong> No hidden fees.<br/><br/><strong>Cancellations within 24 hours of tour start time are non‑refundable.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
-  cancellationPolicyDescription_new: "<strong>Free cancellation up to 24 hours before your tour</strong> — no hidden fees.<br/><br/><strong>For last-minute changes, refer to the cancellation terms displayed during checkout.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",  
+  cancellationPolicyDescription_new: "<strong>Free cancellation up to 24 hours before your tour</strong> — no hidden fees.<br/><br/><strong>For last-minute changes, refer to the cancellation terms displayed during checkout.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
   contact: "Contact Us",
   ctaTitle: "Ready to Book Your Seattle Adventure?",
   ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
@@ -529,46 +532,46 @@ export const PrivacyPageText = {
   title: "Privacy Policy",
   effectiveDate: "Effective Date: September 2025",
   description: "This Privacy Policy explains how SixHourLayover (\"Company,\" \"we,\" \"our,\" or \"us\") collects, uses, and protects your personal information.",
-  
+
   informationWeCollect: "1. Information We Collect",
   personalInfo: "Personal Information: Name, email, phone number, payment details (processed securely by Stripe, not stored by us).",
   bookingDetails: "Booking Details: Tour date, time, number of travelers.",
   automaticData: "Automatically Collected Data: IP address, device type, browser, site activity (via cookies, analytics tools).",
-  
+
   howWeUse: "2. How We Use Your Information",
   use1: "To process and confirm bookings.",
   use2: "To communicate regarding your reservation, cancellations, or updates.",
   use3: "To improve services, website experience, and customer support.",
   use4: "To comply with legal obligations.",
-  
+
   sharingInfo: "3. Sharing of Information",
   sharingDescription: "We do not sell or rent your data. We may share information only with:",
   sharing1: "Payment Processors (Stripe) for secure transactions.",
   sharing2: "Service Providers (IT, hosting, analytics) under confidentiality agreements.",
   sharing3: "Legal Authorities if required by law or to protect rights and safety.",
-  
+
   cookiesTracking: "4. Cookies & Tracking",
   cookiesDescription: "We use cookies and analytics tools (e.g., Google Analytics) to enhance user experience and analyze site usage. You may disable cookies in your browser, but some features may not work.",
-  
+
   dataRetention: "5. Data Retention",
   retentionDescription: "We retain personal data only as long as necessary for booking fulfillment, legal compliance, and legitimate business needs.",
-  
+
   dataSecurity: "6. Data Security",
   securityDescription: "We implement reasonable administrative, technical, and physical safeguards to protect your data. However, no online system is 100% secure.",
-  
+
   childrenPrivacy: "7. Children's Privacy",
   childrenDescription: "Our services are not directed to children under 13. We do not knowingly collect data from minors.",
-  
+
   yourRights: "8. Your Rights",
   rightsDescription: "Depending on your location, you may have rights to:",
   rights1: "Access, correct, or delete your data.",
   rights2: "Opt out of marketing communications.",
   rights3: "Request portability of your data.",
   rightsContact: "Contact us at booking@sixhourlayover.com for requests.",
-  
+
   internationalUsers: "9. International Users",
   internationalDescription: "Our services are based in the U.S. If you access from outside, your data will be transferred to and processed in the U.S., subject to U.S. laws.",
-  
+
   gdprAddendum: "10. GDPR Addendum (European Union Users)",
   gdprDescription: "If you are located in the European Economic Area (EEA), you have the following rights under the GDPR:",
   gdprRights: [
@@ -581,7 +584,7 @@ export const PrivacyPageText = {
   ],
   gdprLegalBasis: "Legal Basis: We process personal data based on your consent, contractual necessity, or legitimate interests.",
   gdprTransfers: "Data Transfers: Your data may be transferred outside the EEA to the U.S., safeguarded by contractual clauses.",
-  
+
   ccpaAddendum: "11. CCPA/CPRA Addendum (California Residents)",
   ccpaDescription: "If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):",
   ccpaRights: [
@@ -591,10 +594,10 @@ export const PrivacyPageText = {
     "Right to Non-Discrimination: We will not discriminate against you for exercising your privacy rights."
   ],
   ccpaContact: "To exercise these rights, contact us at booking@sixhourlayover.com. Verification of identity may be required.",
-  
+
   updatesPolicy: "12. Updates to Privacy Policy",
   updatesDescription: "We may update this Policy from time to time. Updates will be posted on our website with a revised effective date.",
-  
+
   contactUs: "13. Contact Us",
   contactDescription: "For questions about this Privacy Policy, contact:",
   contactEmail: "Email: booking@sixhourlayover.com",
@@ -605,48 +608,48 @@ export const TermsPageText = {
   title: "Terms of Service",
   effectiveDate: "Effective Date: September 2025",
   description: "Welcome to SixHourLayover (\"Company,\" \"we,\" \"our,\" or \"us\"). By accessing or booking through www.sixhourlayover.com (\"Site\"), you (\"Customer,\" \"you,\" or \"your\") agree to these Terms of Service (\"Terms\").",
-  
+
   servicesProvided: "1. Services Provided",
   servicesDescription: "SixHourLayover provides curated sightseeing tours in Seattle, Washington. Services are subject to availability and may be modified, rescheduled, or canceled at our discretion.",
-  
+
   eligibility: "2. Eligibility",
   eligibility1: "You must be at least 18 years old to book.",
   eligibility2: "By booking, you confirm that all information provided is accurate and complete.",
-  
+
   bookingPayments: "3. Booking & Payments",
   booking1: "All bookings must be paid in full at the time of reservation via our authorized payment processor (Stripe).",
   booking2: "Pricing is listed in U.S. dollars and may change without notice until confirmed at checkout.",
   booking3: "SixHourLayover reserves the right to cancel or decline any booking.",
-  
+
   cancellationsRefunds: "4. Cancellations & Refunds",
   cancellation1: "Cancellations made 7+ days before the scheduled tour: Full refund.",
   cancellation2: "Cancellations made 3–6 days before: 50% refund.",
   cancellation3: "Cancellations made within 48 hours of the scheduled tour or no-shows: Non-refundable.",
   cancellation4: "If SixHourLayover cancels due to unforeseen circumstances (e.g., severe weather, transportation issues, guide illness), you may receive a full refund or reschedule.",
-  
+
   travelerResponsibilities: "5. Traveler Responsibilities",
   traveler1: "Travelers are responsible for arriving at the designated meeting point on time.<br>Delays caused by flights, customs processing, baggage, or traffic do not entitle travelers to refunds, extensions, or extra time.",
   traveler2: "Travelers must follow all safety instructions from their guide. Failure to comply may result in early termination of the tour without refund.",
   traveler3: "The tour involves walking and using public transportation. Travelers should ensure they are physically able to participate.",
-  traveler4:"Alcohol, illegal drugs, and disruptive behavior are prohibited.",
-  traveler5:"Travelers are strongly encouraged to purchase travel insurance that covers flight delays, missed connections, or trip interruptions.",
+  traveler4: "Alcohol, illegal drugs, and disruptive behavior are prohibited.",
+  traveler5: "Travelers are strongly encouraged to purchase travel insurance that covers flight delays, missed connections, or trip interruptions.",
 
   assumptionRisk: "6. On-Time Return, Assumption of Risk & Liability Disclaimer",
   risk1: "All itineraries include a built-in buffer to support an on-time return to the airport. However, unexpected events—including accidents, road closures, airport security delays, severe weather, or other circumstances beyond our control—may affect travel time.<br>SixHourLayover does not guarantee flight boarding and is not responsible for missed flights or missed connections.",
   risk2: "Participation in tours involves walking, transportation, and exposure to public environments. By booking, travelers acknowledge and accept these risks.",
   risk3: "SixHourLayover is not liable for personal injury, illness (including COVID-19), theft, property loss, delays, or missed connections.",
   risk4: "To the fullest extent permitted by law, our liability is limited to the amount paid for the booking.",
-  
+
   intellectualProperty: "7. Intellectual Property",
   ipDescription: "All site content, branding, images, and materials are owned by SixHourLayover and may not be used without written permission.",
-  
+
   thirdPartyServices: "8. Third-Party Services",
   thirdPartyDescription: "We use third-party providers (e.g., Stripe for payments, Google Maps for navigation). Your use of these services is subject to their terms and policies.",
-  
+
   governingLaw: "9. Governing Law & Dispute Resolution",
   law1: "These Terms are governed by the laws of the State of Washington, U.S.A.",
   law2: "Any disputes shall be resolved exclusively in the state or federal courts located in King County, Washington.",
-  
+
   changesTerms: "10. Changes to Terms",
   changesDescription: "We may update these Terms at any time. Continued use of our services constitutes acceptance of the updated Terms.",
 };
@@ -760,48 +763,48 @@ export const SLTourText = {
 
 export const chineselangText = {
   bookNow: "预订您的西雅图之旅",
-  quickBook : "⚡Quick Book（起价 250 美元）",
-  bookTour : "预订之旅",
-  pricingTitle:"定价",
-  pricingSubtitle:"4岁及以上儿童计入旅客人数。0-3岁儿童免费参加。",
-  homeLink:"主页",
-  howItWorksLink:"运作方式",
-  pricingLink:"旅游及定价",
-  faqLink:"常见问题解答",
-  aboutLink:"关于我们",
-  contactLink:"联系方式",
-  legal:"合法合规",
-  termsLink:"服务条款",
-  privacyLink:"隐私政策",
-  copyright:"© 2025 西雅图六小时中途停留",
-  footerSlogan:"让转机之旅充满难忘回忆，一次一个城市。",
-  quickLinks:"快速链接"
-  
+  quickBook: "⚡Quick Book（起价 250 美元）",
+  bookTour: "预订之旅",
+  pricingTitle: "定价",
+  pricingSubtitle: "4岁及以上儿童计入旅客人数。0-3岁儿童免费参加。",
+  homeLink: "主页",
+  howItWorksLink: "运作方式",
+  pricingLink: "旅游及定价",
+  faqLink: "常见问题解答",
+  aboutLink: "关于我们",
+  contactLink: "联系方式",
+  legal: "合法合规",
+  termsLink: "服务条款",
+  privacyLink: "隐私政策",
+  copyright: "© 2025 西雅图六小时中途停留",
+  footerSlogan: "让转机之旅充满难忘回忆，一次一个城市。",
+  quickLinks: "快速链接"
+
 }
 
 export const japaneselangText = {
-  h1:"シアトル乗り継ぎツアー（6～8時間） ",
-  subtitle:"乗り継ぎ時間をミニアドベンチャーに変えて、安全に街を見て、時間に余裕を持って戻りましょう。",
+  h1: "シアトル乗り継ぎツアー（6～8時間） ",
+  subtitle: "乗り継ぎ時間をミニアドベンチャーに変えて、安全に街を見て、時間に余裕を持って戻りましょう。",
   bookNow: "ツアーを予約する",
-  bookYourSeattleTour:"📋 シアトル ツアーを予約する",
-  quickBook : "⚡ クイックブック（250ドルから）",
-  bookTour : "预订之旅",
-  pricingTitle:"価格設定",
-  pricingSubtitle:"4歳以上の方は旅行者としてカウントされます。0～3歳のお子様は無料でご参加いただけます。",
-  homeLink:"ホームリンク",
-  howItWorksLink:"仕組み",
-  pricingLink:"ツアーと料金",
-  faqLink:"よくある質問",
-  aboutLink:"について",
-  contactLink:"接触",
-  quickLinks:"クイックリンク",
-  legal:"法律上の",
-  termsLink:"利用規約",
-  privacyLink:"プライバシーポリシー",
-  copyright:"© 2025 シアトルの6時間乗り継ぎ",
-  copyrightSubtext:"6 時間乗り継ぎツアーは、パイク プレイス マーケット保存開発局 (PDA) により許可および認可を受けており、パイク プレイス マーケット歴史地区でツアーを運営しています。",
-  footerSlogan:"ひとつの都市ごとに、乗り継ぎを思い出深いものにします。",
-  bookYourSeattleTourtxt:"シアトル ツアーを予約する" 
+  bookYourSeattleTour: "📋 シアトル ツアーを予約する",
+  quickBook: "⚡ クイックブック（250ドルから）",
+  bookTour: "预订之旅",
+  pricingTitle: "価格設定",
+  pricingSubtitle: "4歳以上の方は旅行者としてカウントされます。0～3歳のお子様は無料でご参加いただけます。",
+  homeLink: "ホームリンク",
+  howItWorksLink: "仕組み",
+  pricingLink: "ツアーと料金",
+  faqLink: "よくある質問",
+  aboutLink: "について",
+  contactLink: "接触",
+  quickLinks: "クイックリンク",
+  legal: "法律上の",
+  termsLink: "利用規約",
+  privacyLink: "プライバシーポリシー",
+  copyright: "© 2025 シアトルの6時間乗り継ぎ",
+  copyrightSubtext: "6 時間乗り継ぎツアーは、パイク プレイス マーケット保存開発局 (PDA) により許可および認可を受けており、パイク プレイス マーケット歴史地区でツアーを運営しています。",
+  footerSlogan: "ひとつの都市ごとに、乗り継ぎを思い出深いものにします。",
+  bookYourSeattleTourtxt: "シアトル ツアーを予約する"
 
 }
 
@@ -819,7 +822,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'solo-traveler-6hour',
     name: '六小时西雅图精华游（单人）',
-    price: 399.00,   
+    price: 399.00,
     paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
     groupSize: '1',
     priceDescription: '独自旅行者'
@@ -873,7 +876,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
     groupSize: '1',
     priceDescription: '单人旅行者（包含太空针塔门票）'
-    }
+  }
 ];
 
 
@@ -884,7 +887,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'per-person-6hour',
     name: 'シアトルの必需品6時間',
-    price: 250.00,    
+    price: 250.00,
     paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
     groupSize: 'per-person',
     priceDescription: '1人あたり'
@@ -892,7 +895,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'solo-traveler-6hour',
     name: '6時間シアトルの必需品（ソロ）',
-    price: 399.00,   
+    price: 399.00,
     paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
     groupSize: '1',
     priceDescription: '一人旅'
@@ -910,7 +913,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
     id: 'per-person-7hour',
     name: 'シアトルの7時間ハイライト',
     price: 300.00,
-    
+
     paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     groupSize: 'per-person',
     priceDescription: '1人あたり（ケリーパークを含む））'
@@ -927,7 +930,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
     id: 'family-pack-7hour',
     name: '7時間シアトルのハイライト（ファミリーパック）',
     price: 900.00,
-  
+
     paymentLink: 'https://buy.stripe.com/new-7hour-family',
     groupSize: 'family',
     priceDescription: '大人2名と12歳未満の子供3名まで（ケリーパークを含む）'
@@ -944,7 +947,7 @@ export const japaneseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'solo-traveler-8hour',
     name: '8時間シアトル完走（ソロ）',
-    price: 499.00,  
+    price: 499.00,
     paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
     groupSize: '1',
     priceDescription: '一人旅（スペースニードル入場料を含む）'
