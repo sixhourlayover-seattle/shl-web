@@ -68,8 +68,8 @@ const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail (airport ↔ city) + Uber for short hops",
-  "On-time return guarantee (safe buffer; flight monitored)",
-  "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+  "Planned return with built-in buffer time and flight monitoring",
+  "A small, locally inspired Seattle souvenir",
   "Free cancellation (24+ hours notice)"
 ];
 
@@ -83,7 +83,7 @@ const GIFT_TOTE_ITEMS = [
 const ADD_ONS = [
   {
     name: "Fremont Troll + Dick's Burgers",
-    subtitle:"After your skyline photo moment at <strong>Kerry Park</strong>, stroll through the charming streets of Queen Anne to <strong>Café Hagen</strong> — a locally loved coffee and pastry shop with European flair and skyline views.",
+    subtitle:"Fremont Troll & Dick’s Drive-In Visit one of Seattle’s most iconic public art installations—the Fremont Troll—tucked under the Aurora Bridge in the creative Fremont neighborhood. Afterward, stop by Dick’s Drive-In, a classic local burger stand beloved by Seattleites for its simple menu and old-school charm. Food purchases are optional and paid by guests directly.",
     price: 120,
     emoji: "🍔",
     requirement: "Requires 9+ hour layover"

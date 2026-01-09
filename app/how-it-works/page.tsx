@@ -12,18 +12,18 @@ export default function HowItWorksPage() {
       {/* Animated background */}
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
-      
+
       {/* Floating orbs for visual interest */}
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
-      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
+      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }} />
       <div className="relative z-10">
         <Navigation />
 
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container">
-            <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
+            <div className="text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
                 <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{HowItWorksPageText.title}</span>
               </h1>
@@ -77,16 +77,16 @@ export default function HowItWorksPage() {
           <div className="container max-w-4xl mx-auto">
             <div className="space-y-12">
               {HOW_IT_WORKS_STEPS.map((step, index) => (
-                <div 
-                  key={step.step} 
+                <div
+                  key={step.step}
                   className="relative"
-                  style={{animation: `slide-in 0.${index + 6}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 6}s ease-out` }}
                 >
                   {/* Connector line */}
                   {index < HOW_IT_WORKS_STEPS.length - 1 && (
                     <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b primary-background" />
                   )}
-                  
+
                   <div className="flex gap-6">
                     {/* Step number and icon */}
                     <div className="flex-shrink-0">
@@ -97,13 +97,13 @@ export default function HowItWorksPage() {
                         <span className="text-3xl">{step.icon}</span>
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1">
                       <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
                         <h3 className="text-2xl font-bold text-slate-800 mb-4">{step.title}</h3>
                         <p className="text-slate-700 text-lg leading-relaxed mb-6">{step.description}</p>
-                        
+
                         <ul className="space-y-3">
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start gap-3">
@@ -135,10 +135,10 @@ export default function HowItWorksPage() {
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {WHAT_MAKES_US_DIFFERENT.map((feature, index) => (
-                <div 
+                <div
                   key={index}
                   className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift text-center"
-                  style={{animation: `slide-in 0.${index + 12}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 12}s ease-out` }}
                 >
                   <div className="text-4xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
@@ -185,6 +185,16 @@ export default function HowItWorksPage() {
                     <li>{HowItWorksPageText.luggageStoragePoint1}</li>
                     <li>{HowItWorksPageText.luggageStoragePoint2}</li>
                     <li>{HowItWorksPageText.luggageStoragePoint3}</li>
+                    <li>
+                      <a
+                        href={HowItWorksPageText.luggageStorageLinkUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline hover:text-blue-800"
+                      >
+                        {HowItWorksPageText.luggageStoragePoint4}
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>

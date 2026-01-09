@@ -51,8 +51,8 @@ const TOUR_OPTIONS2 = [
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Link light rail from airport + Uber within the city",
-  "On-time return guarantee",
-  "Souvenir tote bag",
+  "Planned with buffer time for a timely airport return.",
+  "A small, locally inspired Seattle souvenir",
   "Friendly local guide."
 ];
 
@@ -114,8 +114,7 @@ export default function SLTourContent() {
               <div className="grid gap-4 text-left max-w-2xl">
                 <div className="flex items-center gap-3">
                   <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
-                    Have six hours between flights at SEA? Swap terminal waiting for a relaxing mini-adventure.
-                    Our 6-Hour Layover Tour is timed for Seattle’s most famous sights — with a guaranteed on-time return to the airport.
+                    Have six hours between flights at SEA? Swap terminal waiting for a relaxing mini-adventure. Our 6-Hour Layover Tour is timed for Seattle’s most famous sights, planned with built-in buffer time and real-time flight monitoring to support a timely return to the airport.
                     <br /><br />
                     Looking for something longer? Check out our{' '}
                     <a href="/7-hour-layover-seattle" className="text-blue-600 hover:underline">
@@ -201,9 +200,9 @@ export default function SLTourContent() {
           <div className="container text-center">
 
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-              <h2 className="text-4xl font-bold ">Timing &amp; Guarantee</h2>
+              <h2 className="text-4xl font-bold ">Timing &amp; Return Planning</h2>
               <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
-                We track flights in real time and build in a 2-hour return buffer for traffic and security. You’ll be back at SEA at least two hours before flight — guaranteed.
+               All itineraries are carefully planned with built-in buffer time and live flight monitoring to support a smooth and timely return to the airport.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
@@ -428,7 +427,7 @@ export default function SLTourContent() {
           title="Who We Are"
           name="Out to the city. Back on time. Your layover, reimagined into an unforgettable highlight."
           role="Beloved Mascot (Retired from Adventures)"
-          description={`The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from SEA Airport into Seattle's highlights — Pike Place Market, the Waterfront, and iconic city views — and return you with a guaranteed 2-hour buffer. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.`}
+          description={`The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we’ll take you from SEA Airport into Seattle’s highlights — Pike Place Market, the Waterfront, and iconic city views — with itineraries carefully planned using built-in buffer time and live flight monitoring to support a smooth and timely return to the airport. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.`}
           imageSrc="/dog-mascot.jpg"
           imageAlt="Six-Hour Layover Seattle mascot dog Guai Guai wearing bow tie — friendly welcome for travelers"
         />
