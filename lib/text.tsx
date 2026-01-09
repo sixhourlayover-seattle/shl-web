@@ -221,19 +221,19 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "What if my flight is delayed or arrives early?",
-        answer: "No problem — we track your flight in real time. If your plane lands later or earlier than expected, your Layover Layover Specialist will adjust the pickup time so you never miss your tour."
+        answer: "We monitor your flight status and adjust pickup timing when possible. All tours are planned with built-in buffer time to help you return comfortably."
       },
-      {
-        question: "Is 6 hours really enough to explore Seattle?",
-        answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos — and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" — with stories, photos, and memories worth sharing."
-      },
+      // {
+      //   question: "Is 6 hours really enough to explore Seattle?",
+      //   answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos — and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" — with stories, photos, and memories worth sharing."
+      // },
       {
         question: "Where will the guide meet me?",
-        answer: "Your Layover Concierge will meet you at your arrival gate, or as close as possible inside SEA-Tac Airport. Before landing, you’ll receive a WhatsApp message with your guide’s name, photo, and live location link for easy coordination."
+        answer: "Your Layover Specialist will meet you at your arrival gate or as close as possible inside SEA-TAC Airport. You’ll receive coordination details before landing."
       },
       {
         question: "Can I bring my luggage?",
-        answer: "We recommend using the luggage storage service at SEA Airport for convenience. Guests pay this fee directly to the storage provider — it is not included in your tour price."
+        answer: "Yes. We recommend using the airport luggage storage service for convenience. Luggage storage fees are paid directly to the provider and are not included in your tour price."
       }
     ]
   },
@@ -248,7 +248,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "How do I book and pay?",
-        answer: "All bookings are made online through our secure system - simply click the \"Book Now\" button. We accept all major cards, and you will receive instant confirmation."
+        answer: "All bookings are made online through our secure system. Major credit cards are accepted, and confirmation is sent immediately."
       },
       {
         question: "Do you offer Family Packs?",
@@ -260,7 +260,7 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "What if I need to cancel?",
-        answer: "• Free cancellation up to 24 hours before your tour.\n• Cancellations within 24 hours are non-refundable.\n• To cancel, email booking@sixhourlayover.com and our team will process it manually."
+        answer: "Free cancellation is available up to 24 hours before your tour. Cancellations within 24 hours are non-refundable."
       },
       {
         question: "What if we have 4–5 adults?",
@@ -279,18 +279,18 @@ export const FAQ_SECTIONS = [
       },
       {
         question: "Do you offer tours in my language?",
-        answer: "Tours are always available in English. Additional languages — including Mandarin, French, Turkish, Japanese, and Spanish — are offered upon request and subject to guide availability. Please confirm your preferred language when booking. More languages coming soon."
+        answer: "Tours are always available in English. Mandarin and Japanese may be available upon request, subject to guide availability."
       }
     ]
   },
   {
-    title: "On-Time Guarantee",
+    title: "Timing & Airport Return",
     icon: "⏰",
     color: "from-orange-500 to-red-500",
     faqs: [
       {
         question: "Will I miss my flight?",
-        answer: "Not exactly. Every tour is designed with a 2-hour buffer before your departure. If traffic or delays occur, we’ll adjust the schedule to help you return on time. However, certain events (such as severe weather, airline changes, or unexpected airport security delays) are outside our control. For extra peace of mind, we highly recommend purchasing travel insurance, which may cover missed connections or additional costs."
+        answer: "Tours are designed with buffer time before departure. If conditions change, we adjust the route or return earlier when needed. Events outside our control (weather, airline changes, airport security delays) may affect timing. We recommend travel insurance for extra peace of mind."
       },
       {
         question: "How do you make sure I'm back with time to spare?",
@@ -326,10 +326,10 @@ export const FAQ_SECTIONS = [
         question: "Can I add food or coffee stops?",
         answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour.\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  • Add-on fee covers guide and transport. Food & drink purchased separately."
       },
-      {
-        question: "Can I bring home souvenirs from Seattle?",
-        answer: "Yes! Every Six-Hour Layover guest receives a reusable tote bag, and you can pre-order local favorites like chowder, cheese, coffee, cherries, or smoked salmon. We'll have everything packed and ready when you arrive.\n\nEvery Six-Hour Layover guest receives a reusable tote bag with a complimentary pack of chocolate-covered Rainier cherries. During your tour, we’ll also pass by shops like Made in Washington, where you can purchase local favorites such as chowder mix, cheese, coffee, or chocolate."
-      }
+      // {
+      //   question: "Can I bring home souvenirs from Seattle?",
+      //   answer: "Yes! Every Six-Hour Layover guest receives a reusable tote bag, and you can pre-order local favorites like chowder, cheese, coffee, cherries, or smoked salmon. We'll have everything packed and ready when you arrive.\n\nEvery Six-Hour Layover guest receives a reusable tote bag with a complimentary pack of chocolate-covered Rainier cherries. During your tour, we’ll also pass by shops like Made in Washington, where you can purchase local favorites such as chowder mix, cheese, coffee, or chocolate."
+      // }
     ]
   },
   {
@@ -347,7 +347,7 @@ export const FAQ_SECTIONS = [
 
 export const HowItWorksPageText = {
   title: "How It Works",
-  subtitle: "From airport pickup to guaranteed on-time return — here's how we make your Seattle layover unforgettable",
+  subtitle: "From airport pickup to a thoughtfully planned return — here’s how we make your Seattle layover unforgettable.",
   whatMakesUsDifferentTitle: "What Makes Us Different",
   whatMakesUsDifferentSubtitle: "We're not just a tour company — we're layover specialists who understand the unique challenges of short airport connections",
   transportationTitle: "Transportation Details",
@@ -362,6 +362,9 @@ export const HowItWorksPageText = {
   luggageStoragePoint1: "• We guide you through the storage process",
   luggageStoragePoint2: "• Secure, monitored storage facility",
   luggageStoragePoint3: "• Easy retrieval upon return",
+  luggageStoragePoint4: "• View pricing and details",
+  luggageStorageLinkUrl:
+    "https://smartecarte.com/seattle-tacoma/",
   ctaTitle: "Ready to Experience Seattle?",
   ctaSubtitle: "Book your layover tour today and transform your airport downtime into an unforgettable Seattle adventure",
 };
@@ -415,10 +418,10 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: 5,
     title: "Return to Airport",
-    description: "With a guaranteed 2-hour buffer, we ensure you're back at SEA with plenty of time for your next flight.",
+    description: "Tours include built-in buffer time to help ensure a smooth and timely return to SEA-TAC Airport.",
     icon: "⏰",
     details: [
-      "Departure timed with 2-hour buffer before your flight",
+      "Departure planned with a 2-hour buffer before your flight",
       "Guide accompanies you back to the airport",
       "Drop-off at the correct terminal for your departure"
     ]
@@ -432,8 +435,8 @@ export const WHAT_MAKES_US_DIFFERENT = [
     icon: "✈️"
   },
   {
-    title: "Guaranteed On-Time Return",
-    description: "Every itinerary is built with a 2-hour airport buffer. On-time return is guaranteed under normal conditions. Exclusions: severe weather, airport security surges, road closures, airline schedule changes.",
+    title: "Planned for a Smooth, Timely Return",
+    description: "Every itinerary is planned with a 2-hour buffer and real-time flight monitoring to support a timely airport return. Unforeseen conditions may impact timing.",
     icon: "⏰"
   },
   {
@@ -461,10 +464,10 @@ export const WHAT_MAKES_US_DIFFERENT = [
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
   subtitle: "We've Got You!",
-  description: "No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.",
+  description: "No stress. No guesswork. Just views, local moments, and a thoughtfully timed plan designed to get you back for boarding.",
   shortLayovers: "Designed for layovers as short as 6 hours",
   meetup: "Meet-up at SEA Airport",
-  features: "Food, views, photos, and a take-home treat",
+  features: "Views, photos, and a small chocolate-covered cherry souvenir",
   luggage: "Luggage storage guidance included",
   bookNow: "Book Your Seattle Tour",
   lovedBy: "Loved by travelers from 10+ attractions",
@@ -479,7 +482,7 @@ export const HomePageText = {
   thinking4Description: "That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.",
   whyItWorksTitle: "Why It Works",
   whyItWorksSubtitle: "Smart. Seamless. Unforgettable.",
-  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops and a guaranteed <strong>2-hour buffer</strong> before your flight, every moment is stress-free.<strong>Our guides follow strict timing checkpoints with built‑in flight buffers — so you'll always be back on time.</strong><br />You'll return with stories, photos, and a little Seattle gift in hand.</>,
+  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops planned with built-in buffer time, every moment is designed to be stress-free. <strong>Our guides follow strict timing checkpoints with real-time flight monitoring to support a timely return to SEA-TAC Airport.</strong><br />You'll return with stories, photos, and a little Seattle gift in hand.</>,
   journeyTitle: "Your Seattle Six-Hour Journey",
   journeySubtitle: "Choose your perfect Seattle layover experience",
   preview: "Preview Selected Tour",
@@ -495,7 +498,7 @@ export const HomePageText = {
   countriesLabel: "Attractions",
   perfectTime: "6+ Hrs",
   perfectTimeLabel: "Perfect time",
-  ctaTitle: "Seattle's best bites, views, and a guaranteed on-time return.",
+  ctaTitle: "Seattle's best bites, views, planned with care for a smooth airport return.",
   ctaSubtitle: "Loved by travelers from 10+ attractions",
 };
 

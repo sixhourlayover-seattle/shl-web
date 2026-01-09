@@ -50,7 +50,7 @@ export default function Dfooter() {
                 <div className="space-y-2 ">
                   <a className="block text-white hover:text-white transition-colors" href="/terms">{GlobalText.termsLink}</a>
                   <a className="block text-white hover:text-white transition-colors" href="/privacy">{GlobalText.privacyLink}</a>
-                  <a className="block text-white hover:text-white transition-colors"> {GlobalText.nonprofit} </a>
+                  {/* <a className="block text-white hover:text-white transition-colors"> {GlobalText.nonprofit} </a> */}
                 </div>
                 <div className="space-y-2 text-white pt-4">
                   <p className="text-sm text-white">
