@@ -208,142 +208,127 @@ export const FAQ_QUICK = [
 
 export const FaqPageText = {
   title: "Frequently Asked Questions",
-  subtitle: "Everything you need to know about your Seattle layover adventure",
+  subtitle: "Helpful information for planning your Seattle layover",
   ctaTitle: "Still have questions?",
-  ctaSubtitle: "Contact us directly — we'll make sure your layover is stress-free from start to finish.",
+  ctaSubtitle: "Contact us directly for clarification before booking.",
 };
 
 export const FAQ_SECTIONS = [
+  /* 1. Timing & Flight */
   {
-    title: "Flight Delays & Timing",
+    title: "Timing & Flight",
     icon: "✈️",
     color: "from-blue-500 to-cyan-500",
     faqs: [
       {
         question: "What if my flight is delayed or arrives early?",
-        answer: "We monitor your flight status and adjust pickup timing when possible. All tours are planned with built-in buffer time to help you return comfortably."
-      },
-      // {
-      //   question: "Is 6 hours really enough to explore Seattle?",
-      //   answer: "Absolutely. We've designed this as a condensed, stress-free experience that saves you the hassle of figuring things out on your own. No waiting in long lines, no rushing between places, no worrying about souvenirs. Our layover specialists guide you through Seattle's highlights so you can enjoy food, views, and photos — and still return to the airport with time to spare.\n\nMost people say, \"I've been to Seattle, but only in the airport.\" With us, you'll leave saying, \"I really felt Seattle\" — with stories, photos, and memories worth sharing."
-      // },
-      {
-        question: "Where will the guide meet me?",
-        answer: "Your Layover Specialist will meet you at your arrival gate or as close as possible inside SEA-TAC Airport. You’ll receive coordination details before landing."
+        answer:
+          "We monitor flight status when possible and adjust pickup timing if feasible. Tours include buffer time, but schedules may change due to airline or airport conditions."
       },
       {
-        question: "Can I bring my luggage?",
-        answer: "Yes. We recommend using the airport luggage storage service for convenience. Luggage storage fees are paid directly to the provider and are not included in your tour price."
+        question: "Will I have enough time to return to the airport?",
+        answer:
+          "Tours are planned with buffer time before departure. If conditions change, routes may be shortened or return time adjusted. We recommend travel insurance for added peace of mind."
       }
     ]
   },
+
+  /* 2. Meetup & Logistics */
   {
-    title: "Cancellation, Booking & Transportation",
+    title: "Meetup & Logistics",
+    icon: "📍",
+    color: "from-indigo-500 to-purple-500",
+    faqs: [
+      {
+        question: "Where will the guide meet me?",
+        answer:
+          "Your Layover Specialist will meet you inside SEA-TAC Airport at a pre-coordinated location. Details are shared before arrival."
+      },
+      {
+        question: "How is transportation handled during the tour?",
+        answer:
+          "Transportation uses Seattle Light Rail and Uber. Your Layover Specialist coordinates transfers and timing. We do not operate private vehicles."
+      }
+    ]
+  },
+
+  /* 3. Luggage */
+  {
+    title: "Luggage",
+    icon: "🧳",
+    color: "from-slate-500 to-gray-600",
+    faqs: [
+      {
+        question: "Can I bring my luggage?",
+        answer:
+          "Yes. We recommend using airport luggage storage for convenience. Storage fees are paid directly to the provider and are not included in the tour price."
+      }
+    ]
+  },
+
+  /* 4. Pricing & Booking */
+  {
+    title: "Pricing & Booking",
     icon: "💳",
     color: "from-green-500 to-emerald-500",
     faqs: [
       {
-        question: "How much does it cost?",
-        answer: "6-Hour Tour — Pike Place Market + Seattle Waterfront\n• $250 per person  |  Solo $399  |  Family Pack $750 (2 adults + up to 3 kids) \n\n  7-Hour Tour — Pike Place Market + Waterfront + Kerry Park \n• $300 per person  |  Solo $450  |  Family Pack $900 \n\n 8-Hour Tour — Pike Place Market + Space Needle\n • $350 per person  |  Solo $499  |  (no Family Pack) \n\n Add-On Option (9-Hour) — Choose one bundle ($120 per group): \n • Fremont Troll + Dick’s Burgers  /  Amazon Spheres + Top Pot Donuts  /  Filson + REI shopping stop"
+        question: "How much does the tour cost?",
+        answer:
+          "Pricing varies by tour length and group size. Full pricing details are shown on the booking page before checkout."
       },
       {
         question: "How do I book and pay?",
-        answer: "All bookings are made online through our secure system. Major credit cards are accepted, and confirmation is sent immediately."
+        answer:
+          "All bookings are completed online through our secure booking system. Confirmation is sent after payment."
       },
       {
         question: "Do you offer Family Packs?",
-        answer: "Yes. Family Pack pricing is available for 6h ($750) and 7h ($900) tours (2 adults + up to 3 kids under 12). Children under 5 are free (no Space Needle ticket required). For 8h tours, each guest requires their own ticket, so Family Pack pricing does not apply."
-      },
-      {
-        question: "Who provides the transportation during the tour?",
-        answer: "Transportation is a combination of Seattle’s Light Rail from the airport and Uber rides within the city.\n Your Layover Specialist coordinates each ride, ensures smooth transitions between stops, and keeps your schedule on track. \n\n We do not own or operate vehicles directly; all rides are fully insured through Uber or official city transport providers."
-      },
-      {
-        question: "What if I need to cancel?",
-        answer: "Free cancellation is available up to 24 hours before your tour. Cancellations within 24 hours are non-refundable."
-      },
-      {
-        question: "What if we have 4–5 adults?",
-        answer: "Pricing is flat per person — there’s no extra charge for small groups.\n Your group will have a private Layover Specialist and private transportation for all stops."
+        answer:
+          "Family Pack pricing is available for select tours and group sizes, as listed on the booking page."
       }
     ]
   },
+
+  /* 5. Cancellation */
   {
-    title: "Private vs. Group",
-    icon: "👥",
-    color: "from-purple-500 to-pink-500",
+    title: "Cancellation",
+    icon: "❌",
+    color: "from-red-500 to-orange-500",
     faqs: [
       {
-        question: "Is this a private tour or group tour?",
-        answer: "All Six-Hour Layover tours are private, designed just for you, your group, and your Layover Specialist.\nYou’ll enjoy seamless airport pickup, personalized timing, and our guaranteed on-time airport return."
-      },
-      {
-        question: "Do you offer tours in my language?",
-        answer: "Tours are always available in English. Mandarin and Japanese may be available upon request, subject to guide availability."
+        question: "What is your cancellation policy?",
+        answer:
+          "Free cancellation is available up to 24 hours before the tour. Cancellations within 24 hours are non-refundable."
       }
     ]
   },
+
+  /* 6. Accessibility & Language */
   {
-    title: "Timing & Airport Return",
-    icon: "⏰",
-    color: "from-orange-500 to-red-500",
-    faqs: [
-      {
-        question: "Will I miss my flight?",
-        answer: "Tours are designed with buffer time before departure. If conditions change, we adjust the route or return earlier when needed. Events outside our control (weather, airline changes, airport security delays) may affect timing. We recommend travel insurance for extra peace of mind."
-      },
-      {
-        question: "How do you make sure I'm back with time to spare?",
-        answer: "We guarantee on-time return under normal conditions, with built-in buffer time. Events beyond our control (severe weather, airport security surges, road closures, airline schedule changes) are excluded."
-      }
-    ]
-  },
-  {
-    title: "Physical Demand & Accessibility",
-    icon: "🚶",
-    color: "from-primary-600 to-primary-600",
+    title: "Accessibility & Language",
+    icon: "♿",
+    color: "from-teal-500 to-blue-500",
     faqs: [
       {
         question: "Is the tour physically demanding?",
-        answer: "Our tours involve light walking, but we know everyone's situation is different. We adjust the pace to fit your group's needs, with plenty of rest stops. Tours are suitable for all ages, including children, and stroller-friendly."
+        answer:
+          "Tours involve light walking. Pace can be adjusted, but some locations may have accessibility limitations."
       },
       {
-        question: "Is this family-friendly?",
-        answer: "Absolutely. We welcome kids, seniors, and multigenerational groups. Tours are flexible in pacing, with rest breaks and food stops that work for families."
-      }
-    ]
-  },
-  {
-    title: "Customization",
-    icon: "⚙️",
-    color: "from-teal-600 to-blue-600",
-    faqs: [
-      {
-        question: "Can I customize my layover tour?",
-        answer: "Yes. Tell us your preferences (more food, less walking, specific landmarks) and your Layover Specialist will adapt the route."
+        question: "Is the tour family-friendly?",
+        answer:
+          "Tours are suitable for families and multigenerational groups, with flexible pacing."
       },
       {
-        question: "Can I add food or coffee stops?",
-        answer: "• Molly Moon's Ice Cream is now included in the 7-Hour Highlights Tour.\n• Optional add-ons ($120 per group, available only with 9+ hour layovers):\n  – Fremont Troll + Dick's Burgers\n  – Amazon Spheres + Top Pot Donuts\n  – Filson & REI Shopping Stop\n  • Add-on fee covers guide and transport. Food & drink purchased separately."
-      },
-      // {
-      //   question: "Can I bring home souvenirs from Seattle?",
-      //   answer: "Yes! Every Six-Hour Layover guest receives a reusable tote bag, and you can pre-order local favorites like chowder, cheese, coffee, cherries, or smoked salmon. We'll have everything packed and ready when you arrive.\n\nEvery Six-Hour Layover guest receives a reusable tote bag with a complimentary pack of chocolate-covered Rainier cherries. During your tour, we’ll also pass by shops like Made in Washington, where you can purchase local favorites such as chowder mix, cheese, coffee, or chocolate."
-      // }
-    ]
-  },
-  {
-    title: "Weather",
-    icon: "🌧️",
-    color: "from-slate-700 to-gray-800",
-    faqs: [
-      {
-        question: "What happens if there's bad weather?",
-        answer: "Seattle’s weather is part of the charm! We provide disposable rain ponchos and adjust pacing so you can stay comfortable and still enjoy the highlights."
+        question: "What languages are available?",
+        answer:
+          "Tours are conducted in English. Other languages may be available upon request, subject to availability."
       }
     ]
   }
 ];
+
 
 export const HowItWorksPageText = {
   title: "How It Works",
