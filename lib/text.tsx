@@ -223,12 +223,12 @@ export const FAQ_SECTIONS = [
       {
         question: "What if my flight is delayed or arrives early?",
         answer:
-          "We monitor flight status when possible and adjust pickup timing if feasible. Tours include buffer time, but schedules may change due to airline or airport conditions."
+          "We monitor your flight status and adjust pickup timing when possible. All tours are planned with built-in buffer time to help you return comfortably."
       },
       {
-        question: "Will I have enough time to return to the airport?",
+        question: "Will I miss my flight?",
         answer:
-          "Tours are planned with buffer time before departure. If conditions change, routes may be shortened or return time adjusted. We recommend travel insurance for added peace of mind."
+          "Tours are designed with buffer time before departure. If conditions change, we adjust the route or return earlier when needed. Events outside our control (weather, airline changes, airport security delays) may affect timing. We recommend travel insurance for extra peace of mind."
       }
     ]
   },
@@ -242,12 +242,12 @@ export const FAQ_SECTIONS = [
       {
         question: "Where will the guide meet me?",
         answer:
-          "Your Layover Specialist will meet you inside SEA-TAC Airport at a pre-coordinated location. Details are shared before arrival."
+          "Your Layover Specialist will meet you at your arrival gate or as close as possible inside SEA-TAC Airport. You’ll receive coordination details before landing."
       },
       {
-        question: "How is transportation handled during the tour?",
+        question: "How do we get around the city?",
         answer:
-          "Transportation uses Seattle Light Rail and Uber. Your Layover Specialist coordinates transfers and timing. We do not operate private vehicles."
+          "Transportation includes Seattle light rail and Uber within the city. We do not operate our own vehicles; all rides are provided by licensed third-party services."
       }
     ]
   },
@@ -261,7 +261,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Can I bring my luggage?",
         answer:
-          "Yes. We recommend using airport luggage storage for convenience. Storage fees are paid directly to the provider and are not included in the tour price."
+          "Yes. We recommend using the airport luggage storage service for convenience. Luggage storage fees are paid directly to the provider and are not included in your tour price."
       }
     ]
   },
@@ -275,17 +275,12 @@ export const FAQ_SECTIONS = [
       {
         question: "How much does the tour cost?",
         answer:
-          "Pricing varies by tour length and group size. Full pricing details are shown on the booking page before checkout."
+          "Pricing varies by tour length and group size. Please refer to the Pricing section for current rates."
       },
       {
         question: "How do I book and pay?",
         answer:
-          "All bookings are completed online through our secure booking system. Confirmation is sent after payment."
-      },
-      {
-        question: "Do you offer Family Packs?",
-        answer:
-          "Family Pack pricing is available for select tours and group sizes, as listed on the booking page."
+          "All bookings are made online through our secure system. Major credit cards are accepted, and confirmation is sent immediately."
       }
     ]
   },
@@ -297,9 +292,9 @@ export const FAQ_SECTIONS = [
     color: "from-red-500 to-orange-500",
     faqs: [
       {
-        question: "What is your cancellation policy?",
+        question: "What if I need to cancel?",
         answer:
-          "Free cancellation is available up to 24 hours before the tour. Cancellations within 24 hours are non-refundable."
+          "Free cancellation is available up to 24 hours before your tour. Cancellations within 24 hours are non-refundable."
       }
     ]
   },
@@ -311,23 +306,19 @@ export const FAQ_SECTIONS = [
     color: "from-teal-500 to-blue-500",
     faqs: [
       {
-        question: "Is the tour physically demanding?",
+        question: "Is the tour physically demanding or family-friendly?",
         answer:
-          "Tours involve light walking. Pace can be adjusted, but some locations may have accessibility limitations."
+          "The tour involves light walking with flexible pacing and rest stops. Suitable for most ages, including families and seniors."
       },
       {
-        question: "Is the tour family-friendly?",
+        question: "Do you offer tours in my language?",
         answer:
-          "Tours are suitable for families and multigenerational groups, with flexible pacing."
-      },
-      {
-        question: "What languages are available?",
-        answer:
-          "Tours are conducted in English. Other languages may be available upon request, subject to availability."
+          "Tours are always available in English. Mandarin and Japanese may be available upon request, subject to guide availability."
       }
     ]
   }
 ];
+
 
 
 export const HowItWorksPageText = {
