@@ -317,6 +317,20 @@ export const FAQ_SECTIONS = [
       }
     ]
   }
+
+  /* 6. Customization */
+  {
+    title: "Customization",
+    icon: "🎨",
+    color: "from-teal-500 to-blue-500",
+    faqs: [
+      {
+        question: "Can I customize stops or add food breaks?",
+        answer:
+          "Your guide can adjust pacing and stops when time allows. Food and drinks are purchased separately unless specifically noted."
+      }
+    ]
+  }
 ];
 
 
