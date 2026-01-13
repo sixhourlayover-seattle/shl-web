@@ -316,7 +316,7 @@ export const FAQ_SECTIONS = [
           "Tours are always available in English. Mandarin and Japanese may be available upon request, subject to guide availability."
       }
     ]
-  }
+  },
 
   /* 6. Customization */
   {
