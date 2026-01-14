@@ -109,6 +109,7 @@ export default function Page() {
               <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
                 {HomePageText.description}
               </p>
+              
               <div className="section-highlight rounded-2xl p-6 mb-6">
                 <p className="text-lg italic text-slate-700 text-center">
                   &ldquo;{TESTIMONIALS[0]}&rdquo;

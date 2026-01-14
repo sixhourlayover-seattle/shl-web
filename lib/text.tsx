@@ -32,31 +32,79 @@ export const GlobalText = {
 
 export const AboutPageText = {
   title: "About Us",
-  subtitle: "Out to the city. Back on time. Your layover, reimagined into an unforgettable highlight.",
-  description: <>The Six-Hour Layover was created for travelers who want more than airport lounges. In just a few hours, we'll take you from SEA Airport into Seattle's highlights — Pike Place Market, the Waterfront, and iconic city views — and return you with a guaranteed 2-hour buffer. Our tours are private, stress-free, and led by guides who treat you like family and friends, sharing Seattle as if you were their own local guest.</>,
+  subtitle: (
+    <>
+      Out to the city. Back on time.
+      <br />
+      A layover experience thoughtfully designed around certainty.
+    </>
+  ),
+  description: (
+    <>
+      The Six-Hour Layover is built for travelers whose time is limited and whose margin for error is small.
+      <br />
+      We don’t offer endless options or packed schedules. Instead, we design carefully timed experiences that allow you to step into Seattle with confidence — and return to the airport with time to spare.
+      <br /><br />
+      Most travel platforms are great at showing what’s possible.
+      <br />
+      We focus on what’s reliable.
+      <br /><br />
+      Our approach is rooted in planning, judgment, and risk awareness — the kind of work that starts by asking what could go wrong before it does.
+      <br />
+      That mindset shapes every tour we create: realistic timing, clear priorities, and built-in flexibility for real-world conditions like traffic, weather, and flight changes.
+      <br /><br />
+      When you have just a few hours in an unfamiliar city, more information doesn’t help.
+      <br />
+      What helps is knowing someone has already thought it through.
+      <br /><br />
+      That’s what we do.
+      <br /><br />
+      Our tours are private, calm, and led by local guides who treat you like a welcomed guest — not a number in a group.
+      <br />
+      Every itinerary is conservatively planned, monitored in real time, and designed to reduce uncertainty from start to finish.
+      <br /><br />
+      Because a great layover isn’t about seeing everything.
+      <br />
+      It’s about seeing the right things — without worry.
+    </>
+  ),
+
   multilingualTitle: "Multilingual Tours Available",
   alwaysAvailable: "Always Available",
-  englishTours: <><strong>English</strong> - All tours are conducted in English by default</>,
+  englishTours: (
+    <>
+      <strong>English</strong> - All tours are conducted in English by default
+    </>
+  ),
   uponRequest: "Upon Request",
   additionalLanguages: "Additional languages available subject to guide availability:",
-  languages: ['Mandarin', 'Spanish', 'German', 'French', 'Japanese'],
+  languages: ["Mandarin", "Spanish", "German", "French", "Japanese"],
   moreComingSoon: "More coming soon",
-  confirmLanguage: <><strong>Please confirm your preferred language when booking.</strong></>,
+  confirmLanguage: (
+    <>
+      <strong>Please confirm your preferred language when booking.</strong>
+    </>
+  ),
   ourStoryTitle: "Our Story",
   ourStorySubtitle: "Born from the simple idea that layovers shouldn't be wasted time",
   byTheNumbers: "By the Numbers",
   whatDrivesUs: "What Drives Us",
   whatDrivesUsSubtitle: "Our core values shape every tour we create and every experience we deliver",
   ourMissionTitle: "Our Mission",
-  ourMissionDescription: <>Our mission is simple: to turn every layover into a highlight of your journey — We design thoughtful, well-timed experiences that allow travelers to step into
-    a city with confidence and return to the airport on time.
-    Along the way, we value cultural exchange, human connection,
-    and working with people who care deeply about sharing their city with others.</>,
+  ourMissionDescription: (
+    <>
+      Our mission is simple: to turn every layover into a highlight of your journey — We design thoughtful, well-timed experiences that allow travelers to step into
+      a city with confidence and return to the airport on time.
+      Along the way, we value cultural exchange, human connection,
+      and working with people who care deeply about sharing their city with others.
+    </>
+  ),
   missionSlogan: "Making layovers memorable, one city at a time",
-  trainedGuideTeam: "Every tour is backed by a trained guide team, ensuring reliability even in rare last‑minute changes.",
+  trainedGuideTeam: "Every tour is backed by a trained guide team, ensuring reliability even in rare last-minute changes.",
   readyToExperience: "Ready to Experience Seattle?",
   readyToExperienceSubtitle: "Join the thousands of travelers who've discovered that layovers can be the best part of their journey",
 };
+
 
 export const TEAM_VALUES = [
   {
@@ -453,25 +501,30 @@ export const WHAT_MAKES_US_DIFFERENT = [
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
   subtitle: "We've Got You!",
-  description: "No stress. No guesswork. Just views, local moments, and a thoughtfully timed plan designed to get you back for boarding.",
-  shortLayovers: "Designed for layovers as short as 6 hours",
-  meetup: "Meet-up at SEA Airport",
-  features: "Views, photos, and a small chocolate-covered cherry souvenir",
-  luggage: "Luggage storage guidance included",
+ description: (
+    <>
+      No stress. No guesswork.<br />
+      Just views local moments, and a thoughtfully timed layover experience — conservatively planned with a built-in return buffer, so you can explore Seattle with confidence.
+    </>
+  ),
+  shortLayovers: "Designed for layovers as short as 6 hours, with realistic timing",
+  meetup: "Meet-up at SEA Airport or designated arrival point",
+  features: "Local views, photos, and a small chocolate-covered cherry souvenir",
+  luggage: "Clear luggage storage guidance provided before the tour begins",
   bookNow: "Book Your Seattle Tour",
   lovedBy: "Loved by travelers from 10+ attractions",
   thinking: "You're probably thinking…",
   thinking1Title: "“Six hours? Is that even enough?”",
   thinking1Description: "Absolutely. We've designed this as a condensed, <strong>no stress</strong> experience that avoids hassles, and guides you through Seattle's highlights — food, views, and photos — all with <strong>time to spare</strong>.",
   thinking2Title: "“I don't want the stress of figuring out transportation.”",
-  thinking2Description: "No stress at all. We handle the pickup, guide you through the city, and return you to the airport—zero guesswork.",
+  thinking2Description: "No stress at all. We coordinate the meet-up, guide you through the city, and plan the return conservatively with timing buffers built in — so there’s no guesswork around your schedule.",
   thinking3Title: "“What about my luggage?”",
   thinking3Description: "Easy. SEA Airport offers secure Smarte Carte storage. Simply check your bags before your tour begins, and we'll guide you every step from there.",
   thinking4Title: "“I just want to taste, see, and feel Seattle—fast.”",
   thinking4Description: "That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.",
   whyItWorksTitle: "Why It Works",
   whyItWorksSubtitle: "Smart. Seamless. Unforgettable.",
-  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops planned with built-in buffer time, every moment is designed to be stress-free. <strong>Our guides follow strict timing checkpoints with real-time flight monitoring to support a timely return to SEA-TAC Airport.</strong><br />You'll return with stories, photos, and a little Seattle gift in hand.</>,
+  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops planned with built-in buffer time, every moment is designed to be stress-free. <strong>Our guides follow strict timing checkpoints and use real-time flight monitoring to support a well-timed return to SEA-TAC Airport.</strong><br />You'll return with stories, photos, and a little Seattle gift in hand.</>,
   journeyTitle: "Your Seattle Six-Hour Journey",
   journeySubtitle: "Choose your perfect Seattle layover experience",
   preview: "Preview Selected Tour",
