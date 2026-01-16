@@ -31,43 +31,12 @@ export const GlobalText = {
 };
 
 export const AboutPageText = {
-  title: "About Us",
-  subtitle: (
-    <>
-      Out to the city. Back on time.
-      <br />
-      A layover experience thoughtfully designed around certainty.
-    </>
-  ),
-  description: (
-    <>
-      The Six-Hour Layover is built for travelers whose time is limited and whose margin for error is small.
-      <br />
-      We don’t offer endless options or packed schedules. Instead, we design carefully timed experiences that allow you to step into Seattle with confidence — and return to the airport with time to spare.
-      <br /><br />
-      Most travel platforms are great at showing what’s possible.
-      <br />
-      We focus on what’s reliable.
-      <br /><br />
-      Our approach is rooted in planning, judgment, and risk awareness — the kind of work that starts by asking what could go wrong before it does.
-      <br />
-      That mindset shapes every tour we create: realistic timing, clear priorities, and built-in flexibility for real-world conditions like traffic, weather, and flight changes.
-      <br /><br />
-      When you have just a few hours in an unfamiliar city, more information doesn’t help.
-      <br />
-      What helps is knowing someone has already thought it through.
-      <br /><br />
-      That’s what we do.
-      <br /><br />
-      Our tours are private, calm, and led by local guides who treat you like a welcomed guest — not a number in a group.
-      <br />
-      Every itinerary is conservatively planned, monitored in real time, and designed to reduce uncertainty from start to finish.
-      <br /><br />
-      Because a great layover isn’t about seeing everything.
-      <br />
-      It’s about seeing the right things — without worry.
-    </>
-  ),
+  // 1️⃣ Rename Section: About Us -> Why Us
+  title: "Why Us",
+
+  // 2️⃣ Replace long paragraph with one short paragraph (exact wording)
+  description:
+    "Out to the city. Back on time.\n\nThe Six-Hour Layover is designed for travelers with limited time who want a calm, well-planned way to experience Seattle.\n\nEach experience is thoughtfully timed to reduce risk and help travelers return to the airport comfortably.",
 
   multilingualTitle: "Multilingual Tours Available",
   alwaysAvailable: "Always Available",
@@ -85,25 +54,33 @@ export const AboutPageText = {
       <strong>Please confirm your preferred language when booking.</strong>
     </>
   ),
-  ourStoryTitle: "Our Story",
-  ourStorySubtitle: "Born from the simple idea that layovers shouldn't be wasted time",
+
+  // “Our Story” Section – Rename & Replace
+  ourStoryTitle: "How We Think About Your Layover",
+  ourStorySubtitle:
+    "When you only have a few hours in an unfamiliar city, more information doesn’t help.\n\nWhat helps is knowing someone has already thought through timing, routes, and potential issues.",
+
   byTheNumbers: "By the Numbers",
-  whatDrivesUs: "What Drives Us",
-  whatDrivesUsSubtitle: "Our core values shape every tour we create and every experience we deliver",
+
+  // 7️⃣ Rename “What Drives Us”
+  whatDrivesUs: "What Travelers Value Most",
+
+  // Mission section (no changes)
   ourMissionTitle: "Our Mission",
   ourMissionDescription: (
     <>
-      Our mission is simple: to turn every layover into a highlight of your journey — We design thoughtful, well-timed experiences that allow travelers to step into
-      a city with confidence and return to the airport on time.
-      Along the way, we value cultural exchange, human connection,
-      and working with people who care deeply about sharing their city with others.
+      Our mission is simple: to turn every layover into a highlight of your journey — We
+      design thoughtful, well-timed experiences that allow travelers to step into a city
+      with confidence and return to the airport on time. Along the way, we value cultural
+      exchange, human connection, and working with people who care deeply about sharing
+      their city with others.
     </>
   ),
   missionSlogan: "Making layovers memorable, one city at a time",
-  trainedGuideTeam: "Every tour is backed by a trained guide team, ensuring reliability even in rare last-minute changes.",
-  readyToExperience: "Ready to Experience Seattle?",
-  readyToExperienceSubtitle: "Join the thousands of travelers who've discovered that layovers can be the best part of their journey",
+  trainedGuideTeam:
+    "Every tour is backed by a trained guide team, ensuring reliability even in rare last-minute changes.",
 };
+
 
 
 export const TEAM_VALUES = [
@@ -501,48 +478,90 @@ export const WHAT_MAKES_US_DIFFERENT = [
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
   subtitle: "We've Got You!",
- description: (
-    <>
-      No stress. No guesswork.<br />
-      Just views local moments, and a thoughtfully timed layover experience — conservatively planned with a built-in return buffer, so you can explore Seattle with confidence.
-    </>
-  ),
-  shortLayovers: "Designed for layovers as short as 6 hours, with realistic timing",
-  meetup: "Meet-up at SEA Airport or designated arrival point",
-  features: "Local views, photos, and a small chocolate-covered cherry souvenir",
-  luggage: "Clear luggage storage guidance provided before the tour begins",
-  bookNow: "Book Your Seattle Tour",
-  lovedBy: "Loved by travelers from 10+ attractions",
+  description:
+    "A thoughtfully designed layover experience — so you see the right parts of the city without rushing or second-guessing.",
+  heroTagline: "Out to the city. Back on time.",
+
+  // Section 2 (Four Bullets)
+  shortLayovers: "Clear Starting Point\nNo guessing where or how to begin",
+  meetup: "Realistic Timing\nPlanned with buffer, not wishful thinking",
+  features: "A Curated Route, Not Just Stops\nSo you don’t miss what actually matters",
+  luggage: "Simple, Human Communication\nClear guidance shared ahead of time",
+
+  bookNow: "View Tours",
+
   thinking: "You're probably thinking…",
-  thinking1Title: "“Six hours? Is that even enough?”",
-  thinking1Description: "Absolutely. We've designed this as a condensed, <strong>no stress</strong> experience that avoids hassles, and guides you through Seattle's highlights — food, views, and photos — all with <strong>time to spare</strong>.",
-  thinking2Title: "“I don't want the stress of figuring out transportation.”",
-  thinking2Description: "No stress at all. We coordinate the meet-up, guide you through the city, and plan the return conservatively with timing buffers built in — so there’s no guesswork around your schedule.",
-  thinking3Title: "“What about my luggage?”",
-  thinking3Description: "Easy. SEA Airport offers secure Smarte Carte storage. Simply check your bags before your tour begins, and we'll guide you every step from there.",
-  thinking4Title: "“I just want to taste, see, and feel Seattle—fast.”",
-  thinking4Description: "That's exactly what we do. Local bites, skyline views, and iconic stops, all packed into a smooth, unforgettable layover.",
-  whyItWorksTitle: "Why It Works",
-  whyItWorksSubtitle: "Smart. Seamless. Unforgettable.",
-  whyItWorksDescription: <>Most travelers waste hours stuck in the airport — <strong>but not you!</strong> Our guided Seattle layover tours transform downtime into a highlight of your trip. From airport meet-up and smooth transfers into the city, to curated stops planned with built-in buffer time, every moment is designed to be stress-free. <strong>Our guides follow strict timing checkpoints and use real-time flight monitoring to support a well-timed return to SEA-TAC Airport.</strong><br />You'll return with stories, photos, and a little Seattle gift in hand.</>,
+
+  // Sub-section 3 — Is this actually for me?
+  thinkingSub3Title: "Is this actually for me?",
+  thinking1Title: "“I don’t have much time, and I don’t want to figure everything out.”",
+  thinking1Description:
+    "This experience is designed for travelers on a layover, cruise stop, or short visit who want to enjoy Seattle without managing logistics on their own.",
+  thinking2Title: "“I’d rather enjoy the city than constantly check maps and timing.”",
+  thinking2Description:
+    "It’s especially well-suited for first-time visitors, solo travelers, and those navigating in a non-native language.",
+
+  // Sub-section 4 — Why not just do this myself?
+  thinkingSub4Title: "Why not just do this myself?",
+  thinking3Title: "“I can go to Pike Place myself — what’s the difference?”",
+  thinking3Description:
+    "Seattle’s highlights are busy and spread out. This experience follows a hand-picked route with selected stops, so you see what truly matters instead of wandering or backtracking.",
+  thinking4Title: "“I don’t want to finish the day wondering what I missed.”",
+  thinking4Description:
+    "Same city. Same landmarks.\nA very different experience — one designed to reduce guesswork and regret.",
+
+  // New Section: Why This Actually Works
+  worksTitle: "Why This Actually Works",
+  works1Title: "Real-world timing",
+  works1Description:
+    "Designed for real-world timing, not ideal scenarios\nThis experience is built around how cities actually move — not best-case assumptions.",
+  works2Title: "Built-in buffer",
+  works2Description:
+    "Planned conservatively, with buffer built in\nSo your day feels unhurried, even when the city is busy or unpredictable.",
+  works3Title: "Sequence matters",
+  works3Description:
+    "The sequence of stops is intentional\nWhere you begin, when you move, and how long you stay are all chosen to reduce friction, fatigue, and last-minute stress.",
+  works4Title: "Outcome focus",
+  works4Description:
+    "The goal isn’t to fit everything in\nIt’s to make the time work — knowing you’ll return comfortably, without second-guessing the day.",
+
+  // New Section: This Experience Is For You If…
+  forYouTitle: "This Experience Is For You If…",
+  forYou1Title: "Decision fatigue",
+  forYou1Description:
+    "You don’t want to spend a short visit figuring things out as you go\nYou’d rather arrive knowing the day already makes sense.",
+  forYou2Title: "Presence over logistics",
+  forYou2Description:
+    "You want to enjoy the city, not constantly check time and directions\nBeing present matters more than managing details.",
+  forYou3Title: "Quality over quantity",
+  forYou3Description:
+    "You care more about seeing the right things than seeing everything\nA few meaningful moments matter more than a long checklist.",
+  forYou4Title: "Final identity confirmation",
+  forYou4Description:
+    "You value calm pacing and thoughtful planning\nIf that sounds like you, this journey was designed exactly for that mindset.",
+
+  // Tour section labels (unchanged)
   journeyTitle: "Your Seattle Six-Hour Journey",
   journeySubtitle: "Choose your perfect Seattle layover experience",
   preview: "Preview Selected Tour",
   hidePreview: "Hide Preview",
+
+  // Contact
   contact: "Contact",
   email: "Email",
   emailAddress: "booking@sixhourlayover.com",
   phone: "Phone",
-  phoneNumber: "(206) 928‑1277",
+  phoneNumber: "(206) 928-1277",
   whatsapp: "WhatsApp",
-  whatsappNumber: "(206) 928‑1277",
-  countries: "10+",
-  countriesLabel: "Attractions",
-  perfectTime: "6+ Hrs",
-  perfectTimeLabel: "Perfect time",
-  ctaTitle: "Seattle's best bites, views, planned with care for a smooth airport return.",
-  ctaSubtitle: "Loved by travelers from 10+ attractions",
+  whatsappNumber: "(206) 928-1277",
+
+  // Final CTA
+  ctaTitle:
+    "A calm, well-timed way to experience Seattle — even on a short stop.\n\nThis isn’t about seeing everything.\nIt’s about knowing the time you have is used well —\nwith a plan that respects both the city and your return flight.",
+  ctaSubtitle:
+    "Also a thoughtful option for short-term city stays, major events, or first-time visits with limited time."
 };
+
 
 export const PricingPageText = {
   title: "Tours & Pricing",
