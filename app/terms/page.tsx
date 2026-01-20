@@ -91,6 +91,7 @@ export default function TermsPage() {
                   <li className="text-slate-700 leading-relaxed">• {TermsPageText.cancellation2}</li>
                   <li className="text-slate-700 leading-relaxed">• {TermsPageText.cancellation3}</li>
                   <li className="text-slate-700 leading-relaxed">• {TermsPageText.cancellation4}</li>
+                  <li className="text-slate-700 leading-relaxed">• {TermsPageText.cancellation5}</li>
                 </ul>
               </div>
 
