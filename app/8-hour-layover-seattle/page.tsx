@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     images: ["/og-seattle-layover.png"],
   },
   alternates: {
-    canonical: "/6-hour-layover-seattle",
+    canonical: "/8-hour-layover-seattle",
   },
 };
 

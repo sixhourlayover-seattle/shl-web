@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ["/og-seattle-layover.png"],
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://sixhourlayover.com/seattle-layover-tour",
     languages: {
       "en": "/seattle-layover-tour",
       "zh-Hans": "/mandarin-seattle-layover",

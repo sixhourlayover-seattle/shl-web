@@ -8,6 +8,7 @@ import BookingModal from "@/components/BookingModal";
 import { HomePageText,PricingPageText,GlobalText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -24,19 +25,22 @@ const TOUR_OPTIONS_opiton = [
     name: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"]
+    features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"],
+    url: "/6-hour-layover-seattle"
   },
   {
     name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
     subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
     description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park",
-    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park"]
+    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park"],
+    url: "/7-hour-layover-seattle"
   },
   {
     name: "8-Hour — Pike Place Market + Space Needle Admission",
     subtitle: "Experience the best of Seattle in one layover",
     description: "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
-    features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"]
+    features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"],
+    url: "/8-hour-layover-seattle"
   }
 ];
 
@@ -139,24 +143,27 @@ export default function SLTourContent() {
                   
                   <div className="p-8">
                     <div className="space-y-6">
-                      {TOUR_OPTIONS_opiton.map((tour, index) => (
+                      {TOUR_OPTIONS_opiton.map((tour, index) => (                       
                         <div 
                           key={index}
                           className="rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 border-slate-200 bg-white hover:border-purple-300 hover:shadow-md'
-                              "
-                         
-                        >
-                          <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg">
-                              {index + 6}
+                              ">
+                            <a href={tour.url}>
+                          
+                            <div className="flex items-start gap-4">
+                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg">
+                                {index + 6}
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="text-xl font-bold text-slate-800 mb-1">{tour.name}</h4>
+                                <p className="text-purple-600 font-semibold mb-2">{tour.subtitle}</p>
+                                <p className="text-slate-600 text-sm leading-relaxed">{tour.description}</p>
+                              </div>
                             </div>
-                            <div className="flex-1">
-                              <h4 className="text-xl font-bold text-slate-800 mb-1">{tour.name}</h4>
-                              <p className="text-purple-600 font-semibold mb-2">{tour.subtitle}</p>
-                              <p className="text-slate-600 text-sm leading-relaxed">{tour.description}</p>
-                            </div>
-                          </div>
+                            </a>
+                          
                         </div>
+                        
                       ))}
                     </div>    
                   </div>

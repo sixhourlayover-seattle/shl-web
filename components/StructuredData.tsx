@@ -1,7 +1,7 @@
 "use client";
 
 export function StructuredData() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sixhourlayover.com";
 
   const organizationData = {
     "@context": "https://schema.org",

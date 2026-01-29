@@ -153,7 +153,7 @@ function FourCardSection({
               key={i}
               className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift"
             >
-              <h3 className="text-2xl font-bold mb-4 text-slate-900">{b.title}</h3>
+              <h3 className="text-2xl font-bold mb-4 headings_color">{b.title}</h3>
               <p className="text-slate-700 leading-relaxed whitespace-pre-line">
                 {b.description}
               </p>
@@ -274,14 +274,14 @@ export default function Page() {
 
                   <div className="space-y-6">
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4">{HomePageText.thinking1Title}</h4>
+                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking1Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking1Description}
                       </p>
                     </div>
 
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4">{HomePageText.thinking2Title}</h4>
+                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking2Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking2Description}
                       </p>
@@ -297,14 +297,14 @@ export default function Page() {
 
                   <div className="space-y-6">
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4">{HomePageText.thinking3Title}</h4>
+                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking3Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking3Description}
                       </p>
                     </div>
 
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4">{HomePageText.thinking4Title}</h4>
+                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking4Title}</h4>
                       <p className="text-slate-700 leading-relaxed whitespace-pre-line">
                         {HomePageText.thinking4Description}
                       </p>

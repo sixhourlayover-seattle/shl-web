@@ -7,8 +7,7 @@ import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
 import { HomePageText, PricingPageText, GlobalText } from "@/lib/text";
 import MascotSectionProduct from "@/components/MascotSectionContent";
-import Image from "next/image";
-
+import Link from "next/link";
 
 const TOUR_OPTIONS = [
   {
@@ -110,7 +109,15 @@ export default function SLTourContent() {
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — out to the city, back on time.</p>
 
             <a href="/book" className="mt-8 inline-flex items-center px-8 py-4 btn-primary font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-            >Book Tour   </a>
+            >Book Tour </a>
+            <nav aria-label="Breadcrumb" className="mt-4 text-blue-600">
+              <Link href="/" className="underline">Home</Link> ›{" "}
+              <Link href="/seattle-layover-tour" className="underline">
+                Seattle Layover Tour
+              </Link>{" "}
+              › <span className="text-slate-700 ">8 Hour Layover</span>
+            </nav>
+
           </div>
         </section>
 
@@ -386,6 +393,35 @@ export default function SLTourContent() {
             </div>
           </div>
         </section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sixhourlayover.com",
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Seattle Layover Tour",
+                  "item": "https://sixhourlayover.com/seattle-layover-tour",
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "7 Hour Seattle Layover Tour",
+                  "item": "https://sixhourlayover.com/7-hour-layover-seattle",
+                },
+              ],
+            }),
+          }}
+        />
 
         <MascotSectionProduct 
           title="Who We Are"
