@@ -7,7 +7,7 @@ import { StructuredData } from "@/components/StructuredData";
 
 import FooterWrapper from "./FooterWrapper";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sixhourlayover.com";
 const title = "The Six-Hour Layover | Seattle Layover Tours with Airport Pickup";
 const description =
   "Just 6 Hours in Seattle? We've Got You! No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.";

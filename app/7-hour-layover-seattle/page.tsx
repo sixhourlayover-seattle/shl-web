@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "7-Hour Layover in Seattle – Pike Place, Waterfront & Kerry Park SkylineView",
     description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
-    url: "https://www.sixhourlayover.com/6-hour-layover-seattle",
+    url: "https://www.sixhourlayover.com/7-hour-layover-seattle",
     images: [{ url: "/og-seattle-layover.png", width: 1200, height: 630 }],
   },
   twitter: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     images: ["/og-seattle-layover.png"],
   },
   alternates: {
-    canonical: "/6-hour-layover-seattle",
+    canonical: "/7-hour-layover-seattle",
   },
 };
 

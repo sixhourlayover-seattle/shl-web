@@ -477,7 +477,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
 
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
-  subtitle: "We've Got You!",
+  subtitle: "We've Covered",
   description:
     "A thoughtfully designed layover experience — so you see the right parts of the city without rushing or second-guessing.",
   heroTagline: "Out to the city. Back on time.",
