@@ -881,25 +881,28 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'per-person-6hour',
     name: '六 小时西雅图必游景点',
-    price: 250.00,
+    price: 299.00,
     description: '只需六小时，即可探索西雅图的心脏地带。探索派克市场，观看著名的抛鱼表演，漫步海滨——所有这一切都与热情友好的当地导游一起进行。',
-    paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
+    //paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
+    paymentLink: 'https://buy.stripe.com/aFadRb1Oj1Qzbkif2t3840r',
     groupSize: 'per-person',
     priceDescription: '每人'
   },
   {
     id: 'solo-traveler-6hour',
     name: '六小时西雅图精华游（单人）',
-    price: 399.00,
-    paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
+    price: 500.00,
+    //paymentLink: 'https://buy.stripe.com/8x2bJ3gJdeDl9cabQh38400',
+    paymentLink: 'https://buy.stripe.com/5kQ00l1OjeDl4VUbQh3840x',
     groupSize: '1',
     priceDescription: '独自旅行者'
   },
   {
     id: 'family-pack-6hour',
     name: '西雅图六小时必备旅行套装（家庭装）',
-    price: 750.00,
-    paymentLink: 'https://buy.stripe.com/3cIfZj0Kf9j18868E538402',
+    price: 600.00,
+    //paymentLink: 'https://buy.stripe.com/3cIfZj0Kf9j18868E538402',
+    paymentLink: 'https://buy.stripe.com/5kQeVfgJdbr90FEcUl3840s',
     groupSize: 'family',
     priceDescription: '2名成人 + 最多3名12岁以下儿童'
   },
@@ -907,24 +910,27 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'per-person-7hour',
     name: '西雅图七小时精彩集锦',
-    price: 300.00,
-    paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
+    price: 350.00,
+   // paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
+    paymentLink: 'https://buy.stripe.com/7sY7sNgJd8eXdsqdYp3840t',
     groupSize: 'per-person',
     priceDescription: '每人（包含 Kerry Park）'
   },
   {
     id: 'solo-traveler-7hour',
     name: '西雅图七小时精彩集锦（单人）',
-    price: 450.00,
-    paymentLink: 'https://buy.stripe.com/new-7hour-solo',
+    price: 600.00,
+   // paymentLink: 'https://buy.stripe.com/new-7hour-solo',
+   paymentLink: 'https://buy.stripe.com/bJefZjfF97aT7424nP3840f',
     groupSize: '1',
     priceDescription: '每人（包含 Kerry Park'
   },
   {
     id: 'family-pack-7hour',
     name: '西雅图七小时精彩集锦（家庭套餐）',
-    price: 900.00,
-    paymentLink: 'https://buy.stripe.com/new-7hour-family',
+    price: 750.00,
+   // paymentLink: 'https://buy.stripe.com/new-7hour-family',
+    paymentLink: 'https://buy.stripe.com/3cIbJ38cHgLtgEC4nP3840u',
     groupSize: 'family',
     priceDescription: "2 位成人 + 最多 3 位 12 岁以下儿童（含嘉里公园）"
   },
@@ -932,17 +938,28 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
   {
     id: 'per-person-8hour',
     name: '8 小时西雅图之旅',
-    price: 350.00,
-    paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
+    price: 499.00,
+   // paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
+    paymentLink: 'https://buy.stripe.com/14A8wReB50Mv2NM5rT3840j',
     groupSize: 'per-person',
     priceDescription: '每人（含太空针塔门票）'
   },
   {
     id: 'solo-traveler-8hour',
     name: '8 小时西雅图全程（单人）',
-    price: 499.00,
-    paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
+    price: 800.00,
+    //paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
+    paymentLink: 'https://buy.stripe.com/cNi3cxcsXbr9bki6vX3840v',
     groupSize: '1',
+    priceDescription: '单人旅行者（包含太空针塔门票）'
+  },
+  {
+    id: 'family-traveler-8hour',
+    name: '8 小时西雅图全程（单人）',
+    price: 999.00,
+    // paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
+   paymentLink: 'https://buy.stripe.com/00w6oJ78D7aTbkicUl3840w',
+    groupSize: 'family',
     priceDescription: '单人旅行者（包含太空针塔门票）'
   }
 ];
