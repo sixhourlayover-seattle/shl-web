@@ -477,7 +477,7 @@ export const WHAT_MAKES_US_DIFFERENT = [
 
 export const HomePageText = {
   title: "Just 6 Hours in Seattle?",
-  subtitle: "We've Covered",
+  subtitle: "Got You!",
   description:
     "A thoughtfully designed layover experience — so you see the right parts of the city without rushing or second-guessing.",
   heroTagline: "Out to the city. Back on time.",
@@ -536,9 +536,14 @@ export const HomePageText = {
   forYou3Title: "Quality over quantity",
   forYou3Description:
     "You care more about seeing the right things than seeing everything\nA few meaningful moments matter more than a long checklist.",
-  forYou4Title: "Final identity confirmation",
-  forYou4Description:
+
+  forYou4Title: "Meaning over itineraries",
+  forYou4Description : "Not every traveler needs a full tour.\nSome people book guided experiences. Some prefer DIY.\nOthers simply want one meaningful local moment to add to their trip — a calm, human-scale experience that fits naturally into what they’ve already planned, and often becomes the part they remember most.",
+  
+  forYou5Title: "Final identity confirmation",
+  forYou5Description:
     "You value calm pacing and thoughtful planning\nIf that sounds like you, this journey was designed exactly for that mindset.",
+
 
   // Tour section labels (unchanged)
   journeyTitle: "Your Seattle Six-Hour Journey",

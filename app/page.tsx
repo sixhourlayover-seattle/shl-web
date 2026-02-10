@@ -365,6 +365,7 @@ export default function Page() {
             { title: HomePageText.forYou2Title, description: HomePageText.forYou2Description },
             { title: HomePageText.forYou3Title, description: HomePageText.forYou3Description },
             { title: HomePageText.forYou4Title, description: HomePageText.forYou4Description },
+            { title: HomePageText.forYou5Title, description: HomePageText.forYou5Description },
           ]}
         />
 
