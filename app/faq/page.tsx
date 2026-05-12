@@ -39,11 +39,26 @@ function FAQItem({ faq, isOpen, onToggle }: FAQItemProps) {
         className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors duration-300"
       >
         <h3 className="font-semibold text-slate-800 pr-4">{faq.question}</h3>
-        <div className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-          <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        <div
+          className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
+        >
+          <svg
+            className="w-5 h-5 text-purple-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
           </svg>
         </div>
+
+
       </button>
       {isOpen && (
         <div className="px-6 pb-6">
@@ -72,19 +87,19 @@ export default function FAQPage() {
       {/* Animated background */}
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
-      
+
       {/* Floating orbs for visual interest */}
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
-      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
-      
+      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }} />
+
       <div className="relative z-10">
         <Navigation />
 
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container">
-            <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
+            <div className="text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
                 <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{FaqPageText.title}</span>
               </h1>
@@ -100,7 +115,7 @@ export default function FAQPage() {
           <div className="container max-w-4xl mx-auto">
             <div className="space-y-12">
               {FAQ_SECTIONS.map((section, sectionIndex) => (
-                <div key={sectionIndex} style={{animation: `slide-in 0.${sectionIndex + 6}s ease-out`}}>
+                <div key={sectionIndex} style={{ animation: `slide-in 0.${sectionIndex + 6}s ease-out` }}>
                   {/* Section Header */}
                   <div className="flex items-center gap-4 mb-6">
                     <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${section.color} flex items-center justify-center shadow-lg`}>
@@ -155,14 +170,14 @@ export default function FAQPage() {
               {FaqPageText.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
+              <a
                 href="/book"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white text-purple-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 <span className="text-xl">📝</span>
                 {GlobalText.bookYourTourNow}
               </a>
-              <a 
+              <a
                 href="mailto:booking@sixhourlayover.com"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur headings_color font-semibold rounded-2xl border border-primary-500 hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
