@@ -84,13 +84,13 @@ export default function HowItWorksPage() {
                 >
                   {/* Connector line */}
                   {index < HOW_IT_WORKS_STEPS.length - 1 && (
-                    <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b primary-background" />
+                    <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b primary-background how_its_work_lins"/>
                   )}
 
                   <div className="flex gap-6">
                     {/* Step number and icon */}
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br primary-background flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br primary-background flex items-center justify-center text-white font-bold text-lg shadow-lg how_it_works_steps">
                         {step.step}
                       </div>
                       <div className="mt-4 text-center">
@@ -150,7 +150,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Transportation Info */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="container max-w-4xl mx-auto">
             <div className="rounded-3xl bg-gradient-to-br section-highlight p-8 shadow-2xl hover-lift">
               <div className="text-center mb-8">
@@ -196,6 +196,25 @@ export default function HowItWorksPage() {
                       </a>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+
+
+        <section className="py-16">
+          <div className="container max-w-4xl mx-auto">
+            <div className="rounded-3xl bg-gradient-to-br section-highlight p-8 shadow-2xl hover-lift">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-slate-800 mb-4">{HowItWorksPageText.transportationTitle2}</h2>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-1">
+                <div className="rounded-2xl bg-white/80 backdrop-blur p-6">
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    {HowItWorksPageText.transportationDescription}
+                  </p>
                 </div>
               </div>
             </div>
