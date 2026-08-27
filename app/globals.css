@@ -128,3 +128,14 @@ body {
 .container {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
+
+
+
+
+.how_it_works_steps{
+  width: 80px;
+}
+ 
+.how_its_work_lins{
+  left: 2.5rem;
+}
