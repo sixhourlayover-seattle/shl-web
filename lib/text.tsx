@@ -35,8 +35,17 @@ export const AboutPageText = {
   title: "Why Us",
 
   // 2️⃣ Replace long paragraph with one short paragraph (exact wording)
-  description:
-    "Out to the city. Back on time.\n\nThe Six-Hour Layover is designed for travelers with limited time who want a calm, well-planned way to experience Seattle.\n\nEach experience is thoughtfully timed to reduce risk and help travelers return to the airport comfortably.",
+  description: (
+    <>
+      Out to the city. Back on time.
+      <br /><br />
+
+      The Six-Hour Layover is designed for travelers with limited time who want a calm, well-planned way to <strong>experience Seattle</strong>.
+      <br /><br />
+
+      Each experience is thoughtfully timed to reduce risk and help travelers return to the airport <strong>comfortably</strong>.
+    </>
+  ),
 
   multilingualTitle: "Multilingual Tours Available",
   alwaysAvailable: "Always Available",
@@ -57,8 +66,19 @@ export const AboutPageText = {
 
   // “Our Story” Section – Rename & Replace
   ourStoryTitle: "How We Think About Your Layover",
-  ourStorySubtitle:
-    "When you only have a few hours in an unfamiliar city, more information doesn’t help.\n\nWhat helps is knowing someone has already thought through timing, routes, and potential issues.",
+  ourStorySubtitle: (
+    <>
+      When you only have a few hours in an unfamiliar city, more information doesn’t help.
+      <br /><br />
+
+      <strong>What helps is</strong>
+      <br />
+
+      knowing someone has already thought through timing, routes, and potential issues.
+    </>
+  ),
+
+
 
   byTheNumbers: "By the Numbers",
 
@@ -367,7 +387,7 @@ export const HowItWorksPageText = {
   transportationTitle: "Transportation Details",
   transportationSubtitle: "Here's what you need to know about getting around",
   rideServiceTitle: "Ride Service",
-  rideServiceDescription: "Airport ↔ Downtown transfers are via Seattle’s Link Light Rail. Your guide accompanies you. Neighborhood transfers during the tour are arranged via Uber. Your guide manages all logistics and timing. We do not own or operate the vehicles; transportation services are provided by third-party providers with their own insurance coverage.",
+  rideServiceDescription: "Airport ↔ Downtown transportation is via Link Light Rail. Your guide accompanies you and provides Seattle and local context during the journey. Between Pike Place Market and the Waterfront, your guide uses the optimized walking route via the Overlook Walk. Your guide manages all logistics and timing.",
   rideServicePoint1: "• We handle all coordination and logistics",
   rideServicePoint2: "• Professional drivers with full insurance",
   rideServicePoint3: "• Direct airport-to-downtown service",
@@ -377,6 +397,9 @@ export const HowItWorksPageText = {
   luggageStoragePoint2: "• Secure, monitored storage facility",
   luggageStoragePoint3: "• Easy retrieval upon return",
   luggageStoragePoint4: "• View pricing and details",
+
+  transportationTitle2: "What Does a 6-, 7-, or 8-Hour Layover Experience Mean?",
+  transportationDescription: "The 6-, 7-, and 8-hour options refer to your total available layover window, not only the time spent at individual attractions. Your experience begins when you meet your guide at SEA and includes the guided journey into Seattle, curated city time, the return trip, and an appropriate airport return buffer. Your guide remains with you throughout the experience, including travel time, sharing local context and helping you make the most of the time available.",
   luggageStorageLinkUrl:
     "https://smartecarte.com/seattle-tacoma/",
   ctaTitle: "Ready to Experience Seattle?",
@@ -385,7 +408,7 @@ export const HowItWorksPageText = {
 
 export const HOW_IT_WORKS_STEPS = [
   {
-    step: 1,
+    step: 'STEP 1',
     title: "Book Your Tour",
     description: "Contact us via email or phone to secure your spot. We'll send confirmation details and track your flight.",
     icon: "📧",
@@ -396,7 +419,7 @@ export const HOW_IT_WORKS_STEPS = [
     ]
   },
   {
-    step: 2,
+    step: 'STEP 2',
     title: "Airport Arrival & Meet-Up",
     description: "Land at SEA, clear customs, and meet your guide at baggage claim with a personalized sign.",
     icon: "🛬",
@@ -407,18 +430,18 @@ export const HOW_IT_WORKS_STEPS = [
     ]
   },
   {
-    step: 3,
+    step: 'STEP 3',
     title: "Transportation to Downtown",
-    description: "Your guide coordinates Light Rail and Uber rides to get you around Seattle efficiently.",
+    description: "Your guide travels with you on the Link Light Rail between SEA Airport and downtown Seattle.",
     icon: "🚗",
     details: [
-      "Light Rail (airport ↔ downtown) plus Uber for short hops between neighborhoods",
-      "Guide handles all ride coordination and payment logistics",
-      "Learn about Seattle during the scenic journey"
+      "Your guide provides Seattle and local context during the journey",
+      "Enjoy a simple, direct connection between SEA Airport and downtown Seattle",
+      // "Learn about Seattle during the scenic journey"
     ]
   },
   {
-    step: 4,
+    step: 'STEP 4',
     title: "Explore Seattle",
     description: "Experience Seattle's highlights with our curated tour options designed for different layover lengths.",
     icon: "🎯",
@@ -430,14 +453,14 @@ export const HOW_IT_WORKS_STEPS = [
     ]
   },
   {
-    step: 5,
+    step: 'STEP 5',
     title: "Return to Airport",
     description: "Tours include built-in buffer time to help ensure a smooth and timely return to SEA-TAC Airport.",
     icon: "⏰",
     details: [
       "Departure planned with a 2-hour buffer before your flight",
-      "Guide accompanies you back to the airport",
-      "Drop-off at the correct terminal for your departure"
+      "Guide accompanies you back to the airport on the Link Light Rail",
+      "Guide helps ensure you reach the correct terminal for your departure"
     ]
   }
 ];
@@ -562,7 +585,7 @@ export const HomePageText = {
 
   // Final CTA
   ctaTitle:
-    "A calm, well-timed way to experience Seattle — even on a short stop.\n\nThis isn’t about seeing everything.\nIt’s about knowing the time you have is used well —\nwith a plan that respects both the city and your return flight.",
+    "A calm, well-timed way to experience Seattle — even on a short stop.\n\nThis isn’t about seeing everything.\nIt’s about knowing the time you have is used well —\nwith a plan that respects both your interests and your return flight.",
   ctaSubtitle:
     "Also a thoughtful option for short-term city stays, major events, or first-time visits with limited time."
 };
