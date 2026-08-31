@@ -4,10 +4,13 @@ import _7HLSContent from "@/components/7hourLayoverSeattleContent";
 // Dynamic metadata for this page
 export const metadata: Metadata = {
   title: "7-Hour Layover in Seattle – Pike Place, Waterfront & Kerry Park SkylineView",
-  description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
+  // description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
+  description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, and return timing planned around your flight schedule with an appropriate airport buffer.",
+
   openGraph: {
     title: "7-Hour Layover in Seattle – Pike Place, Waterfront & Kerry Park SkylineView",
-    description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
+    // description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, guaranteed return.",
+     description: "Short layover? See Pike Place and the skyline with a time-safe route. Airport meet, luggage help, and return timing planned around your flight schedule with an appropriate airport buffer.",
     url: "https://www.sixhourlayover.com/7-hour-layover-seattle",
     images: [{ url: "/og-seattle-layover.png", width: 1200, height: 630 }],
   },

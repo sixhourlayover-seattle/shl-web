@@ -91,9 +91,9 @@ export const AboutPageText = {
     <>
       Our mission is simple: to turn every layover into a highlight of your journey — We
       design thoughtful, well-timed experiences that allow travelers to step into a city
-      with confidence and return to the airport on time. Along the way, we value cultural
-      exchange, human connection, and working with people who care deeply about sharing
-      their city with others.
+      with confidence and return to the airport with appropriate time built into the itinerary.
+      Along the way, we value cultural exchange, human connection, and working with people who 
+      care deeply about sharing their city with others.
     </>
   ),
   missionSlogan: "Making layovers memorable, one city at a time",
@@ -142,7 +142,8 @@ export const STORY_POINTS = [
   },
   {
     title: "Our Solution",
-    content: "Expertly timed tours that maximize your Seattle experience while guaranteeing your flight."
+    // content: "Expertly timed tours that maximize your Seattle experience while guaranteeing your flight."
+    content: "Thoughtfully timed tours that maximize your Seattle experience while planning around your flight schedule."
   },
   {
     title: "Why Seattle?",
@@ -152,7 +153,8 @@ export const STORY_POINTS = [
 
 export const STATS = [
   { number: "6, 7, 8", label: "Perfect Hours — Choose the tour that fits your layover" },
-  { number: "2-Hour", label: "Flight Buffer — Guaranteed return to SEA on time" },
+  // { number: "2-Hour", label: "Flight Buffer — Guaranteed return to SEA on time" },
+  { number: "Built-In", label: "Flight Buffer — Appropriate return time planned around your departure" },
   { number: "100%", label: "Private Tours — Just you and your group, every time" },
   { number: "1 Loyal", label: "Mascot + Local Friends — Guai Guai (our good boy) and your guide-friend in Seattle, welcoming you like family" }
 ];
@@ -243,7 +245,7 @@ export const FAQ_QUICK = [
   },
   {
     question: "What if my flight is delayed?",
-    answer: "No problem! We track your flight in real-time and adjust pickup times automatically. Your tour will still happen."
+    answer: "No problem! We track your flight in real-time and adjust pickup times automatically. We’ll reassess the available time and adjust the itinerary when feasible. If the remaining layover is too short for a safe city visit, we’ll discuss the best available option with you."
   },
   {
     question: "Can I cancel or reschedule?",
@@ -287,12 +289,13 @@ export const FAQ_SECTIONS = [
       {
         question: "Where will the guide meet me?",
         answer:
-          "Your Layover Specialist will meet you at your arrival gate or as close as possible inside SEA-TAC Airport. You’ll receive coordination details before landing."
+          // "Your Layover Specialist will meet you at your arrival gate or as close as possible inside SEA-TAC Airport. You’ll receive coordination details before landing."
+          "Your Layover Specialist will coordinate your meeting at SEA-TAC Airport and provide clear meeting instructions before you arrive. You’ll receive coordination details before landing."
       },
       {
         question: "How do we get around the city?",
         answer:
-          "Transportation includes Seattle light rail and Uber within the city. We do not operate our own vehicles; all rides are provided by licensed third-party services."
+          "Transportation includes Link Light Rail (included) and optional pre-arranged private airport transfers. We do not operate our own vehicles; all rides are provided by licensed third-party services."
       }
     ]
   },
@@ -392,7 +395,7 @@ export const HowItWorksPageText = {
   rideServicePoint2: "• Professional drivers with full insurance",
   rideServicePoint3: "• Direct airport-to-downtown service",
   luggageStorageTitle: "Luggage Storage",
-  luggageStorageDescription: "SEA Airport offers secure Smarte Carte storage for a fees (paid directly to storage provider).",
+  luggageStorageDescription: "SEA Airport offers secure Smarte Carte storage for a fee (paid directly to storage provider).",
   luggageStoragePoint1: "• We guide you through the storage process",
   luggageStoragePoint2: "• Secure, monitored storage facility",
   luggageStoragePoint3: "• Easy retrieval upon return",
@@ -458,22 +461,24 @@ export const HOW_IT_WORKS_STEPS = [
     description: "Tours include built-in buffer time to help ensure a smooth and timely return to SEA-TAC Airport.",
     icon: "⏰",
     details: [
-      "Departure planned with a 2-hour buffer before your flight",
-      "Guide accompanies you back to the airport on the Link Light Rail",
-      "Guide helps ensure you reach the correct terminal for your departure"
+      // "Departure planned with a 2-hour buffer before your flight",
+      // "Guide accompanies you back to the airport on the Link Light Rail",
+      // "Guide helps ensure you reach the correct terminal for your departure"
+      "Return is planned with an appropriate airport buffer.",
+      "Your guide accompanies you back to SEA Airport and helps you navigate to the appropriate terminal area for your departure."
     ]
   }
 ];
 
 export const WHAT_MAKES_US_DIFFERENT = [
   {
-    title: "Real-Time Flight Tracking",
-    description: "We monitor your flight status and adjust pickup times automatically. No missed connections.",
+    title: "Real-Time Flight Monitoring",
+    description: "We monitor your flight status and adjust tour timing when needed to help keep your layover experience on track.",
     icon: "✈️"
   },
   {
     title: "Planned for a Smooth, Timely Return",
-    description: "Every itinerary is planned with a 2-hour buffer and real-time flight monitoring to support a timely airport return. Unforeseen conditions may impact timing.",
+    description: "Every itinerary is planned around your flight schedule, with appropriate return time built in to support a comfortable airport connection.",
     icon: "⏰"
   },
   {
@@ -492,8 +497,8 @@ export const WHAT_MAKES_US_DIFFERENT = [
     icon: "🎯"
   },
   {
-    title: "Flexible Customization",
-    description: "Tell us your preferences and we'll adapt the route. More food? Less walking? We've got you covered.",
+    title: "Expert Local Guidance",
+    description: "We help shape your experience around your interests, pace, and available time — with practical local recommendations along the way.",
     icon: "⚙️"
   }
 ];
@@ -603,7 +608,7 @@ export const PricingPageText = {
   extraKidsDescription: "<strong>Extra Kids (under 12): $199 each</strong><br />Add to Family Pack",
   pricingNote: "Children 0–3 join free. Children 4+ are priced as adults unless included in a Family Bundle.",
   whatsIncluded: "What's Always Included",
-  giftTote: "🎁 Seattle Gift Tote",
+  giftTote: "🎁 A Small Seattle Treat",
   giftToteDescription: "Take a piece of Seattle home with you.",
   giftToteBundle: "Bundle any 3 for just",
   giftTotePrice: "$110",
@@ -617,7 +622,8 @@ export const PricingPageText = {
   cancellationPolicyDescription_new: "<strong>Free cancellation up to 24 hours before your tour</strong> — no hidden fees.<br/><br/><strong>For last-minute changes, refer to the cancellation terms displayed during checkout.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
   contact: "Contact Us",
   ctaTitle: "Ready to Book Your Seattle Adventure?",
-  ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
+  // ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
+  ctaSubtitle: "Ready to make your Seattle layover memorable?",
 };
 
 export const PrivacyPageText = {
@@ -798,7 +804,9 @@ export const BookingFormText = {
   personalInfo: "Personal Information",
   flightDetails: "Flight Details",
   tourSelection: "Tour Selection",
-  agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that this tour includes a guaranteed 2-hour buffer before my departure flight, and that cancellations are free up to 24 hours before the tour.",
+  // agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that this tour includes a guaranteed 2-hour buffer before my departure flight, and that cancellations are free up to 24 hours before the tour.",
+  agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that the tour is planned around my departure flight with an appropriate airport return buffer, and that cancellations are free up to 24 hours before the tour.",
+
   previous: "Previous",
   next: "Next Step",
   confirmBooking: "Confirm Booking",

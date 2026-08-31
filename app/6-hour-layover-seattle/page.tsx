@@ -4,10 +4,12 @@ import _6HLSContent from "@/components/6hourLayoverSeattleContent";
 // Dynamic metadata for this page
 export const metadata: Metadata = {
   title: "6-Hour Layover in Seattle — Pike Place & Waterfront Highlights",
-  description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and guaranteed on-time return.",
+  // description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and .",
+  description: "Make the most of a short layover. Airport pickup, Pike Place Market, Seattle Waterfront, with return timing planned around your flight schedule and an appropriate airport buffer.",
   openGraph: {
     title: "6-Hour Layover in Seattle — Pike Place & Waterfront Highlights",
-    description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and guaranteed on-time return.",
+    // description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and .",
+    description: "Make the most of a short layover. Airport pickup, Pike Place Market, Seattle Waterfront, with return timing planned around your flight schedule and an appropriate airport buffer.",
     url: "https://www.sixhourlayover.com/6-hour-layover-seattle",
     images: [{ url: "/og-seattle-layover.png", width: 1200, height: 630 }],
   },
@@ -31,7 +33,7 @@ export default function SLTourPage() {
     "name": "Essential 6-Hour Seattle Layover Tour",
     "image": "https://sixhourlayover.com/seattle-skyline-sunset-mt-rainier.jpg",
     "description":
-      "Explore Pike Place Market, Kerry Park skyline, and Fremont Troll with guaranteed on-time airport return.",
+      "Explore Pike Place Market, Kerry Park skyline, and Fremont Troll with a thoughtfully planned return to the airport.",
     "brand": "The Six Hour Layover",
     "offers": {
       "@type": "Offer",

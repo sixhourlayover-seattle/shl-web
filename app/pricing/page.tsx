@@ -22,9 +22,10 @@ const TOUR_OPTIONS = [
     },
     features: [
       "Pike Place Market tour",
-      "Famous fish toss viewing", 
+      "Famous fish toss viewing",
       "Waterfront exploration",
-      "Seattle chocolate-covered Rainier cherries tote bag"
+      "A small, locally inspired Seattle treat."
+      // "Seattle chocolate-covered Rainier cherries tote bag"
     ]
   },
   {
@@ -67,7 +68,7 @@ const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 
 const WHATS_INCLUDED = [
   "Airport meet & greet",
-  "Light Rail (airport ↔ city) + Uber for short hops",
+  "Link Light Rail (airport ↔ city) — included",
   "Planned return with built-in buffer time and flight monitoring",
   "A small, locally inspired Seattle souvenir",
   "Free cancellation (24+ hours notice)"
@@ -75,7 +76,7 @@ const WHATS_INCLUDED = [
 
 const GIFT_TOTE_ITEMS = [
   "Pike Place chowder mix",
-  "Beecher's handmade cheese", 
+  "Beecher's handmade cheese",
   "Starbucks Reserve beans",
   "Seattle chocolate or Rainier cherries"
 ];
@@ -83,38 +84,59 @@ const GIFT_TOTE_ITEMS = [
 const ADD_ONS = [
   {
     name: "Fremont Troll + Dick's Burgers",
-    subtitle:"Fremont Troll & Dick’s Drive-In Visit one of Seattle’s most iconic public art installations—the Fremont Troll—tucked under the Aurora Bridge in the creative Fremont neighborhood. Afterward, stop by Dick’s Drive-In, a classic local burger stand beloved by Seattleites for its simple menu and old-school charm. Food purchases are optional and paid by guests directly.",
+    subtitle: "Fremont Troll & Dick’s Drive-In Visit one of Seattle’s most iconic public art installations—the Fremont Troll—tucked under the Aurora Bridge in the creative Fremont neighborhood. Afterward, stop by Dick’s Drive-In, a classic local burger stand beloved by Seattleites for its simple menu and old-school charm. Food purchases are optional and paid by guests directly.",
     price: 120,
     emoji: "🍔",
     requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Amazon Spheres + Top Pot Donuts",
-    subtitle:"Explore the futuristic <strong>Amazon Spheres</strong>, then unwind at <strong>Top Pot Donuts</strong> for coffee and Seattle’s most famous handcrafted doughnuts.",
+    // name: "Amazon Spheres + Top Pot Donuts",
+    name: "Amazon Spheres Photo Stop + Top Pot Donuts",
+    subtitle: "See the Amazon Spheres from the exterior/public areas, stop for photos, and explore nearby Amazon campus highlights before heading to Top Pot Donuts.",
     price: 120,
     emoji: "🏢",
     requirement: "Requires 9+ hour layover"
   },
   {
     name: "Filson & REI Shopping Stop",
-    subtitle:"Browse two Seattle icons — <strong>Filson’s heritage gear</strong> and <strong>REI’s flagship store</strong>, featuring an indoor climbing wall and outdoor-lover’s vibe.",
+    subtitle: "Browse two Seattle icons — <strong>Filson’s heritage gear</strong> and <strong>REI’s flagship store</strong>, featuring an indoor climbing wall and outdoor-lover’s vibe.",
     price: 120,
     emoji: "🛍️",
     requirement: "Requires 9+ hour layover"
   },
   {
     name: "Queen Anne View & Coffee Stop",
-    subtitle:"After your <strong>skyline moment at Kerry Park</strong>, stroll through the charming <strong>Queen Anne neighborhood</strong> to <strong>Café Hagen</strong>, a <strong>Scandinavian-style café</strong> known for <strong>specialty coffee</strong>, <strong>pastries</strong>, and <strong>calm local vibes</strong>. No Uber needed — a perfect <strong>scenic & relaxing add-on</strong> within <strong>walking distance</strong>.",
+    subtitle: "After your <strong>skyline moment at Kerry Park</strong>, stroll through the charming <strong>Queen Anne neighborhood</strong> to <strong>Café Hagen</strong>, a <strong>Scandinavian-style café</strong> known for <strong>specialty coffee</strong>, <strong>pastries</strong>, and <strong>calm local vibes</strong>. No Uber needed — a perfect <strong>scenic & relaxing add-on</strong> within <strong>walking distance</strong>.",
     price: 120,
     emoji: "☕",
     requirement: "Requires 9+ hour layover"
   }
 ];
- 
+
+const TRANSPORTATION_OPTIONS = [
+  {
+    name: "Link Light Rail",
+    price: "Included",
+    isIncluded: true,
+  },
+  {
+    name: "One-Way Pre-arranged Private Airport Transfer",
+    price: "+$100 per group",
+    isIncluded: false,
+    hasDirection: true,
+  },
+  {
+    name: "Round-Trip Pre-arranged Private Airport Transfer",
+    price: "+$200 per group",
+    isIncluded: false,
+    hasDirection: false,
+  },
+];
+
 
 export default function PricingPage() {
   const [selectedTier, setSelectedTier] = useState("Solo");
-  
+
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const handleEvent = (eventLabel: string) => {
     if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
@@ -131,12 +153,12 @@ export default function PricingPage() {
       {/* Animated background */}
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
-      
+
       {/* Floating orbs for visual interest */}
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
-      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
-      
+      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }} />
+
       <div className="relative z-10">
         {/* Top Nav with glassmorphism */}
         <Navigation />
@@ -144,12 +166,18 @@ export default function PricingPage() {
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container">
-            <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
+            <div className="text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
                 <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.title}</span>
               </h1>
               <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
                 {PricingPageText.subtitle}
+              </p>
+            </div>
+            <div className="mt-6 rounded-2xl bg-purple-50 border border-purple-200 px-5 py-4 max-w-3xl mx-auto">
+              <p className="text-slate-700 text-base font-medium text-center">
+                6/7/8 hours refers to your total SEA layover window, not continuous
+                guided sightseeing time.
               </p>
             </div>
           </div>
@@ -158,9 +186,10 @@ export default function PricingPage() {
         {/* Tour Options */}
         <section className="py-8">
           <div className="container">
+
             <div className="grid gap-8 lg:grid-cols-2">
               {TOUR_OPTIONS.map((tour, index) => (
-                <div key={index} className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift" style={{animation: `slide-in 0.${index + 7}s ease-out`}}>
+                <div key={index} className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift" style={{ animation: `slide-in 0.${index + 7}s ease-out` }}>
                   <div className="p-8 bg-gradient-to-r primary-background">
                     <h3 className="text-2xl font-bold text-white mb-2">{tour.title}</h3>
                     <p className="text-white/90 text-sm">{tour.duration}</p>
@@ -192,19 +221,20 @@ export default function PricingPage() {
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 {PricingPageText.pricingSubtitle}
               </p>
+
+
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
               {PRICING_TIERS.map((tier, index) => (
                 <div
                   key={tier.name}
-                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${
-                    selectedTier === tier.name
-                      ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
-                      : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
-                  }`}
+                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${selectedTier === tier.name
+                    ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
+                    : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
+                    }`}
                   onClick={() => setSelectedTier(tier.name)}
-                  style={{animation: `slide-in 0.${index + 8}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 8}s ease-out` }}
                 >
                   <div className="text-center">
                     <h3 className="font-bold text-lg text-slate-800 mb-2">{tier.name}</h3>
@@ -230,6 +260,49 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Transportation Options */}
+        <section className="py-16">
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border-2 border-purple-300 p-8 hover-lift">
+                <div className="text-center mb-6">
+                  <h2 className="text-3xl font-bold mb-4">
+                    <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">
+                      Transportation Options
+                    </span>
+                  </h2>
+                  <p className="text-slate-700 text-base leading-relaxed max-w-2xl mx-auto">
+                    Link Light Rail transportation is included in the standard experience.
+                    Prefer a more comfortable airport transfer? Upgrade to a pre-arranged
+                    private transfer for $100 each way, per group.
+                  </p>
+                </div>
+
+                <div className="space-y-3 max-w-2xl mx-auto">
+                  {TRANSPORTATION_OPTIONS.map((option, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50"
+                    >
+                      <span className="text-sm font-medium text-slate-700">{option.name}</span>
+                      <span
+                        className={`text-sm font-bold ${option.isIncluded ? "text-green-600" : "headings_color"
+                          }`}
+                      >
+                        {option.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-xs text-slate-500 text-center mt-4">
+                  One-way transfers let you choose SEA Airport → Seattle or Seattle → SEA Airport at booking.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What's Included */}
         <section className="py-16 bg-gradient-to-br ">
           <div className="container">
@@ -241,10 +314,10 @@ export default function PricingPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 max-w-6xl mx-auto">
               {WHATS_INCLUDED.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift"
-                  style={{animation: `slide-in 0.${index + 12}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 12}s ease-out` }}
                 >
                   <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
                     <span className="text-white text-xl">✓</span>
@@ -310,10 +383,10 @@ export default function PricingPage() {
                       <div className="font-semibold text-slate-800 mb-1">{addon.name}</div>
                       <div className="text-sm headings_color font-medium">${addon.price} per group</div>
                       <div
-                          className="text-sm text-slate-600 mb-4 mt-1"
-                          dangerouslySetInnerHTML={{ __html: addon.subtitle }}
-                        />
-                      
+                        className="text-sm text-slate-600 mb-4 mt-1"
+                        dangerouslySetInnerHTML={{ __html: addon.subtitle }}
+                      />
+
                       <div className="text-xs text-slate-500 mt-1">{addon.requirement}</div>
                     </div>
                   </div>
@@ -385,7 +458,7 @@ export default function PricingPage() {
         </section>
 
 
-        {/* CTA Section */}        
+        {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br sub-primary-background">
           <div className="container text-center">
             <h2 className="text-4xl font-bold  mb-6">
@@ -396,24 +469,24 @@ export default function PricingPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-            {/* Primary CTA */}
-            <a
-              href="/book" // or Stripe Checkout link
-              onClick={() => handleEvent("Book Your Seattle Tour")}
-              className="inline-flex items-center px-8 py-3 bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-            >
-              📋 Book Your Seattle Tour
-            </a>
+              {/* Primary CTA */}
+              <a
+                href="/book" // or Stripe Checkout link
+                onClick={() => handleEvent("Book Your Seattle Tour")}
+                className="inline-flex items-center px-8 py-3 bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              >
+                📋 Book Your Seattle Tour
+              </a>
 
-            {/* Secondary CTA */}
-            <a
-              href="mailto:booking@sixhourlayover.com?subject=Quick%20Booking%20Request&body=Hi!%20I’d%20like%20to%20book%20a%20Six-Hour%20Layover%20tour.%20Please%20help%20me%20confirm%20my%20booking.%20Here%20are%20my%20details:%0A%0AName:%0AFlight%20Arrival%20Time:%0ADeparture%20Time:%0AAny%20Special%20Notes:"
-              onClick={() => handleEvent("Quick Book (Email Us)")}
-              className="inline-flex items-center px-8 py-3 bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-            >
-              ✈️ Quick Book (Email Us)
-            </a>
-          </div>
+              {/* Secondary CTA */}
+              <a
+                href="mailto:booking@sixhourlayover.com?subject=Quick%20Booking%20Request&body=Hi!%20I’d%20like%20to%20book%20a%20Six-Hour%20Layover%20tour.%20Please%20help%20me%20confirm%20my%20booking.%20Here%20are%20my%20details:%0A%0AName:%0AFlight%20Arrival%20Time:%0ADeparture%20Time:%0AAny%20Special%20Notes:"
+                onClick={() => handleEvent("Quick Book (Email Us)")}
+                className="inline-flex items-center px-8 py-3 bg-white headings_color font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              >
+                ✈️ Quick Book (Email Us)
+              </a>
+            </div>
             {/* reassurance line */}
             <p className="text-slate-600 text-base mt-6">
               Instant confirmation or same-day response — we handle everything for you.
@@ -421,11 +494,11 @@ export default function PricingPage() {
           </div>
         </section>
 
-        <MobileNav />        
+        <MobileNav />
         {/* Booking Modal */}
-        <BookingModal 
-          isOpen={isBookingModalOpen} 
-          onClose={() => setIsBookingModalOpen(false)} 
+        <BookingModal
+          isOpen={isBookingModalOpen}
+          onClose={() => setIsBookingModalOpen(false)}
           selectedTier={selectedTier} // 👈 Pass it down
         />
       </div>

@@ -47,8 +47,9 @@ const ADD_ONS = [
     requirement: "Requires 9+ hour layover"
   },
   {
-    name: "Amazon Spheres + Top Pot Donuts",
-    subtitle:"Explore the futuristic <strong>Amazon Spheres</strong>, then unwind at <strong>Top Pot Donuts</strong> for coffee and Seattle’s most famous handcrafted doughnuts.",
+    // name: "Amazon Spheres + Top Pot Donuts",
+    name: "Amazon Spheres Photo Stop + Top Pot Donuts",
+    subtitle:"See the Amazon Spheres from the exterior/public areas, stop for photos, and explore nearby Amazon campus highlights before heading to Top Pot Donuts.",
     price: 120,
     emoji: "🏢",
     requirement: "Requires 9+ hour layover"
@@ -225,7 +226,8 @@ export default function SLTourContent() {
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">Meeting Point</h2>
 
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
+                Your Layover Concierge will coordinate your meeting at SEA-Tac Airport and provide clear instructions before your arrival. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
+                {/* Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign. */}
               </div>
             </div>
            
@@ -332,7 +334,8 @@ export default function SLTourContent() {
               {/* Important Note */}
               <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
                 <p className="text-sm text-blue-700 font-medium">
-                  Includes: airport meet &amp; greet | light rail from airport and Uber within the city | souvenir tote bag | planned with buffer time for a timely airport return | friendly local guide.
+                  {/* Includes: airport meet &amp; greet | light rail from airport and Uber within the city | souvenir tote bag | planned with buffer time for a timely airport return | friendly local guide. */}
+                  Includes: airport meet &amp; greet | light rail from airport and Uber within the city | a small, locally inspired Seattle treat | planned with buffer time for a timely airport return | friendly local guide.
                 </p>
               </div>
             </div>
