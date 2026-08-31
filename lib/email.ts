@@ -28,7 +28,7 @@ interface BookingNotificationData {
   customerEmail: string | null;
   customerPhone: string | undefined;
   tourOption: string | undefined;
-  travelDate: string | undefined;
+  // travelDate: string | undefined;
   preferredLanguage: string;
   paymentAmount: number;
   paymentStatus: string;
@@ -62,7 +62,7 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
       </ul>
       <h3>Booking Details</h3>
       <ul>
-        <li><strong>Travel Date:</strong> ${bookingInfo.travelDate || 'N/A'}</li>
+       
         <li><strong>Tour Option:</strong> ${bookingInfo.tourOption || 'N/A'}</li>
         <li><strong>Preferred Language:</strong> ${bookingInfo.preferredLanguage}</li>
         <li><strong>Total Amount:</strong> $${bookingInfo.paymentAmount.toFixed(2)} ${bookingInfo.currency}</li>
