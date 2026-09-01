@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
                 >
                   {/* Connector line */}
                   {index < HOW_IT_WORKS_STEPS.length - 1 && (
-                    <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b primary-background how_its_work_lins"/>
+                    <div className="absolute left-6 top-24 w-0.5 h-16 bg-gradient-to-b primary-background how_its_work_lins" />
                   )}
 
                   <div className="flex gap-6">
@@ -121,6 +121,57 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
+
+        {/* Layover Hours Clarification */}
+        <section className="py-16">
+          <div className="container max-w-4xl mx-auto">
+            <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 p-8 sm:p-10 hover-lift">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+                  What does 6, 7 or 8 hours mean?
+                </h2>
+                <p className="text-slate-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                  Choose based on your total layover time at SEA, not the length
+                  of the guided sightseeing portion. Your layover window
+                  includes airport meeting, transportation to and from Seattle,
+                  your Seattle experience, and sufficient time for a comfortable
+                  return before your departing flight.
+                </p>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-3">
+                <div className="rounded-2xl bg-purple-50 border border-purple-100 p-6 text-center">
+                  <div className="text-3xl font-bold text-purple-700 mb-3">
+                    6 Hours
+                  </div>
+                  <p className="text-slate-700 font-semibold">
+                    Seattle essentials
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-indigo-50 border border-indigo-100 p-6 text-center">
+                  <div className="text-3xl font-bold text-indigo-700 mb-3">
+                    7 Hours
+                  </div>
+                  <p className="text-slate-700 font-semibold">
+                    More time to explore
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-pink-50 border border-pink-100 p-6 text-center">
+                  <div className="text-3xl font-bold text-pink-700 mb-3">
+                    8 Hours
+                  </div>
+                  <p className="text-slate-700 font-semibold">
+                    A more relaxed and expanded experience
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         {/* What Makes Us Different */}
         <section className="py-16 bg-gradient-to-br ">
           <div className="container">
@@ -150,7 +201,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Transportation Info */}
-        {/* <section className="py-16">
+        <section className="py-16">
           <div className="container max-w-4xl mx-auto">
             <div className="rounded-3xl bg-gradient-to-br section-highlight p-8 shadow-2xl hover-lift">
               <div className="text-center mb-8">
@@ -200,10 +251,10 @@ export default function HowItWorksPage() {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
 
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="container max-w-4xl mx-auto">
             <div className="rounded-3xl bg-gradient-to-br section-highlight p-8 shadow-2xl hover-lift">
               <div className="text-center mb-8">
@@ -219,7 +270,7 @@ export default function HowItWorksPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <MobileNav />
       </div>

@@ -126,7 +126,8 @@ export const STRIPE_ADD_ONS: StripeAddOn[] = [
     id: 'amazon-spheres-top-pot',
     name: 'Amazon Spheres + Top Pot Donuts',
     price: 120.00,
-    description: 'Optional curated add-on (requires 9+ hour layover): Amazon Spheres (outside view) and Top Pot Doughnuts. Price covers coordination, guide time, and transportation. Purchases not included.',
+    // description: 'Optional curated add-on (requires 9+ hour layover): Amazon Spheres (outside view) and Top Pot Doughnuts. Price covers coordination, guide time, and transportation. Purchases not included.',
+    description: 'See the Amazon Spheres from the exterior/public areas, stop for photos, and explore nearby Amazon campus highlights before heading to Top Pot Donuts.',
     paymentLink: 'https://buy.stripe.com/new-addon-amazon-toppot',
     category: 'tour-addon'
   },

@@ -13,7 +13,8 @@ const TOUR_OPTIONS = [
     title: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
+    // duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
+    duration: "Airport meet & greet, Light Rail transfers, A small, locally inspired Seattle treat.",
     pricing: {
       perPerson: 250,
       solo: 399,
@@ -23,7 +24,8 @@ const TOUR_OPTIONS = [
       "Pike Place Market tour",
       "Famous fish toss viewing", 
       "Waterfront exploration",
-      "Seattle chocolate-covered Rainier cherries tote bag"
+      "A small, locally inspired Seattle treat."
+      // "Seattle chocolate-covered Rainier cherries tote bag"
     ]
   },
   {
@@ -64,11 +66,19 @@ const TOUR_OPTIONS = [
 
 const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 
+// const WHATS_INCLUDED = [
+//   "Airport meet & greet",
+//   "Light Rail (airport ↔ city) + Uber for short hops",
+//   "On-time return guarantee (safe buffer; flight monitored)",
+//   "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+//   "Free cancellation (24+ hours notice)"
+// ];
+
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail (airport ↔ city) + Uber for short hops",
-  "On-time return guarantee (safe buffer; flight monitored)",
-  "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+  "Return is planned with an appropriate airport buffer; flight status monitored",
+  "A small, locally inspired Seattle treat.",
   "Free cancellation (24+ hours notice)"
 ];
 

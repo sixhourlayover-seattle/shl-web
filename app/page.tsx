@@ -22,7 +22,8 @@ const TOUR_OPTIONS = [
     features: [
       "Airport meet & greet",
       "Light Rail transfers",
-      "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+      "A small, locally inspired Seattle treat."
+      // "Seattle chocolate-covered Rainier cherry souvenir tote bag",
     ],
     previewTitle: "🔍 Preview — 6-Hour Experience",
     previewDescription:
@@ -394,11 +395,10 @@ export default function Page() {
                       {TOUR_OPTIONS.map((tour, index) => (
                         <div
                           key={index}
-                          className={`rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 ${
-                            selectedTour === index
-                              ? "border-primary-500 shadow-lg"
-                              : "border-slate-200 hover:border-primary-300 hover:shadow-md"
-                          }`}
+                          className={`rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 ${selectedTour === index
+                            ? "border-primary-500 shadow-lg"
+                            : "border-slate-200 hover:border-primary-300 hover:shadow-md"
+                            }`}
                           onClick={() => setSelectedTour(index)}
                         >
                           <div className="flex items-start gap-4">
@@ -520,10 +520,241 @@ export default function Page() {
               >
                 ⚡ Quick Book (From $250)
               </button>
+
             </div>
           </div>
         </section>
 
+
+        {/* Seattle Cruise Guests Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            {/* Intro */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+              {/* Image */}
+              <div className="order-2 lg:order-1">
+                <div className="rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/space-needle-skyline.jpg"
+                    alt="Cruise ship arriving in Seattle"
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="order-1 lg:order-2">
+                <p className="text-sm font-bold tracking-[0.2em] text-color-heading mb-4 uppercase">
+                  FOR SEATTLE CRUISE GUESTS
+                </p>
+
+                <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-10">
+                  <span className="text-slate-900">Cruise Ended.</span>
+
+                  <span className="headings_color"> Flight Later?</span>
+                </h1>
+
+                <p className="text-xl font-semibold text-slate-900 mb-6">
+                  Make your last hours in Seattle count.
+                </p>
+
+                <div className="space-y-4 text-black/80 text-lg leading-relaxed">
+                  <p>
+                    Your cruise may be over, but your Seattle experience doesn’t have to be.
+                  </p>
+
+                  <p>
+                    If you have a few hours between leaving your ship and your next flight, we can create a private Seattle experience around your available time, interests, and onward travel.
+                  </p>
+
+                  <p>
+                    Explore iconic sights, discover local neighborhoods, enjoy Seattle food and culture, browse local art, or simply spend a relaxed few hours seeing a side of the city that interests you.
+                  </p>
+                </div>
+
+
+              </div>
+
+
+            </div>
+            <div className="container mb-16">
+              <div className="flex flex-wrap justify-center gap-4">
+                <a href="/book" className="inline-flex items-center px-8 py-3 bg-white text-color-heading font-bold text-lg rounded-xl shadow-2xl border-2 border-color-primary hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
+                  📋 Plan My Seattle Time
+                </a>
+                <a href="https://wa.me/12069281277" className="inline-flex items-center px-4 md:px-8 py-3 btn-primary font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
+                  💬 Message Us On Whatsapp
+                </a>
+              </div>
+
+
+            </div>
+
+
+            {/* Experience Categories */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-10 md:pt-20 pb-12">
+              {[
+                {
+                  icon: "🌆",
+                  title: "Seattle Icons",
+                },
+                {
+                  icon: "☕",
+                  title: "Food & Local Flavors",
+                },
+                {
+                  icon: "🎨",
+                  title: "Art & Culture",
+                },
+                {
+                  icon: "🏘️",
+                  title: "Neighborhoods & Hidden Gems",
+                },
+                {
+                  icon: "🌲",
+                  title: "Nature & Scenery",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white border border-black/10 rounded-2xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="text-4xl mb-4">{item.icon}</div>
+
+                  <h3 className="text-lg font-bold text-color-heading">
+                    {item.title}
+                  </h3>
+                </div>
+              ))}
+            </div>
+
+            {/* Feature Line */}
+            <div className="text-center pb-10 md:pb-20">
+              <p className="text-lg md:text-xl font-semibold text-color-primary">
+                Private
+                <span className="mx-3 text-color-primary">•</span>
+                Flexible
+                <span className="mx-3 text-color-primary">•</span>
+                Curated Around You
+              </p>
+            </div>
+
+            {/* How It Works */}
+            <div className="my-16">
+              <div className="flex items-center justify-center gap-4 mb-12">
+                <div className="hidden md:block h-px bg-black/15 flex-1 max-w-xs" />
+
+
+                <h2 className="text-5xl sm:text-4xl font-bold tracking-tight leading-tight">
+                  <span className="text-slate-900">How It Works</span>
+                </h2>
+                <div className="hidden md:block h-px bg-black/15 flex-1 max-w-xs" />
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Step 1 */}
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-color-primary text-primary flex items-center justify-center text-xl font-bold shadow-lg border-2 border-color-primary">
+                    1
+                  </div>
+
+                  <div className="text-4xl mb-4">📅</div>
+
+                  <h3 className="text-xl font-bold text-color-heading mb-3">
+                    Tell us your schedule
+                  </h3>
+
+                  <p className="text-black/70 leading-relaxed max-w-sm mx-auto">
+                    Share your cruise terminal, expected disembarkation time, and
+                    flight departure time.
+                  </p>
+                </div>
+
+                {/* Step 2 */}
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-color-primary text-primary flex items-center justify-center text-xl font-bold shadow-lg border-2 border-color-primary">
+                    2
+                  </div>
+
+                  <div className="text-4xl mb-4">❤️</div>
+
+                  <h3 className="text-xl font-bold text-color-heading mb-3">
+                    Tell us what you enjoy
+                  </h3>
+
+                  <p className="text-black/70 leading-relaxed max-w-sm mx-auto">
+                    Food, culture, art, neighborhoods, iconic sights, nature — or a
+                    little of everything.
+                  </p>
+                </div>
+
+                {/* Step 3 */}
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-color-primary text-primary flex items-center justify-center text-xl font-bold shadow-lg border-2 border-color-primary">
+                    3
+                  </div>
+
+                  <div className="text-4xl mb-4">📍</div>
+
+                  <h3 className="text-xl font-bold text-color-heading mb-3">
+                    We plan the time in between
+                  </h3>
+
+                  <p className="text-black/70 leading-relaxed max-w-sm mx-auto">
+                    We create an experience that fits your available time and plan
+                    around your onward travel.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Transportation & Luggage */}
+            <div className="bg-white border border-black/10 rounded-2xl p-6 md:p-8 shadow-sm my-20">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="w-16 h-16 flex-shrink-0 rounded-full bg-black/5 flex items-center justify-center text-3xl">
+                  🧳
+                </div>
+
+                <div className="text-center md:text-left">
+                  <h3 className="text-xl font-bold text-color-heading mb-2">
+                    Transportation & Luggage
+                  </h3>
+
+                  <p className="text-black/70 text-lg">
+                    Transportation and luggage solutions may be coordinated based on
+                    your group size, schedule, and needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Final Cruise CTA */}
+            <div className="section-highlight rounded-3xl py-14 px-6 md:px-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+                Have a few hours after your cruise?
+                <br />
+                Let’s make them count.
+              </h2>
+
+              <div className="container myb-16 mt-10">
+                <div className="flex flex-wrap justify-center gap-4">
+                  <a href="/book" className="inline-flex items-center px-8 py-3 bg-white text-color-heading font-bold text-lg rounded-xl shadow-2xl border-2 border-color-primary hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
+                    📋 Plan My Seattle Time
+                  </a>
+                  <a href="https://wa.me/12069281277" className="inline-flex items-center px-4 md:px-8 py-3 btn-primary font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
+                    💬 Message Us On Whatsapp
+                  </a>
+                </div>
+
+
+              </div>
+
+              <p className="text-black/70 mt-12">
+                🌐 Multilingual options available.
+              </p>
+            </div>
+          </div>
+        </section>
         <MobileNav />
 
         {/* Booking Modal */}
@@ -531,7 +762,7 @@ export default function Page() {
           isOpen={isBookingModalOpen}
           onClose={() => setIsBookingModalOpen(false)}
         />
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

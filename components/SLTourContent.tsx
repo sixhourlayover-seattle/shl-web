@@ -1,22 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import {  ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
+import { ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
-import { HomePageText,PricingPageText,GlobalText } from "@/lib/text";
+import { HomePageText, PricingPageText, GlobalText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 import Image from "next/image";
 import Link from "next/link";
 
 
 
+// const WHATS_INCLUDED = [
+//   "Airport meet & greet",
+//   "Light Rail from airport and Uber within the city",
+//   "On-time return guarantee",
+//   "Souvenir tote bag",
+//   "Friendly local guide"
+// ];
+
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
-  "On-time return guarantee",
-  "Souvenir tote bag",
+  "Return is planned with an appropriate airport buffer",
+  "A small, locally inspired Seattle treat",
   "Friendly local guide"
 ];
 
@@ -25,7 +33,12 @@ const TOUR_OPTIONS_opiton = [
     name: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"],
+    // features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"],
+    features: [
+      "Airport meet & greet",
+      "Light Rail transfers",
+      "A small, locally inspired Seattle treat.",
+    ],
     url: "/6-hour-layover-seattle"
   },
   {
@@ -78,39 +91,46 @@ export default function SLTourContent() {
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
-      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
-      
+      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }} />
+
       <div className="relative z-10">
         <Navigation />
 
         {/* Hero */}
         <section className="py-12 sm:py-20">
-          <div className="container text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
+          <div className="container text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
               <span className="bg-gradient-to-r headings_color">Seattle Layover Tour (6–8 Hours) <br />
-              Explore the City, Be Back on Time</span>
+                Explore the City, Be Back on Time</span>
             </h1>
             <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — see the city safely and return with time to spare.</p>
 
             <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r btn-primary text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-                      >Book Tour   </a>
+            >Book Tour   </a>
           </div>
         </section>
 
         <section className="py-12 sm:py-20">
           <div className="container grid gap-8 md:grid-cols-2 md:items-center">
-            <div className="space-y-6" style={{animation: 'slide-in 0.6s ease-out'}}>   
+            <div className="space-y-6" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <div className="grid gap-4 text-left max-w-2xl">
-                <div className="flex items-center gap-3">                      
-                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free <br />— all with an on-time airport return guarantee.</p>
-                </div>  
+                <div className="flex items-center gap-3">
+                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
+                    Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free
+                    <br />
+                    — with an appropriate airport return time built into the itinerary.
+                  </p>
+
+                  {/* <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free 
+                  <br />— all with an on-time airport return guarantee.</p> */}
+                </div>
               </div>
-              
-              
+
+
             </div>
-            <div className="relative" style={{animation: 'slide-in 0.8s ease-out'}}>
-              <div 
+            <div className="relative" style={{ animation: 'slide-in 0.8s ease-out' }}>
+              <div
                 className="aspect-[4/2] rounded-3xl shadow-2xl overflow-hidden relative hover-lift"
                 style={{
                   backgroundImage: 'url("/seattle-skyline.jpg")',
@@ -132,24 +152,24 @@ export default function SLTourContent() {
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 <span className="">Itinerary Overview</span>
-              </h2>   
-              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Choose from 3 routes</p>         
+              </h2>
+              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Choose from 3 routes</p>
             </div>
 
             {/* Tour Options */}
             <div className="grid gap-8 lg:grid-cols-1 max-w-7xl mx-auto">
               <div className="lg:col-span-2">
                 <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift">
-                  
+
                   <div className="p-8">
                     <div className="space-y-6">
-                      {TOUR_OPTIONS_opiton.map((tour, index) => (                       
-                        <div 
+                      {TOUR_OPTIONS_opiton.map((tour, index) => (
+                        <div
                           key={index}
                           className="rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 border-slate-200 bg-white hover:border-purple-300 hover:shadow-md'
                               ">
-                            <a href={tour.url}>
-                          
+                          <a href={tour.url}>
+
                             <div className="flex items-start gap-4">
                               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg">
                                 {index + 6}
@@ -160,44 +180,49 @@ export default function SLTourContent() {
                                 <p className="text-slate-600 text-sm leading-relaxed">{tour.description}</p>
                               </div>
                             </div>
-                            </a>
-                          
+                          </a>
+
                         </div>
-                        
+
                       ))}
-                    </div>    
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>   
+            </div>
           </div>
         </section>
 
 
-          {/* CTA Section */}
+        {/* CTA Section */}
         <section className="py-16 ">
           <div className="container text-center">
 
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-            <h2 className="text-4xl font-bold ">Timing &amp; Guarantee</h2>
-            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">Every itinerary includes a built-in 2-hour return buffer, real-time flight monitoring, and an on-time airport return guarantee.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="/book"
-                className="inline-flex items-center px-6 py-2 bg-gradient-to-r btn-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-              >
-                📋 {HomePageText.bookNow}
-              </a>
-              <button
-                onClick={() => setIsBookingModalOpen(true)}
-                className="inline-flex items-center px-8 py-3 bg-gradient-to-r bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
-              >
-                ⚡ Quick Book (From $250)
-              </button>
+              <h2 className="text-4xl font-bold ">Timing &amp; Guarantee</h2>
+              <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
+                Every itinerary is planned around your flight schedule, with real-time flight monitoring and an appropriate airport return buffer built into the itinerary.
+              </p>
+
+              {/* <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
+              Every itinerary includes a built-in 2-hour return buffer, real-time flight monitoring, and an on-time airport return guarantee. */}
+              {/* </p> */}
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="/book"
+                  className="inline-flex items-center px-6 py-2 bg-gradient-to-r btn-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  📋 {HomePageText.bookNow}
+                </a>
+                <button
+                  onClick={() => setIsBookingModalOpen(true)}
+                  className="inline-flex items-center px-8 py-3 bg-gradient-to-r bg-white text-purple-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  ⚡ Quick Book (From $250)
+                </button>
+              </div>
             </div>
-            </div>
-            
+
           </div>
         </section>
 
@@ -208,12 +233,13 @@ export default function SLTourContent() {
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 <span className="bg-gradient-to-r bg-clip-text">Meeting Point</span>
               </h2>
-            
+
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
+                Your Layover Concierge will coordinate your meeting at SEA-Tac Airport and provide clear instructions before your arrival. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
+                {/* Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign. */}
               </div>
-            </div> 
-             <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+            </div>
+            <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl hover-lift aspect-[4/3] relative">
                 <Image
                   src="/airport-six.jpeg"
@@ -231,13 +257,13 @@ export default function SLTourContent() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-              </div>              
+              </div>
             </div>
           </div>
         </section>
 
 
-       
+
         {/* Pricing Section */}
         <section className="py-16">
           <div className="container">
@@ -254,13 +280,12 @@ export default function SLTourContent() {
               {PRICING_TIERS.map((tier, index) => (
                 <div
                   key={tier.name}
-                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${
-                    selectedTier === tier.name
-                      ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
-                      : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
-                  }`}
+                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${selectedTier === tier.name
+                    ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
+                    : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
+                    }`}
                   onClick={() => setSelectedTier(tier.name)}
-                  style={{animation: `slide-in 0.${index + 8}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 8}s ease-out` }}
                 >
                   <div className="text-center">
                     <h3 className="font-bold text-lg text-slate-800 mb-2">{tier.name}</h3>
@@ -296,13 +321,13 @@ export default function SLTourContent() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5  max-w-6xl mx-auto">
-             
+
 
               {Why_travellers_love_it.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift"
-                  style={{animation: `slide-in 0.${index + 12}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 12}s ease-out` }}
                 >
                   <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
                     <span className="text-white text-xl">✓</span>
@@ -330,20 +355,20 @@ export default function SLTourContent() {
                 Book Now
               </a>
 
-             
+
               <a href="https://wa.me/12069281277" target="_blank" className="inline-flex items-center px-8 py-3 bg-white text-purple-600 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
                 <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; Chat on WhatsApp
               </a>
             </div>
           </div>
-        </section> 
+        </section>
 
         <MobileNav />
         {/* Booking Modal */}
-        <BookingModal 
-          isOpen={isBookingModalOpen} 
-          onClose={() => setIsBookingModalOpen(false)} 
+        <BookingModal
+          isOpen={isBookingModalOpen}
+          onClose={() => setIsBookingModalOpen(false)}
           selectedTier={selectedTier} // 👈 Pass it down
         />
       </div>

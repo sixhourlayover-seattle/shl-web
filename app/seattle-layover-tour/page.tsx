@@ -5,7 +5,8 @@ import SLTourContent from "@/components/SLTourContent";
 // Dynamic metadata for this page
 export const metadata: Metadata = {
   title: "Seattle Layover Tour (6–8 Hours) – Out to the City, Back on Time",
-  description: "Make the most of your 6–8 hour layover at SEA. Pike Place, skyline views, Uber coordination, and an on-time return guarantee.",
+  // description: "Make the most of your 6–8 hour layover at SEA. Pike Place, skyline views, Uber coordination, and an on-time return guarantee.",
+  description: "Make the most of your 6–8 hour layover at SEA. Pike Place, skyline views, Uber coordination, and return timing planned around your flight schedule with an appropriate airport buffer.",
   openGraph: {
     title: "Seattle Layover Tour | Six Hour Layover",
     description: "Explore Seattle efficiently on your short layover with airport pickup and guided tours.",

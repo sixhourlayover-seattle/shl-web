@@ -5,7 +5,8 @@ import { ContactPageText, CONTACT_METHODS, BOOKING_INFO, FAQ_QUICK, GlobalText }
 
 export const metadata = {
   title: "Contact Us - Seattle Layover Tours | Six Hour Layover",
-  description: "Contact Six Hour Layover for Seattle layover tour bookings. Call (206) 928-1277, WhatsApp, or email for SEA airport pickup tours. Quick response guaranteed.",
+  // description: "Contact Six Hour Layover for Seattle layover tour bookings. Call (206) 928-1277, WhatsApp, or email for SEA airport pickup tours. Quick response guaranteed.",
+  description: "Contact Six Hour Layover for Seattle layover tour bookings. Call (206) 928-1277, WhatsApp, or email for SEA airport pickup tours. We aim to respond promptly during business hours.",
   keywords: ["Seattle layover tour contact", "SEA airport tour booking", "layover tour phone number", "Seattle tour contact", "airport pickup booking", "layover tour WhatsApp"],
   openGraph: {
     title: "Contact Us - Seattle Layover Tours | Six Hour Layover",

@@ -22,7 +22,8 @@ const TOUR_OPTIONS = [
     features: [
       "Airport meet & greet",
       "Light Rail transfers",
-      "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+      "A small, locally inspired Seattle treat.",
+      // "Seattle chocolate-covered Rainier cherry souvenir tote bag",
     ],
     previewTitle: "🔍 Preview — 6-Hour Experience",
     previewDescription:

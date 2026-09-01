@@ -4,7 +4,9 @@ import _6HLSContent from "@/components/cnContent";
 // Dynamic metadata for this page
 export const metadata: Metadata = {
   title: "西雅图转机城市游（6–8小时）",
-  description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and guaranteed on-time return.",
+  // description: "Make the most of a short layover. Airport-gate pickup, Pike Place Market, Seattle Waterfront, and guaranteed on-time return.",
+  description: "Make the most of a short layover. Airport pickup, Pike Place Market, Seattle Waterfront, with return timing planned around your flight schedule and an appropriate airport buffer.",
+  
   openGraph: {
     title: "西雅图转机城市游（6–8小时）",
     description: "西雅图转机也能轻松游城市。中文向导机场接送，轻轨+Uber，全程保障准点返航。",

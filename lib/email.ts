@@ -4,8 +4,8 @@ import mailgun from 'mailgun-js'; // Fixed import for Mailgun
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-08-27.basil',
-    })
+    apiVersion: '2025-08-27.basil',
+  })
   : null;
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -28,19 +28,21 @@ interface BookingNotificationData {
   customerEmail: string | null;
   customerPhone: string | undefined;
   tourOption: string | undefined;
+  // travelDate: string | undefined;
   preferredLanguage: string;
   paymentAmount: number;
   paymentStatus: string;
   currency: string;
   paymentIntentId: string | Stripe.PaymentIntent | null;
   createdAt: string;
+
 }
 
 // Send email using Mailgun
 export async function sendBookingNotificationEmail(bookingInfo: BookingNotificationData): Promise<boolean> {
   try {
     console.log('🚀 Starting sendBookingNotificationEmail function...');
-    
+
     // Step 1: Check Mailgun config
     if (!mg) {
       console.warn('⚠️ Mailgun not configured. Email not sent.');
@@ -60,6 +62,7 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
       </ul>
       <h3>Booking Details</h3>
       <ul>
+       
         <li><strong>Tour Option:</strong> ${bookingInfo.tourOption || 'N/A'}</li>
         <li><strong>Preferred Language:</strong> ${bookingInfo.preferredLanguage}</li>
         <li><strong>Total Amount:</strong> $${bookingInfo.paymentAmount.toFixed(2)} ${bookingInfo.currency}</li>
@@ -71,14 +74,14 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
         <li><strong>Stripe Session ID:</strong> ${bookingInfo.sessionId}</li>
         <li><strong>Payment Intent ID:</strong> ${bookingInfo.paymentIntentId || 'N/A'}</li>
         <li><strong>Booking Time:</strong> ${new Date().toLocaleString('en-US', {
-          timeZone: 'America/Los_Angeles',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        })}</li>
+      timeZone: 'America/Los_Angeles',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    })}</li>
       </ul>
       <p><em>This booking was automatically processed through the Six Hour Layover booking system.</em></p>
     `;
@@ -100,7 +103,7 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
     console.log('✅ Email sent successfully:', response);
 
 
- if (bookingInfo.customerEmail) {
+    if (bookingInfo.customerEmail) {
       const customerEmailContent = `
         <p>Hi ${bookingInfo.customerName},</p>
         <p>Thank you for booking The Six-Hour Layover — we’re excited to welcome you and make your stop in Seattle a memorable one!</p>
@@ -114,7 +117,8 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
           <li><strong>Booking ID:</strong> ${bookingInfo.bookingId || 'N/A'}</li>
         </ul>
 
-        <p>Your Layover Concierge will meet you directly at your arrival gate. From there, we’ll handle everything — luggage, local bites, and a perfectly timed route so you’re back at the airport stress-free for your next flight.</p>
+    
+        <p>Your Layover Concierge will meet you at the airport and help you get started. From there, we’ll coordinate luggage, local stops, and a route planned around your available layover time, with an appropriate buffer for your return to SEA Airport.</p>
 
         <p>You’ll receive a short reminder and contact details 24 hours before your tour. If you need to adjust your schedule or have any questions, please reply to this email or contact us at booking@sixhourlayover.com.</p>
 
