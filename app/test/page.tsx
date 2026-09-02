@@ -57,25 +57,28 @@ export default function RefundRequestPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
-      <h1 className="text-2xl font-bold">Refund / Cancellation Request</h1>
+      <h1 className="text-2xl font-bold">Cancellation & Refund Policy</h1>
 
       <div className="bg-gray-100 p-4 rounded-lg">
         <h2 className="font-semibold mb-2">Refund & Cancellation Policy</h2>
         <ul className="list-disc ml-5 text-sm space-y-1">
           <li>
-            Cancellations made 48 hours or more before your tour are refunded
-            minus Stripe’s 3% processing fee.
+            Cancellations made 48 hours or more before your tour receive a full refund.
           </li>
           <li>
-            Cancellations within 48 hours are non-refundable, but may be
-            rescheduled.
+            Cancellations made 24–48 hours before your tour receive a 50% refund.
           </li>
           <li>
-            Airline-caused disruptions: 50% refund or complimentary reschedule
-            at our discretion.
+            Cancellations made less than 24 hours before your tour, including no-shows,
+            are non-refundable.
           </li>
-          <li>Refunds return to the original payment method within 5–10 days.</li>
+          <li>
+            For flight cancellations, delays, or other airline-related disruptions,
+            accommodations may be adjusted, rescheduled, credited, refunded, or
+            otherwise handled based on the circumstances.
+          </li>
         </ul>
+
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">

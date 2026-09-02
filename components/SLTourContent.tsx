@@ -11,15 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-
-// const WHATS_INCLUDED = [
-//   "Airport meet & greet",
-//   "Light Rail from airport and Uber within the city",
-//   "On-time return guarantee",
-//   "Souvenir tote bag",
-//   "Friendly local guide"
-// ];
-
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
@@ -33,7 +24,7 @@ const TOUR_OPTIONS_opiton = [
     name: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    // features: ["Airport meet & greet", "Light Rail transfers", "Seattle chocolate-covered Rainier cherry souvenir tote bag"],
+  
     features: [
       "Airport meet & greet",
       "Light Rail transfers",

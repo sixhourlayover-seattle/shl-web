@@ -92,7 +92,7 @@ export const AboutPageText = {
       Our mission is simple: to turn every layover into a highlight of your journey — We
       design thoughtful, well-timed experiences that allow travelers to step into a city
       with confidence and return to the airport with appropriate time built into the itinerary.
-      Along the way, we value cultural exchange, human connection, and working with people who 
+      Along the way, we value cultural exchange, human connection, and working with people who
       care deeply about sharing their city with others.
     </>
   ),
@@ -249,7 +249,8 @@ export const FAQ_QUICK = [
   },
   {
     question: "Can I cancel or reschedule?",
-    answer: "Yes, we offer free cancellation up to 24 hours before your tour. Rescheduling is also flexible based on availability."
+    answer: "Cancellation is available under our standard cancellation policy: 48+ hours before the tour: full refund; 24–48 hours before the tour: 50% refund; less than 24 hours before the tour or no-show: non-refundable."
+
   }
 ];
 
@@ -308,8 +309,10 @@ export const FAQ_SECTIONS = [
     faqs: [
       {
         question: "Can I bring my luggage?",
+        // answer:
+        //   "Yes. We recommend using the airport luggage storage service for convenience. Luggage storage fee are paid directly to the provider and are not included in your tour price."
         answer:
-          "Yes. We recommend using the airport luggage storage service for convenience. Luggage storage fees are paid directly to the provider and are not included in your tour price."
+          "Yes. Baggage storage is available at SEA Airport through Smarte Carte for an additional fee paid directly to the provider."
       }
     ]
   },
@@ -342,7 +345,7 @@ export const FAQ_SECTIONS = [
       {
         question: "What if I need to cancel?",
         answer:
-          "Free cancellation is available up to 24 hours before your tour. Cancellations within 24 hours are non-refundable."
+          "Our cancellation policy is: 48+ hours before the tour: full refund; 24–48 hours before the tour: 50% refund; less than 24 hours before the tour or no-show: non-refundable."
       }
     ]
   },
@@ -395,11 +398,11 @@ export const HowItWorksPageText = {
   rideServicePoint2: "• Professional drivers with full insurance",
   rideServicePoint3: "• Direct airport-to-downtown service",
   luggageStorageTitle: "Luggage Storage",
-  luggageStorageDescription: "SEA Airport offers secure Smarte Carte storage for a fee (paid directly to storage provider).",
-  luggageStoragePoint1: "• We guide you through the storage process",
-  luggageStoragePoint2: "• Secure, monitored storage facility",
-  luggageStoragePoint3: "• Easy retrieval upon return",
-  luggageStoragePoint4: "• View pricing and details",
+  luggageStorageDescription: "Baggage storage is available at SEA Airport through Smarte Carte for an additional fee paid directly to the provider.",
+  luggageStoragePoint1: "• Storage is paid directly to Smarte Carte.",
+  luggageStoragePoint2: "• We can guide you through the storage process and retrieval.",
+  // luggageStoragePoint3: "• Easy retrieval upon return",
+  // luggageStoragePoint4: "• View pricing and details",
 
   transportationTitle2: "What Does a 6-, 7-, or 8-Hour Layover Experience Mean?",
   transportationDescription: "The 6-, 7-, and 8-hour options refer to your total available layover window, not only the time spent at individual attractions. Your experience begins when you meet your guide at SEA and includes the guided journey into Seattle, curated city time, the return trip, and an appropriate airport return buffer. Your guide remains with you throughout the experience, including travel time, sharing local context and helping you make the most of the time available.",
@@ -428,7 +431,7 @@ export const HOW_IT_WORKS_STEPS = [
     icon: "🛬",
     details: [
       "Your guide meets you at baggage claim with a sign",
-      "We help coordinate luggage storage if needed.",
+      // "We help coordinate luggage storage if needed.",
       "Quick briefing on the day's itinerary and timing"
     ]
   },
@@ -566,8 +569,8 @@ export const HomePageText = {
     "You care more about seeing the right things than seeing everything\nA few meaningful moments matter more than a long checklist.",
 
   forYou4Title: "Meaning over itineraries",
-  forYou4Description : "Not every traveler needs a full tour.\nSome people book guided experiences. Some prefer DIY.\nOthers simply want one meaningful local moment to add to their trip — a calm, human-scale experience that fits naturally into what they’ve already planned, and often becomes the part they remember most.",
-  
+  forYou4Description: "Not every traveler needs a full tour.\nSome people book guided experiences. Some prefer DIY.\nOthers simply want one meaningful local moment to add to their trip — a calm, human-scale experience that fits naturally into what they’ve already planned, and often becomes the part they remember most.",
+
   forYou5Title: "Final identity confirmation",
   forYou5Description:
     "You value calm pacing and thoughtful planning\nIf that sounds like you, this journey was designed exactly for that mindset.",
@@ -618,11 +621,13 @@ export const PricingPageText = {
   addOnPrice: "$120",
   perGroup: "per group",
   cancellationPolicy: "Cancellation Policy",
-  cancellationPolicyDescription: "<strong>Free cancellation up to 24 hours before your tour.</strong> No hidden fees.<br/><br/><strong>Cancellations within 24 hours of tour start time are non‑refundable.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
-  cancellationPolicyDescription_new: "<strong>Free cancellation up to 24 hours before your tour</strong> — no hidden fees.<br/><br/><strong>For last-minute changes, refer to the cancellation terms displayed during checkout.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
+  cancellationPolicyDescription: "<strong>48+ hours before your tour: Full refund.</strong><br/><br/><strong>24–48 hours before your tour: 50% refund.</strong><br/><br/><strong>Less than 24 hours before your tour or no-show: Non-refundable.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
+
+  cancellationPolicyDescription_new:
+    "<strong>48+ hours before your tour: Full refund.</strong><br/><br/><strong>24–48 hours before your tour: 50% refund.</strong><br/><br/><strong>Less than 24 hours before your tour or no-show: Non-refundable.</strong><br/><br/>To cancel, please email <strong>booking@sixhourlayover.com</strong>. Our team will process your request accordingly.",
   contact: "Contact Us",
+
   ctaTitle: "Ready to Book Your Seattle Adventure?",
-  // ctaSubtitle: "Join thousands of travelers who've made their layover unforgettable",
   ctaSubtitle: "Ready to make your Seattle layover memorable?",
 };
 
@@ -720,26 +725,26 @@ export const TermsPageText = {
   booking3: "SixHourLayover reserves the right to cancel or decline any booking.",
 
   cancellationsRefunds: "4. Cancellations & Refunds",
-  cancellation1: "Cancellations made 7+ days before the scheduled tour: Full refund.",
-  cancellation2: "Cancellations made 3–6 days before: 50% refund.",
-  cancellation3: "Cancellations made within 48 hours of the scheduled tour or no-shows: Non-refundable.",
+  cancellation1: "Cancellations made 48+ hours before the scheduled tour: Full refund.",
+  cancellation2: "Cancellations made 24–48 hours before the scheduled tour: 50% refund.",
+  cancellation3: "Cancellations made less than 24 hours before the scheduled tour or no-shows: Non-refundable.",
   cancellation4: "If SixHourLayover cancels due to unforeseen circumstances (e.g., severe weather, transportation issues, guide illness), you may receive a full refund or reschedule.",
-  cancellation5: "Flight Delays & Layover Feasibility:<br>If significant flight delays, missed connections, or airport processing issues affect the feasibility or safety of the layover tour, SixHourLayover reserves the sole discretion to cancel, shorten, or modify the tour in real time. In such cases, a full or partial refund may be provided at SixHourLayover’s discretion. This determination does not constitute an obligation and is made based on operational safety and timing considerations.",
+  cancellation5: "Flight Delays & Layover Feasibility:<br>If flight delays, missed connections, airport processing issues, or other circumstances affect the feasibility or safety of the layover tour, SixHourLayover may adjust, shorten, reschedule, provide credit for, or otherwise accommodate the guest depending on the circumstances. Any refund, credit, rescheduling, or other accommodation will be determined based on the specific situation and operational feasibility.",
 
- travelerResponsibilities: "5. Traveler Responsibilities",
-traveler1: "Travelers are responsible for arriving at the designated meeting point on time. Delays caused by flights, customs processing, baggage, or traffic do not entitle travelers to extensions or extra time. Any refunds, if applicable, will be assessed on a case-by-case basis at SixHourLayover’s sole discretion.",
-traveler2: "Travelers must follow all safety instructions from their guide. Failure to comply may result in early termination of the tour without refund.",
-traveler3: "The tour involves walking and using public transportation. Travelers should ensure they are physically able to participate.",
-traveler4: "Alcohol, illegal drugs, and disruptive behavior are prohibited.",
-traveler5: "Travelers are strongly encouraged to purchase travel insurance that covers flight delays, missed connections, or trip interruptions.",
+  travelerResponsibilities: "5. Traveler Responsibilities",
+  traveler1: "Travelers are responsible for arriving at the designated meeting point on time. Delays caused by flights, customs processing, baggage, or traffic do not entitle travelers to extensions or extra time. Any refunds, if applicable, will be assessed on a case-by-case basis at SixHourLayover’s sole discretion.",
+  traveler2: "Travelers must follow all safety instructions from their guide. Failure to comply may result in early termination of the tour without refund.",
+  traveler3: "The tour involves walking and using public transportation. Travelers should ensure they are physically able to participate.",
+  traveler4: "Alcohol, illegal drugs, and disruptive behavior are prohibited.",
+  traveler5: "Travelers are strongly encouraged to purchase travel insurance that covers flight delays, missed connections, or trip interruptions.",
 
 
-assumptionRisk: "6. On-Time Return, Assumption of Risk & Liability Disclaimer",
-risk1: "All itineraries include a built-in buffer to support an on-time return to the airport. However, unexpected events—including accidents, road closures, airport security delays, severe weather, or other circumstances beyond our control—may affect travel time. SixHourLayover does not guarantee flight boarding and is not responsible for missed flights or missed connections.",
-risk1a: "While on-time return is a core planning priority, all itineraries are subject to real-time conditions beyond SixHourLayover’s control, including but not limited to airline operations, airport security procedures, traffic conditions, and public transportation delays.",
-risk2: "Participation in tours involves walking, transportation, and exposure to public environments. By booking, travelers acknowledge and accept these risks.",
-risk3: "SixHourLayover is not liable for personal injury, illness (including COVID-19), theft, property loss, delays, or missed connections.",
-risk4: "To the fullest extent permitted by law, our liability is limited to the amount paid for the booking.",
+  assumptionRisk: "6. On-Time Return, Assumption of Risk & Liability Disclaimer",
+  risk1: "All itineraries include a built-in buffer to support an on-time return to the airport. However, unexpected events—including accidents, road closures, airport security delays, severe weather, or other circumstances beyond our control—may affect travel time. SixHourLayover does not guarantee flight boarding and is not responsible for missed flights or missed connections.",
+  risk1a: "While on-time return is a core planning priority, all itineraries are subject to real-time conditions beyond SixHourLayover’s control, including but not limited to airline operations, airport security procedures, traffic conditions, and public transportation delays.",
+  risk2: "Participation in tours involves walking, transportation, and exposure to public environments. By booking, travelers acknowledge and accept these risks.",
+  risk3: "SixHourLayover is not liable for personal injury, illness (including COVID-19), theft, property loss, delays, or missed connections.",
+  risk4: "To the fullest extent permitted by law, our liability is limited to the amount paid for the booking.",
 
 
   intellectualProperty: "7. Intellectual Property",
@@ -804,9 +809,8 @@ export const BookingFormText = {
   personalInfo: "Personal Information",
   flightDetails: "Flight Details",
   tourSelection: "Tour Selection",
-  // agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that this tour includes a guaranteed 2-hour buffer before my departure flight, and that cancellations are free up to 24 hours before the tour.",
-  agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that the tour is planned around my departure flight with an appropriate airport return buffer, and that cancellations are free up to 24 hours before the tour.",
-
+  // agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that the tour is planned around my departure flight with an appropriate airport return buffer, and that cancellations are free up to 24 hours before the tour.",
+  agreeToTerms: "I agree to the <a href=\"/terms\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Terms of Service</a> and <a href=\"/privacy\" class=\"text-purple-600 hover:underline\" target=\"_blank\">Privacy Policy</a>. I understand that the tour is planned around my departure flight with an appropriate airport return buffer, and that cancellations are subject to the cancellation policy stated in the Terms of Service.",
   previous: "Previous",
   next: "Next Step",
   confirmBooking: "Confirm Booking",
@@ -838,7 +842,9 @@ export const MascotSectionText = {
   inChinese: "In Chinese",
   retired: "Retired",
   fromAdventures: "From Adventures",
-  cta: "Meet Guai Guai, our company mascot — you’ll see him on our website, posts, and souvenirs.",
+  cta: "Meet Guai Guai, our company mascot — you’ll see him on our website and posts.",
+
+
   bookNow: "Book Your Seattle Tour",
 };
 
@@ -947,7 +953,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     id: 'per-person-7hour',
     name: '西雅图七小时精彩集锦',
     price: 350.00,
-   // paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
+    // paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
     paymentLink: 'https://buy.stripe.com/7sY7sNgJd8eXdsqdYp3840t',
     groupSize: 'per-person',
     priceDescription: '每人（包含 Kerry Park）'
@@ -956,8 +962,8 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     id: 'solo-traveler-7hour',
     name: '西雅图七小时精彩集锦（单人）',
     price: 600.00,
-   // paymentLink: 'https://buy.stripe.com/new-7hour-solo',
-   paymentLink: 'https://buy.stripe.com/bJefZjfF97aT7424nP3840f',
+    // paymentLink: 'https://buy.stripe.com/new-7hour-solo',
+    paymentLink: 'https://buy.stripe.com/bJefZjfF97aT7424nP3840f',
     groupSize: '1',
     priceDescription: '每人（包含 Kerry Park'
   },
@@ -965,7 +971,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     id: 'family-pack-7hour',
     name: '西雅图七小时精彩集锦（家庭套餐）',
     price: 750.00,
-   // paymentLink: 'https://buy.stripe.com/new-7hour-family',
+    // paymentLink: 'https://buy.stripe.com/new-7hour-family',
     paymentLink: 'https://buy.stripe.com/3cIbJ38cHgLtgEC4nP3840u',
     groupSize: 'family',
     priceDescription: "2 位成人 + 最多 3 位 12 岁以下儿童（含嘉里公园）"
@@ -975,7 +981,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     id: 'per-person-8hour',
     name: '8 小时西雅图之旅',
     price: 499.00,
-   // paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
+    // paymentLink: 'https://buy.stripe.com/new-8hour-per-person',
     paymentLink: 'https://buy.stripe.com/14A8wReB50Mv2NM5rT3840j',
     groupSize: 'per-person',
     priceDescription: '每人（含太空针塔门票）'
@@ -994,7 +1000,7 @@ export const chineseSTRIPE_TOUR_PRODUCTS = [
     name: '8 小时西雅图全程（单人）',
     price: 999.00,
     // paymentLink: 'https://buy.stripe.com/bJe5kFeB5dzh2NMg6x38403',
-   paymentLink: 'https://buy.stripe.com/00w6oJ78D7aTbkicUl3840w',
+    paymentLink: 'https://buy.stripe.com/00w6oJ78D7aTbkicUl3840w',
     groupSize: 'family',
     priceDescription: '单人旅行者（包含太空针塔门票）'
   }

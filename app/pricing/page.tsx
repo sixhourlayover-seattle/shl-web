@@ -14,7 +14,8 @@ const TOUR_OPTIONS = [
     title: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
+    duration: "Airport meet & greet, Light Rail transfers, A small, locally inspired Seattle treat.",
+
     pricing: {
       perPerson: 250,
       solo: 399,
@@ -25,7 +26,7 @@ const TOUR_OPTIONS = [
       "Famous fish toss viewing",
       "Waterfront exploration",
       "A small, locally inspired Seattle treat."
-      // "Seattle chocolate-covered Rainier cherries tote bag"
+     
     ]
   },
   {
@@ -70,15 +71,15 @@ const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Link Light Rail (airport ↔ city) — included",
   "Planned return with built-in buffer time and flight monitoring",
-  "A small, locally inspired Seattle souvenir",
-  "Free cancellation (24+ hours notice)"
+  "A small, locally inspired Seattle treat.",
+  "Cancellation policy: 48+ hours — full refund; 24–48 hours — 50% refund; under 24 hours/no-show — non-refundable"
 ];
 
 const GIFT_TOTE_ITEMS = [
   "Pike Place chowder mix",
   "Beecher's handmade cheese",
   "Starbucks Reserve beans",
-  "Seattle chocolate or Rainier cherries"
+  "A small, locally inspired Seattle treat."
 ];
 
 const ADD_ONS = [
@@ -329,40 +330,7 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Seattle Gift Tote */}
-        {/* <section className="py-16">
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <div className="rounded-3xl bg-gradient-to-br from-orange-100 to-yellow-100 p-8 shadow-2xl hover-lift">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-4">
-                    {PricingPageText.giftTote}
-                  </h2>
-                  <p className="text-slate-700 text-lg">{PricingPageText.giftToteDescription}</p>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
-                  {GIFT_TOTE_ITEMS.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 p-4 rounded-2xl bg-white/80 backdrop-blur">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center">
-                        <span className="text-white text-sm">•</span>
-                      </div>
-                      <span className="text-sm font-medium text-slate-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-600 to-yellow-600 text-white font-bold text-lg shadow-lg">
-                    <span>{PricingPageText.giftToteBundle}</span>
-                    <span className="text-2xl">{PricingPageText.giftTotePrice}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
+       
         {/* Add-Ons */}
         <section className="py-16 bg-gradient-to-br">
           <div className="container">

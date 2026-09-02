@@ -23,7 +23,7 @@ const TOUR_OPTIONS = [
       "Airport meet & greet",
       "Light Rail transfers",
       "A small, locally inspired Seattle treat."
-      // "Seattle chocolate-covered Rainier cherry souvenir tote bag",
+  
     ],
     previewTitle: "🔍 Preview — 6-Hour Experience",
     previewDescription:
@@ -579,7 +579,7 @@ export default function Page() {
             </div>
             <div className="container mb-16">
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="/book" className="inline-flex items-center px-8 py-3 bg-white text-color-heading font-bold text-lg rounded-xl shadow-2xl border-2 border-color-primary hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
+                <a href="#" className="inline-flex items-center px-8 py-3 bg-white text-color-heading font-bold text-lg rounded-xl shadow-2xl border-2 border-color-primary hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
                   📋 Plan My Seattle Time
                 </a>
                 <a href="https://wa.me/12069281277" className="inline-flex items-center px-4 md:px-8 py-3 btn-primary font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
@@ -738,7 +738,7 @@ export default function Page() {
 
               <div className="container myb-16 mt-10">
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="/book" className="inline-flex items-center px-8 py-3 bg-white text-color-heading font-bold text-lg rounded-xl shadow-2xl border-2 border-color-primary hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
+                  <a href="#" className="inline-flex items-center px-8 py-3 bg-white text-color-heading font-bold text-lg rounded-xl shadow-2xl border-2 border-color-primary hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">
                     📋 Plan My Seattle Time
                   </a>
                   <a href="https://wa.me/12069281277" className="inline-flex items-center px-4 md:px-8 py-3 btn-primary font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300">

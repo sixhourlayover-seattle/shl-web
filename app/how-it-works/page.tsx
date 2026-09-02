@@ -235,7 +235,7 @@ export default function HowItWorksPage() {
                   <ul className="space-y-2 text-sm text-slate-600">
                     <li>{HowItWorksPageText.luggageStoragePoint1}</li>
                     <li>{HowItWorksPageText.luggageStoragePoint2}</li>
-                    <li>{HowItWorksPageText.luggageStoragePoint3}</li>
+                    {/* <li>{HowItWorksPageText.luggageStoragePoint3}</li> */}
                     <li>
                       <a
                         href={HowItWorksPageText.luggageStorageLinkUrl}
@@ -243,7 +243,7 @@ export default function HowItWorksPage() {
                         rel="noopener noreferrer"
                         className="text-blue-600 underline hover:text-blue-800"
                       >
-                        {HowItWorksPageText.luggageStoragePoint4}
+                        {/* {HowItWorksPageText.luggageStoragePoint4} */}
                       </a>
                     </li>
                   </ul>
