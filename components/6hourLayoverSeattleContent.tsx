@@ -52,7 +52,7 @@ const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Link light rail from airport + Uber within the city",
   "Planned with buffer time for a timely airport return.",
-  "A small, locally inspired Seattle souvenir",
+  "A small, locally inspired Seattle treat.",
   "Friendly local guide."
 ];
 

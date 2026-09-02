@@ -13,7 +13,6 @@ const TOUR_OPTIONS = [
     title: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-    // duration: "Airport meet & greet, Light Rail transfers, Seattle chocolate-covered Rainier cherry souvenir tote bag",
     duration: "Airport meet & greet, Light Rail transfers, A small, locally inspired Seattle treat.",
     pricing: {
       perPerson: 250,
@@ -22,10 +21,9 @@ const TOUR_OPTIONS = [
     },
     features: [
       "Pike Place Market tour",
-      "Famous fish toss viewing", 
+      "Famous fish toss viewing",
       "Waterfront exploration",
       "A small, locally inspired Seattle treat."
-      // "Seattle chocolate-covered Rainier cherries tote bag"
     ]
   },
   {
@@ -66,20 +64,12 @@ const TOUR_OPTIONS = [
 
 const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
 
-// const WHATS_INCLUDED = [
-//   "Airport meet & greet",
-//   "Light Rail (airport ↔ city) + Uber for short hops",
-//   "On-time return guarantee (safe buffer; flight monitored)",
-//   "Seattle chocolate-covered Rainier cherry souvenir tote bag",
-//   "Free cancellation (24+ hours notice)"
-// ];
-
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail (airport ↔ city) + Uber for short hops",
   "Return is planned with an appropriate airport buffer; flight status monitored",
   "A small, locally inspired Seattle treat.",
-  "Free cancellation (24+ hours notice)"
+  "Cancellation: 48+ hours — full refund; 24–48 hours — 50% refund; under 24 hours/no-show — non-refundable"
 ];
 
 
@@ -87,7 +77,7 @@ const WHATS_INCLUDED = [
 
 export default function PricingPage() {
   const [selectedTier, setSelectedTier] = useState("Solo");
-  
+
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   return (
@@ -95,12 +85,12 @@ export default function PricingPage() {
       {/* Animated background */}
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
-      
+
       {/* Floating orbs for visual interest */}
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}} />
-      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '4s'}} />
-      
+      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }} />
+
       <div className="relative z-10">
         {/* Top Nav with glassmorphism */}
         <Navigation />
@@ -108,25 +98,23 @@ export default function PricingPage() {
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container">
-            <div className="text-center mb-12" style={{animation: 'slide-in 0.6s ease-out'}}>
+            <div className="text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Refund / Cancellation Request</span>
+                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 bg-clip-text text-transparent">Cancellation & Refund Policy</span>
               </h1>
-              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
+              <div className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
                 <ul>
-                    <li>
-                        Cancellations made 48 hours or more before your tour are refunded minus Stripe’s 3% processing fee.
-                    </li>
-                    <li>Cancellations within 48 hours are non-refundable, but may be rescheduled.</li>
-                    <li>Airline-caused disruptions: 50% refund or complimentary reschedule at our discretion.</li>
-                    <li>Refunds return to the original payment method within 5–10 days.</li>
+                  <li>48+ hours before your tour: Full refund</li>
+                  <li>24–48 hours before your tour: 50% refund</li>
+                  <li>Less than 24 hours before your tour / no-show: Non-refundable</li>
                 </ul>
-              </p>
+
+              </div>
             </div>
           </div>
         </section>
 
-        
+
 
         {/* Pricing Section */}
         <section className="py-16">
@@ -144,13 +132,12 @@ export default function PricingPage() {
               {PRICING_TIERS.map((tier, index) => (
                 <div
                   key={tier.name}
-                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${
-                    selectedTier === tier.name
+                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${selectedTier === tier.name
                       ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
                       : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
-                  }`}
+                    }`}
                   onClick={() => setSelectedTier(tier.name)}
-                  style={{animation: `slide-in 0.${index + 8}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 8}s ease-out` }}
                 >
                   <div className="text-center">
                     <h3 className="font-bold text-lg text-slate-800 mb-2">{tier.name}</h3>
@@ -187,10 +174,10 @@ export default function PricingPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 max-w-6xl mx-auto">
               {WHATS_INCLUDED.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift"
-                  style={{animation: `slide-in 0.${index + 12}s ease-out`}}
+                  style={{ animation: `slide-in 0.${index + 12}s ease-out` }}
                 >
                   <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
                     <span className="text-white text-xl">✓</span>
@@ -202,8 +189,8 @@ export default function PricingPage() {
           </div>
         </section>
 
-        
-        
+
+
 
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br from-purple-600 to-indigo-600">
@@ -244,7 +231,7 @@ export default function PricingPage() {
                 </div>
                 <p className="text-sm text-slate-600">{GlobalText.footerSlogan}</p>
               </div>
-              
+
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.quickLinks}</h5>
                 <div className="space-y-2 text-sm">
@@ -256,7 +243,7 @@ export default function PricingPage() {
                   <a className="block text-slate-600 hover:text-purple-600 transition-colors" href="/contact">{GlobalText.contactLink}</a>
                 </div>
               </div>
-              
+
               <div>
                 <h5 className="font-bold text-slate-800 mb-3">{GlobalText.legal}</h5>
                 <div className="space-y-2 text-sm">
@@ -265,34 +252,34 @@ export default function PricingPage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="pt-8 border-t border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-sm text-slate-600">
                 {GlobalText.copyright}
-                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p> 
+                <p className="text-xs text-slate-500">The Six-Hour Layover is permitted and licensed by the Pike Place Market Preservation and Development Authority (PDA) to operate tours in the Pike Place Market Historical District.</p>
               </div>
               <div className="flex items-center gap-3">
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61580441967255" 
-                  target="_blank" 
+                <a
+                  href="https://www.facebook.com/profile.php?id=61580441967255"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Facebook"
                 >
                   <FacebookIcon className="w-5 h-5" />
                 </a>
-                <a 
-                  href="https://www.instagram.com/sixhourlayoverseattle/" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/sixhourlayoverseattle/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on Instagram"
                 >
                   <InstagramIcon className="w-5 h-5" />
                 </a>
-                <a 
-                  href="https://www.tiktok.com/@sixhourlayover_sea" 
-                  target="_blank" 
+                <a
+                  href="https://www.tiktok.com/@sixhourlayover_sea"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   aria-label="Follow us on TikTok"
@@ -305,11 +292,11 @@ export default function PricingPage() {
         </footer>
 
         <MobileNav />
-        
+
         {/* Booking Modal */}
-        <BookingModal 
-          isOpen={isBookingModalOpen} 
-          onClose={() => setIsBookingModalOpen(false)} 
+        <BookingModal
+          isOpen={isBookingModalOpen}
+          onClose={() => setIsBookingModalOpen(false)}
           selectedTier={selectedTier} // 👈 Pass it down
         />
       </div>

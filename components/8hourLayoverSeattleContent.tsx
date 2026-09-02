@@ -27,7 +27,7 @@ const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
   "Planned return with built-in buffer time and flight monitoring",
-  "A small, locally inspired Seattle souvenir",
+  "A small, locally inspired Seattle treat.",
   "Friendly local guide"
 ];
 
@@ -334,7 +334,7 @@ export default function SLTourContent() {
               {/* Important Note */}
               <div className="text-center p-4 rounded-xl bg-blue-50 border border-blue-200">
                 <p className="text-sm text-blue-700 font-medium">
-                  {/* Includes: airport meet &amp; greet | light rail from airport and Uber within the city | souvenir tote bag | planned with buffer time for a timely airport return | friendly local guide. */}
+                  
                   Includes: airport meet &amp; greet | light rail from airport and Uber within the city | a small, locally inspired Seattle treat | planned with buffer time for a timely airport return | friendly local guide.
                 </p>
               </div>
