@@ -22,10 +22,10 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
   {
     id: 'per-person-6hour',
     name: '6-Hour Seattle Essentials',
-    price: 299.00,
+    price: 399.00,
     description: 'Discover Seattle\'s heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, and stroll the waterfront — all with a friendly local guide.',
-   // paymentLink: 'https://buy.stripe.com/7sY9AV78D0Mv5ZY1bD38401',
-   paymentLink: 'https://buy.stripe.com/aFadRb1Oj1Qzbkif2t3840r',
+  //  paymentLink: 'https://buy.stripe.com/aFadRb1Oj1Qzbkif2t3840r',
+    paymentLink: 'https://buy.stripe.com/dRmeVfeB5dzh742dYp3840y',
     groupSize: 'per-person',
     priceDescription: '1 traveler'
   },
@@ -53,10 +53,10 @@ export const STRIPE_TOUR_PRODUCTS: StripeProduct[] = [
   {
     id: 'per-person-7hour',
     name: '7-Hour Seattle Highlights',
-    price: 350.00,
+    price: 450.00,
     description: 'Everything in the Essentials Tour plus Kerry Park for Seattle\'s iconic skyline view and a pre-ordered Molly Moon\'s Ice Cream pickup — Seasonal and subject to weather conditions.',
     // paymentLink: 'https://buy.stripe.com/new-7hour-per-person',
-    paymentLink: 'https://buy.stripe.com/7sY7sNgJd8eXdsqdYp3840t',
+    paymentLink: 'https://buy.stripe.com/aFacN78cHan53RQf2t3840z',
     groupSize: 'per-person',
     priceDescription: '1 traveler'
   },

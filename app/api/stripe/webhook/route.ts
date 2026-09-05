@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
           customerEmail: session.customer_email,
           customerPhone: session.metadata?.phone,
           tourOption: session.metadata?.tourOption,
-          //  travelDate: session.metadata?.travelDate, 
+          travelDate: session.metadata?.travelDate, 
           preferredLanguage: session.metadata?.preferredLanguage || 'English',
           paymentAmount: session.amount_total ? session.amount_total / 100 : 0,
           paymentStatus: session.payment_status,

@@ -10,7 +10,7 @@ import FooterWrapper from "./FooterWrapper";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sixhourlayover.com";
 const title = "The Six-Hour Layover | Seattle Layover Tours with Airport Pickup";
 const description =
-  "Just 6 Hours in Seattle? We've Got You! No stress. No guesswork. Just food, views, and a timed-to-perfection plan that gets you back for boarding.";
+  "Just 6 Hours in Seattle? We've Got You! No stress. No guesswork. Just food, views, and a timed-to-perfection plan that plans for a comfortable return to SEA with appropriate time before your departing flight.";
 
 export const viewport = {
   themeColor: "#001628",
@@ -86,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "@type": "ContactPoint",
       "telephone": "+1-206-928-1277",
       "contactType": "customer service",
-      "availableLanguage": ["English", "Mandarin", "Japanese"]
+      "availableLanguage": ["English", "Mandarin Chinese"]
     }
   }
 

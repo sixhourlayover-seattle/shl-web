@@ -34,7 +34,7 @@ const WHATS_INCLUDED = [
 const Why_choose_this_tour = [
   "Covers Seattle’s top attractions including Space Needle",
   "Ideal for travelers with a bit more time",
-  "Multilingual guides (English / Mandarin / Japanese)",
+  "Multilingual guides (English / Mandarin Chinese)",
   "Family-friendly and photo-ready routes"
 ];
 

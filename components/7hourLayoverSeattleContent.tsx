@@ -41,7 +41,7 @@ const WHATS_INCLUDED = [
 const Why_choose_this_tour = [
   "Balanced pace: market, waterfront & skyline",
   "Perfect for couples, friends, or photo lovers",
-  "Multilingual support (English / Mandarin / Japanese)"
+  "Multilingual support (English /Mandarin Chinese)"
 ];
 
 

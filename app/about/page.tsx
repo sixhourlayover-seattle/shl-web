@@ -198,7 +198,7 @@ export default function AboutPage() {
                         {lang}
                       </span>
                     ))}
-                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 text-sm font-medium">
+                    <span className="py-3 rounded-full  from-purple-100 to-pink-100 headings_color text-sm font-medium">
                       {AboutPageText.moreComingSoon}
                     </span>
                   </div>

@@ -56,8 +56,8 @@ export const AboutPageText = {
   ),
   uponRequest: "Upon Request",
   additionalLanguages: "Additional languages available subject to guide availability:",
-  languages: ["Mandarin", "Spanish", "German", "French", "Japanese"],
-  moreComingSoon: "More coming soon",
+  languages: ["English"],
+  moreComingSoon: "Additional languages may be available upon request, subject to guide availability. Please contact us before booking.",
   confirmLanguage: (
     <>
       <strong>Please confirm your preferred language when booking.</strong>
@@ -296,7 +296,7 @@ export const FAQ_SECTIONS = [
       {
         question: "How do we get around the city?",
         answer:
-          "Transportation includes Link Light Rail (included) and optional pre-arranged private airport transfers. We do not operate our own vehicles; all rides are provided by licensed third-party services."
+          "Transportation includes Link Light Rail, with optional pre-arranged private airport transfers available."
       }
     ]
   },
@@ -364,7 +364,7 @@ export const FAQ_SECTIONS = [
       {
         question: "Do you offer tours in my language?",
         answer:
-          "Tours are always available in English. Mandarin and Japanese may be available upon request, subject to guide availability."
+          "Tours are available in English and Mandarin Chinese. Additional languages may be available upon request, subject to guide availability."
       }
     ]
   },
@@ -392,7 +392,7 @@ export const HowItWorksPageText = {
   whatMakesUsDifferentSubtitle: "We're not just a tour company — we're layover specialists who understand the unique challenges of short airport connections",
   transportationTitle: "Transportation Details",
   transportationSubtitle: "Here's what you need to know about getting around",
-  rideServiceTitle: "Ride Service",
+  rideServiceTitle: "Airport–Downtown Transportation",
   rideServiceDescription: "Airport ↔ Downtown transportation is via Link Light Rail. Your guide accompanies you and provides Seattle and local context during the journey. Between Pike Place Market and the Waterfront, your guide uses the optimized walking route via the Overlook Walk. Your guide manages all logistics and timing.",
   rideServicePoint1: "• We handle all coordination and logistics",
   rideServicePoint2: "• Professional drivers with full insurance",

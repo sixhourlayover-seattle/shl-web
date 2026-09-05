@@ -61,11 +61,7 @@ const ADD_ONS = STRIPE_ADD_ONS;
 // Language options for tours
 const LANGUAGE_OPTIONS = [
   { value: 'English', label: 'English (Default)' },
-  { value: 'Mandarin', label: 'Mandarin' },
-  { value: 'Spanish', label: 'Spanish' },
-  { value: 'German', label: 'German' },
-  { value: 'French', label: 'French' },
-  { value: 'Japanese', label: 'Japanese' },
+  { value: 'Mandarin Chinese', label: 'Mandarin' }
 ];
 
 // Initialize form data with proper defaults
@@ -379,6 +375,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
             firstName: formData.firstName,
             lastName: formData.lastName,
             phone: formData.phone,
+            travelDate: formData.arrivalDate,
             tourOption: selectedProduct.name || '',
             preferredLanguage: formData.preferredLanguage,
             travelerCount: String(payingTravelers),
