@@ -13,7 +13,7 @@ const TOUR_OPTIONS = [
   {
     title: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
-    description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
+    description: "Make the most of a six-hour Seattle layover. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
     duration: "Airport meet & greet, Light Rail transfers, A small, locally inspired Seattle treat.",
 
     pricing: {
@@ -24,9 +24,9 @@ const TOUR_OPTIONS = [
     features: [
       "Pike Place Market tour",
       "Famous fish toss viewing",
-      "Waterfront exploration",
+      "Waterfront exploration", 
       "A small, locally inspired Seattle treat."
-     
+
     ]
   },
   {
@@ -223,6 +223,10 @@ export default function PricingPage() {
                 {PricingPageText.pricingSubtitle}
               </p>
 
+              <p className="text-sm text-slate-500 max-w-2xl mx-auto mt-3">
+                Prices shown do not include applicable sales tax. Tax will be calculated at checkout.
+              </p>
+
 
             </div>
 
@@ -330,7 +334,7 @@ export default function PricingPage() {
           </div>
         </section>
 
-       
+
         {/* Add-Ons */}
         <section className="py-16 bg-gradient-to-br">
           <div className="container">

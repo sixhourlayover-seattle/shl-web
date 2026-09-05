@@ -60,7 +60,7 @@ const Why_travellers_love_it = [
   "Best for short layovers",
   "Zero stress — airport pickup & return",
   "Authentic local food + postcard views",
-  "Multilingual guides: English, Mandarin, Japanese"
+  "Multilingual guides: English, Mandarin Chinese"
 ];
 
 
