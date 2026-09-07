@@ -56,7 +56,7 @@ export const AboutPageText = {
   ),
   uponRequest: "Upon Request",
   additionalLanguages: "Additional languages available subject to guide availability:",
-  languages: ["English"],
+  languages: ["English", "Mandarin Chinese"],
   moreComingSoon: "Additional languages may be available upon request, subject to guide availability. Please contact us before booking.",
   confirmLanguage: (
     <>

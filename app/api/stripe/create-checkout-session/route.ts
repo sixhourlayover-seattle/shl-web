@@ -22,16 +22,31 @@ export async function POST(request: NextRequest) {
       addOnIds = [],
       travelerCount,
       customerEmail,
+
+      // Transportation
+      transportationOption = 'light-rail',
+      transportationPrice = 0,
+      oneWayTransferDirection = '',
+
       metadata = {},
     } = await request.json();
 
     // Import product configurations
-    const { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS } = await import('@/lib/stripe-products');
+    const {
+      STRIPE_TOUR_PRODUCTS,
+      STRIPE_ADD_ONS,
+    } = await import('@/lib/stripe-products');
 
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
-    // Find the selected product
-    const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === productId);
+    // ---------------------------------------------------------
+    // TOUR PRODUCT
+    // ---------------------------------------------------------
+
+    const selectedProduct = STRIPE_TOUR_PRODUCTS.find(
+      p => p.id === productId
+    );
+
     if (!selectedProduct) {
       return NextResponse.json(
         { error: 'Selected tour option is not available' },
@@ -43,9 +58,15 @@ export async function POST(request: NextRequest) {
       typeof travelerCount === 'number'
         ? travelerCount
         : Number.parseInt(`${travelerCount ?? ''}`, 10);
-    const normalizedTravelerCount = Number.isFinite(rawTravelerCount) ? rawTravelerCount : 0;
 
-    if (selectedProduct.groupSize === 'per-person' && normalizedTravelerCount < 1) {
+    const normalizedTravelerCount = Number.isFinite(rawTravelerCount)
+      ? rawTravelerCount
+      : 0;
+
+    if (
+      selectedProduct.groupSize === 'per-person' &&
+      normalizedTravelerCount < 1
+    ) {
       return NextResponse.json(
         { error: 'Missing traveler count for per-person pricing' },
         { status: 400 }
@@ -69,15 +90,21 @@ export async function POST(request: NextRequest) {
             productId: selectedProduct.id,
           },
         },
-        unit_amount: selectedProduct.price * 100, // Convert to cents
+        unit_amount: selectedProduct.price * 100,
       },
-      quantity: Math.max(1, payingQuantity),
+      quantity: payingQuantity,
     });
 
-    // Add selected add-ons
-    if (addOnIds && addOnIds.length > 0) {
+    // ---------------------------------------------------------
+    // ADD-ONS
+    // ---------------------------------------------------------
+
+    if (Array.isArray(addOnIds) && addOnIds.length > 0) {
       addOnIds.forEach((addOnId: string) => {
-        const addOn = STRIPE_ADD_ONS.find(a => a.id === addOnId);
+        const addOn = STRIPE_ADD_ONS.find(
+          a => a.id === addOnId
+        );
+
         if (addOn) {
           lineItems.push({
             price_data: {
@@ -89,13 +116,79 @@ export async function POST(request: NextRequest) {
                   addOnId: addOn.id,
                 },
               },
-              unit_amount: addOn.price * 100, // Convert to cents
+              unit_amount: addOn.price * 100,
             },
             quantity: 1,
           });
         }
       });
     }
+
+    // ---------------------------------------------------------
+    // TRANSPORTATION
+    // ---------------------------------------------------------
+
+    // Never trust the price sent by the browser.
+    // Calculate it again on the server.
+    let serverTransportationPrice = 0;
+    let transportationName = '';
+
+    switch (transportationOption) {
+      case 'private-one-way':
+        serverTransportationPrice = 100;
+        transportationName =
+          'One-Way Pre-arranged Private Airport Transfer';
+        break;
+
+      case 'private-round-trip':
+        serverTransportationPrice = 200;
+        transportationName =
+          'Round-Trip Pre-arranged Private Airport Transfer';
+        break;
+
+      case 'light-rail':
+      default:
+        serverTransportationPrice = 0;
+        transportationName = 'Link Light Rail';
+        break;
+    }
+
+    // Only add transportation to Stripe when it has a price.
+    if (serverTransportationPrice > 0) {
+      let transportationDescription =
+        'Pre-arranged private airport transfer';
+
+      if (
+        transportationOption === 'private-one-way' &&
+        oneWayTransferDirection
+      ) {
+        transportationDescription =
+          oneWayTransferDirection === 'airport-to-seattle'
+            ? 'SEA Airport → Seattle'
+            : 'Seattle → SEA Airport';
+      }
+
+      lineItems.push({
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: transportationName,
+            description: transportationDescription,
+            metadata: {
+              transportationOption,
+              oneWayTransferDirection:
+                oneWayTransferDirection || '',
+            },
+          },
+          unit_amount: serverTransportationPrice * 100,
+        },
+        quantity: 1,
+      });
+    }
+
+    // ---------------------------------------------------------
+    // VALIDATION
+    // ---------------------------------------------------------
 
     if (lineItems.length === 0) {
       return NextResponse.json(
@@ -104,22 +197,52 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // ---------------------------------------------------------
+    // STRIPE CHECKOUT
+    // ---------------------------------------------------------
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+
       line_items: lineItems,
+
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/booking-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/booking-cancelled`,
+
+      success_url: `${
+        process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+      }/booking-success?session_id={CHECKOUT_SESSION_ID}`,
+
+      cancel_url: `${
+        process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+      }/booking-cancelled`,
+
       metadata: {
         bookingId,
+
         ...metadata,
+
         travelerCount: String(
           selectedProduct.groupSize === 'per-person'
             ? Math.max(1, normalizedTravelerCount)
-            : Math.max(1, normalizedTravelerCount || payingQuantity)
+            : Math.max(
+                1,
+                normalizedTravelerCount || payingQuantity
+              )
         ),
+
+        transportationOption,
+
+        // Store the SERVER-calculated price
+        transportationPrice: String(
+          serverTransportationPrice
+        ),
+
+        oneWayTransferDirection:
+          oneWayTransferDirection || '',
       },
+
       customer_email: customerEmail,
+
       automatic_tax: {
         enabled: true,
       },
@@ -127,10 +250,15 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       sessionId: session.id,
-      url: session.url
+      url: session.url,
     });
+
   } catch (error) {
-    console.error('Error creating checkout session:', error);
+    console.error(
+      'Error creating checkout session:',
+      error
+    );
+
     return NextResponse.json(
       { error: 'Failed to create checkout session' },
       { status: 500 }

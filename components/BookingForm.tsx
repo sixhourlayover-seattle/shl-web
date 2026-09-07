@@ -1,11 +1,11 @@
 "use client";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { PlaneIcon, ClockIcon } from "@/components/Icons";
 import { BookingFormText } from "@/lib/text";
 import { STRIPE_TOUR_PRODUCTS, STRIPE_ADD_ONS, getProductByGroupSize, calculateTotalPrice, redirectToStripeCheckout, type StripeProduct, type StripeAddOn } from "@/lib/stripe-products";
 
 interface BookingFormProps {
-  onClose?: () => void; 
+  onClose?: () => void;
   isModal?: boolean;
   preselectedTourId?: string | null; // 👈 add this
 }
@@ -46,13 +46,46 @@ interface BookingData {
   selectedAddOns: StripeAddOn[];
   totalPrice: number;
 
+  transportationPrice: number;
+
   // Agreement
   agreeToTerms: boolean;
 
   // luggage storage
   needsLuggageStorage: boolean;
   luggagePieces: number;
+
+  // Transportation
+  transportationOption: TransportationOption;
+  oneWayTransferDirection: OneWayTransferDirection | "";
+
+
 }
+
+type TransportationOption = 'light-rail' | 'private-one-way' | 'private-round-trip';
+type OneWayTransferDirection = 'airport-to-seattle' | 'seattle-to-airport';
+
+const TRANSPORTATION_OPTIONS = [
+  {
+    id: 'light-rail' as TransportationOption,
+    name: 'Link Light Rail',
+    price: 0,
+    description: 'Included in the standard tour experience.',
+  },
+  {
+    id: 'private-one-way' as TransportationOption,
+    name: 'One-Way Pre-arranged Private Airport Transfer',
+    price: 100,
+    description: '+$100 per group',
+  },
+  {
+    id: 'private-round-trip' as TransportationOption,
+    name: 'Round-Trip Pre-arranged Private Airport Transfer',
+    price: 200,
+    description: '+$200 per group',
+  },
+];
+
 
 // Using Stripe products from configuration
 const TOUR_OPTIONS = STRIPE_TOUR_PRODUCTS;
@@ -63,6 +96,21 @@ const LANGUAGE_OPTIONS = [
   { value: 'English', label: 'English (Default)' },
   { value: 'Mandarin Chinese', label: 'Mandarin' }
 ];
+
+const getTransportationPrice = (
+  transportationOption: TransportationOption
+): number => {
+  switch (transportationOption) {
+    case 'private-one-way':
+      return 100;
+    case 'private-round-trip':
+      return 200;
+    case 'light-rail':
+    default:
+      return 0;
+  }
+};
+
 
 // Initialize form data with proper defaults
 const initializeFormData = (): BookingData => {
@@ -98,6 +146,10 @@ const initializeFormData = (): BookingData => {
     totalPrice,
     needsLuggageStorage: false,
     luggagePieces: 0,
+    transportationOption: "light-rail",
+    oneWayTransferDirection: "",
+    transportationPrice: 0,
+
   };
 };
 
@@ -105,12 +157,12 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  
+
   const [formData, setFormData] = useState<BookingData>(initializeFormData());
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-    // ✅ Add this useEffect just below your useState declarations
+  // ✅ Add this useEffect just below your useState declarations
   useEffect(() => {
     if (preselectedTourId) {
       const selectedProduct = STRIPE_TOUR_PRODUCTS.find(
@@ -134,12 +186,12 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
   const handleInputChange = (field: keyof BookingData, value: string | boolean | string[] | number) => {
     const updatedData = { ...formData, [field]: value };
-    
+
     // Special handling for solo tour selection
     if (field === 'tourOption') {
       const selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
       updatedData.selectedProduct = selectedProduct;
-      
+
       // For solo tours, set adults to 1 and reset children counts
       if (selectedProduct?.id?.includes('solo-')) {
         updatedData.adultsCount = 1;
@@ -152,7 +204,20 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
     }
 
     // Recalculate pricing when relevant fields change
-    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount' || field === 'childrenUnder5Count') {
+    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount' || field === 'childrenUnder5Count' || field === 'transportationOption') {
+
+      // One-way private transfer requires a direction
+      if (field === 'transportationOption') {
+        if (value === 'private-one-way') {
+          // Keep existing direction if already selected
+          if (!updatedData.oneWayTransferDirection) {
+            updatedData.oneWayTransferDirection = 'airport-to-seattle';
+          }
+        } else {
+          updatedData.oneWayTransferDirection = '';
+        }
+      }
+
       // Determine duration from tour option
       let duration: '6h' | '7h' | '8h' = '6h';
       if (updatedData.tourOption.includes('7hour')) duration = '7h';
@@ -176,7 +241,25 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
       // Calculate pricing - only adults and children 5+ are charged
       const effectiveTravelers = updatedData.adultsCount + updatedData.childrenCount;
 
-      const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, effectiveTravelers, selectedAddOns) : 0;
+      // const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, effectiveTravelers, selectedAddOns) : 0;
+      const transportationPrice = getTransportationPrice(
+        updatedData.transportationOption
+      );
+
+      const payingTravelers =
+        updatedData.adultsCount + updatedData.childrenCount;
+
+      const basePrice = selectedProduct
+        ? calculateTotalPrice(
+          selectedProduct,
+          payingTravelers,
+          selectedAddOns
+        )
+        : 0;
+
+      const totalPrice = basePrice + transportationPrice;
+
+
 
       updatedData.selectedProduct = selectedProduct;
       updatedData.selectedAddOns = selectedAddOns;
@@ -187,7 +270,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
     }
 
-    console.log("Selected product " , updatedData);
+    console.log("Selected product ", updatedData);
 
     setFormData(updatedData);
 
@@ -202,19 +285,35 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
       ? [...formData.addOns, addOn]
       : formData.addOns.filter(item => item !== addOn);
 
-    const selectedAddOns = STRIPE_ADD_ONS.filter(addon => newAddOns.includes(addon.id));
-    const payingTravelers = Math.max(0, formData.adultsCount + formData.childrenCount);
-    const totalPrice = formData.selectedProduct
-      ? calculateTotalPrice(formData.selectedProduct, payingTravelers, selectedAddOns)
+    const selectedAddOns = STRIPE_ADD_ONS.filter(
+      addon => newAddOns.includes(addon.id)
+    );
+
+    const payingTravelers =
+      formData.adultsCount + formData.childrenCount;
+
+    const basePrice = formData.selectedProduct
+      ? calculateTotalPrice(
+        formData.selectedProduct,
+        payingTravelers,
+        selectedAddOns
+      )
       : 0;
+
+    const transportationPrice = getTransportationPrice(
+      formData.transportationOption
+    );
+
+    const totalPrice = basePrice + transportationPrice;
 
     setFormData(prev => ({
       ...prev,
       addOns: newAddOns,
       selectedAddOns,
-      totalPrice
+      totalPrice,
     }));
   };
+
 
   const validateStep = (step: number): boolean => {
     const newErrors: Record<string, string> = {};
@@ -265,11 +364,11 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
       // Validate children ages 5-12 if provided
       if (formData.childrenCount > 0 && formData.childrenAges) {
         const ages = formData.childrenAges.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
-        
+
         if (ages.length !== formData.childrenCount) {
           newErrors.childrenAges = `Please provide exactly ${formData.childrenCount} age(s) for children 5-12`;
         }
-        
+
         if (ages.some(age => age > 12 || age < 5)) {
           newErrors.childrenAges = "Children in this field must be between 5-12 years old";
         }
@@ -280,11 +379,11 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
       // Validate children under 5 ages if provided
       if (formData.childrenUnder5Count > 0 && formData.childrenUnder5Ages) {
         const ages = formData.childrenUnder5Ages.split(',').map(age => parseInt(age.trim())).filter(age => !isNaN(age));
-        
+
         if (ages.length !== formData.childrenUnder5Count) {
           newErrors.childrenUnder5Ages = `Please provide exactly ${formData.childrenUnder5Count} age(s) for children under 5`;
         }
-        
+
         if (ages.some(age => age >= 5 || age < 0)) {
           newErrors.childrenUnder5Ages = "Children in this field must be under 5 years old (0-4)";
         }
@@ -320,6 +419,21 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
     const selectedProduct = formData.selectedProduct;
     const payingTravelers = formData.adultsCount + formData.childrenCount;
 
+    const transportationPrice = getTransportationPrice(
+      formData.transportationOption
+    );
+
+    const basePrice = selectedProduct
+      ? calculateTotalPrice(
+        selectedProduct,
+        payingTravelers,
+        formData.selectedAddOns
+      )
+      : 0;
+
+    const finalTotalPrice = basePrice + transportationPrice;
+
+
     if (!selectedProduct) {
       setErrors({ submit: "Please select a tour option that matches your group size." });
       setIsSubmitting(false);
@@ -337,7 +451,10 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
       const bookingData = {
         ...formData,
         selectedProduct,
-        totalPrice: calculateTotalPrice(selectedProduct, payingTravelers, formData.selectedAddOns),
+        totalPrice: finalTotalPrice,
+        transportationPrice,
+        transportationOption: formData.transportationOption,
+        oneWayTransferDirection: formData.oneWayTransferDirection,
         submittedAt: new Date().toISOString(),
         needsLuggageStorage: formData.needsLuggageStorage,
         luggagePieces: formData.luggagePieces,
@@ -369,7 +486,13 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
           productId: selectedProduct.id,
           travelerCount: payingTravelers,
           addOnIds: formData.selectedAddOns.map(addon => addon.id),
+
+          transportationOption: formData.transportationOption,
+          transportationPrice,
+          oneWayTransferDirection: formData.oneWayTransferDirection,
+
           customerEmail: formData.email,
+
           metadata: {
             bookingId: result.bookingId,
             firstName: formData.firstName,
@@ -379,10 +502,18 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
             tourOption: selectedProduct.name || '',
             preferredLanguage: formData.preferredLanguage,
             travelerCount: String(payingTravelers),
-            needsLuggageStorage: formData.needsLuggageStorage ? 'Yes' : 'No',
-            luggagePieces: formData.needsLuggageStorage ? String(formData.luggagePieces) : '0',
 
+            needsLuggageStorage: formData.needsLuggageStorage ? 'Yes' : 'No',
+            luggagePieces: formData.needsLuggageStorage
+              ? String(formData.luggagePieces)
+              : '0',
+
+            transportationOption: formData.transportationOption,
+            transportationPrice: String(transportationPrice),
+            oneWayTransferDirection:
+              formData.oneWayTransferDirection || '',
           }
+
         }),
       });
 
@@ -463,17 +594,15 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
         <div className="flex items-center justify-between mb-4">
           {stepTitles.map((title, index) => (
             <div key={index} className="flex items-center">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                index + 1 <= currentStep 
-                  ? 'primary-background text-white' 
-                  : 'bg-gray-200 text-gray-500'
-              }`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${index + 1 <= currentStep
+                ? 'primary-background text-white'
+                : 'bg-gray-200 text-gray-500'
+                }`}>
                 {index + 1}
               </div>
               {index < stepTitles.length - 1 && (
-                <div className={`w-16 h-1 mx-2 ${
-                  index + 1 < currentStep ? 'bg-purple-600' : 'bg-gray-200'
-                }`} />
+                <div className={`w-16 h-1 mx-2 ${index + 1 < currentStep ? 'bg-purple-600' : 'bg-gray-200'
+                  }`} />
               )}
             </div>
           ))}
@@ -494,14 +623,13 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                   type="text"
                   value={formData.firstName}
                   onChange={(e) => handleInputChange('firstName', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                    errors.firstName ? 'border-red-500' : 'border-gray-200'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.firstName ? 'border-red-500' : 'border-gray-200'
+                    }`}
                   placeholder={BookingFormText.firstNamePlaceholder}
                 />
                 {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   {BookingFormText.lastName} *
@@ -510,9 +638,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                   type="text"
                   value={formData.lastName}
                   onChange={(e) => handleInputChange('lastName', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                    errors.lastName ? 'border-red-500' : 'border-gray-200'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.lastName ? 'border-red-500' : 'border-gray-200'
+                    }`}
                   placeholder={BookingFormText.lastNamePlaceholder}
                 />
                 {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
@@ -527,9 +654,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                  errors.email ? 'border-red-500' : 'border-gray-200'
-                }`}
+                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.email ? 'border-red-500' : 'border-gray-200'
+                  }`}
                 placeholder={BookingFormText.emailPlaceholder}
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -543,9 +669,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                  errors.phone ? 'border-red-500' : 'border-gray-200'
-                }`}
+                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.phone ? 'border-red-500' : 'border-gray-200'
+                  }`}
                 placeholder={BookingFormText.phonePlaceholder}
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
@@ -586,7 +711,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 <h4 className="font-bold text-slate-800 flex items-center gap-2">
                   <span className="text-green-600">🛬</span> {BookingFormText.arrivalFlight}
                 </h4>
-                
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.date} *</label>
@@ -594,36 +719,33 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                       type="date"
                       value={formData.arrivalDate}
                       onChange={(e) => handleInputChange('arrivalDate', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                        errors.arrivalDate ? 'border-red-500' : 'border-gray-200'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.arrivalDate ? 'border-red-500' : 'border-gray-200'
+                        }`}
                     />
                     {errors.arrivalDate && <p className="text-red-500 text-sm mt-1">{errors.arrivalDate}</p>}
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.time} *</label>
                     <input
                       type="time"
                       value={formData.arrivalTime}
                       onChange={(e) => handleInputChange('arrivalTime', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                        errors.arrivalTime ? 'border-red-500' : 'border-gray-200'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.arrivalTime ? 'border-red-500' : 'border-gray-200'
+                        }`}
                     />
                     {errors.arrivalTime && <p className="text-red-500 text-sm mt-1">{errors.arrivalTime}</p>}
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.flightNumber} *</label>
                   <input
                     type="text"
                     value={formData.arrivalFlight}
                     onChange={(e) => handleInputChange('arrivalFlight', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                      errors.arrivalFlight ? 'border-red-500' : 'border-gray-200'
-                    }`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.arrivalFlight ? 'border-red-500' : 'border-gray-200'
+                      }`}
                     placeholder={BookingFormText.flightNumberPlaceholder}
                   />
                   {errors.arrivalFlight && <p className="text-red-500 text-sm mt-1">{errors.arrivalFlight}</p>}
@@ -635,7 +757,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 <h4 className="font-bold text-slate-800 flex items-center gap-2">
                   <span className="text-blue-600">🛫</span> {BookingFormText.departureFlight}
                 </h4>
-                
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.date} *</label>
@@ -643,36 +765,33 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                       type="date"
                       value={formData.departureDate}
                       onChange={(e) => handleInputChange('departureDate', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                        errors.departureDate ? 'border-red-500' : 'border-gray-200'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.departureDate ? 'border-red-500' : 'border-gray-200'
+                        }`}
                     />
                     {errors.departureDate && <p className="text-red-500 text-sm mt-1">{errors.departureDate}</p>}
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.time} *</label>
                     <input
                       type="time"
                       value={formData.departureTime}
                       onChange={(e) => handleInputChange('departureTime', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                        errors.departureTime ? 'border-red-500' : 'border-gray-200'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.departureTime ? 'border-red-500' : 'border-gray-200'
+                        }`}
                     />
                     {errors.departureTime && <p className="text-red-500 text-sm mt-1">{errors.departureTime}</p>}
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">{BookingFormText.flightNumber} *</label>
                   <input
                     type="text"
                     value={formData.departureFlight}
                     onChange={(e) => handleInputChange('departureFlight', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                      errors.departureFlight ? 'border-red-500' : 'border-gray-200'
-                    }`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.departureFlight ? 'border-red-500' : 'border-gray-200'
+                      }`}
                     placeholder={BookingFormText.departureFlightNumberPlaceholder}
                   />
                   {errors.departureFlight && <p className="text-red-500 text-sm mt-1">{errors.departureFlight}</p>}
@@ -738,7 +857,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                       onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
-                      {[1,2,3,4,5,6,7,8].map(num => (
+                      {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
                         <option key={num} value={num}>{num}</option>
                       ))}
                     </select>
@@ -753,7 +872,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                       onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
-                      {[0,1,2,3].map(num => (
+                      {[0, 1, 2, 3].map(num => (
                         <option key={num} value={num}>{num}</option>
                       ))}
                     </select>
@@ -768,7 +887,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                       onChange={(e) => handleInputChange('childrenUnder5Count', parseInt(e.target.value))}
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
-                      {[0,1,2,3].map(num => (
+                      {[0, 1, 2, 3].map(num => (
                         <option key={num} value={num}>{num}</option>
                       ))}
                     </select>
@@ -783,9 +902,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                         type="text"
                         value={formData.childrenAges}
                         onChange={(e) => handleInputChange('childrenAges', e.target.value)}
-                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                          errors.childrenAges ? 'border-red-500' : 'border-yellow-300'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.childrenAges ? 'border-red-500' : 'border-yellow-300'
+                          }`}
                         placeholder="Enter ages separated by commas (e.g., 5, 7, 10)"
                         required={formData.childrenCount > 0}
                       />
@@ -805,9 +923,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                         type="text"
                         value={formData.childrenUnder5Ages}
                         onChange={(e) => handleInputChange('childrenUnder5Ages', e.target.value)}
-                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                          errors.childrenUnder5Ages ? 'border-red-500' : 'border-green-300'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 ${errors.childrenUnder5Ages ? 'border-red-500' : 'border-green-300'
+                          }`}
                         placeholder="Enter ages separated by commas (e.g., 1, 3, 4)"
                         required={formData.childrenUnder5Count > 0}
                       />
@@ -828,6 +945,127 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 </div>
               </div>
             )}
+
+            {/* Transportation Options */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-3">
+                  Transportation Options
+                </label>
+
+                <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 mb-4">
+                  <p className="text-sm text-blue-700">
+                    Link Light Rail transportation is included in the standard experience.
+                    Prefer a more comfortable airport transfer? Upgrade to a
+                    pre-arranged private transfer for $100 each way, per group.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {TRANSPORTATION_OPTIONS.map((option) => (
+                  <label
+                    key={option.id}
+                    className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-colors ${formData.transportationOption === option.id
+                      ? 'border-purple-500 bg-purple-50'
+                      : 'border-gray-200 hover:bg-gray-50'
+                      }`}
+                  >
+                    <input
+                      type="radio"
+                      name="transportationOption"
+                      value={option.id}
+                      checked={formData.transportationOption === option.id}
+                      onChange={(e) =>
+                        handleInputChange(
+                          'transportationOption',
+                          e.target.value as TransportationOption
+                        )
+                      }
+                      className="mt-1"
+                    />
+
+                    <div className="flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                        <div className="font-semibold text-slate-800">
+                          {option.name}
+                        </div>
+
+                        <div className="text-purple-600 font-bold">
+                          {option.price === 0
+                            ? 'Included'
+                            : `+$${option.price} per group`}
+                        </div>
+                      </div>
+
+                      <div className="text-sm text-slate-600 mt-1">
+                        {option.description}
+                      </div>
+                    </div>
+                  </label>
+                ))}
+              </div>
+
+              {/* One-Way Transfer Direction */}
+              {formData.transportationOption === 'private-one-way' && (
+                <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                  <label className="block text-sm font-medium text-slate-700 mb-3">
+                    One-Way Transfer Direction *
+                  </label>
+
+                  <div className="space-y-3">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="oneWayTransferDirection"
+                        value="airport-to-seattle"
+                        checked={
+                          formData.oneWayTransferDirection === 'airport-to-seattle'
+                        }
+                        onChange={(e) =>
+                          handleInputChange(
+                            'oneWayTransferDirection',
+                            e.target.value as OneWayTransferDirection
+                          )
+                        }
+                      />
+                      <span>SEA Airport → Seattle</span>
+                    </label>
+
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="oneWayTransferDirection"
+                        value="seattle-to-airport"
+                        checked={
+                          formData.oneWayTransferDirection === 'seattle-to-airport'
+                        }
+                        onChange={(e) =>
+                          handleInputChange(
+                            'oneWayTransferDirection',
+                            e.target.value as OneWayTransferDirection
+                          )
+                        }
+                      />
+                      <span>Seattle → SEA Airport</span>
+                    </label>
+                  </div>
+                </div>
+              )}
+
+              {/* Transportation Price */}
+              <div className="bg-slate-50 rounded-lg p-3 text-sm text-slate-700">
+                <div className="flex justify-between">
+                  <span>Transportation:</span>
+                  <strong>
+                    {getTransportationPrice(formData.transportationOption) === 0
+                      ? 'Included'
+                      : `+$${getTransportationPrice(formData.transportationOption)}`}
+                  </strong>
+                </div>
+              </div>
+            </div>
+
 
             {/* Language Preference */}
             <div>
@@ -952,7 +1190,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
               />
             </div>
 
-            
+
           </div>
         )}
 
@@ -967,14 +1205,38 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 <div className="mb-6 p-4 highlight_bg rounded-xl border border-purple-200">
                   <h4 className="font-bold headings_color mb-3">Total Price: ${formData.totalPrice}</h4>
                   <div className="text-sm headings_color">
-                    <p>Base tour: ${formData.selectedProduct?.price} {formData.selectedProduct?.priceDescription}</p>
+                    <p>
+                      Base tour: ${formData.selectedProduct?.price}{' '}
+                      {formData.selectedProduct?.priceDescription}
+                    </p>
+
                     {formData.selectedAddOns.map(addon => (
-                      <p key={addon.id}>+ {addon.name}: ${addon.price}</p>
+                      <p key={addon.id}>
+                        + {addon.name}: ${addon.price}
+                      </p>
                     ))}
+
+                    <p>
+                      Transportation:{' '}
+                      {getTransportationPrice(formData.transportationOption) === 0
+                        ? 'Link Light Rail — Included'
+                        : `+ $${getTransportationPrice(formData.transportationOption)}`}
+                    </p>
+
+                    {formData.transportationOption === 'private-one-way' &&
+                      formData.oneWayTransferDirection && (
+                        <p>
+                          Transfer direction:{' '}
+                          {formData.oneWayTransferDirection === 'airport-to-seattle'
+                            ? 'SEA Airport → Seattle'
+                            : 'Seattle → SEA Airport'}
+                        </p>
+                      )}
                   </div>
+
                 </div>
               )}
-              
+
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
                   <h4 className="font-semibold text-slate-700 mb-2">{BookingFormText.personalInfo}</h4>
@@ -1005,6 +1267,37 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                   )}
                   <p><strong>Language:</strong> {formData.preferredLanguage}</p>
                 </div>
+
+                <div>
+                  <h4 className="font-semibold text-slate-700 mb-2">
+                    Transportation
+                  </h4>
+
+                  {formData.transportationOption === 'light-rail' && (
+                    <p>Link Light Rail — Included</p>
+                  )}
+
+                  {formData.transportationOption === 'private-one-way' && (
+                    <>
+                      <p>
+                        One-Way Pre-arranged Private Airport Transfer (+$100)
+                      </p>
+                      <p>
+                        <strong>Direction:</strong>{' '}
+                        {formData.oneWayTransferDirection === 'airport-to-seattle'
+                          ? 'SEA Airport → Seattle'
+                          : 'Seattle → SEA Airport'}
+                      </p>
+                    </>
+                  )}
+
+                  {formData.transportationOption === 'private-round-trip' && (
+                    <p>
+                      Round-Trip Pre-arranged Private Airport Transfer (+$200)
+                    </p>
+                  )}
+                </div>
+
 
                 {formData.selectedAddOns.length > 0 && (
                   <div>
@@ -1062,11 +1355,10 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
             type="button"
             onClick={prevStep}
             disabled={currentStep === 1}
-            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-              currentStep === 1 
-                ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
+            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${currentStep === 1
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
           >
             {BookingFormText.previous}
           </button>
@@ -1083,11 +1375,10 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`px-8 py-3 font-semibold rounded-xl transition-all duration-300 ${
-                isSubmitting
-                  ? 'bg-gray-400 text-white cursor-not-allowed'
-                  : 'bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:shadow-lg transform hover:-translate-y-1'
-              }`}
+              className={`px-8 py-3 font-semibold rounded-xl transition-all duration-300 ${isSubmitting
+                ? 'bg-gray-400 text-white cursor-not-allowed'
+                : 'bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:shadow-lg transform hover:-translate-y-1'
+                }`}
             >
               {isSubmitting ? (
                 <span className="flex items-center gap-2">
