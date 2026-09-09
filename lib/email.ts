@@ -94,8 +94,8 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
     console.log('📤 Preparing Mailgun data...');
     const data = {
       from: 'Six Hour Layover <noreply@sixhourlayover.com>',
-      // to: ['booking@sixhourlayover.com'],
-      to: ['hilt123web@gmail.com'],
+      to: ['booking@sixhourlayover.com'],
+      // to: ['hilt123web@gmail.com'],
       subject: `🎉 New Booking Confirmed - ${bookingInfo.customerName}`,
       html: emailContent,
     };
