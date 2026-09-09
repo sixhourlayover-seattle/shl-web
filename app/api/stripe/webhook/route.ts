@@ -4,8 +4,8 @@ import { sendBookingNotificationEmail } from '@/lib/email';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-08-27.basil',
-    })
+    apiVersion: '2025-08-27.basil',
+  })
   : null;
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -55,8 +55,10 @@ export async function POST(request: NextRequest) {
           customerEmail: session.customer_email,
           customerPhone: session.metadata?.phone,
           tourOption: session.metadata?.tourOption,
-          travelDate: session.metadata?.travelDate, 
+          travelDate: session.metadata?.travelDate,
           preferredLanguage: session.metadata?.preferredLanguage || 'English',
+          transportationOption: session.metadata?.transportationOption,
+          transportationPrice: session.metadata?.transportationPrice,
           paymentAmount: session.amount_total ? session.amount_total / 100 : 0,
           paymentStatus: session.payment_status,
           currency: session.currency?.toUpperCase() || 'USD',

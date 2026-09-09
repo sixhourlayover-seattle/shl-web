@@ -30,6 +30,8 @@ interface BookingNotificationData {
   tourOption: string | undefined;
   travelDate: string | undefined;
   preferredLanguage: string;
+  transportationOption: string | undefined;
+  transportationPrice: string | undefined;
   paymentAmount: number;
   paymentStatus: string;
   currency: string;
@@ -64,6 +66,7 @@ export async function sendBookingNotificationEmail(bookingInfo: BookingNotificat
       <ul>
         <li><strong>Travel Date:</strong> ${bookingInfo.travelDate || 'N/A'}</li>
         <li><strong>Tour Option:</strong> ${bookingInfo.tourOption || 'N/A'}</li>
+        <li><strong>Transportation:</strong> ${bookingInfo.transportationOption || 'N/A'}${bookingInfo.transportationPrice ? ` — +$${bookingInfo.transportationPrice} per group` : ''}</li>
         <li><strong>Preferred Language:</strong> ${bookingInfo.preferredLanguage}</li>
         <li><strong>Total Amount:</strong> $${bookingInfo.paymentAmount.toFixed(2)} ${bookingInfo.currency}</li>
         <li><strong>Payment Status:</strong> ${bookingInfo.paymentStatus}</li>
