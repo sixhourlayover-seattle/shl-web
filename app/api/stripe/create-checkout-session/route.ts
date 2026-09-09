@@ -3,8 +3,8 @@ import Stripe from 'stripe';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-08-27.basil',
-    })
+    apiVersion: '2025-08-27.basil',
+  })
   : null;
 
 export async function POST(request: NextRequest) {
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       // Transportation
       transportationOption = 'light-rail',
       transportationPrice = 0,
-      oneWayTransferDirection = '',
+      // oneWayTransferDirection = '',
 
       metadata = {},
     } = await request.json();
@@ -134,16 +134,22 @@ export async function POST(request: NextRequest) {
     let transportationName = '';
 
     switch (transportationOption) {
-      case 'private-one-way':
+      case 'private-return-to-sea':
+        serverTransportationPrice = 70;
+        transportationName =
+          'Private Return to SEA Airport';
+        break;
+
+      case 'private-airport-pickup':
         serverTransportationPrice = 100;
         transportationName =
-          'One-Way Pre-arranged Private Airport Transfer';
+          'Private Airport Pickup';
         break;
 
       case 'private-round-trip':
-        serverTransportationPrice = 200;
+        serverTransportationPrice = 170;
         transportationName =
-          'Round-Trip Pre-arranged Private Airport Transfer';
+          'Round-Trip Private Airport Transfers';
         break;
 
       case 'light-rail':
@@ -158,15 +164,15 @@ export async function POST(request: NextRequest) {
       let transportationDescription =
         'Pre-arranged private airport transfer';
 
-      if (
-        transportationOption === 'private-one-way' &&
-        oneWayTransferDirection
-      ) {
-        transportationDescription =
-          oneWayTransferDirection === 'airport-to-seattle'
-            ? 'SEA Airport → Seattle'
-            : 'Seattle → SEA Airport';
-      }
+      // if (
+      //   transportationOption === 'private-one-way' &&
+      //   oneWayTransferDirection
+      // ) {
+      //   transportationDescription =
+      //     oneWayTransferDirection === 'airport-to-seattle'
+      //       ? 'SEA Airport → Seattle'
+      //       : 'Seattle → SEA Airport';
+      // }
 
       lineItems.push({
         price_data: {
@@ -176,8 +182,8 @@ export async function POST(request: NextRequest) {
             description: transportationDescription,
             metadata: {
               transportationOption,
-              oneWayTransferDirection:
-                oneWayTransferDirection || '',
+              // oneWayTransferDirection:
+              // oneWayTransferDirection || '',
             },
           },
           unit_amount: serverTransportationPrice * 100,
@@ -208,43 +214,38 @@ export async function POST(request: NextRequest) {
 
       mode: 'payment',
 
-      success_url: `${
-        process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-      }/booking-success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+        }/booking-success?session_id={CHECKOUT_SESSION_ID}`,
 
-      cancel_url: `${
-        process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-      }/booking-cancelled`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+        }/booking-cancelled`,
+
+      customer_email: customerEmail,
+
+      billing_address_collection: 'required',
+
+      automatic_tax: {
+        enabled: true,
+      },
 
       metadata: {
         bookingId,
-
         ...metadata,
 
         travelerCount: String(
           selectedProduct.groupSize === 'per-person'
             ? Math.max(1, normalizedTravelerCount)
             : Math.max(
-                1,
-                normalizedTravelerCount || payingQuantity
-              )
+              1,
+              normalizedTravelerCount || payingQuantity
+            )
         ),
 
         transportationOption,
 
-        // Store the SERVER-calculated price
         transportationPrice: String(
           serverTransportationPrice
         ),
-
-        oneWayTransferDirection:
-          oneWayTransferDirection || '',
-      },
-
-      customer_email: customerEmail,
-
-      automatic_tax: {
-        enabled: true,
       },
     });
 
