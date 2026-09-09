@@ -121,16 +121,19 @@ const TRANSPORTATION_OPTIONS = [
     isIncluded: true,
   },
   {
-    name: "One-Way Pre-arranged Private Airport Transfer",
-    price: "+$100 per group",
+    name: "Private Return to SEA Airport",
+    price: "+$70 per group",
     isIncluded: false,
-    hasDirection: true,
   },
   {
-    name: "Round-Trip Pre-arranged Private Airport Transfer",
-    price: "+$200 per group",
+    name: "Private Airport Pickup",
+    price: "+$100 per group",
     isIncluded: false,
-    hasDirection: false,
+  },
+  {
+    name: "Round-Trip Private Airport Transfers",
+    price: "+$170 per group",
+    isIncluded: false,
   },
 ];
 
@@ -277,9 +280,7 @@ export default function PricingPage() {
                     </span>
                   </h2>
                   <p className="text-slate-700 text-base leading-relaxed max-w-2xl mx-auto">
-                    Link Light Rail transportation is included in the standard experience.
-                    Prefer a more comfortable airport transfer? Upgrade to a pre-arranged
-                    private transfer for $100 each way, per group.
+                    Getting to and from Seattle is part of the plan. Link Light Rail is included, with pre-arranged private airport transfers available as optional upgrades.
                   </p>
                 </div>
 
@@ -301,7 +302,7 @@ export default function PricingPage() {
                 </div>
 
                 <p className="text-xs text-slate-500 text-center mt-4">
-                  One-way transfers let you choose SEA Airport → Seattle or Seattle → SEA Airport at booking.
+                  Private airport transfers can be selected during booking. Applicable sales tax will be calculated at checkout.
                 </p>
               </div>
             </div>

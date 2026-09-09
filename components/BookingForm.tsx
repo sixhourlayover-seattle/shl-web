@@ -57,13 +57,18 @@ interface BookingData {
 
   // Transportation
   transportationOption: TransportationOption;
-  oneWayTransferDirection: OneWayTransferDirection | "";
+
 
 
 }
 
-type TransportationOption = 'light-rail' | 'private-one-way' | 'private-round-trip';
-type OneWayTransferDirection = 'airport-to-seattle' | 'seattle-to-airport';
+// type TransportationOption = 'light-rail' | 'private-one-way' | 'private-round-trip';
+type TransportationOption =
+  | 'light-rail'
+  | 'private-return-to-sea'
+  | 'private-airport-pickup'
+  | 'private-round-trip';
+
 
 const TRANSPORTATION_OPTIONS = [
   {
@@ -73,16 +78,22 @@ const TRANSPORTATION_OPTIONS = [
     description: 'Included in the standard tour experience.',
   },
   {
-    id: 'private-one-way' as TransportationOption,
-    name: 'One-Way Pre-arranged Private Airport Transfer',
+    id: 'private-return-to-sea' as TransportationOption,
+    name: 'Private Return to SEA Airport',
+    price: 70,
+    description: 'Pre-arranged private transportation from Seattle back to SEA Airport at the end of the tour.',
+  },
+  {
+    id: 'private-airport-pickup' as TransportationOption,
+    name: 'Private Airport Pickup',
     price: 100,
-    description: '+$100 per group',
+    description: 'Pre-arranged private transportation from SEA Airport to Seattle at the beginning of the tour.',
   },
   {
     id: 'private-round-trip' as TransportationOption,
-    name: 'Round-Trip Pre-arranged Private Airport Transfer',
-    price: 200,
-    description: '+$200 per group',
+    name: 'Round-Trip Private Airport Transfers',
+    price: 170,
+    description: 'Private transportation from SEA to Seattle and back to SEA.',
   },
 ];
 
@@ -101,10 +112,12 @@ const getTransportationPrice = (
   transportationOption: TransportationOption
 ): number => {
   switch (transportationOption) {
-    case 'private-one-way':
+    case 'private-return-to-sea':
+      return 70;
+    case 'private-airport-pickup':
       return 100;
     case 'private-round-trip':
-      return 200;
+      return 170;
     case 'light-rail':
     default:
       return 0;
@@ -147,7 +160,7 @@ const initializeFormData = (): BookingData => {
     needsLuggageStorage: false,
     luggagePieces: 0,
     transportationOption: "light-rail",
-    oneWayTransferDirection: "",
+    // oneWayTransferDirection: "",
     transportationPrice: 0,
 
   };
@@ -204,44 +217,62 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
     }
 
     // Recalculate pricing when relevant fields change
-    if (field === 'numberOfTravelers' || field === 'tourOption' || field === 'adultsCount' || field === 'childrenCount' || field === 'childrenUnder5Count' || field === 'transportationOption') {
-
-      // One-way private transfer requires a direction
-      if (field === 'transportationOption') {
-        if (value === 'private-one-way') {
-          // Keep existing direction if already selected
-          if (!updatedData.oneWayTransferDirection) {
-            updatedData.oneWayTransferDirection = 'airport-to-seattle';
-          }
-        } else {
-          updatedData.oneWayTransferDirection = '';
-        }
-      }
-
+    if (
+      field === 'numberOfTravelers' ||
+      field === 'tourOption' ||
+      field === 'adultsCount' ||
+      field === 'childrenCount' ||
+      field === 'childrenUnder5Count' ||
+      field === 'transportationOption'
+    ) {
       // Determine duration from tour option
       let duration: '6h' | '7h' | '8h' = '6h';
-      if (updatedData.tourOption.includes('7hour')) duration = '7h';
-      else if (updatedData.tourOption.includes('8hour')) duration = '8h';
 
-      // Total travelers includes adults + all children (for capacity, not pricing)
-      const totalTravelers = updatedData.adultsCount + updatedData.childrenCount + updatedData.childrenUnder5Count;
-
-      // Use direct product selection if a specific tour option is selected
-      let selectedProduct: StripeProduct | null;
-      if (field === 'tourOption') {
-        selectedProduct = STRIPE_TOUR_PRODUCTS.find(p => p.id === value as string) || null;
-      } else {
-        // For pricing calculations, only count adults + children 5+ (children under 5 are free)
-        const pricingTravelers = updatedData.adultsCount + updatedData.childrenCount;
-        selectedProduct = getProductByGroupSize(pricingTravelers, duration);
+      if (updatedData.tourOption.includes('7hour')) {
+        duration = '7h';
+      } else if (updatedData.tourOption.includes('8hour')) {
+        duration = '8h';
       }
 
-      const selectedAddOns = STRIPE_ADD_ONS.filter(addon => updatedData.addOns.includes(addon.id));
+      // Total travelers includes adults + all children
+      // for capacity, not pricing
+      const totalTravelers =
+        updatedData.adultsCount +
+        updatedData.childrenCount +
+        updatedData.childrenUnder5Count;
 
-      // Calculate pricing - only adults and children 5+ are charged
-      const effectiveTravelers = updatedData.adultsCount + updatedData.childrenCount;
+      let selectedProduct: StripeProduct | null;
 
-      // const totalPrice = selectedProduct ? calculateTotalPrice(selectedProduct, effectiveTravelers, selectedAddOns) : 0;
+      if (field === 'tourOption') {
+        // User explicitly selected a tour option
+        selectedProduct =
+          STRIPE_TOUR_PRODUCTS.find(
+            p => p.id === value as string
+          ) || null;
+      } else if (
+        field === 'adultsCount' ||
+        field === 'childrenCount' ||
+        field === 'childrenUnder5Count' ||
+        field === 'numberOfTravelers'
+      ) {
+        // Traveler count changed, so find the correct group-size product
+        const pricingTravelers =
+          updatedData.adultsCount + updatedData.childrenCount;
+
+        selectedProduct = getProductByGroupSize(
+          pricingTravelers,
+          duration
+        );
+      } else {
+        // Transportation changed.
+        // Keep the currently selected tour product.
+        selectedProduct = updatedData.selectedProduct;
+      }
+
+      const selectedAddOns = STRIPE_ADD_ONS.filter(
+        addon => updatedData.addOns.includes(addon.id)
+      );
+
       const transportationPrice = getTransportationPrice(
         updatedData.transportationOption
       );
@@ -259,15 +290,13 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
       const totalPrice = basePrice + transportationPrice;
 
-
-
       updatedData.selectedProduct = selectedProduct;
       updatedData.selectedAddOns = selectedAddOns;
       updatedData.totalPrice = totalPrice;
+      updatedData.transportationPrice = transportationPrice;
       updatedData.numberOfTravelers = totalTravelers;
 
       console.log("Selected product 45465  ", updatedData);
-
     }
 
     console.log("Selected product ", updatedData);
@@ -454,7 +483,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
         totalPrice: finalTotalPrice,
         transportationPrice,
         transportationOption: formData.transportationOption,
-        oneWayTransferDirection: formData.oneWayTransferDirection,
+        // oneWayTransferDirection: formData.oneWayTransferDirection,
         submittedAt: new Date().toISOString(),
         needsLuggageStorage: formData.needsLuggageStorage,
         luggagePieces: formData.luggagePieces,
@@ -489,7 +518,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
           transportationOption: formData.transportationOption,
           transportationPrice,
-          oneWayTransferDirection: formData.oneWayTransferDirection,
+          // oneWayTransferDirection: formData.oneWayTransferDirection,
 
           customerEmail: formData.email,
 
@@ -510,8 +539,8 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
             transportationOption: formData.transportationOption,
             transportationPrice: String(transportationPrice),
-            oneWayTransferDirection:
-              formData.oneWayTransferDirection || '',
+            // oneWayTransferDirection:
+            //   formData.oneWayTransferDirection || '',
           }
 
         }),
@@ -955,9 +984,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
 
                 <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 mb-4">
                   <p className="text-sm text-blue-700">
-                    Link Light Rail transportation is included in the standard experience.
-                    Prefer a more comfortable airport transfer? Upgrade to a
-                    pre-arranged private transfer for $100 each way, per group.
+                    Getting to and from Seattle is part of the plan. Link Light Rail is included, with pre-arranged private airport transfers available as optional upgrades.
                   </p>
                 </div>
               </div>
@@ -1006,52 +1033,7 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                 ))}
               </div>
 
-              {/* One-Way Transfer Direction */}
-              {formData.transportationOption === 'private-one-way' && (
-                <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
-                  <label className="block text-sm font-medium text-slate-700 mb-3">
-                    One-Way Transfer Direction *
-                  </label>
 
-                  <div className="space-y-3">
-                    <label className="flex items-center gap-3 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="oneWayTransferDirection"
-                        value="airport-to-seattle"
-                        checked={
-                          formData.oneWayTransferDirection === 'airport-to-seattle'
-                        }
-                        onChange={(e) =>
-                          handleInputChange(
-                            'oneWayTransferDirection',
-                            e.target.value as OneWayTransferDirection
-                          )
-                        }
-                      />
-                      <span>SEA Airport → Seattle</span>
-                    </label>
-
-                    <label className="flex items-center gap-3 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="oneWayTransferDirection"
-                        value="seattle-to-airport"
-                        checked={
-                          formData.oneWayTransferDirection === 'seattle-to-airport'
-                        }
-                        onChange={(e) =>
-                          handleInputChange(
-                            'oneWayTransferDirection',
-                            e.target.value as OneWayTransferDirection
-                          )
-                        }
-                      />
-                      <span>Seattle → SEA Airport</span>
-                    </label>
-                  </div>
-                </div>
-              )}
 
               {/* Transportation Price */}
               <div className="bg-slate-50 rounded-lg p-3 text-sm text-slate-700">
@@ -1222,16 +1204,6 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                         ? 'Link Light Rail — Included'
                         : `+ $${getTransportationPrice(formData.transportationOption)}`}
                     </p>
-
-                    {formData.transportationOption === 'private-one-way' &&
-                      formData.oneWayTransferDirection && (
-                        <p>
-                          Transfer direction:{' '}
-                          {formData.oneWayTransferDirection === 'airport-to-seattle'
-                            ? 'SEA Airport → Seattle'
-                            : 'Seattle → SEA Airport'}
-                        </p>
-                      )}
                   </div>
 
                 </div>
@@ -1277,25 +1249,24 @@ export default function BookingForm({ onClose, isModal = false, preselectedTourI
                     <p>Link Light Rail — Included</p>
                   )}
 
-                  {formData.transportationOption === 'private-one-way' && (
-                    <>
-                      <p>
-                        One-Way Pre-arranged Private Airport Transfer (+$100)
-                      </p>
-                      <p>
-                        <strong>Direction:</strong>{' '}
-                        {formData.oneWayTransferDirection === 'airport-to-seattle'
-                          ? 'SEA Airport → Seattle'
-                          : 'Seattle → SEA Airport'}
-                      </p>
-                    </>
+                  {formData.transportationOption === 'private-return-to-sea' && (
+                    <p>
+                      Private Return to SEA Airport (+$70)
+                    </p>
+                  )}
+
+                  {formData.transportationOption === 'private-airport-pickup' && (
+                    <p>
+                      Private Airport Pickup (+$100)
+                    </p>
                   )}
 
                   {formData.transportationOption === 'private-round-trip' && (
                     <p>
-                      Round-Trip Pre-arranged Private Airport Transfer (+$200)
+                      Round-Trip Private Airport Transfers (+$170)
                     </p>
                   )}
+
                 </div>
 
 
