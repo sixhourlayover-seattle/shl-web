@@ -142,7 +142,7 @@ export const STORY_POINTS = [
   },
   {
     title: "Our Solution",
-    // content: "Expertly timed tours that maximize your Seattle experience while guaranteeing your flight."
+    
     content: "Thoughtfully timed tours that maximize your Seattle experience while planning around your flight schedule."
   },
   {
@@ -153,7 +153,7 @@ export const STORY_POINTS = [
 
 export const STATS = [
   { number: "6, 7, 8", label: "Perfect Hours — Choose the tour that fits your layover" },
-  // { number: "2-Hour", label: "Flight Buffer — Guaranteed return to SEA on time" },
+ 
   { number: "Built-In", label: "Flight Buffer — Appropriate return time planned around your departure" },
   { number: "100%", label: "Private Tours — Just you and your group, every time" },
   { number: "1 Loyal", label: "Mascot + Local Friends — Guai Guai (our good boy) and your guide-friend in Seattle, welcoming you like family" }
@@ -416,7 +416,7 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: 'STEP 1',
     title: "Book Your Tour",
-    description: "Contact us via email or phone to secure your spot. We'll send confirmation details and track your flight.",
+    description: "Book online to secure your tour. You’ll receive confirmation and detailed arrival instructions. We'll send confirmation details and track your flight.",
     icon: "📧",
     details: [
       "Email <strong>booking@sixhourlayover.com</strong> or call <strong>(206) 928‑1277</strong>",

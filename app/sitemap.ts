@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/how-it-works',
     '/about',
     '/seattle-layover-tour',
+    '/long-layover-seattle',
     '/6-hour-layover-seattle',
     '/7-hour-layover-seattle',
     '/8-hour-layover-seattle',

@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ClockIcon, MapPinIcon, InstagramIcon, FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/Icons";
+import {
+  ClockIcon,
+  MapPinIcon,
+  InstagramIcon,
+  FacebookIcon,
+  TikTokIcon,
+  WhatsAppIcon,
+} from "@/components/Icons";
 import Navigation from "@/components/Navigation";
 import MobileNav from "@/components/MobileNav";
 import BookingModal from "@/components/BookingModal";
@@ -10,46 +17,55 @@ import { STRIPE_TOUR_PRODUCTS } from "@/lib/stripe-products";
 import Image from "next/image";
 import Link from "next/link";
 
-
 const WHATS_INCLUDED = [
   "Airport meet & greet",
   "Light Rail from airport and Uber within the city",
   "Return is planned with an appropriate airport buffer",
   "A small, locally inspired Seattle treat",
-  "Friendly local guide"
+  "Friendly local guide",
 ];
 
 const TOUR_OPTIONS_opiton = [
   {
     name: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
-    description: "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
-  
+    description:
+      "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
+
     features: [
       "Airport meet & greet",
       "Light Rail transfers",
       "A small, locally inspired Seattle treat.",
     ],
-    url: "/6-hour-layover-seattle"
+    url: "/6-hour-layover-seattle",
   },
   {
     name: "7-Hour — Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
-    subtitle: "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
-    description: "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park",
-    features: ["Pike Place Market & Waterfront", "iconic Seattle skyline view — Kerry Park"],
-    url: "/7-hour-layover-seattle"
+    subtitle:
+      "Pike Place Market & Waterfront + iconic Seattle skyline view — Kerry Park",
+    description:
+      "Visit Pike Place Market & Waterfront plus iconic Seattle skyline view — Kerry Park",
+    features: [
+      "Pike Place Market & Waterfront",
+      "iconic Seattle skyline view — Kerry Park",
+    ],
+    url: "/7-hour-layover-seattle",
   },
   {
     name: "8-Hour — Pike Place Market + Space Needle Admission",
     subtitle: "Experience the best of Seattle in one layover",
-    description: "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
-    features: ["Pike Place Market", "Space Needle admission (go inside, observation deck visit included)", "Maximum Seattle experience"],
-    url: "/8-hour-layover-seattle"
-  }
+    description:
+      "Explore Pike Place Market, then head to the Space Needle for sweeping skyline views from the observation deck — admission ticket included.",
+    features: [
+      "Pike Place Market",
+      "Space Needle admission (go inside, observation deck visit included)",
+      "Maximum Seattle experience",
+    ],
+    url: "/8-hour-layover-seattle",
+  },
 ];
 
 const PRICING_TIERS = STRIPE_TOUR_PRODUCTS;
-
 
 const Why_travellers_love_it = [
   "Designed for layover travelers",
@@ -59,16 +75,15 @@ const Why_travellers_love_it = [
   "Perfect for quick photos and local food.",
 ];
 
-
 export default function SLTourContent() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
   const [selectedTier, setSelectedTier] = useState("Solo");
 
   const toggleItem = (sectionIndex: number, faqIndex: number) => {
     const key = `${sectionIndex}-${faqIndex}`;
-    setOpenItems(prev => ({
+    setOpenItems((prev) => ({
       ...prev,
-      [key]: !prev[key]
+      [key]: !prev[key],
     }));
   };
 
@@ -82,52 +97,85 @@ export default function SLTourContent() {
       <div className="fixed inset-0 animated-gradient opacity-10" />
       <div className="fixed inset-0 bg-gradient-to-b from-white/95 via-purple-50/90 to-indigo-50/95" />
       <div className="fixed top-20 left-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-      <div className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
-      <div className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }} />
+      <div
+        className="fixed top-40 right-20 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="fixed bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+        style={{ animationDelay: "4s" }}
+      />
 
       <div className="relative z-10">
         <Navigation />
 
         {/* Hero */}
         <section className="py-12 sm:py-20">
-          <div className="container text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
+          <div
+            className="container text-center mb-12"
+            style={{ animation: "slide-in 0.6s ease-out" }}
+          >
             <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
-              <span className="bg-gradient-to-r headings_color">Seattle Layover Tour (6–8 Hours) <br />
-                Explore the City, Be Back on Time</span>
+              <span className="bg-gradient-to-r headings_color">
+                Private Seattle Layover Tours <br />
+                from SEA Airport
+              </span>
             </h1>
-            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Turn your layover into a mini adventure — see the city safely and return with time to spare.</p>
+            <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
+              Make the most of your Seattle airport layover with a private
+              Seattle tour planned around your flight schedule, available
+              layover window, and return to SEA Airport with an appropriate
+              airport buffer.
+            </p>
 
-            <a href="/book" className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r btn-primary text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-            >Book Tour   </a>
+            <a
+              href="/book"
+              className=" mt-8 inline-flex items-center px-8 py-4 bg-gradient-to-r btn-primary text-white font-semibold rounded-2xl shadow-neon hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+            >
+              Book Tour{" "}
+            </a>
           </div>
         </section>
 
         <section className="py-12 sm:py-20">
           <div className="container grid gap-8 md:grid-cols-2 md:items-center">
-            <div className="space-y-6" style={{ animation: 'slide-in 0.6s ease-out' }}>
+            <div
+              className="space-y-6"
+              style={{ animation: "slide-in 0.6s ease-out" }}
+            >
               <div className="grid gap-4 text-left max-w-2xl">
-                <div className="flex items-center gap-3">
+                <div className=" items-center gap-3">
                   <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
-                    Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free
-                    <br />
-                    — with an appropriate airport return time built into the itinerary.
+                    Make the most of your Seattle airport layover with a private
+                    Seattle tour designed around your flight schedule and
+                    available time between flights. Whether you have
+                    approximately 6, 7, or 8 hours, you can leave SEA Airport,
+                    explore some of Seattle’s most popular sights, and return to
+                    the airport with an appropriate buffer planned into your
+                    itinerary.
                   </p>
 
-                  {/* <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">Turn your Seattle layover into the highlight of your trip. Whether you have six, seven, or eight hours between flights, our curated tours are designed to help you experience the best of the city safely, efficiently, and stress-free 
-                  <br />— all with an on-time airport return guarantee.</p> */}
+                  <p className="text-slate-700 text-lg max-w-2xl leading-relaxed mb-6">
+                    Our Seattle layover tour options are built for travelers who
+                    want to make their connection useful without planning every
+                    detail themselves. Depending on your schedule, a private
+                    tour from SEA Airport can include Pike Place Market, the
+                    Seattle waterfront, skyline views, or the Space Needle.
+                  </p>
                 </div>
               </div>
-
-
             </div>
-            <div className="relative" style={{ animation: 'slide-in 0.8s ease-out' }}>
+            <div
+              className="relative"
+              style={{ animation: "slide-in 0.8s ease-out" }}
+            >
               <div
                 className="aspect-[4/2] rounded-3xl shadow-2xl overflow-hidden relative hover-lift"
                 style={{
                   backgroundImage: 'url("/seattle-skyline.jpg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
                 }}
               >
                 {/* Gradient overlay for better text visibility */}
@@ -144,37 +192,43 @@ export default function SLTourContent() {
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 <span className="">Itinerary Overview</span>
               </h2>
-              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">Choose from 3 routes</p>
+              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
+                Choose a private Seattle airport layover tour that fits your
+                available time between flights.
+              </p>
             </div>
 
             {/* Tour Options */}
             <div className="grid gap-8 lg:grid-cols-1 max-w-7xl mx-auto">
               <div className="lg:col-span-2">
                 <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border border-white/50 overflow-hidden hover-lift">
-
                   <div className="p-8">
                     <div className="space-y-6">
                       {TOUR_OPTIONS_opiton.map((tour, index) => (
                         <div
                           key={index}
                           className="rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 border-slate-200 bg-white hover:border-purple-300 hover:shadow-md'
-                              ">
+                              "
+                        >
                           <a href={tour.url}>
-
                             <div className="flex items-start gap-4">
                               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg">
                                 {index + 6}
                               </div>
                               <div className="flex-1">
-                                <h4 className="text-xl font-bold text-slate-800 mb-1">{tour.name}</h4>
-                                <p className="text-purple-600 font-semibold mb-2">{tour.subtitle}</p>
-                                <p className="text-slate-600 text-sm leading-relaxed">{tour.description}</p>
+                                <h4 className="text-xl font-bold text-slate-800 mb-1">
+                                  {tour.name}
+                                </h4>
+                                <p className="text-purple-600 font-semibold mb-2">
+                                  {tour.subtitle}
+                                </p>
+                                <p className="text-slate-600 text-sm leading-relaxed">
+                                  {tour.description}
+                                </p>
                               </div>
                             </div>
                           </a>
-
                         </div>
-
                       ))}
                     </div>
                   </div>
@@ -184,20 +238,45 @@ export default function SLTourContent() {
           </div>
         </section>
 
+        <section className="py-16 sm:py-20">
+          <div className="container">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                Make Your SeaTac Layover Count
+              </h2>
+
+              <p className="text-slate-700 text-lg leading-relaxed mb-6">
+                A SeaTac layover can be an opportunity to experience Seattle
+                rather than spending your entire connection inside the airport.
+                If you have enough time between flights, a private tour from SEA
+                Airport can give you a practical way to see the city while
+                keeping your return flight at the center of the plan.
+              </p>
+
+              <p className="text-slate-700 text-lg leading-relaxed">
+                Our approximately 6–8 hour Seattle layover experiences are
+                planned around your actual flight schedule, available time,
+                interests, and transportation needs. The itinerary includes an
+                appropriate airport return buffer rather than promising an exact
+                return time.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="py-16 ">
           <div className="container text-center">
-
             <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
-              <h2 className="text-4xl font-bold ">Timing &amp; Guarantee</h2>
+              <h2 className="text-4xl font-bold ">
+                Timing &amp; Return Planning
+              </h2>
               <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
-                Every itinerary is planned around your flight schedule, with real-time flight monitoring and an appropriate airport return buffer built into the itinerary.
+                Every itinerary is planned around your flight schedule, with
+                real-time flight monitoring and an appropriate airport return
+                buffer built into the itinerary.
               </p>
 
-              {/* <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
-              Every itinerary includes a built-in 2-hour return buffer, real-time flight monitoring, and an on-time airport return guarantee. */}
-              {/* </p> */}
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href="/book"
@@ -213,7 +292,6 @@ export default function SLTourContent() {
                 </button>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -222,11 +300,19 @@ export default function SLTourContent() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r bg-clip-text">Meeting Point</span>
+                <span className="bg-gradient-to-r bg-clip-text">
+                  Meeting Point
+                </span>
               </h2>
 
               <div className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed ">
-                Your Layover Concierge will coordinate your meeting at SEA-Tac Airport and provide clear instructions before your arrival. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign.
+                Your Layover Concierge will coordinate your meeting at SEA-Tac
+                Airport and provide clear instructions before your arrival.{" "}
+                <br />
+                After you land, you’ll receive a WhatsApp message with your
+                guide’s name and photo for easy recognition. If needed, your
+                guide will wait in the public arrival area holding a “Six-Hour
+                Layover” sign.
                 {/* Your Layover Concierge will meet you at, or as close as possible to, your arrival gate inside SEA-Tac Airport. <br />After you land, you’ll receive a WhatsApp message with your guide’s name and photo for easy recognition. If needed, your guide will wait in the public arrival area holding a “Six-Hour Layover” sign. */}
               </div>
             </div>
@@ -253,14 +339,14 @@ export default function SLTourContent() {
           </div>
         </section>
 
-
-
         {/* Pricing Section */}
         <section className="py-16">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.pricingTitle}</span>
+                <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">
+                  {PricingPageText.pricingTitle}
+                </span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 {PricingPageText.pricingSubtitle}
@@ -271,21 +357,26 @@ export default function SLTourContent() {
               {PRICING_TIERS.map((tier, index) => (
                 <div
                   key={tier.name}
-                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${selectedTier === tier.name
-                    ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105'
-                    : 'border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300'
-                    }`}
+                  className={`rounded-3xl p-6 border-2 transition-all duration-300 cursor-pointer hover-lift ${
+                    selectedTier === tier.name
+                      ? "border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-lg scale-105"
+                      : "border-slate-200 bg-white/80 backdrop-blur hover:border-purple-300"
+                  }`}
                   onClick={() => setSelectedTier(tier.name)}
                   style={{ animation: `slide-in 0.${index + 8}s ease-out` }}
                 >
                   <div className="text-center">
-                    <h3 className="font-bold text-lg text-slate-800 mb-2">{tier.name}</h3>
+                    <h3 className="font-bold text-lg text-slate-800 mb-2">
+                      {tier.name}
+                    </h3>
                     <div className="mb-3">
                       <span className="text-3xl font-bold headings_color">
                         ${tier.price}
                       </span>
                     </div>
-                    <p className="text-sm text-slate-600 mb-4">{tier.priceDescription}</p>
+                    <p className="text-sm text-slate-600 mb-4">
+                      {tier.priceDescription}
+                    </p>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -293,12 +384,14 @@ export default function SLTourContent() {
                         setIsBookingModalOpen(true);
                       }}
                       className="w-full px-4 py-2 bg-gradient-to-r btn-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    > Book Now </button>
+                    >
+                      {" "}
+                      Book Now{" "}
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
-
           </div>
         </section>
 
@@ -312,8 +405,6 @@ export default function SLTourContent() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5  max-w-6xl mx-auto">
-
-
               {Why_travellers_love_it.map((item, index) => (
                 <div
                   key={index}
@@ -330,11 +421,12 @@ export default function SLTourContent() {
           </div>
         </section>
 
-
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br sub-primary-background">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">Ready to make your layover unforgettable? .</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              Ready to make your layover unforgettable? .
+            </h2>
             <p className="text-slate-700  text-lg mb-8 max-w-2xl mx-auto">
               Book now at sixhourlayover.com or message us on WhatsApp
             </p>
@@ -346,10 +438,13 @@ export default function SLTourContent() {
                 Book Now
               </a>
 
-
-              <a href="https://wa.me/12069281277" target="_blank" className="inline-flex items-center px-8 py-3 bg-white text-purple-600 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
+              <a
+                href="https://wa.me/12069281277"
+                target="_blank"
+                className="inline-flex items-center px-8 py-3 bg-white text-purple-600 text-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-3d transform hover:-translate-y-1 transition-all duration-300"
               >
-                <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; Chat on WhatsApp
+                <WhatsAppIcon className="w-6 h-6 text-white-600" /> &nbsp; Chat
+                on WhatsApp
               </a>
             </div>
           </div>

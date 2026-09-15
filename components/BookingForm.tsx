@@ -14,7 +14,7 @@ interface BookingData {
   // Personal Information
   firstName: string;
   lastName: string;
-  email: string;
+  email: string;  
   phone: string;
   whatsappWeChat: string;
 
