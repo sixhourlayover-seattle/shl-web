@@ -398,6 +398,10 @@ export default function LongLayoverSeattlePage() {
             <h2 className="text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl">
               What Can I Do With My Luggage?
             </h2>
+            <p className="mt-4 max-w-4xl text-[15px] leading-6 text-slate-700 sm:text-base sm:leading-7">
+            Baggage storage is available at SEA Airport through Smarte Carte for an additional fee. Because fees vary by bag size and storage duration, travelers should check current rates before their trip.
+          </p>
+
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">

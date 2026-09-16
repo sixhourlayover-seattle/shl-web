@@ -30,7 +30,7 @@ const TOUR_OPTIONS_opiton = [
     name: "6-Hour — Pike Place Market & Waterfront",
     subtitle: "Pike Place Market + Waterfront",
     description:
-      "Discover Seattle's heartbeat in just six hours. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
+      "Make the most of a six-hour Seattle layover with a focused visit to Pike Place Market and the waterfront. Explore Pike Place Market, watch the famous fish toss, snap photos at the Gum Wall, browse artisan shops, and stroll the waterfront — all with a friendly local guide.",
 
     features: [
       "Airport meet & greet",
