@@ -269,7 +269,7 @@ export default function PricingPage() {
         </section>
 
         {/* Transportation Options */}
-        <section className="py-16">
+        <section className="py-0 md:py-16">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="rounded-3xl bg-white/80 backdrop-blur shadow-2xl border-2 border-purple-300 p-8 hover-lift">
@@ -340,7 +340,7 @@ export default function PricingPage() {
         <section className="py-16 bg-gradient-to-br">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">
+              <h2 className="md:text-4xl text-3xl font-bold mb-4">
                 <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{PricingPageText.addOnsTitle}</span>
               </h2>
             </div>
@@ -377,7 +377,7 @@ export default function PricingPage() {
         </section>
 
         {/* Cancellation Policy & Contact */}
-        <section className="py-16">
+        <section className="py-4 md:py-16">
           <div className="container">
             <div className="grid gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
               {/* Cancellation Policy */}
@@ -390,7 +390,7 @@ export default function PricingPage() {
                     {PricingPageText.cancellationPolicy}
                   </h3>
                 </div>
-                <div className="text-slate-700 text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: PricingPageText.cancellationPolicyDescription_new }} />
+                <div className="text-slate-700 md:text-lg text-m leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: PricingPageText.cancellationPolicyDescription_new }} />
               </div>
 
               {/* Contact */}
@@ -432,7 +432,7 @@ export default function PricingPage() {
 
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br sub-primary-background">
+        <section className="py-10 mt-16 md:mt-0 md:py-16 bg-gradient-to-br sub-primary-background">
           <div className="container text-center">
             <h2 className="text-4xl font-bold  mb-6">
               {PricingPageText.ctaTitle}

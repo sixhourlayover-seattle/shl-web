@@ -240,7 +240,7 @@ export default function AboutPage() {
                   className="text-center p-8 rounded-3xl bg-white/80 backdrop-blur shadow-lg hover-lift"
                   style={{ animation: `slide-in 0.${index + 10}s ease-out` }}
                 >
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r headings_color bg-clip-text text-transparent mb-2 whitespace-pre-line">
+                  <div className="text-xl sm:text-xl font-bold bg-gradient-to-r headings_color bg-clip-text text-transparent mb-2 whitespace-pre-line">
                     {stat.number}
                   </div>
                   <div className="text-slate-600 font-medium whitespace-pre-line">

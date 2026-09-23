@@ -21,13 +21,13 @@ export default function HowItWorksPage() {
         <Navigation />
 
         {/* Hero */}
-        <section className="py-12 sm:py-20">
+        <section className="py-2 sm:py-20">
           <div className="container">
             <div className="text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
                 <span className="bg-gradient-to-r headings_color bg-clip-text text-transparent">{HowItWorksPageText.title}</span>
               </h1>
-              <p className="text-slate-700 text-xl max-w-3xl mx-auto leading-relaxed">
+              <p className="text-slate-700 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                 {HowItWorksPageText.subtitle}
               </p>
             </div>
@@ -35,7 +35,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Images Section */}
-        <section className="py-16">
+        <section className="md:py-16 py-4">
           <div className="container text-center">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               <span className="text-slate-900">Smart. Seamless. Unforgettable.</span>
@@ -90,7 +90,7 @@ export default function HowItWorksPage() {
                   <div className="flex gap-6">
                     {/* Step number and icon */}
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br primary-background flex items-center justify-center text-white font-bold text-lg shadow-lg how_it_works_steps">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br primary-background flex items-center justify-center text-white font-bold text-sm md:text-lg shadow-lg how_it_works_steps">
                         {step.step}
                       </div>
                       <div className="mt-4 text-center">
@@ -102,13 +102,13 @@ export default function HowItWorksPage() {
                     <div className="flex-1">
                       <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg border border-white/50 p-8 hover-lift">
                         <h3 className="text-2xl font-bold text-slate-800 mb-4">{step.title}</h3>
-                        <p className="text-slate-700 text-lg leading-relaxed mb-6">{step.description}</p>
+                        <p className="text-slate-700 text-m md:text-lg leading-relaxed mb-6">{step.description}</p>
 
                         <ul className="space-y-3">
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start gap-3">
                               <span className="text-green-600 text-lg">•</span>
-                              <span className="text-slate-600" dangerouslySetInnerHTML={{ __html: detail }}></span>
+                              <span className="text-slate-600 break-all" dangerouslySetInnerHTML={{ __html: detail }}></span>
                             </li>
                           ))}
                         </ul>
@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
                 <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                   What does 6, 7 or 8 hours mean?
                 </h2>
-                <p className="text-slate-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                <p className="text-slate-700 text-m md:text-lg leading-relaxed max-w-3xl mx-auto">
                   Choose based on your total layover time at SEA, not the length
                   of the guided sightseeing portion. Your layover window
                   includes airport meeting, transportation to and from Seattle,
@@ -141,7 +141,7 @@ export default function HowItWorksPage() {
 
               <div className="grid gap-5 md:grid-cols-3">
                 <div className="rounded-2xl bg-purple-50 border border-purple-100 p-6 text-center">
-                  <div className="text-3xl font-bold text-purple-700 mb-3">
+                  <div className="text-2xl md:text-3xl font-bold text-purple-700 mb-3">
                     6 Hours
                   </div>
                   <p className="text-slate-700 font-semibold">
@@ -150,7 +150,7 @@ export default function HowItWorksPage() {
                 </div>
 
                 <div className="rounded-2xl bg-indigo-50 border border-indigo-100 p-6 text-center">
-                  <div className="text-3xl font-bold text-indigo-700 mb-3">
+                  <div className="text-2xl md:text-3xl font-bold text-indigo-700 mb-3">
                     7 Hours
                   </div>
                   <p className="text-slate-700 font-semibold">
@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
                 </div>
 
                 <div className="rounded-2xl bg-pink-50 border border-pink-100 p-6 text-center">
-                  <div className="text-3xl font-bold text-pink-700 mb-3">
+                  <div className="text-2xl md:text-3xl font-bold text-pink-700 mb-3">
                     8 Hours
                   </div>
                   <p className="text-slate-700 font-semibold">
@@ -179,7 +179,7 @@ export default function HowItWorksPage() {
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 <span className="text-slate-900">{HowItWorksPageText.whatMakesUsDifferentTitle}</span>
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="text-m md:text-lg text-slate-600 max-w-3xl mx-auto">
                 {HowItWorksPageText.whatMakesUsDifferentSubtitle}
               </p>
             </div>

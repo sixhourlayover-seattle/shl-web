@@ -22,7 +22,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {NAVIGATION_LINKS.map((link) => (
               <Link
                 key={link.name}
@@ -79,7 +79,7 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-purple-50 transition-colors duration-300"
+            className="lg:hidden p-2 rounded-lg hover:bg-purple-50 transition-colors duration-300"
           >
             <svg className="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -93,7 +93,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-white/20 bg-white/95 backdrop-blur">
+          <div className="lg:hidden border-t border-white/20 bg-white/95 backdrop-blur">
             <nav className="py-4 space-y-2">
               {NAVIGATION_LINKS.map((link) => (
                 <Link
