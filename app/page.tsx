@@ -275,14 +275,14 @@ export default function Page() {
 
                   <div className="space-y-6">
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking1Title}</h4>
+                      <h4 className="text-xl  md:text-2xl  font-bold mb-4 headings_color">{HomePageText.thinking1Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking1Description}
                       </p>
                     </div>
 
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking2Title}</h4>
+                      <h4 className="text-xl md:text-2xl  font-bold mb-4 headings_color">{HomePageText.thinking2Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking2Description}
                       </p>
@@ -298,14 +298,14 @@ export default function Page() {
 
                   <div className="space-y-6">
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking3Title}</h4>
+                      <h4 className="text-xl md:text-2xl  font-bold mb-4 headings_color">{HomePageText.thinking3Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking3Description}
                       </p>
                     </div>
 
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4 headings_color">{HomePageText.thinking4Title}</h4>
+                      <h4 className="text-xl md:text-2xl  font-bold mb-4 headings_color">{HomePageText.thinking4Title}</h4>
                       <p className="text-slate-700 leading-relaxed whitespace-pre-line">
                         {HomePageText.thinking4Description}
                       </p>
@@ -499,7 +499,7 @@ export default function Page() {
         {/* Final CTA Section */}
         <section className="py-16 section-highlight">
           <div className="container text-center">
-            <h2 className="text-4xl font-bold text-black mb-6 whitespace-pre-line">
+            <h2 className="text-2xl md:text-4xl  font-bold text-black mb-6 whitespace-pre-line">
               {HomePageText.ctaTitle}
             </h2>
 

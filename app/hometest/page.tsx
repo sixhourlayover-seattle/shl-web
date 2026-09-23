@@ -274,7 +274,7 @@ export default function Page() {
 
                   <div className="space-y-6">
                     <div className="rounded-3xl bg-white/80 backdrop-blur shadow-lg p-8 hover-lift">
-                      <h4 className="text-2xl font-bold mb-4">{HomePageText.thinking1Title}</h4>
+                      <h4 className="text-xl  md:text-2xl  font-bold mb-4">{HomePageText.thinking1Title}</h4>
                       <p className="text-slate-700 leading-relaxed">
                         {HomePageText.thinking1Description}
                       </p>

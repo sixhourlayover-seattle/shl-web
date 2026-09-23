@@ -101,7 +101,7 @@ export default function ContactPage() {
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="container">
-            <div className="text-center mb-12" style={{ animation: 'slide-in 0.6s ease-out' }}>
+            <div className="text-center md:mb-12 mb-2" style={{ animation: 'slide-in 0.6s ease-out' }}>
               <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight mb-6">
                 <span className="bg-gradient-to-r  bg-clip-text ">{ContactPageText.title}</span>
               </h1>

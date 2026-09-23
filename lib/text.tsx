@@ -419,7 +419,7 @@ export const HOW_IT_WORKS_STEPS = [
     description: "Book online to secure your tour. You’ll receive confirmation and detailed arrival instructions. We'll send confirmation details and track your flight.",
     icon: "📧",
     details: [
-      "Email <strong>booking@sixhourlayover.com</strong> or call <strong>(206) 928‑1277</strong>",
+      "Email <strong className='break-all'>booking@sixhourlayover.com</strong> or call <strong>(206) 928‑1277</strong>",
       "We'll confirm your booking and send you detailed instructions",
       "Flight tracking begins 24 hours before arrival"
     ]
