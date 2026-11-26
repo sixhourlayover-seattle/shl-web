@@ -173,11 +173,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <div className="bg-amber-50 border-b border-amber-200 px-4 py-4 text-center text-amber-900">
-  <p className="text-lg font-semibold">
+        <div className="px-4 py-4 text-center" style={{ backgroundColor: "#FFF3CD", borderBottom: "1px solid #E5C76B" }}>
+  <p className="text-lg font-semibold" style={{ color: "#664D03" }}>
     We're Taking a Break!
   </p>
-  <p className="mt-1 text-sm">
+  <p className="mt-1 text-sm" style={{ color: "#664D03" }}>
     Our tours are temporarily paused, and we are not accepting new bookings until further notice.
     Thank you for your understanding and continued support.
   </p>
