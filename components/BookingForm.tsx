@@ -166,7 +166,28 @@ const initializeFormData = (): BookingData => {
   };
 };
 
-export default function BookingForm({ onClose, isModal = false, preselectedTourId }: BookingFormProps) {
+export default function BookingForm({ onClose }: BookingFormProps) {
+  return (
+    <div className="p-8 text-center bg-amber-50 rounded-lg">
+      <h2 className="text-xl font-semibold mb-4">
+        Bookings Temporarily Paused
+      </h2>
+      <p>
+        Our tours are temporarily paused, and we are not accepting new bookings until further notice.
+      </p>
+      <p className="mt-3">
+        Thank you for your understanding and continued support.
+      </p>
+      {onClose && (
+        <button type="button" onClick={onClose} className="mt-4 px-6 py-2 bg-gray-200 rounded-lg">
+          Close
+        </button>
+      )}
+    </div>
+  );
+}
+
+function OriginalBookingForm({ onClose, isModal = false, preselectedTourId }: BookingFormProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
