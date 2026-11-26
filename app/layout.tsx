@@ -173,7 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <div className="px-4 py-4 text-center" style={{ backgroundColor: "#FFF3CD", borderBottom: "1px solid #E5C76B" }}>
+        <div className="relative z-10 px-4 py-4 text-center" style={{ backgroundColor: "#FFF3CD", borderBottom: "1px solid #E5C76B" }}>
   <p className="text-lg font-semibold" style={{ color: "#664D03" }}>
     We're Taking a Break!
   </p>
