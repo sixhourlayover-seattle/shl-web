@@ -173,6 +173,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <div className="bg-amber-50 border-b border-amber-200 px-4 py-4 text-center text-amber-900">
+  <p className="text-lg font-semibold">
+    We're Taking a Break!
+  </p>
+  <p className="mt-1 text-sm">
+    Our tours are temporarily paused, and we are not accepting new bookings until further notice.
+    Thank you for your understanding and continued support.
+  </p>
+</div>
         {children}
         <Analytics />
         <StructuredData />
