@@ -33,12 +33,13 @@ export default function Navigation() {
               </Link>
             ))}           
 
-            <a
-              href="/book"
-              className="inline-flex items-center px-6 py-2 bg-gradient-to-r btn-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              {GlobalText.bookNow}
-            </a>            
+                      <button
+            type="button"
+            disabled
+            className="inline-flex items-center px-6 py-2 bg-gray-200 text-gray-600 font-semibold rounded-lg cursor-not-allowed"
+          >
+            Bookings Temporarily Paused
+          </button>           
           </nav>
 
           {/* Language Dropdown */}
